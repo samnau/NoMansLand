@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class Grapher3 : MonoBehaviour {
-	[Range(10,100)]
+	[Range(10,30)]
 	public int resolution = 10;
 	private int currentResolution;
 
@@ -14,15 +14,17 @@ public class Grapher3 : MonoBehaviour {
 			resolution = 10;
 		}
 		currentResolution = resolution;
-		points = new ParticleSystem.Particle[resolution * resolution];
+		points = new ParticleSystem.Particle[resolution * resolution * resolution];
 		float increment = 1f / (resolution);
 		int i = 0;
 		for (int x=0; x < resolution; x++) {
 			for(int z = 0; z < resolution; z++){
-				Vector3 p = new Vector3(x * increment, 0f, z * increment);
-				points[i].position = p;
-				points[i].color = new Color(p.x, 0f,p.z);
-				points[i++].size = 0.1f;
+				for (int y = 0; y<resolution; y++){
+					Vector3 p = new Vector3(x , y, z) * increment;
+					points[i].position = p;
+					points[i].color = new Color(p.x, p.y, p.z);
+					points[i++].size = 0.1f;
+				}
 			}
 		}
 	}
@@ -50,11 +52,8 @@ public class Grapher3 : MonoBehaviour {
 		FunctionDelegate f = functionDelegates[(int)function];
 		float t = Time.timeSinceLevelLoad;
 		for (int i = 0; i < points.Length; i++) {
-			Vector3 p = points[i].position;
-			p.y = f(p,t);
-			points[i].position = p;
 			Color c = points[i].color;
-			c.g = p.y;
+			c.a = f(points[i].position,t);
 			points[i].color = c;
 		}
 		particleSystem.SetParticles (points, points.Length);
