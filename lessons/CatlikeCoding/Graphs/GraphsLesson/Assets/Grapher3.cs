@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Grapher2 : MonoBehaviour {
+public class Grapher3 : MonoBehaviour {
 	[Range(10,100)]
 	public int resolution = 10;
 	private int currentResolution;
