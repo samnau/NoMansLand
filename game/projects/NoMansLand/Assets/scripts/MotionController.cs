@@ -3,6 +3,7 @@ using System.Collections;
 
 public class MotionController : MonoBehaviour {
 	public GameObject Player;
+
 	// Use this for initialization
 	void Start () {
 
@@ -14,9 +15,9 @@ public class MotionController : MonoBehaviour {
 		transform.position += move * motionDistance * Time.deltaTime;
 
 		if (Input.anyKey) {
-			animation.Play ("player_test_animation2");
+			GetComponent<Animator>().SetBool("isWalking",true);
 		} else {
-			animation.Play ("player_default_animation");
+			GetComponent<Animator>().SetBool("isWalking",false);
 		}
 	}
 
