@@ -11,6 +11,10 @@ public class MotionController : MonoBehaviour {
 	private bool isMoving(){
 		return Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right");
 	}
+	private bool isMovingRight(){
+		return Input.GetKey("right");
+	}
+
 	public float motionDistance = 1.0f;
 	// Update is called once per frame
 	void Update () {
