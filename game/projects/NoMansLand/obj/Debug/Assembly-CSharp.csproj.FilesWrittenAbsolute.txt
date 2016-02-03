@@ -1,0 +1,17 @@
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Assembly-CSharp.dll.mdb
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Assembly-CSharp.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/obj/Debug/Assembly-CSharp.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/obj/Debug/Assembly-CSharp.dll.mdb
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/UnityEngine.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/UnityEditor.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/UnityEngine.UI.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/UnityEngine.Networking.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Mono.Cecil.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Unity.SerializationLogic.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Unity.DataContract.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/ICSharpCode.NRefactory.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Unity.UNetWeaver.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Unity.CecilTools.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Mono.Cecil.Pdb.dll
+/Users/snau/Desktop/Sam/github/unity-code/game/projects/NoMansLand/Temp/bin/Debug/Mono.Cecil.Mdb.dll

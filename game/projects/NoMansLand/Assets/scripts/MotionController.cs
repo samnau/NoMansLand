@@ -30,11 +30,11 @@ public class MotionController : MonoBehaviour {
 			transform.localScale = new Vector3(-X,transform.localScale.y,transform.localScale.z);
 		}
 
-		if (isMoving()) {
-			GetComponent<Animator>().SetBool("isWalking",true);
-		} else {
-			GetComponent<Animator>().SetBool("isWalking",false);
-		}
+		//if (isMoving()) {
+		//	GetComponent<Animator>().SetBool("isWalking",true);
+		//} else {
+		//	GetComponent<Animator>().SetBool("isWalking",false);
+		//}
 	}
 
 }
