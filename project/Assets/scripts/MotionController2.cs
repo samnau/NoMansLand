@@ -29,7 +29,7 @@ public class MotionController2 : MonoBehaviour {
 	private bool isMovingRight(){
 		return Input.GetKey("right");
 	}
-		
+
 	private bool isMovingLeft(){
 		return Input.GetKey("left");
 	}
@@ -59,10 +59,7 @@ public class MotionController2 : MonoBehaviour {
 		animationController.SetBool("LEFT",isMovingLeft());
 		animationController.SetBool("UP",isMovingUp());
 		animationController.SetBool("DOWN",isMovingDown());
-				print ("moving=");
-				Debug.Log (isMoving());
-				print ("down=");
-				Debug.Log (isMovingDown());
+
 		//if (isMoving()) {
 		//	GetComponent<Animator>().SetBool("WALKING",true);
 			//GetComponent<Animator>().SetBool("isWalking",true);
