@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{3A54DF07-6F42-1089-3459-13426B85F912}</ProjectGuid>
+    <ProjectGuid>{7CA597AC-799E-2D81-E8A0-0EA9A568434E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,6 +53,8 @@
      <Compile Include="Assets\Completed\Scripts\Player.cs" />
      <Compile Include="Assets\Completed\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Completed\Scripts\Wall.cs" />
+     <Compile Include="Assets\scripts\Dialog_Controller.cs" />
+     <Compile Include="Assets\scripts\ExampleScript.cs" />
      <Compile Include="Assets\scripts\MotionController.cs" />
      <Compile Include="Assets\scripts\MotionController2.cs" />
      <Compile Include="Assets\scripts\SceneSwitch.cs" />

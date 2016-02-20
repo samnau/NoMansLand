@@ -85,6 +85,7 @@
 'Assets/Completed/Scripts/SoundManager.cs'
 'Assets/Completed/Scripts/Wall.cs'
 'Assets/scripts/Dialog_Controller.cs'
+'Assets/scripts/ExampleScript.cs'
 'Assets/scripts/MotionController.cs'
 'Assets/scripts/MotionController2.cs'
 'Assets/scripts/SceneSwitch.cs'
