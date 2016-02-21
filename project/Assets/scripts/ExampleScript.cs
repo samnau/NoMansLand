@@ -5,7 +5,7 @@ using System.Collections;
 public class ExampleScript : MonoBehaviour {
 	GameObject myGameObject;
 	Transform myTransform;
-	private Rigidbody myRigidBody;
+	//private Rigidbody myRigidBody;
 	// Use this for initialization
 	void Start () {
 		//myRigidBody = GetComponent<Rigidbody> ();
