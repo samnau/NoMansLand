@@ -8,7 +8,7 @@ public class Dialog_Controller : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		TriggerSpeaker ("LEFT");
-		TriggerSpeaker ("RIGHT");
+		//TriggerSpeaker ("RIGHT");
 	}
 	void TriggerSpeaker(string speakerTarget){
 		Animator targetAnimator;
