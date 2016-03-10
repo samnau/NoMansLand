@@ -6,7 +6,7 @@
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll'
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
--define:UNITY_5_3_1
+-define:UNITY_5_3_3
 -define:UNITY_5_3
 -define:UNITY_5
 -define:ENABLE_NEW_BUGREPORTER
@@ -89,6 +89,7 @@
 'Assets/scripts/MotionController.cs'
 'Assets/scripts/MotionController2.cs'
 'Assets/scripts/SceneSwitch.cs'
+'Assets/scripts/TextImporter.cs'
 'Assets/scripts/WallManager.cs'
 'Assets/scripts/sceneSwitcher.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
