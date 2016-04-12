@@ -17,11 +17,25 @@ public class TextImporter : MonoBehaviour {
 		} else if (testText2) {
 			textLines = testText2.text.Split ('\n');
 		}
-		textComponent.text = textLines [0];
+		StartCoroutine ("TypeLetters");
+
+		//textComponent.text = textLines [1];
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public IEnumerator TypeLetters() 
+	{
+		var textValue = textLines [1];
+		//Debug.Log (textValue);
+		for (int i = 0; i < textValue.Length; i++)
+		{
+			var currentText = textValue.Substring(0, i);
+			textComponent.text = currentText;
+			yield return new WaitForSeconds(0.05f);
+		}
 	}
+
+//	// Update is called once per frame
+//	void Update () {
+//	
+//	}
 }
