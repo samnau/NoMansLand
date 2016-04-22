@@ -28,6 +28,7 @@ public class TextImporter : MonoBehaviour {
 		{
 			IEnumerable TypeCoroutine = TypeLetters (textArray [z]);
 			yield return StartCoroutine( TypeCoroutine.GetEnumerator() );
+			yield return new WaitForSeconds(1.0f);
 		}
 	}
 
