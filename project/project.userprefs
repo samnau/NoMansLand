@@ -1,10 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/Dialog_Controller.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/TextImporter.cs">
     <Files>
-      <File FileName="Assets/scripts/Dialog_Controller.cs" Line="11" Column="3" />
-      <File FileName="Assets/scripts/ExampleScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/TextImporter.cs" Line="20" Column="36" />
+      <File FileName="Assets/scripts/Dialog_Controller.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/CoroutineChainTest.cs" Line="20" Column="5" />
+      <File FileName="Assets/scripts/MotionController2.cs" Line="1" Column="1" />
+      <File FileName="Assets/scripts/TextImporter.cs" Line="21" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
