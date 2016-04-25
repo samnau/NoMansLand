@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -12,19 +12,12 @@ public class TextImporter : MonoBehaviour {
 	void Start () {
 		targetTextBox = GameObject.FindGameObjectWithTag ("TextBox_LEFT");
 		textComponent = targetTextBox.GetComponent<Text> ();
-		if (testText1) {
-			textLines = testText1.text.Split ('\n');
-		} else if (testText2) {
-			textLines = testText2.text.Split ('\n');
-		}
 		StartCoroutine (TypeOutLines(testText1.text));
-
-		//textComponent.text = textLines [1];
 	}
 
 	IEnumerator TypeOutLines(string textLinesString){
 		var textArray = textLinesString.Split('\n');
-		for (int z = 0; z < textArray.Length; z++) 
+		for (int z = 0; z < textArray.Length; z++)
 		{
 			IEnumerable TypeCoroutine = TypeLetters (textArray [z]);
 			yield return StartCoroutine( TypeCoroutine.GetEnumerator() );
@@ -32,14 +25,11 @@ public class TextImporter : MonoBehaviour {
 		}
 	}
 
-	IEnumerable TypeLetters(string textLine) 
+	IEnumerable TypeLetters(string textLine)
 	{
-
 		var textValue = textLine;
-		//Debug.Log (textValue);
-		//var textArray = textLinesString.Split('\n');
-		//print(textArray);
-		for (int i = 0; i < textValue.Length; i++)
+		Debug.Log(textValue);
+		for (int i = 0; i < textValue.Length+1; i++)
 		{
 			var currentText = textValue.Substring(0, i);
 			textComponent.text = currentText;
@@ -49,6 +39,6 @@ public class TextImporter : MonoBehaviour {
 
 //	// Update is called once per frame
 //	void Update () {
-//	
+//
 //	}
 }
