@@ -45,6 +45,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CSV2Table\Demo\C2TDemo.cs" />
+     <Compile Include="Assets\CSV2Table\Demo\SampleTable.cs" />
+     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
+     <Compile Include="Assets\CSV2Table\Scripts\CsvParser2.cs" />
+     <Compile Include="Assets\CSV2Table\Scripts\TableCodeGen.cs" />
      <Compile Include="Assets\Completed\Scripts\BoardManager.cs" />
      <Compile Include="Assets\Completed\Scripts\Enemy.cs" />
      <Compile Include="Assets\Completed\Scripts\GameManager.cs" />
@@ -59,6 +64,7 @@
      <Compile Include="Assets\scripts\MotionController.cs" />
      <Compile Include="Assets\scripts\MotionController2.cs" />
      <Compile Include="Assets\scripts\SceneSwitch.cs" />
+     <Compile Include="Assets\scripts\StoryTextManager.cs" />
      <Compile Include="Assets\scripts\TextImporter.cs" />
      <Compile Include="Assets\scripts\WallManager.cs" />
      <Compile Include="Assets\scripts\sceneSwitcher.cs" />

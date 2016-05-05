@@ -7,10 +7,15 @@ public class TextImporter : MonoBehaviour {
 	public TextAsset testText2;
 	public string[] textLines;
 	GameObject targetTextBox;
+	GameObject storyManager;
 	Text textComponent;
 	// Use this for initialization
 	void Start () {
 		targetTextBox = GameObject.FindGameObjectWithTag ("TextBox_LEFT");
+		storyManager = GameObject.FindGameObjectWithTag ("Story_Manager");
+		var storyManagerController = storyManager.GetComponent<StoryTextManager> ();
+		Debug.Log (storyManagerController.Find_SCENENAME ("intro").TEXT1);
+
 		textComponent = targetTextBox.GetComponent<Text> ();
 		StartCoroutine (TypeOutLines(testText1.text));
 	}
@@ -28,7 +33,7 @@ public class TextImporter : MonoBehaviour {
 	IEnumerable TypeLetters(string textLine)
 	{
 		var textValue = textLine;
-		Debug.Log(textValue);
+		//Debug.Log(textValue);
 		for (int i = 0; i < textValue.Length+1; i++)
 		{
 			var currentText = textValue.Substring(0, i);
