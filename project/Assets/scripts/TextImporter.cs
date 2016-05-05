@@ -6,18 +6,27 @@ public class TextImporter : MonoBehaviour {
 	public TextAsset testText1;
 	public TextAsset testText2;
 	public string[] textLines;
+	public string targetScene;
 	GameObject targetTextBox;
 	GameObject storyManager;
+	StoryTextManager storyManagerController;
+	StoryTextManager.Row targetStoryData;
 	Text textComponent;
 	// Use this for initialization
 	void Start () {
+		//targetScene = "intro";
 		targetTextBox = GameObject.FindGameObjectWithTag ("TextBox_LEFT");
 		storyManager = GameObject.FindGameObjectWithTag ("Story_Manager");
-		var storyManagerController = storyManager.GetComponent<StoryTextManager> ();
-		Debug.Log (storyManagerController.Find_SCENENAME ("intro").TEXT1);
+		storyManagerController = storyManager.GetComponent<StoryTextManager> ();
 
+		findStoryData(targetScene);
+		Debug.Log (targetStoryData.TEXT1);
 		textComponent = targetTextBox.GetComponent<Text> ();
 		StartCoroutine (TypeOutLines(testText1.text));
+	}
+
+	void findStoryData(string targetSceneName){
+		targetStoryData = storyManagerController.Find_SCENENAME (targetSceneName);
 	}
 
 	IEnumerator TypeOutLines(string textLinesString){
