@@ -21,7 +21,6 @@ public class StoryTextManager : MonoBehaviour {
 		public string TEXT3;
 		public string SPEAKER4;
 		public string TEXT4;
-
 	}
 
 	List<Row> rowList = new List<Row>();

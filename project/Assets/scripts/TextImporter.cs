@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class TextImporter : MonoBehaviour {
@@ -7,6 +8,12 @@ public class TextImporter : MonoBehaviour {
 	public TextAsset testText2;
 	public string[] textLines;
 	public string targetScene;
+	int speaker1Counter = 0;
+	int speaker2Counter = 0;
+	int speaker3Counter = 0;
+	int speaker4Counter = 0;
+	string[] targetTextArray;
+	int targetSpeaker  = 1;
 	GameObject targetTextBox;
 	GameObject storyManager;
 	StoryTextManager storyManagerController;
@@ -21,10 +28,16 @@ public class TextImporter : MonoBehaviour {
 
 		findStoryData(targetScene);
 		Debug.Log (targetStoryData.TEXT1);
+		parseTargetSpeakerText ();
 		textComponent = targetTextBox.GetComponent<Text> ();
+		//StartCoroutine ()
 		StartCoroutine (TypeOutLines(testText1.text));
 	}
+	void parseTargetSpeakerText (){
+		string targetProperty = "TEXT" + targetSpeaker;
 
+		Debug.Log (targetStoryData.GetType().GetField(targetProperty).GetValue(targetStoryData));
+	}
 	void findStoryData(string targetSceneName){
 		targetStoryData = storyManagerController.Find_SCENENAME (targetSceneName);
 	}
