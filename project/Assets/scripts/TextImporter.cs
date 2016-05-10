@@ -12,7 +12,9 @@ public class TextImporter : MonoBehaviour {
 	int speaker2Counter = 0;
 	int speaker3Counter = 0;
 	int speaker4Counter = 0;
+	string currentTextString;
 	string[] targetTextArray;
+
 	int targetSpeaker  = 1;
 	GameObject targetTextBox;
 	GameObject storyManager;
@@ -27,23 +29,24 @@ public class TextImporter : MonoBehaviour {
 		storyManagerController = storyManager.GetComponent<StoryTextManager> ();
 
 		findStoryData(targetScene);
-		Debug.Log (targetStoryData.TEXT1);
+		Debug.Log (targetStoryData.TEXT_1);
 		parseTargetSpeakerText ();
 		textComponent = targetTextBox.GetComponent<Text> ();
 		//StartCoroutine ()
-		StartCoroutine (TypeOutLines(testText1.text));
+		StartCoroutine (TypeOutLines(currentTextString));
 	}
 	void parseTargetSpeakerText (){
-		string targetProperty = "TEXT" + targetSpeaker;
-
-		Debug.Log (targetStoryData.GetType().GetField(targetProperty).GetValue(targetStoryData));
+		string targetProperty = "TEXT_" + targetSpeaker;
+		currentTextString = targetStoryData.GetType ().GetField (targetProperty).GetValue (targetStoryData) as string;
+//		targetTextArray = currentTextString.Split('*');
+//		Debug.Log (targetTextArray[0]);
 	}
 	void findStoryData(string targetSceneName){
 		targetStoryData = storyManagerController.Find_SCENENAME (targetSceneName);
 	}
 
 	IEnumerator TypeOutLines(string textLinesString){
-		var textArray = textLinesString.Split('\n');
+		var textArray = textLinesString.Split('*');
 		for (int z = 0; z < textArray.Length; z++)
 		{
 			IEnumerable TypeCoroutine = TypeLetters (textArray [z]);
