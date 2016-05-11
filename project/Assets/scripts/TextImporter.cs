@@ -76,7 +76,7 @@ public class TextImporter : MonoBehaviour {
 		}
 	}
 	void updateSpeakerState (int currentIndex){
-		speakerCounters [currentSpeakerName] = currentIndex;
+		speakerCounters [currentSpeakerName] = currentIndex + 1;
 	}
 	void setCurrentSpeakerName(string speakerName){
 		currentSpeakerName = speakerName.Substring (speakerName.IndexOf ("[") + 1, speakerName.IndexOf ("]") - 1);

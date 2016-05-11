@@ -1,6 +1,6 @@
 SCENENAME,SPEAKER_ORDER,SPEAKER_1,TEXT_1,SPEAKER_2,TEXT_2,SPEAKER_3,TEXT_3,SPEAKER_4,TEXT_4
-intro,"hero,hero,meena,meena,hero",hero,Sigh.*I hope tomorrow school is less awful than today.*[SPEAKER_2]*Oh no!,meena,There she is!*[SPEAKER_1]*Get that freak!,,,,
-intro2,"meena,hero,meena",meena,"She went this way!*What are you running from? Are you scared, little baby??",hero,"Oh gosh, oh gosh, oh gosh!",,,,
+intro,"hero,hero,meena,meena,hero",hero,Sigh.*I hope tomorrow school is less awful than today.*[SPEAKER_2]*Oh no!*[SPEAKER_2],meena,There she is!*[SPEAKER_1]*Get that freak!,,,,
+intro2,"meena,hero,meena",meena,"She went this way!*[SPEAKER_2]*What are you running from? Are you scared, little baby??",hero,"Oh gosh, oh gosh, oh gosh!*[SPEAKER_1]",,,,
 forest_arrival,hero,hero,Where am I? Where did Meena go?*Wasn't she right behind me?,,,,,,
 forest_arrival_midpoint,hero,hero,I don't recognize this part of the park at all!*And why is everything so quiet?,,,,,,
 castle_arrival,hero,hero,What the heck is that??,,,,,,
