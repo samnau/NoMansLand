@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SpeakerMotionController : MonoBehaviour {
 	private GameObject speaker;
 	private float moveDistance = 5.0f;
-	private float moveTime = 1.0f;
+	private float moveTime = 0.5f;
 	public string direction;
 	private int directionModifier;
 	private Vector2 targetPosition;
@@ -20,7 +20,7 @@ public class SpeakerMotionController : MonoBehaviour {
 		startPositionY = targetPosition.y;
 		endPositionX = targetPosition.x + moveDistance * directionModifier;
 		endVector = new Vector2 (endPositionX, startPositionY);
-		TriggerMovement();
+		StartCoroutine(TriggerMovement());
 	}
 	
 	// Update is called once per frame
@@ -31,9 +31,18 @@ public class SpeakerMotionController : MonoBehaviour {
 		//targetObject.AddRelativeForce (Vector2.right * moveDistance);
 
 	}
-	void TriggerMovement(){
-		StartCoroutine(MoveOverSeconds());
+	IEnumerator TriggerMovement(){
+		yield return StartCoroutine(WaitForSpaceBar());
+		yield return StartCoroutine(MoveOverSeconds());
 	}
+	IEnumerator WaitForSpaceBar()
+	{
+		do
+		{
+			yield return null;
+		} while (!Input.GetKeyDown(KeyCode.Space));
+	}
+
 	public IEnumerator MoveOverSeconds ()
 	{
 		float elapsedTime = 0;
