@@ -97,6 +97,8 @@
 'Assets/scripts/MotionController.cs'
 'Assets/scripts/MotionController2.cs'
 'Assets/scripts/SceneSwitch.cs'
+'Assets/scripts/SpeakerMotionController.cs'
+'Assets/scripts/StoryGameObjectManager.cs'
 'Assets/scripts/StoryTextManager.cs'
 'Assets/scripts/TextImporter.cs'
 'Assets/scripts/WallManager.cs'
