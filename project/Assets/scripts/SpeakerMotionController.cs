@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SpeakerMotionController : MonoBehaviour {
-	private GameObject speaker;
 	private float moveDistance = 5.0f;
 	private float moveTime = 0.5f;
 	public string direction;
@@ -14,11 +13,12 @@ public class SpeakerMotionController : MonoBehaviour {
 	private Vector2 startVector;
 	private float endPositionX;
 	private Vector2 endVector;
-	private bool rewind = false;
+	private bool slideOut = false;
+	private bool slideIn = false;
+	private bool startMovement = false;
 	// Use this for initialization
 	void Start () {
-		speaker = GameObject.Find("speaker");
-		targetPosition = speaker.transform.position;
+		targetPosition = transform.position;
 		directionModifier = direction == "left" ? -1 : 1;
 		startPositionX = targetPosition.x;
 		startPositionY = targetPosition.y;
@@ -38,10 +38,19 @@ public class SpeakerMotionController : MonoBehaviour {
 	}
 	IEnumerator TriggerMovement(){
 		yield return StartCoroutine(WaitForSpaceBar());
+		yield return StartCoroutine(WaitForMovementTrigger());
 		yield return StartCoroutine(MoveOverSeconds());
-		yield return StartCoroutine(WaitForEnter());
-		Debug.Log ("enter pressed!");
+		yield return StartCoroutine(WaitForSpaceBar());
+		yield return StartCoroutine(WaitForMovementTrigger());
 		yield return StartCoroutine(RewindMotion());
+	}
+	IEnumerator WaitForMovementTrigger()
+	{
+
+		do
+		{
+			yield return null;
+		} while (!startMovement);
 	}
 	IEnumerator WaitForSpaceBar()
 	{
@@ -49,39 +58,33 @@ public class SpeakerMotionController : MonoBehaviour {
 		{
 			yield return null;
 		} while (!Input.GetKeyDown(KeyCode.Space));
-
+		startMovement = true;
 	}
 	IEnumerator WaitForEnter()
 	{
-		Debug.Log ("enter!");
 		do
 		{
 			yield return null;
 		} while (!Input.GetKeyDown(KeyCode.Return));
-		Debug.Log ("enter pressed!");
 	}
-		
+
 	IEnumerator RewindMotion ()
 	{
-		Debug.Log ("rewind!");
-		startVector = speaker.transform.position;
+		startVector = transform.position;
 		endVector = new Vector2 (startPositionX, startPositionY);
 		yield return StartCoroutine(MoveOverSeconds());
 	}
 	IEnumerator MoveOverSeconds ()
 	{
-		Debug.Log ("moving");
 		float elapsedTime = 0;
-		//Vector2 startingPos = speaker.transform.position;
 		while (elapsedTime < moveTime)
 		{
 			transform.position = Vector2.Lerp(startVector, endVector, (elapsedTime / moveTime));
 			elapsedTime += Time.deltaTime;
 			yield return new WaitForEndOfFrame();
 		}
-		rewind = true;
+		startMovement = false;
 		startVector = transform.position = endVector;
 		endVector = new Vector2 (startPositionX, startPositionY);
-		Debug.Log ("done moving");
 	}
 }
