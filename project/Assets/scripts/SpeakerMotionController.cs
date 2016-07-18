@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class SpeakerMotionController : MonoBehaviour {
-	private float moveDistance = 5.0f;
+	private float moveDistance = 10.0f;
 	private float moveTime = 0.5f;
 	public string direction;
 	private int directionModifier;
@@ -37,7 +37,7 @@ public class SpeakerMotionController : MonoBehaviour {
 			yield return null;
 		} while (!startMovement);
 	}*/
-	void ToggleMovement(){
+	public void ToggleMovement(){
 		setMoveVectors();
 		StartCoroutine(MoveOverSeconds());
 	}

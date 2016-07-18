@@ -25,6 +25,8 @@ public class TextImporter : MonoBehaviour {
 	string targetSpeaker  = "1";
 	GameObject targetTextBox;
 	GameObject storyManager;
+	GameObject SPEAKER_1;
+	SpeakerMotionController SPEAKER_1_Controller;
 	StoryTextManager storyManagerController;
 	StoryTextManager.Row targetStoryData;
 	Text textComponent;
@@ -34,21 +36,27 @@ public class TextImporter : MonoBehaviour {
 		targetTextBox = GameObject.FindGameObjectWithTag ("TextBox_LEFT");
 		storyManager = GameObject.FindGameObjectWithTag ("Story_Manager");
 		storyManagerController = storyManager.GetComponent<StoryTextManager> ();
-
+		SPEAKER_1 = GameObject.Find ("SPEAKER_2");
+		SPEAKER_1_Controller = SPEAKER_1.GetComponent<SpeakerMotionController> ();
 		findStoryData(targetScene);
-		Debug.Log (targetStoryData.TEXT_1);
+		//Debug.Log (targetStoryData.TEXT_1);
 		parseTargetSpeakerText ();
+		SPEAKER_1_Controller.ToggleMovement ();
 		textComponent = targetTextBox.GetComponent<Text> ();
 		StartCoroutine (TypeOutLines());
 	}
+	void showSpeakerHead (){
+		
+	}
 	void parseTargetSpeakerText (){
 		string targetProperty = "TEXT_" + targetSpeaker;
-		Debug.Log (targetProperty);
+		//Debug.Log (targetProperty);
 		currentTextString = targetStoryData.GetType ().GetField (targetProperty).GetValue (targetStoryData) as string;
 	}
 	void findStoryData(string targetSceneName){
 		targetStoryData = storyManagerController.Find_SCENENAME (targetSceneName);
 	}
+	//
 	void setTargetSpeakerIndex (string speakerName){
 		//var simpleName = speakerName.Substring (speakerName.IndexOf ("[") + 1, speakerName.IndexOf ("]") - 1);
 		setCurrentSpeakerName (speakerName);
@@ -63,7 +71,7 @@ public class TextImporter : MonoBehaviour {
 		{
 			IEnumerable TypeCoroutine = TypeLetters (textArray [z]);
 			var isSwitchStatement = textArray [z].IndexOf("[") != -1;
-			Debug.Log (isSwitchStatement);
+			//Debug.Log (isSwitchStatement);
 			if(isSwitchStatement){
 				updateSpeakerState (z);
 				yield return StartCoroutine( SwitchSpeaker(textArray [z]) );
@@ -85,10 +93,10 @@ public class TextImporter : MonoBehaviour {
 //		return currentSpeakerName.Split ('_') [1];
 //	}
 	IEnumerator SwitchSpeaker(string newSpeaker){
-
+		SPEAKER_1_Controller.ToggleMovement ();
 		setTargetSpeakerIndex (newSpeaker);
 		parseTargetSpeakerText ();
-		Debug.Log (currentTextString);
+		//Debug.Log (newSpeaker);
 		yield return StartCoroutine (TypeOutLines());
 		//yield return new WaitForSeconds(1.0f);
 	}
