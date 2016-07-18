@@ -7,25 +7,19 @@ public class SpeakerMotionController : MonoBehaviour {
 	private float moveTime = 0.5f;
 	public string direction;
 	private int directionModifier;
-	private Vector2 targetPosition;
-	private float startPositionX;
-	private float startPositionY;
+	private Vector2 hideVector;
+	private Vector2 showVector;
+	private float showPositionX;
 	private Vector2 startVector;
-	private float endPositionX;
 	private Vector2 endVector;
-	private bool slideOut = false;
-	private bool slideIn = false;
+	private bool rewind = false;
 	private bool startMovement = false;
 	// Use this for initialization
 	void Start () {
-		targetPosition = transform.position;
 		directionModifier = direction == "left" ? -1 : 1;
-		startPositionX = targetPosition.x;
-		startPositionY = targetPosition.y;
-		startVector = new Vector2 (startPositionX,startPositionY);
-		endPositionX = targetPosition.x + moveDistance * directionModifier;
-		endVector = new Vector2 (endPositionX, startPositionY);
-		StartCoroutine(TriggerMovement());
+		hideVector = transform.position;
+		showPositionX = hideVector.x + moveDistance * directionModifier;
+		showVector = new Vector2 (showPositionX, hideVector.y);
 	}
 
 	// Update is called once per frame
@@ -33,24 +27,24 @@ public class SpeakerMotionController : MonoBehaviour {
 
 	}
 	void FixedUpdate(){
-		//targetObject.AddRelativeForce (Vector2.right * moveDistance);
-
+		//CheckForSpaceBar();
 	}
-	IEnumerator TriggerMovement(){
-		yield return StartCoroutine(WaitForSpaceBar());
-		yield return StartCoroutine(WaitForMovementTrigger());
-		yield return StartCoroutine(MoveOverSeconds());
-		yield return StartCoroutine(WaitForSpaceBar());
-		yield return StartCoroutine(WaitForMovementTrigger());
-		yield return StartCoroutine(RewindMotion());
-	}
+/*	
 	IEnumerator WaitForMovementTrigger()
 	{
-
 		do
 		{
 			yield return null;
 		} while (!startMovement);
+	}*/
+	void ToggleMovement(){
+		setMoveVectors();
+		StartCoroutine(MoveOverSeconds());
+	}
+	void CheckForSpaceBar(){
+		if(Input.GetKeyDown(KeyCode.Space)){
+			ToggleMovement();
+		}
 	}
 	IEnumerator WaitForSpaceBar()
 	{
@@ -60,19 +54,10 @@ public class SpeakerMotionController : MonoBehaviour {
 		} while (!Input.GetKeyDown(KeyCode.Space));
 		startMovement = true;
 	}
-	IEnumerator WaitForEnter()
-	{
-		do
-		{
-			yield return null;
-		} while (!Input.GetKeyDown(KeyCode.Return));
-	}
 
-	IEnumerator RewindMotion ()
-	{
-		startVector = transform.position;
-		endVector = new Vector2 (startPositionX, startPositionY);
-		yield return StartCoroutine(MoveOverSeconds());
+	void setMoveVectors (){
+		startVector = rewind ? showVector : hideVector;
+		endVector = rewind ? hideVector : showVector;
 	}
 	IEnumerator MoveOverSeconds ()
 	{
@@ -84,7 +69,6 @@ public class SpeakerMotionController : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 		startMovement = false;
-		startVector = transform.position = endVector;
-		endVector = new Vector2 (startPositionX, startPositionY);
+		rewind = !rewind;
 	}
 }
