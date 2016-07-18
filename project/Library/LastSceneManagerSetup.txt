@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/TestLab.unity
+- path: Assets/staging area.unity
   isLoaded: 1
   isActive: 1
