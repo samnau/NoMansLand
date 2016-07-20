@@ -19,6 +19,7 @@ public class TextImporter : MonoBehaviour {
 		{ "SPEAKER_4", 0 }
 	};
 	string currentSpeakerName = "SPEAKER_1";
+	string opposingSpeakerName;
 	string currentTextString;
 	string[] targetTextArray;
 
@@ -26,20 +27,22 @@ public class TextImporter : MonoBehaviour {
 	GameObject targetTextBox;
 	GameObject storyManager;
 	GameObject SPEAKER_1;
+	GameObject currentSpeakerHead;
+	GameObject opposingSpeakerHead;
 	SpeakerMotionController SPEAKER_1_Controller;
+	SpeakerMotionController currentSpeakerController;
+	SpeakerMotionController opposingSpeakerController;
 	StoryTextManager storyManagerController;
 	StoryTextManager.Row targetStoryData;
 	Text textComponent;
 	// Use this for initialization
 	void Start () {
-		//targetScene = "intro";
 		targetTextBox = GameObject.FindGameObjectWithTag ("TextBox_LEFT");
 		storyManager = GameObject.FindGameObjectWithTag ("Story_Manager");
 		storyManagerController = storyManager.GetComponent<StoryTextManager> ();
-		SPEAKER_1 = GameObject.Find ("SPEAKER_2");
+		SPEAKER_1 = GameObject.Find ("SPEAKER_1");
 		SPEAKER_1_Controller = SPEAKER_1.GetComponent<SpeakerMotionController> ();
 		findStoryData(targetScene);
-		//Debug.Log (targetStoryData.TEXT_1);
 		parseTargetSpeakerText ();
 		SPEAKER_1_Controller.ToggleMovement ();
 		textComponent = targetTextBox.GetComponent<Text> ();
@@ -50,7 +53,6 @@ public class TextImporter : MonoBehaviour {
 	}
 	void parseTargetSpeakerText (){
 		string targetProperty = "TEXT_" + targetSpeaker;
-		//Debug.Log (targetProperty);
 		currentTextString = targetStoryData.GetType ().GetField (targetProperty).GetValue (targetStoryData) as string;
 	}
 	void findStoryData(string targetSceneName){
@@ -59,11 +61,12 @@ public class TextImporter : MonoBehaviour {
 	//
 	void setTargetSpeakerIndex (string speakerName){
 		//var simpleName = speakerName.Substring (speakerName.IndexOf ("[") + 1, speakerName.IndexOf ("]") - 1);
-		setCurrentSpeakerName (speakerName);
-		Debug.Log (currentSpeakerName);
+		setCurrentSpeaker (speakerName);
+		setOpposingSpeaker ();
 		targetSpeaker = currentSpeakerName.Split ('_') [1];
 	}
 	IEnumerator TypeOutLines(){
+		yield return new WaitForSeconds(0.6f);
 		var textArray = currentTextString.Split('*');
 		var startIndex = (speakerCounters [currentSpeakerName]);
 		//switching to startIndex caused a freeze after speaker switching
@@ -71,7 +74,6 @@ public class TextImporter : MonoBehaviour {
 		{
 			IEnumerable TypeCoroutine = TypeLetters (textArray [z]);
 			var isSwitchStatement = textArray [z].IndexOf("[") != -1;
-			//Debug.Log (isSwitchStatement);
 			if(isSwitchStatement){
 				updateSpeakerState (z);
 				yield return StartCoroutine( SwitchSpeaker(textArray [z]) );
@@ -86,19 +88,25 @@ public class TextImporter : MonoBehaviour {
 	void updateSpeakerState (int currentIndex){
 		speakerCounters [currentSpeakerName] = currentIndex + 1;
 	}
-	void setCurrentSpeakerName(string speakerName){
+	void setCurrentSpeaker(string speakerName){
 		currentSpeakerName = speakerName.Substring (speakerName.IndexOf ("[") + 1, speakerName.IndexOf ("]") - 1);
+		currentSpeakerHead = GameObject.Find (currentSpeakerName);
+		currentSpeakerController = currentSpeakerHead.GetComponent<SpeakerMotionController> ();
+	}
+	void setOpposingSpeaker(){
+		opposingSpeakerName = currentSpeakerName == "SPEAKER_1" ? "SPEAKER_2" : "SPEAKER_1";
+		opposingSpeakerHead = GameObject.Find (opposingSpeakerName);
+		opposingSpeakerController = opposingSpeakerHead.GetComponent<SpeakerMotionController> ();
 	}
 //	int findSpeakerIndex (string currentSpeakerName){
 //		return currentSpeakerName.Split ('_') [1];
 //	}
 	IEnumerator SwitchSpeaker(string newSpeaker){
-		SPEAKER_1_Controller.ToggleMovement ();
 		setTargetSpeakerIndex (newSpeaker);
+		currentSpeakerController.ToggleMovement ();
+		opposingSpeakerController.ToggleMovement ();
 		parseTargetSpeakerText ();
-		//Debug.Log (newSpeaker);
 		yield return StartCoroutine (TypeOutLines());
-		//yield return new WaitForSeconds(1.0f);
 	}
 	IEnumerable TypeLetters(string textLine)
 	{

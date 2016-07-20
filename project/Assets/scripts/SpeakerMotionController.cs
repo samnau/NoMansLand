@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpeakerMotionController : MonoBehaviour {
 	private float moveDistance = 10.0f;
-	private float moveTime = 0.5f;
+	private float moveTime = 0.75f;
 	public string direction;
 	private int directionModifier;
 	private Vector2 hideVector;
