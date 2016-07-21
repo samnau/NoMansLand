@@ -40,16 +40,25 @@ public class TextImporter : MonoBehaviour {
 		targetTextBox = GameObject.FindGameObjectWithTag ("TextBox_LEFT");
 		storyManager = GameObject.FindGameObjectWithTag ("Story_Manager");
 		storyManagerController = storyManager.GetComponent<StoryTextManager> ();
-		SPEAKER_1 = GameObject.Find ("SPEAKER_1");
+		SPEAKER_1 = GameObject.FindGameObjectWithTag ("SPEAKER_1");
 		SPEAKER_1_Controller = SPEAKER_1.GetComponent<SpeakerMotionController> ();
 		findStoryData(targetScene);
 		parseTargetSpeakerText ();
+		showSpeakerHead ();
 		SPEAKER_1_Controller.ToggleMovement ();
 		textComponent = targetTextBox.GetComponent<Text> ();
 		StartCoroutine (TypeOutLines());
 	}
 	void showSpeakerHead (){
-		
+//		var targetSpeaker1 = SPEAKER_1.Find ("hero");
+//		var hiddenSpeaker1 = SPEAKER_1.Find ("king");
+//		hiddenSpeaker1.GetComponent<Renderer> ().enabled = false;
+		//return SPEAKER_1.GetComponent<Renderer> ().enabled = false;
+		var hiddenSpeaker1 = GameObject.FindGameObjectWithTag ("SPEAKER_1").transform.Find ("king").gameObject;
+		hiddenSpeaker1.GetComponent<Renderer> ().enabled = false;
+
+		var hiddenSpeaker2 = GameObject.FindGameObjectWithTag ("SPEAKER_2").transform.Find ("hero").gameObject;
+		hiddenSpeaker2.GetComponent<Renderer> ().enabled = false;
 	}
 	void parseTargetSpeakerText (){
 		string targetProperty = "TEXT_" + targetSpeaker;
@@ -90,12 +99,12 @@ public class TextImporter : MonoBehaviour {
 	}
 	void setCurrentSpeaker(string speakerName){
 		currentSpeakerName = speakerName.Substring (speakerName.IndexOf ("[") + 1, speakerName.IndexOf ("]") - 1);
-		currentSpeakerHead = GameObject.Find (currentSpeakerName);
+		currentSpeakerHead = GameObject.FindGameObjectWithTag (currentSpeakerName);
 		currentSpeakerController = currentSpeakerHead.GetComponent<SpeakerMotionController> ();
 	}
 	void setOpposingSpeaker(){
 		opposingSpeakerName = currentSpeakerName == "SPEAKER_1" ? "SPEAKER_2" : "SPEAKER_1";
-		opposingSpeakerHead = GameObject.Find (opposingSpeakerName);
+		opposingSpeakerHead = GameObject.FindGameObjectWithTag (opposingSpeakerName);
 		opposingSpeakerController = opposingSpeakerHead.GetComponent<SpeakerMotionController> ();
 	}
 //	int findSpeakerIndex (string currentSpeakerName){
