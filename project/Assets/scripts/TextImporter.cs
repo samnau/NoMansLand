@@ -22,7 +22,7 @@ public class TextImporter : MonoBehaviour {
 	string opposingSpeakerName;
 	string currentTextString;
 	string[] targetTextArray;
-
+	string[] speakerArray ={"SPEAKER_1","SPEAKER_2","SPEAKER_3","SPEAKER_4"};
 	string targetSpeaker  = "1";
 	GameObject targetTextBox;
 	GameObject storyManager;
@@ -50,15 +50,24 @@ public class TextImporter : MonoBehaviour {
 		StartCoroutine (TypeOutLines());
 	}
 	void showSpeakerHead (){
-//		var targetSpeaker1 = SPEAKER_1.Find ("hero");
-//		var hiddenSpeaker1 = SPEAKER_1.Find ("king");
-//		hiddenSpeaker1.GetComponent<Renderer> ().enabled = false;
-		//return SPEAKER_1.GetComponent<Renderer> ().enabled = false;
-		var hiddenSpeaker1 = GameObject.FindGameObjectWithTag ("SPEAKER_1").transform.Find ("king").gameObject;
-		hiddenSpeaker1.GetComponent<Renderer> ().enabled = false;
-
-		var hiddenSpeaker2 = GameObject.FindGameObjectWithTag ("SPEAKER_2").transform.Find ("hero").gameObject;
-		hiddenSpeaker2.GetComponent<Renderer> ().enabled = false;
+		toggleNonTargetSpeakers("SPEAKER_1");
+		toggleNonTargetSpeakers("SPEAKER_2");
+	}
+	string findTargetSpeakerName(string speakerType){
+		return targetStoryData.GetType ().GetField (speakerType).GetValue (targetStoryData) as string;
+	}
+	void toggleNonTargetSpeakers(string targetSpeaker){
+		GameObject hiddenSpeaker;
+		string hiddenSpeakerName;
+		for (int y = 0; y < speakerArray.Length; y++) {
+			if (speakerArray [y] != targetSpeaker) {
+				hiddenSpeakerName = findTargetSpeakerName(speakerArray[y]);
+				if(hiddenSpeakerName.Length > 0){
+					hiddenSpeaker = GameObject.FindGameObjectWithTag (targetSpeaker).transform.Find (hiddenSpeakerName).gameObject;
+					hiddenSpeaker.GetComponent<Renderer> ().enabled = false;
+				}
+			}
+		}
 	}
 	void parseTargetSpeakerText (){
 		string targetProperty = "TEXT_" + targetSpeaker;
