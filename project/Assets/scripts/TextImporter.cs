@@ -8,10 +8,6 @@ public class TextImporter : MonoBehaviour {
 	public TextAsset testText2;
 	public string[] textLines;
 	public string targetScene;
-//	int speaker1Counter = 0;
-//	int speaker2Counter = 0;
-//	int speaker3Counter = 0;
-//	int speaker4Counter = 0;
 	Dictionary <string, int> speakerCounters = new Dictionary <string, int>{
 		{ "SPEAKER_1", 0 },
 		{ "SPEAKER_2", 0 },
@@ -59,14 +55,17 @@ public class TextImporter : MonoBehaviour {
 	void toggleNonTargetSpeakers(string targetSpeaker){
 		GameObject hiddenSpeaker;
 		string hiddenSpeakerName;
+		Transform targetTransform = GameObject.FindGameObjectWithTag (targetSpeaker).transform;
+
 		for (int y = 0; y < speakerArray.Length; y++) {
-			if (speakerArray [y] != targetSpeaker) {
-				hiddenSpeakerName = findTargetSpeakerName(speakerArray[y]);
+				hiddenSpeakerName = findTargetSpeakerName(targetSpeaker);
 				if(hiddenSpeakerName.Length > 0){
-					hiddenSpeaker = GameObject.FindGameObjectWithTag (targetSpeaker).transform.Find (hiddenSpeakerName).gameObject;
-					hiddenSpeaker.GetComponent<Renderer> ().enabled = false;
+					for (int t = 0; t < targetTransform.childCount; t++){
+						targetTransform.GetChild(t).gameObject.GetComponent<Renderer>().enabled = false;
+					}
+					hiddenSpeaker = targetTransform.Find (hiddenSpeakerName).gameObject;
+					hiddenSpeaker.GetComponent<Renderer> ().enabled = true;
 				}
-			}
 		}
 	}
 	void parseTargetSpeakerText (){
@@ -137,8 +136,4 @@ public class TextImporter : MonoBehaviour {
 		}
 	}
 
-//	// Update is called once per frame
-//	void Update () {
-//
-//	}
 }

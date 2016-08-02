@@ -7,7 +7,7 @@
       <File FileName="Assets/scripts/Dialog_Controller.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/CoroutineChainTest.cs" Line="1" Column="1" />
       <File FileName="Assets/scripts/MotionController2.cs" Line="1" Column="1" />
-      <File FileName="Assets/scripts/TextImporter.cs" Line="34" Column="52" />
+      <File FileName="Assets/scripts/TextImporter.cs" Line="55" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
