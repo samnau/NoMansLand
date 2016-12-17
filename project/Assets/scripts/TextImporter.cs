@@ -56,6 +56,11 @@ public class TextImporter : MonoBehaviour {
 		GameObject hiddenSpeaker;
 		string hiddenSpeakerName;
 		Transform targetTransform = GameObject.FindGameObjectWithTag (targetSpeaker).transform;
+		Debug.Log (speakerArray);
+//		speakerArray Filter( Array[] input ){
+//			string targetSpeakerName = findTargetSpeakerName(input);
+//		    return input.Where(c => c.Length > 0).ToArray();
+//		}
 
 		for (int y = 0; y < speakerArray.Length; y++) {
 				hiddenSpeakerName = findTargetSpeakerName(targetSpeaker);
@@ -68,10 +73,11 @@ public class TextImporter : MonoBehaviour {
 				}
 		}
 	}
-	void parseTargetSpeakerText (){
+	void parseTargetSpeakerText(){
 		string targetProperty = "TEXT_" + targetSpeaker;
 		currentTextString = targetStoryData.GetType ().GetField (targetProperty).GetValue (targetStoryData) as string;
 	}
+
 	void findStoryData(string targetSceneName){
 		targetStoryData = storyManagerController.Find_SCENENAME (targetSceneName);
 	}

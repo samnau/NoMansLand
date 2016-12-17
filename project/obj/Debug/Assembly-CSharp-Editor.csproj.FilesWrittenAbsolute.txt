@@ -27,3 +27,15 @@
 /Users/snau/NoMansLand/project/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/snau/NoMansLand/project/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/snau/NoMansLand/project/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.Advertisements.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.PlaymodeTestsRunner.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.PlaymodeTestsRunner.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.Analytics.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.Analytics.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.HoloLens.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.HoloLens.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.Purchasing.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.VR.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.xml
