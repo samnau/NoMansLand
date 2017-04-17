@@ -61,6 +61,7 @@
      <Compile Include="Assets\Completed\Scripts\Wall.cs" />
      <Compile Include="Assets\FADE_CONTROLLER.cs" />
      <Compile Include="Assets\Fade_Controller_test.cs" />
+     <Compile Include="Assets\gradient_maker.cs" />
      <Compile Include="Assets\scripts\CoroutineChainTest.cs" />
      <Compile Include="Assets\scripts\Dialog_Controller.cs" />
      <Compile Include="Assets\scripts\ExampleScript.cs" />
@@ -78,6 +79,7 @@
      <Compile Include="Assets\scripts\WallManager.cs" />
      <Compile Include="Assets\scripts\sceneSwitcher.cs" />
      <None Include="Assets\text\testText.txt" />
+     <None Include="Assets\Sprites\forest1\GrassGradient.shader" />
      <None Include="Assets\Fonts\OFL.txt" />
      <None Include="Assets\text\test2.txt" />
  <Reference Include="UnityEngine.Advertisements">

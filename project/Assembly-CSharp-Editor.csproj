@@ -49,6 +49,7 @@
      <Compile Include="Assets\CSV2Table\Editor\CSV2Table.cs" />
      <Compile Include="Assets\CSV2Table\Editor\CSVView.cs" />
      <None Include="Assets\text\testText.txt" />
+     <None Include="Assets\Sprites\forest1\GrassGradient.shader" />
      <None Include="Assets\Fonts\OFL.txt" />
      <None Include="Assets\text\test2.txt" />
  <Reference Include="UnityEngine.Advertisements">
