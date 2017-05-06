@@ -59,12 +59,11 @@
      <Compile Include="Assets\Completed\Scripts\Player.cs" />
      <Compile Include="Assets\Completed\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Completed\Scripts\Wall.cs" />
-     <Compile Include="Assets\FADE_CONTROLLER.cs" />
      <Compile Include="Assets\Fade_Controller_test.cs" />
      <Compile Include="Assets\scripts\CoroutineChainTest.cs" />
      <Compile Include="Assets\scripts\Dialog_Controller.cs" />
      <Compile Include="Assets\scripts\ExampleScript.cs" />
-     <Compile Include="Assets\scripts\Fade_Controller.cs" />
+     <Compile Include="Assets\scripts\FADE_CONTROLLER.cs" />
      <Compile Include="Assets\scripts\Fade_controller1.cs" />
      <Compile Include="Assets\scripts\MotionController.cs" />
      <Compile Include="Assets\scripts\MotionController2.cs" />
