@@ -39,3 +39,6 @@
 /Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.VR.dll
 /Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
 /Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.iOS.Extensions.Xcode.xml
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.TestRunner.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.TestRunner.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEditor.Purchasing.dll

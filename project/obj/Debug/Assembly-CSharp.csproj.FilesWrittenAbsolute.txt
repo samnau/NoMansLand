@@ -38,3 +38,5 @@
 /Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.HoloLens.dll
 /Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.Purchasing.dll
 /Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.VR.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/UnityEngine.TestRunner.dll
+/Users/snau/NoMansLand/project/Temp/bin/Debug/nunit.framework.dll
