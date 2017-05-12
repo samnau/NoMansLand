@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class FADE_CONTROLLER : MonoBehaviour {
-//	public delegate void TriggerLevelChange();
-//	public static event TriggerLevelChange levelHasChanged;
-	
+	//	public delegate void TriggerLevelChange();
+	//	public static event TriggerLevelChange levelHasChanged;
+
 	public Texture2D Overlay;
 	public float fadeSpeed = 0.8f;
 	public int drawDepth = -1000;
-	float alpha = -1.0f;
+	float alpha = 1.0f;
 	float fadeDirection = -1.0f;
 	string sceneName;
 	// Use this for initialization
@@ -47,6 +47,9 @@ public class FADE_CONTROLLER : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-	
+
+	}
+	void Start(){
+		BeginFade (-1);
 	}
 }
