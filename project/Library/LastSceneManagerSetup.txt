@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/Test_Scene1.unity
+- path: Assets/scenes/puppet_staging.unity
   isLoaded: 1
   isActive: 1
