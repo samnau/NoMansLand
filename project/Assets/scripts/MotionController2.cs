@@ -4,14 +4,15 @@ using System.Collections;
 public class MotionController2 : MonoBehaviour {
 	public GameObject Player;
 	private float X;
-	private string lastKeyPressed;
+	private string lastKeyPressed = "LEFT";
 	private string currentKeyDown;
-	string lastKeyReleased;
+	string lastKeyReleased = "LEFT";
 	private Animator animationController;
 	private bool moveKeyReleased;
 	private bool moveKeyPressed;
 	bool directionHasChanged = true;
 	bool isNotColliding = true;
+	Rigidbody2D myRigidBody2D;
 
 	void OnCollisionEnter2D( Collision2D collision ){
 		lastKeyPressed = setCurrentKeyPressed ();
@@ -32,19 +33,48 @@ public class MotionController2 : MonoBehaviour {
 	void Start () {
 		X = transform.localScale.x;
 		animationController = GetComponent<Animator> ();
+		myRigidBody2D = GetComponent<Rigidbody2D> ();
+	}
+	private void startMovement(){
+		var horizontalValue = Input.GetAxis ("Horizontal") * motionDistance;
+		var verticalValue = Input.GetAxis ("Vertical") * motionDistance;
+		var walkingVelocityReached = Mathf.Abs (horizontalValue) > 0.5 || Mathf.Abs (verticalValue) > 0.5;;
+
+		if (walkingVelocityReached) {
+			//myRigidBody2D.velocity = new Vector2(horizontalValue,myRigidBody2D.velocity.y);
+			myRigidBody2D.velocity = new Vector2(horizontalValue,verticalValue);
+		}
+	}
+	private void moveRight(){
+		myRigidBody2D.velocity = Vector2.right;
+	}
+	private void moveUp(){
+		myRigidBody2D.velocity = Vector2.up;
+	}
+	private void moveDown(){
+		myRigidBody2D.velocity = Vector2.down;
+	}
+
+//	private void startMovement(){
+//		if (isMovingLeft () || isMovingRight()) {
+//			moveHorizontal ();
+//		}
+//	}
+	private void stopMovement(){
+		myRigidBody2D.velocity = Vector2.zero;
 	}
 	private void setLastKeyPressed(){
 		if (Input.GetKeyDown ("left")) {
-			lastKeyPressed = "left";
+			lastKeyPressed = "LEFT";
 		}
 		if (Input.GetKeyDown ("right")) {
-			lastKeyPressed = "right";
+			lastKeyPressed = "RIGHT";
 		}
 		if (Input.GetKeyDown ("up")) {
-			lastKeyPressed = "up";
+			lastKeyPressed = "UP";
 		}
 		if (Input.GetKeyDown ("down")) {
-			lastKeyPressed = "down";
+			lastKeyPressed = "DOWN";
 		}
 
 	}
@@ -65,21 +95,21 @@ public class MotionController2 : MonoBehaviour {
 		return currentKeyDown;
 	}
 	private void setLastKeyReleased(){
-		if (Input.GetKey ("left")) {
-			lastKeyReleased = "left";
+		if (Input.GetKeyUp ("left")) {
+			lastKeyReleased = "LEFT";
 		}
-		if (Input.GetKey ("right")) {
-			lastKeyReleased = "right";
+		if (Input.GetKeyUp ("right")) {
+			lastKeyReleased = "RIGHT";
 		}
-		if (Input.GetKey ("up")) {
-			lastKeyReleased = "up";
+		if (Input.GetKeyUp ("up")) {
+			lastKeyReleased = "UP";
 		}
-		if (Input.GetKey ("down")) {
-			lastKeyReleased = "down";
+		if (Input.GetKeyUp ("down")) {
+			lastKeyReleased = "DOWN";
 		}
-		if (!isMoving ()) {
-			currentKeyDown = "";
-		}
+//		if (!isMoving ()) {
+//			currentKeyDown = "";
+//		}
 	}
 
 	private bool isMoving(){
@@ -104,27 +134,47 @@ public class MotionController2 : MonoBehaviour {
 	}
 
 	public float motionDistance = 1.0f;
-
-	void Update () {
-		var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-		if (isNotColliding && directionHasChanged) {
-			transform.position += move * motionDistance * Time.deltaTime;
-		}
-			
-		/*if (Input.GetAxis("Horizontal") < 0)
-		{
-			transform.localScale = new Vector3(X,transform.localScale.y,transform.localScale.z);
-		}
-		else if (Input.GetAxis("Horizontal") > 0)
-		{
-			transform.localScale = new Vector3(-X,transform.localScale.y,transform.localScale.z);
-		}*/
+	void setAnimationStates(){
 		animationController.SetBool("WALKING",isMoving());
-		animationController.SetBool("RIGHT",isMovingRight());
-		animationController.SetBool("LEFT",isMovingLeft());
-		animationController.SetBool("UP",isMovingUp());
-		animationController.SetBool("DOWN",isMovingDown());
+		animationController.SetBool(lastKeyPressed,true);
 
+		if(lastKeyPressed=="RIGHT"){
+			animationController.SetBool("LEFT",false);
+			animationController.SetBool("UP",false);
+			animationController.SetBool("DOWN",false);
+		}
+		if(lastKeyPressed=="LEFT"){
+			animationController.SetBool("RIGHT",false);
+			animationController.SetBool("UP",false);
+			animationController.SetBool("DOWN",false);
+		}
+		if(lastKeyPressed=="UP"){
+			animationController.SetBool("RIGHT",false);
+			animationController.SetBool("LEFT",false);
+			animationController.SetBool("DOWN",false);
+		}
+		if(lastKeyReleased=="DOWN"){
+			animationController.SetBool("RIGHT",false);
+			animationController.SetBool("LEFT",false);
+			animationController.SetBool("UP",false);
+		}
+
+	}
+	void collisionMovementCheck(){
+		if (isNotColliding && directionHasChanged) {
+			startMovement();
+			if(!isMoving()){
+				stopMovement ();
+			}
+		}
+	}
+	void FixedUpdate () {
+		setLastKeyPressed ();
+		collisionMovementCheck ();
+		setAnimationStates ();
+		//preserving old movement method for future reference
+		//var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+		//transform.position += move * motionDistance * Time.deltaTime;	
 	}
 
 }
