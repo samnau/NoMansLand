@@ -54,7 +54,12 @@ public class MotionController2 : MonoBehaviour {
 	private void moveDown(){
 		myRigidBody2D.velocity = Vector2.down;
 	}
-
+	void checkForSpaceBar(){
+		var spacebarDown = Input.GetKey (KeyCode.Space);
+		//if (Input.GetKey (KeyCode.Space)) {
+		animationController.SetBool("ACTION", spacebarDown);
+		//}
+	}
 //	private void startMovement(){
 //		if (isMovingLeft () || isMovingRight()) {
 //			moveHorizontal ();
@@ -158,7 +163,28 @@ public class MotionController2 : MonoBehaviour {
 			animationController.SetBool("LEFT",false);
 			animationController.SetBool("UP",false);
 		}
+		checkForAdditionalInput();
+	}
+	void checkForAdditionalInput(){
+		var horizontalValue = Input.GetAxis ("Horizontal") * motionDistance;
+		var verticalValue = Input.GetAxis ("Vertical") * motionDistance;
+		var movingLeft = horizontalValue<0;
+		var movingRight = horizontalValue>0;
+		var movinUp = verticalValue<0;
+		var movingDown = verticalValue>0;
 
+		var movingHorizontal = horizontalValue != 0;
+		var movingVertical = verticalValue !=0;
+		if(movingVertical || movingHorizontal){
+			if(movingHorizontal){
+				animationController.SetBool("LEFT",movingLeft);
+				animationController.SetBool("RIGHT",movingRight);
+			}
+			if(movingVertical){
+				animationController.SetBool("UP",movinUp);
+				animationController.SetBool("DOWN",movingDown);
+			}
+		}
 	}
 	void collisionMovementCheck(){
 		if (isNotColliding && directionHasChanged) {
@@ -172,9 +198,10 @@ public class MotionController2 : MonoBehaviour {
 		setLastKeyPressed ();
 		collisionMovementCheck ();
 		setAnimationStates ();
+		checkForSpaceBar ();
 		//preserving old movement method for future reference
-		//var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-		//transform.position += move * motionDistance * Time.deltaTime;	
+		// var move = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+		// transform.position += move * motionDistance * Time.deltaTime;
 	}
 
 }

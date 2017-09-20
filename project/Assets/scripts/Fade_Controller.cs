@@ -42,9 +42,9 @@ public class FADE_CONTROLLER : MonoBehaviour {
 		fadeDirection = direction;
 		return (fadeSpeed);
 	}
-	void OnLevelWasLoaded(){
-		BeginFade (-1);
-	}
+//	void OnLevelWasLoaded(){
+//		BeginFade (-1);
+//	}
 	// Update is called once per frame
 	void Update () {
 
