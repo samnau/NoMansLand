@@ -59,6 +59,7 @@
      <Compile Include="Assets\Completed\Scripts\Player.cs" />
      <Compile Include="Assets\Completed\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Completed\Scripts\Wall.cs" />
+     <Compile Include="Assets\MotionController3.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
