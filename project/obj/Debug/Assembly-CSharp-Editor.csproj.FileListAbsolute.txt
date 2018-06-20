@@ -1,0 +1,2 @@
+/Users/snau/NoMansLand/project/obj/Debug/Assembly-CSharp-Editor.csprojResolveAssemblyReference.cache
+/Users/snau/NoMansLand/project/obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
