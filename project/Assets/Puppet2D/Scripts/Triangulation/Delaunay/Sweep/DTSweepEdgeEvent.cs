@@ -32,7 +32,7 @@
 /// Changes from the Java version
 ///   Turned DTSweepEdgeEvent into a value type
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     public class DTSweepEdgeEvent
     {

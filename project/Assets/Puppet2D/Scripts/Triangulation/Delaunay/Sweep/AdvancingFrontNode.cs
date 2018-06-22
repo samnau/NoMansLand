@@ -35,7 +35,7 @@
 /// Future possibilities
 ///   Comments!
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     public class AdvancingFrontNode
     {

@@ -34,7 +34,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
 
     public class TriangulationPoint : Point2D

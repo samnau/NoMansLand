@@ -32,7 +32,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     public class PointGenerator
     {

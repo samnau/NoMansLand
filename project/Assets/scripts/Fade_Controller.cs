@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class FADE_CONTROLLER : MonoBehaviour {
+public class Fade_Controller : MonoBehaviour {
 	//	public delegate void TriggerLevelChange();
 	//	public static event TriggerLevelChange levelHasChanged;
 
@@ -10,8 +10,8 @@ public class FADE_CONTROLLER : MonoBehaviour {
 	public float fadeSpeed = 0.8f;
 	public int drawDepth = -1000;
 	float alpha = 1.0f;
-	float fadeDirection = -1.0f;
-	string sceneName;
+	private float fadeDirection = -1.0f;
+	readonly string sceneName;
 	// Use this for initialization
 	void OnEnable() {
 		SceneManager.sceneLoaded += OnSceneLoaded;
