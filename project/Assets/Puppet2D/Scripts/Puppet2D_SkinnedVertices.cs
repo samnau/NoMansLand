@@ -4,171 +4,173 @@ using System.Collections;
 
 using System.Collections.Generic;
 
-
-[ExecuteInEditMode]
-public class Puppet2D_SkinnedVertices : MonoBehaviour
-
+namespace Puppet2D
 {
+	[ExecuteInEditMode]
+	public class Puppet2D_SkinnedVertices : MonoBehaviour
 
-    Mesh mesh;
+	{
 
+		Mesh mesh;
 
 
-    class Bone
 
-    {
+		class Bone
 
-        internal Transform bone;
+		{
 
-        internal float weight;
+			internal Transform bone;
 
-        internal Vector3 delta;
+			internal float weight;
 
-    }
+			internal Vector3 delta;
 
-    List<List<Bone>> allBones = new List<List<Bone>>();
+		}
 
+		List<List<Bone>> allBones = new List<List<Bone>>();
 
 
-    void Start()
 
-    {
+		void Start()
 
-        SkinnedMeshRenderer skin = GetComponent(typeof(SkinnedMeshRenderer)) as SkinnedMeshRenderer;
+		{
 
-        mesh = skin.sharedMesh;
+			SkinnedMeshRenderer skin = GetComponent(typeof(SkinnedMeshRenderer)) as SkinnedMeshRenderer;
 
+			mesh = skin.sharedMesh;
 
 
 
 
 
-        for (int i = 0; i < mesh.vertexCount; i++)
 
-        {
+			for (int i = 0; i < mesh.vertexCount; i++)
 
-            Vector3 position = mesh.vertices[i];
+			{
 
-            position = transform.TransformPoint(position);
+				Vector3 position = mesh.vertices[i];
 
+				position = transform.TransformPoint(position);
 
 
-            BoneWeight weights = mesh.boneWeights[i];
 
-            int[] boneIndices = new int[] { weights.boneIndex0, weights.boneIndex1, weights.boneIndex2, weights.boneIndex3 };
+				BoneWeight weights = mesh.boneWeights[i];
 
-            float[] boneWeights = new float[] { weights.weight0, weights.weight1, weights.weight2, weights.weight3 };
+				int[] boneIndices = new int[] { weights.boneIndex0, weights.boneIndex1, weights.boneIndex2, weights.boneIndex3 };
 
+				float[] boneWeights = new float[] { weights.weight0, weights.weight1, weights.weight2, weights.weight3 };
 
 
-            List<Bone> bones = new List<Bone>();
 
-            allBones.Add(bones);
+				List<Bone> bones = new List<Bone>();
 
+				allBones.Add(bones);
 
 
-            for (int j = 0; j < 4; j++)
 
-            {
+				for (int j = 0; j < 4; j++)
 
-                if (boneWeights[j] > 0)
+				{
 
-                {
+					if (boneWeights[j] > 0)
 
-                    Bone bone = new Bone();
+					{
 
-                    bones.Add(bone);
+						Bone bone = new Bone();
 
+						bones.Add(bone);
 
 
-                    bone.bone = skin.bones[boneIndices[j]];
 
-                    bone.weight = boneWeights[j];
+						bone.bone = skin.bones[boneIndices[j]];
 
-                    bone.delta = bone.bone.InverseTransformPoint(position);
+						bone.weight = boneWeights[j];
 
-                }
+						bone.delta = bone.bone.InverseTransformPoint(position);
 
-            }
+					}
 
+				}
 
 
-            //if (bones.Count > 1)
 
-            //{
+				//if (bones.Count > 1)
 
-            //    string msg = string.Format("vertex {0}, {1} bones", i, bones.Count);
+				//{
 
+				//    string msg = string.Format("vertex {0}, {1} bones", i, bones.Count);
 
 
-            //    foreach (Bone bone in bones)
 
-            //        msg += string.Format("\n\t{0} => {1} => {2}", bone.bone.name, bone.weight, bone.delta);
+				//    foreach (Bone bone in bones)
 
+				//        msg += string.Format("\n\t{0} => {1} => {2}", bone.bone.name, bone.weight, bone.delta);
 
 
-            //    Debug.Log(msg);
 
-            //}
+				//    Debug.Log(msg);
 
-        }
+				//}
 
-    }
+			}
 
+		}
 
 
-    void OnDrawGizmos()
 
-    {
+		void OnDrawGizmos()
 
-        if (Application.isPlaying && enabled)
+		{
 
-        {
+			if (Application.isPlaying && enabled)
 
-            for (int i = 0; i < mesh.vertexCount; i++)
+			{
 
-            {
+				for (int i = 0; i < mesh.vertexCount; i++)
 
-                List<Bone> bones = allBones[i];
+				{
 
+					List<Bone> bones = allBones[i];
 
 
-                Vector3 position = Vector3.zero;
 
-                foreach (Bone bone in bones)
+					Vector3 position = Vector3.zero;
 
-                    position += bone.bone.TransformPoint(bone.delta) * bone.weight;
+					foreach (Bone bone in bones)
 
+						position += bone.bone.TransformPoint(bone.delta) * bone.weight;
 
 
-                int boneCount = bones.Count;
 
-                Gizmos.color = (boneCount == 4) ? Color.red :
+					int boneCount = bones.Count;
 
-                    (boneCount == 3) ? Color.blue :
+					Gizmos.color = (boneCount == 4) ? Color.red :
 
-                        (boneCount == 2) ? Color.green : Color.black;
+						(boneCount == 3) ? Color.blue :
 
+							(boneCount == 2) ? Color.green : Color.black;
 
 
-                Gizmos.DrawWireCube(position, boneCount * 0.05f * Vector3.one);
 
+					Gizmos.DrawWireCube(position, boneCount * 0.05f * Vector3.one);
 
 
-                Vector3 normal = Vector3.zero;
 
-                foreach (Bone bone in bones)
+					Vector3 normal = Vector3.zero;
 
-                    normal += bone.bone.TransformDirection(mesh.normals[i]) * bone.weight;
+					foreach (Bone bone in bones)
 
+						normal += bone.bone.TransformDirection(mesh.normals[i]) * bone.weight;
 
 
-                //Gizmos.DrawRay(position, normal);
 
-            }
+					//Gizmos.DrawRay(position, normal);
 
-        }
+				}
 
-    }
+			}
 
+		}
+
+	}
 }

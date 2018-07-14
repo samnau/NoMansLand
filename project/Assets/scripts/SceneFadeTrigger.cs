@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class SceneFadeTrigger : MonoBehaviour {
 
 	public string sceneName;
-	GameObject sceneMangager;
+	private GameObject sceneMangager;
 	//IEnumerator ChangeLevel(){
 		//float fadeTime = GameObject.Find ("SceneManager").GetComponent<FADE_CONTROLLER>().BeginFade (1);
 		//yield return new WaitForSeconds (fadeTime);
@@ -18,7 +18,7 @@ public class SceneFadeTrigger : MonoBehaviour {
 
 	void OnTriggerEnter2D( Collider2D other ){
 		if(other.CompareTag("Player")) {
-			sceneMangager.GetComponent<FADE_CONTROLLER> ().triggerLevelChange (sceneName);
+			sceneMangager.GetComponent<Fade_Controller> ().triggerLevelChange (sceneName);
 		}
 	}
 

@@ -33,7 +33,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     public struct FixedArray3<T> : IEnumerable<T> where T : class
     {

@@ -34,7 +34,7 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     public class PointSet : Point2DList, ITriangulatable, IEnumerable<TriangulationPoint>, IList<TriangulationPoint>
     {

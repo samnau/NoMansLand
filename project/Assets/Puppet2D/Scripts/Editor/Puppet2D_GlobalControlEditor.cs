@@ -2,21 +2,22 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
-[CustomEditor(typeof(Puppet2D_GlobalControl))] 
-public class Puppet2D_GlobalControlEditor : Editor
+namespace Puppet2D
 {
-
-	public override void OnInspectorGUI()
+	[CustomEditor(typeof(Puppet2D_GlobalControl))]
+	public class Puppet2D_GlobalControlEditor : Editor
 	{
-		DrawDefaultInspector();		
-		if(GUILayout.Button("Refresh Global Control"))
+
+		public override void OnInspectorGUI()
 		{
-			(target as Puppet2D_GlobalControl).Refresh();		
+			DrawDefaultInspector();
+			if (GUILayout.Button("Refresh Global Control"))
+			{
+				(target as Puppet2D_GlobalControl).Refresh();
+			}
+
 		}
 
-	}
-	
-	
-	
+
+	}	
 }

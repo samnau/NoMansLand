@@ -32,7 +32,7 @@
 using System.Diagnostics;
 
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     public static class P2T
     {

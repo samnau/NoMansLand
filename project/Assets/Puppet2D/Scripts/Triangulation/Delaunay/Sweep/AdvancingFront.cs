@@ -38,7 +38,7 @@
 using System.Text;
 using System;
 
-namespace Poly2Tri
+namespace Puppet2D_Poly2Tri
 {
     /**
      * @author Thomas Åhlen (thahlen@gmail.com)
