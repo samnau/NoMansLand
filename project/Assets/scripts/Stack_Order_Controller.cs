@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Stack_Order_Controller : MonoBehaviour {
-	private float Xpos;
+	//private float Xpos;
 	private float Ypos;
 	void StackSetter(){
-		Xpos = transform.position.x;
+		//Xpos = transform.position.x;
 		Ypos = transform.position.y;
-		transform.position = new Vector3(Xpos, Ypos, Ypos);
+        var objectSorter = GetComponent<SpriteRenderer>();
+        var newOrder = Mathf.RoundToInt(Ypos * -100f);
+        objectSorter.sortingOrder = newOrder;
+        //transform.position = new Vector3(Xpos, Ypos, Ypos);
 	}
 
 	void Start () {
@@ -16,6 +19,6 @@ public class Stack_Order_Controller : MonoBehaviour {
 	}
 	// Update is called once per frame
 	void Update () {
-		StackSetter();
+		//StackSetter();
 	}
 }

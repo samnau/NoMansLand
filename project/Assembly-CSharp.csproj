@@ -133,6 +133,7 @@
     <Compile Include="Assets\scripts\Fade_Controller.cs" />
     <Compile Include="Assets\scripts\Fade_controller1.cs" />
     <Compile Include="Assets\scripts\gradient_maker.cs" />
+    <Compile Include="Assets\scripts\Hero_Stack_Order_Controller.cs" />
     <Compile Include="Assets\scripts\InputStateTracker.cs" />
     <Compile Include="Assets\scripts\MotionController.cs" />
     <Compile Include="Assets\scripts\MotionController2.cs" />
