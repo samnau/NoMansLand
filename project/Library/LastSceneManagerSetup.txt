@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/Forest2.unity
+- path: Assets/scenes/CastleExterior.unity
   isLoaded: 1
   isActive: 1

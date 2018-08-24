@@ -207,4 +207,3 @@ C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.dll
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.pdb
-C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
