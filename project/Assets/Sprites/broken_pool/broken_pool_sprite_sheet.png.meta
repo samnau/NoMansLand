@@ -1,0 +1,579 @@
+fileFormatVersion: 2
+guid: 9426c306f5974d946b1be0bb2c63c940
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: broken_pool_spire_1
+    21300002: broken_pool_shadow_1
+    21300004: broken_pool_shadow_2
+    21300006: broken_pool_spire_2
+    21300008: broken_pool_shadow_3
+    21300010: broken_pool_spire_3
+    21300012: broken_pool_shadow_4
+    21300014: broken_pool_spire_4
+    21300016: broken_pool_main
+    21300018: broken_pool_tree_7
+    21300020: broken_pool_castle
+    21300022: broken_pool_tree_5
+    21300024: broken_pool_shadow_tree_1
+    21300026: broken_pool_shadow_tree_2
+    21300028: broken_pool_shadow_tree_3
+    21300030: broken_pool_tree_3
+    21300032: broken_pool_tree_6
+    21300034: broken_pool_tree_1
+    21300036: broken_pool_tree_2
+    21300038: broken_pool_tree_4
+    21300040: broken_pool_sprite_trees_forground_2
+    21300042: broken_pool_sprite_trees_forground_1
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: broken_pool_spire_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 605
+        width: 410
+        height: 1038
+      alignment: 9
+      pivot: {x: 0.5122821, y: 0.0100202905}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6351c6833b9a1648b77a419e22e612a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 116
+        width: 368
+        height: 333
+      alignment: 9
+      pivot: {x: 0.47263244, y: 0.0765834}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa4262357ca406478b46dbb93be2f72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_2
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 7
+        width: 772
+        height: 474
+      alignment: 9
+      pivot: {x: 0.5, y: 0.011310016}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d2feb74b00dd494f9bf92c024ec4b5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_spire_2
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 579
+        width: 165
+        height: 414
+      alignment: 9
+      pivot: {x: 0.49999964, y: 0.062118605}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a101734e146b3484481cedc1625dd9a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_3
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 1059
+        width: 151
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a4a6980bbe95845976410c115cc8be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_spire_3
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1113
+        width: 216
+        height: 84
+      alignment: 9
+      pivot: {x: 0.47668684, y: 0.14030965}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534962f4c31295f4893a3791db3497d5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_4
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1228
+        width: 168
+        height: 131
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d62695bb1cb8e74784562541d6b4ea7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_spire_4
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 1372
+        width: 172
+        height: 223
+      alignment: 9
+      pivot: {x: 0.5, y: 0.003210504}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd63290c7719ae34aab6f805e19212ac
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_main
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 574
+        width: 1084
+        height: 1026
+      alignment: 9
+      pivot: {x: 0.5092909, y: 0.06318584}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbf4d81a985bc742b197954f6291283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_7
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 146
+        width: 98
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.05436747}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8805fd155e952444b6d486a0c624da8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_castle
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 109
+        width: 650
+        height: 106
+      alignment: 9
+      pivot: {x: 0.49225286, y: 0.024939915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3645f0512afe1aa4cbfac3d57bfab24e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_5
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 157
+        width: 278
+        height: 789
+      alignment: 9
+      pivot: {x: 0.7898204, y: 0.0468569}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9a3f3dd0a16f847849c7f1a12131cf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_tree_1
+      rect:
+        serializedVersion: 2
+        x: 1907
+        y: 1344
+        width: 867
+        height: 277
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92421fe977b479c49982ede94173167a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_tree_2
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 1082
+        width: 616
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0b5015f7dc07c5488cd52ae6793e924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_shadow_tree_3
+      rect:
+        serializedVersion: 2
+        x: 1924
+        y: 931
+        width: 641
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1613e4b6a96186541a1370583184a3a5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_3
+      rect:
+        serializedVersion: 2
+        x: 3323
+        y: 1102
+        width: 321
+        height: 564
+      alignment: 9
+      pivot: {x: 0.4686245, y: 0.080363825}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe67a4874ffc53049b810ba3b2fc24bb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_6
+      rect:
+        serializedVersion: 2
+        x: 3466
+        y: 46
+        width: 188
+        height: 522
+      alignment: 9
+      pivot: {x: 0.4464293, y: 0.09483415}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7250ce5b7c651aa449df2793111200d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_1
+      rect:
+        serializedVersion: 2
+        x: 1921
+        y: 285
+        width: 618
+        height: 575
+      alignment: 9
+      pivot: {x: 0.43481365, y: 0.088391535}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60ea0c59bc1289498b2860a5e004ba2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_2
+      rect:
+        serializedVersion: 2
+        x: 2808
+        y: 1181
+        width: 336
+        height: 431
+      alignment: 9
+      pivot: {x: 0.38010296, y: 0.09107351}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 204d1acf24d954549bc4e6c2b6dba6c8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_tree_4
+      rect:
+        serializedVersion: 2
+        x: 2961
+        y: 690
+        width: 726
+        height: 358
+      alignment: 9
+      pivot: {x: 0.4167662, y: 0.12021726}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d1f875c06887549ad945caa79b42b8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_sprite_trees_forground_2
+      rect:
+        serializedVersion: 2
+        x: 3772
+        y: 250
+        width: 886
+        height: 569
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b049d348e2f5bd04a811f72e10ae7113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: broken_pool_sprite_trees_forground_1
+      rect:
+        serializedVersion: 2
+        x: 4044
+        y: 1303
+        width: 947
+        height: 367
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e1daacda0355c47923c6ffa01b710c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 38e09d211b60de54998bd203703d0b1b
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
