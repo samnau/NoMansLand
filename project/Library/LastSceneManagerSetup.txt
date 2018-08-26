@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/CastleExterior.unity
+- path: Assets/scenes/BrokenPool.unity
   isLoaded: 1
   isActive: 1
