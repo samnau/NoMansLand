@@ -21,7 +21,7 @@ public class Cloud_Motion_Controller : MonoBehaviour {
         cloudWidth = GetComponent<SpriteRenderer>().size.x;
         originalXScale = transform.localScale.x;
         originalYScale = transform.localScale.y;
-        motionDistance = Random.Range(0.001f, 0.01f);
+        motionDistance = Random.Range(0.001f, 0.005f);
 	}
 
     private void moveObejct()
@@ -50,7 +50,7 @@ public class Cloud_Motion_Controller : MonoBehaviour {
 
     private Vector3 randomScaler()
     {
-        var randomAdjuster = Random.Range(0f, 0.5f);
+        var randomAdjuster = Random.Range(-0.2f, 0.2f);
         var newYScale = originalYScale + randomAdjuster;
         var newXScale = originalXScale + randomAdjuster;
         return new Vector3(newXScale, newYScale, 1);
