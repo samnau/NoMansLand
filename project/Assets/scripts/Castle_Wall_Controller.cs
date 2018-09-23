@@ -17,16 +17,20 @@ public class Castle_Wall_Controller : MonoBehaviour {
         {
             castleWalls.GetComponent<Animator>().SetBool("lowerWalls", true);
             mainCamera.GetComponent<Camera_Shaker>().enabled = true;
+            var tree = GameObject.FindGameObjectWithTag("tree");
+            tree.GetComponent<Animator>().speed = 2.0f;
             StartCoroutine(WallSequence());
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // re-enable the perspective controller, after resizing the trigger to cover the bridge
+    }
+
     IEnumerator WallSequence()
     {
-        Debug.Log("next");
         var hero = GameObject.FindGameObjectWithTag("Player");
-        //hero.GetComponent<PlayerMotionController>().enabled = false;
-        //hero.GetComponent<InputStateTracker>().isWalking = false;
         yield return new WaitForSeconds(2.0f);
         wallsAreUp = false;
         //hero.GetComponent<PlayerMotionController>().enabled = true;
