@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/CastleExterior.unity
+- path: Assets/scenes/Animation_staging.unity
   isLoaded: 1
   isActive: 1
