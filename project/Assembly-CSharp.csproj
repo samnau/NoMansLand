@@ -153,6 +153,7 @@
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
     <Compile Include="Assets\scripts\TextImporter.cs" />
     <Compile Include="Assets\scripts\TreeBreezeController.cs" />
+    <Compile Include="Assets\scripts\treeBreezeTrigger.cs" />
     <Compile Include="Assets\scripts\WallManager.cs" />
     <None Include="Assets\Puppet2D\Shaders\BlackAndWhite.shader" />
     <None Include="Assets\Puppet2D\Shaders\VertColor.shader" />

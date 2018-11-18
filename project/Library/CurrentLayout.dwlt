@@ -93,7 +93,7 @@ MonoBehaviour:
   m_MinSize: {x: 479, y: 463}
   m_MaxSize: {x: 14004, y: 18063}
   vertical: 0
-  controlID: 143
+  controlID: 76
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 463}
   m_MaxSize: {x: 10002, y: 18063}
   vertical: 1
-  controlID: 144
+  controlID: 77
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -326,8 +326,8 @@ MonoBehaviour:
     y: 0
     width: 1130
     height: 210
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 24}
   m_Panes:
   - {fileID: 24}
@@ -397,6 +397,7 @@ MonoBehaviour:
     - {fileID: 1107984963016764828, guid: 8a7ffa8b47549704aa7f89abe8160f10, type: 2}
     - {fileID: 1107134954776237322, guid: 1facc198f27dc8f4da62e872d5b4649f, type: 2}
     - {fileID: 1107756097533874856, guid: a200b58cbbe89354e9e7b899509ac38b, type: 2}
+    - {fileID: 1107347074222222842, guid: 7f006c8c6091a4c4093c0dd1a93cb041, type: 2}
     m_ValueSerializationHelper:
     - e00: 0.49659863
       e01: 0
@@ -494,14 +495,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.76605505
+    - e00: 0.8394495
       e01: 0
       e02: 0
-      e03: 131.8211
+      e03: -17.710999
       e10: 0
-      e11: 0.76605505
+      e11: 0.8394495
       e12: 0
-      e13: 5.8073425
+      e13: 4.926605
       e20: 0
       e21: 0
       e22: 1
@@ -510,14 +511,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.85657895
+    - e00: 0.8589474
       e01: 0
       e02: 0
-      e03: -27.828949
+      e03: -27.947388
       e10: 0
-      e11: 0.85657895
+      e11: 0.8589474
       e12: 0
-      e13: 49.10921
+      e13: 48.950523
       e20: 0
       e21: 0
       e22: 1
@@ -526,14 +527,30 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.85657895
+    - e00: 0.8589474
       e01: 0
       e02: 0
-      e03: -27.828949
+      e03: -27.947357
       e10: 0
-      e11: 0.85657895
+      e11: 0.8589474
       e12: 0
-      e13: 21.126312
+      e13: 25.768417
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    - e00: 0.28683385
+      e01: 0
+      e02: 0
+      e03: 280.7304
+      e10: 0
+      e11: 0.28683385
+      e12: 0
+      e13: 70.0721
       e20: 0
       e21: 0
       e22: 1
@@ -584,7 +601,7 @@ MonoBehaviour:
   m_AnimEditor: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 13764
+  m_LastSelectedObjectID: -198146
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -616,9 +633,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.2186888, y: -0.29835615, z: 0.1875}
+    m_Target: {x: -0.2953329, y: -4.6177626, z: 0.1875}
     speed: 2
-    m_Value: {x: 1.2186888, y: -0.29835615, z: 0.1875}
+    m_Value: {x: -0.2953329, y: -4.6177626, z: 0.1875}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -650,9 +667,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 15.842022
+    m_Target: 3.5593553
     speed: 2
-    m_Value: 15.842022
+    m_Value: 3.5593553
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -845,10 +862,10 @@ MonoBehaviour:
     height: 746
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
-    scrollPos: {x: 0, y: 423}
-    m_SelectedIDs: 72360000
-    m_LastClickedID: 13938
-    m_ExpandedIDs: f0fbffff00000000c4350000ee3500005236000072360000c0360000263700004c37000078370000f637000078380000863800008a380000b2380000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: ee350000
+    m_LastClickedID: 13806
+    m_ExpandedIDs: f0fbffff00000000c43500005236000072360000c036000078370000783800008a380000b2380000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -943,19 +960,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/scenes
+    - Assets/animations/castle_exterior/trees
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/scenes
+  - Assets/animations/castle_exterior/trees
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 90}
-    m_SelectedIDs: d42e0000
-    m_LastClickedID: 11988
+    m_SelectedIDs: a62e0000
+    m_LastClickedID: 11942
     m_ExpandedIDs: 000000006e10000004270000222700003a2700005e270000c2270000c8270000d0270000e4270000242a0000522a00006a2a0000702a0000782a0000962a0000982a0000f02d00002e2e00009a2e0000382f00003a2f0000622f00007032000016440000504400005c4400005e4400006c440000784400007a4400007c4400007e44000080440000824400008444000086440000884400008a4400008c4400008e440000904400009244000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0

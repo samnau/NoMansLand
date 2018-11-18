@@ -5,13 +5,26 @@ using UnityEngine;
 public class TreeBreezeController : MonoBehaviour {
     private Animator animatonController;
     public float breezeDelay = 0f;
+    private bool windHasStarted = false;
+    public bool startWind = false;
+    public bool startBlowing = false;
+    public bool stopWind = false;
 
 	// Use this for initialization
 	void Start () {
         animatonController = GetComponent<Animator>();
-        StartCoroutine(TreeSequence());
+        //StartCoroutine(TreeSequence());
     }
 
+    IEnumerator startBreeze()
+    {
+        yield return new WaitForSeconds(breezeDelay);
+        controlWind(true);
+    }
+    public void startStrongWind()
+    {
+        controlWindStrength(true);
+    }
     void controlWind(bool wind)
     {
         animatonController.SetBool("wind", wind);
@@ -38,6 +51,10 @@ public class TreeBreezeController : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-		
+		if(startWind && !windHasStarted) {
+            windHasStarted = true;
+            StartCoroutine(startBreeze());
+        }
+
 	}
 }
