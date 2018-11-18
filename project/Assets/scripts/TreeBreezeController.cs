@@ -29,7 +29,17 @@ public class TreeBreezeController : MonoBehaviour {
     {
         animatonController.SetBool("wind", wind);
     }
-
+    public void stopAllWind ()
+    {
+        StartCoroutine(windStopper());
+    }
+    IEnumerator windStopper()
+    {
+        //yield return new WaitForSeconds(2.0f);
+        controlWindStrength(false);
+        yield return new WaitForSeconds(1.0f);
+        controlWind(false);
+    }
     void controlWindStrength(bool strong)
     {
         var windSpeed = strong ? 2.0f : 1.0f;

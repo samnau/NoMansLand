@@ -24,15 +24,23 @@ public class Castle_Wall_Controller : MonoBehaviour {
                 treeItem.GetComponent<Animator>().speed = 2.0f;
             }
             startStrongWind();
-            StartCoroutine(bringTheWallsDown());
+            StartCoroutine(revealTheSeal());
+            //StartCoroutine(bringTheWallsDown());
         }
     }
-
+    IEnumerator revealTheSeal()
+    {
+        var seal = GameObject.Find("castle_seal_wrapper");
+        seal.GetComponent<Animator>().SetBool("reveal", true);
+        yield return new WaitForSeconds(5.0f);
+        StartCoroutine(bringTheWallsDown());
+    }
     IEnumerator bringTheWallsDown()
     {
-        yield return new WaitForSeconds(1.5f);
         castleWalls.GetComponent<Animator>().SetBool("lowerWalls", true);
         mainCamera.GetComponent<Camera_Shaker>().enabled = true;
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine(WallSequence());
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -48,7 +56,15 @@ public class Castle_Wall_Controller : MonoBehaviour {
             breezeController.startStrongWind();
         }
     }
-
+    private void turnOffWind ()
+    {
+        Debug.Log("wind off");
+        foreach (GameObject treeItem in treeArray)
+        {
+            var breezeController = treeItem.GetComponent<TreeBreezeController>();
+            breezeController.stopAllWind();
+        }
+    }
     IEnumerator WallSequence()
     {
         var hero = GameObject.FindGameObjectWithTag("Player");
@@ -57,6 +73,7 @@ public class Castle_Wall_Controller : MonoBehaviour {
         //hero.GetComponent<PlayerMotionController>().enabled = true;
         hero.GetComponent<Perspective_Scale_Controller>().enabled = false;
         GameObject.Find("wall_blocker").GetComponent<BoxCollider2D>().enabled = false;
+        turnOffWind();
     }
     // Update is called once per frame
     void Update () {
