@@ -1,7 +1,5 @@
 fileFormatVersion: 2
 guid: 38f009c16085148f98dc674d6a05d483
-timeCreated: 1453259883
-licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: player-walking-left_0
@@ -18,14 +16,17 @@ TextureImporter:
     21300022: player-walking-left_11
     21300024: player-walking-left_12
     21300026: player-walking-left_13
-  serializedVersion: 2
+  externalObjects: {}
+  serializedVersion: 5
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -35,36 +36,89 @@ TextureImporter:
     normalMapFilter: 0
   isReadable: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -3
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: 1
     aniso: 16
     mipBias: -1
-    wrapMode: 1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: player-walking-left_0
+    - serializedVersion: 2
+      name: player-walking-left_0
       rect:
         serializedVersion: 2
         x: 0
@@ -74,27 +128,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.52974814, y: 0.062240392}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 58.47828, y: -13.755127}
-        - {x: 71.47828, y: 115.24487}
-        - {x: 71.47828, y: 180.24487}
-        - {x: 58.47828, y: 201.24487}
-        - {x: 48.47828, y: 207.24487}
-        - {x: -80.52172, y: 207.24487}
-        - {x: -80.52172, y: 132.24487}
-        - {x: -78.52172, y: 116.24487}
-        - {x: -55.52172, y: 121.24487}
-        - {x: -55.52172, y: 138.24487}
-        - {x: -55.52172, y: 130.24487}
-        - {x: -54.52172, y: 122.24487}
-        - {x: -53.52172, y: 117.24487}
-        - {x: -67.52172, y: 109.24487}
-        - {x: -50.52172, y: -13.755127}
-        - {x: -6.521721, y: -13.755127}
-        - {x: -3.521721, y: -9.755127}
-        - {x: -2.521721, y: -4.755127}
-        - {x: 26.47828, y: -13.755127}
-    - name: player-walking-left_1
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a91fd07e59f77df4da225a4345a0e5b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_1
       rect:
         serializedVersion: 2
         x: 167
@@ -104,16 +148,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.42653632, y: 0.06317433}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44.743576, y: 213.59625}
-        - {x: -53.743576, y: 199.59625}
-        - {x: -53.743576, y: 79.59625}
-        - {x: -43.743576, y: -14.403748}
-        - {x: 47.256424, y: -14.403748}
-        - {x: 72.256424, y: 97.59625}
-        - {x: 72.256424, y: 209.59625}
-        - {x: 48.256424, y: 213.59625}
-    - name: player-walking-left_2
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9e810f61907d646a0ee08f5aaf2ecd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_2
       rect:
         serializedVersion: 2
         x: 299
@@ -123,16 +168,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.46137875, y: 0.054313224}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -49.286133, y: 214.6709}
-        - {x: -62.286133, y: 178.6709}
-        - {x: -62.286133, y: 100.6709}
-        - {x: -31.286133, y: -12.329102}
-        - {x: 28.713867, y: -12.329102}
-        - {x: 72.71387, y: 133.6709}
-        - {x: 72.71387, y: 210.6709}
-        - {x: 65.71387, y: 214.6709}
-    - name: player-walking-left_3
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c6f1865d12a1a4f9048b77f0db90aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_3
       rect:
         serializedVersion: 2
         x: 435
@@ -142,22 +188,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.46950865, y: 0.05530962}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 67.61633, y: 210.66595}
-        - {x: -63.383667, y: 210.66595}
-        - {x: -63.383667, y: 119.665955}
-        - {x: -42.383667, y: 118.665955}
-        - {x: -39.383667, y: 123.665955}
-        - {x: -39.383667, y: 126.665955}
-        - {x: -39.383667, y: 121.665955}
-        - {x: -52.383667, y: 91.665955}
-        - {x: -53.383667, y: 4.6659546}
-        - {x: -27.383667, y: -12.334045}
-        - {x: 18.616333, y: -12.334045}
-        - {x: 70.61633, y: 103.665955}
-        - {x: 71.61633, y: 109.665955}
-        - {x: 71.61633, y: 208.66595}
-    - name: player-walking-left_4
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55f12957e2359ca4391cd468b35d6579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_4
       rect:
         serializedVersion: 2
         x: 7
@@ -167,20 +208,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5363781, y: 0.08760307}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 60.225174, y: 200.72733}
-        - {x: -77.774826, y: 200.72733}
-        - {x: -77.774826, y: 128.72733}
-        - {x: -64.774826, y: 15.727325}
-        - {x: -57.774826, y: 0.72732544}
-        - {x: -31.774826, y: -7.2726746}
-        - {x: -26.774826, y: 0.72732544}
-        - {x: -18.774826, y: -19.272675}
-        - {x: 17.225174, y: -19.272675}
-        - {x: 37.225174, y: -3.2726746}
-        - {x: 67.225174, y: 118.727325}
-        - {x: 67.225174, y: 192.72733}
-    - name: player-walking-left_5
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f712d82b0159a419e8cb78e0c6211b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_5
       rect:
         serializedVersion: 2
         x: 156
@@ -190,17 +228,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4429492, y: 0.059261903}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 11.644806, y: 213.54755}
-        - {x: -47.355194, y: 213.54755}
-        - {x: -59.355194, y: 187.54755}
-        - {x: -59.355194, y: 20.547546}
-        - {x: -53.355194, y: -13.452454}
-        - {x: 48.644806, y: -13.452454}
-        - {x: 74.644806, y: 60.547546}
-        - {x: 74.644806, y: 180.54755}
-        - {x: 62.644806, y: 202.54755}
-    - name: player-walking-left_6
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3acfda158eaeedb4c88e8e62b2c78d19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_6
       rect:
         serializedVersion: 2
         x: 161
@@ -210,27 +248,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5925059, y: 0.057221405}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -44.17096, y: 197.98352}
-        - {x: -44.17096, y: 189.98352}
-        - {x: -41.17096, y: 187.98352}
-        - {x: -50.17096, y: 179.98352}
-        - {x: -93.17096, y: 194.98352}
-        - {x: -97.17096, y: 194.98352}
-        - {x: -97.17096, y: 148.98352}
-        - {x: -88.17096, y: 114.98352}
-        - {x: -72.17096, y: 93.98352}
-        - {x: -58.17096, y: 101.98352}
-        - {x: -54.17096, y: 103.98352}
-        - {x: -54.17096, y: 105.98352}
-        - {x: -56.17096, y: 100.98352}
-        - {x: -75.17096, y: 79.98352}
-        - {x: -56.17096, y: -12.0164795}
-        - {x: 50.82904, y: -12.0164795}
-        - {x: 66.82904, y: 20.98352}
-        - {x: 66.82904, y: 189.98352}
-        - {x: 56.82904, y: 197.98352}
-    - name: player-walking-left_7
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4165272449383cb498ac5ea13cc8eb91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_7
       rect:
         serializedVersion: 2
         x: 328
@@ -240,22 +268,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5615784, y: 0.06131538}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -5.79834, y: 0.3880005}
-        - {x: 9.20166, y: -8.6119995}
-        - {x: 41.20166, y: -5.6119995}
-        - {x: 60.20166, y: 101.388}
-        - {x: 66.20166, y: 132.388}
-        - {x: 66.20166, y: 208.388}
-        - {x: -74.79834, y: 208.388}
-        - {x: -83.79834, y: 186.388}
-        - {x: -83.79834, y: 171.388}
-        - {x: -51.79834, y: -13.6119995}
-        - {x: 0.20166016, y: -13.6119995}
-        - {x: -4.79834, y: -3.6119995}
-        - {x: -10.79834, y: 6.3880005}
-        - {x: -5.79834, y: 18.388}
-    - name: player-walking-left_8
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35fd977e56f98344bc1f7e06f5e87ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_8
       rect:
         serializedVersion: 2
         x: 10
@@ -265,25 +288,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5270502, y: 0.06369264}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 22.050674, y: -8.330841}
-        - {x: 35.050674, y: -6.330841}
-        - {x: 58.050674, y: 15.669159}
-        - {x: 69.050674, y: 103.66916}
-        - {x: 69.050674, y: 210.66916}
-        - {x: -76.949326, y: 210.66916}
-        - {x: -76.949326, y: 94.66916}
-        - {x: -42.949326, y: -14.330841}
-        - {x: -20.949326, y: -14.330841}
-        - {x: -10.949326, y: -5.330841}
-        - {x: -4.9493256, y: 21.669159}
-        - {x: -3.9493256, y: 34.66916}
-      - - {x: 66.050674, y: 135.66916}
-        - {x: 68.050674, y: 133.66916}
-        - {x: 69.050674, y: 133.66916}
-        - {x: 69.050674, y: 139.66916}
-        - {x: 66.050674, y: 138.66916}
-    - name: player-walking-left_9
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c1321fc52cad94aae3780594db7d57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_9
       rect:
         serializedVersion: 2
         x: 290
@@ -293,22 +308,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.43798828, y: 0.056333337}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 64.30957, y: 214.21234}
-        - {x: -42.69043, y: 214.21234}
-        - {x: -54.69043, y: 189.21234}
-        - {x: -58.69043, y: 165.21234}
-        - {x: -58.69043, y: 141.21234}
-        - {x: -55.69043, y: 140.21234}
-        - {x: -52.69043, y: 140.21234}
-        - {x: -58.69043, y: 101.21233}
-        - {x: -58.69043, y: 48.212334}
-        - {x: -27.69043, y: -12.787666}
-        - {x: 17.30957, y: -12.787666}
-        - {x: 20.30957, y: -6.7876663}
-        - {x: 75.30957, y: 152.21234}
-        - {x: 75.30957, y: 199.21234}
-    - name: player-walking-left_10
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0adce550b61934ca2929738afe646c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_10
       rect:
         serializedVersion: 2
         x: 429
@@ -318,22 +328,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.4655305, y: 0.091600075}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 57.15338, y: 202.57318}
-        - {x: -62.84662, y: 202.57318}
-        - {x: -62.84662, y: 99.57318}
-        - {x: -41.84662, y: 112.57318}
-        - {x: -39.84662, y: 116.57318}
-        - {x: -39.84662, y: 119.57318}
-        - {x: -37.84662, y: 105.57318}
-        - {x: -51.84662, y: 102.57318}
-        - {x: -45.84662, y: -15.426819}
-        - {x: -28.846619, y: -20.426819}
-        - {x: 30.153381, y: -20.426819}
-        - {x: 36.15338, y: -18.426819}
-        - {x: 72.15338, y: 90.57318}
-        - {x: 72.15338, y: 193.57318}
-    - name: player-walking-left_11
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62eef0f154676b7448f415ee3fe2a379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_11
       rect:
         serializedVersion: 2
         x: 565
@@ -343,23 +348,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5275075, y: 0.092074275}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -8.488586, y: 199.74365}
-        - {x: -40.488586, y: 194.74365}
-        - {x: -43.488586, y: 191.74365}
-        - {x: -59.488586, y: 199.74365}
-        - {x: -74.48859, y: 199.74365}
-        - {x: -76.48859, y: 195.74365}
-        - {x: -76.48859, y: 138.74365}
-        - {x: -64.48859, y: 91.74366}
-        - {x: -68.48859, y: 17.74366}
-        - {x: -61.488586, y: 2.74366}
-        - {x: -18.488586, y: -20.25634}
-        - {x: 24.511414, y: -20.25634}
-        - {x: 37.511414, y: -14.25634}
-        - {x: 68.51141, y: 115.74366}
-        - {x: 68.51141, y: 199.74365}
-    - name: player-walking-left_12
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8650c989396194ea6fcd323bd74a70
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_12
       rect:
         serializedVersion: 2
         x: 717
@@ -369,24 +368,17 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5734099, y: 0.064735256}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -86.46582, y: 196.4056}
-        - {x: -93.46582, y: 194.4056}
-        - {x: -93.46582, y: 132.4056}
-        - {x: -79.46582, y: 82.405594}
-        - {x: -54.46582, y: 99.405594}
-        - {x: -52.46582, y: 103.405594}
-        - {x: -52.46582, y: 107.405594}
-        - {x: -52.46582, y: 106.405594}
-        - {x: -50.46582, y: 102.405594}
-        - {x: -53.46582, y: 100.405594}
-        - {x: -57.46582, y: 85.405594}
-        - {x: -58.46582, y: 0.40559387}
-        - {x: -55.46582, y: -13.594406}
-        - {x: 49.53418, y: -13.594406}
-        - {x: 69.53418, y: 104.405594}
-        - {x: 69.53418, y: 196.4056}
-    - name: player-walking-left_13
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7cbfdf0f7d78cc4ba4279d5cd841d77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_13
       rect:
         serializedVersion: 2
         x: 891
@@ -396,15 +388,23 @@ TextureImporter:
       alignment: 9
       pivot: {x: 0.5429534, y: 0.052955013}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -80.98596, y: 208.3499}
-        - {x: -81.98596, y: 206.3499}
-        - {x: -81.98596, y: 118.3499}
-        - {x: -55.985962, y: -11.650101}
-        - {x: 31.014038, y: -11.650101}
-        - {x: 69.01404, y: 85.3499}
-        - {x: 69.01404, y: 208.3499}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5786835a481b24f439cd042e000e771a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
   spritePackingTag: 
   userData: 
   assetBundleName: 
