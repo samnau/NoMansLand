@@ -4,38 +4,46 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Hero_Health_Value : MonoBehaviour {
-    int healthValue = 0;
+    int defaultHealth = 4;
+    public int healthValue = 0;
     Text textbox;
 	// Use this for initialization
 	void Start () {
+        healthValue = defaultHealth;
         textbox = gameObject.GetComponent<Text>();
         textbox.text = healthValue.ToString();
-        var player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotionController>().enabled = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotionController>().inBattle = true;
        // Debug.Log(textbox);
         //textbox.GetComponent<Text>().text = healthValue;
 	}
-	
-    void UpdateHealthValue(bool increase = true)
+	public void TakeDamage()
     {
-        if (increase)
-        {
-            healthValue++;
-        } else
+        if(healthValue > 0)
         {
             healthValue--;
         }
+    }
+    void UpdateHealthValue(bool increase = true)
+    {
+       // if (increase && healthValue < defaultHealth)
+       // {
+       //     healthValue++;
+       //} else if(healthValue > 0)
+       // {
+       //     healthValue--;
+       // }
         textbox.text = healthValue.ToString();
     }
     void Update()
     {
-        if (Input.GetKeyDown("down"))
-        {
-            UpdateHealthValue(false);
-        }
-        if (Input.GetKeyDown("up"))
-        {
-            UpdateHealthValue();
-        }
-
+        //if (Input.GetKeyDown("down"))
+        //{
+        //    UpdateHealthValue(false);
+        //}
+        //if (Input.GetKeyDown("up"))
+        //{
+        //    UpdateHealthValue();
+        //}
+        UpdateHealthValue();
     }
 }
