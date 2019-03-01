@@ -4,55 +4,62 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class monster_action_manager : MonoBehaviour {
-   // public string[] attack_list = new string[3];
-    string current_attack;
-    public string[] attack_list = { "bite", "drain", "slime" };
+    public string current_attack;
+    public string defense_key;
+
+    public float attack_duration = 2.0f;
+    public float defense_window = 0.5f;
+    public float defense_start = 1.0f;
+    float next_attack_delay;
     bool validDefense = false;
     bool attackDefended = false;
-    bool attackComplete = false;
+    //bool attackComplete = false;
+    Hero_Health_Value healthTracker;
+    int heroHealthAmount;
     Text textbox;
     GameObject healthIndicator;
-    Component healthTracker;
 
 	void Start () {
-        textbox = gameObject.GetComponent<Text>();
-        var healthIndicator = GameObject.Find("health_value");
+       textbox = gameObject.GetComponent<Text>();
+       var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
-        
-        StartCoroutine(AttackCycle());
+       heroHealthAmount = healthTracker.healthValue;
+       StartCoroutine(AttackCycle());
+       
     }
     IEnumerator AttackCycle()
     {
-        attackComplete = false;
-        validDefense = false;
-        textbox.text = "attacking!";
-        yield return new WaitForSeconds(2.0f);
-        validDefense = true;
-        textbox.text = "defend!";
-        yield return new WaitForSeconds(1.0f);
-        textbox.text = "attacking complete!";
+        if (heroHealthAmount > 0)
+        {
 
-        attackComplete = true;
-        validDefense = false;
-        StartCoroutine(AssignDamage());
+            //attackComplete = false;
+            validDefense = false;
+            textbox.text = "attacking!";
+            yield return new WaitForSeconds(defense_start);
+            validDefense = true;
+            textbox.text = "defend!";
+            yield return new WaitForSeconds(defense_window);
+            textbox.text = "attacking complete!";
+
+            //attackComplete = true;
+            validDefense = false;
+            next_attack_delay = Random.Range(3.0f, 6.0f);
+            StartCoroutine(AssignDamage());
+        }
     }
 
     IEnumerator AssignDamage()
     {
-        var fatalValue = 1;
-        var heroHealth = healthTracker.GetComponent<Hero_Health_Value>();
-        var healthAmount = heroHealth.healthValue;
+        heroHealthAmount = healthTracker.healthValue;
+
         if (!attackDefended)
         {
-            heroHealth.TakeDamage();
+            healthTracker.TakeDamage();
         }
-        if (healthAmount > 0)
+        if (heroHealthAmount > 0)
         {
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(next_attack_delay);
             StartCoroutine(AttackCycle());
-        } else if(healthAmount < fatalValue)
-        {
-            textbox.text = "You died!";
         }
         attackDefended = false;
 
