@@ -75,7 +75,7 @@ public class monster_action_manager : MonoBehaviour {
     }
     void CheckDefense()
     {
-       if(!validDefense)
+       if(!validDefense || Input.inputString != defense_key)
         {
             textbox.text = "defend failed!";
             attackDefended = false;
@@ -88,7 +88,7 @@ public class monster_action_manager : MonoBehaviour {
         }
     }
 	void Update () {
-        if(Input.anyKeyDown && Input.inputString == defense_key)
+        if(Input.anyKeyDown)
         {
             CheckDefense();
         }
