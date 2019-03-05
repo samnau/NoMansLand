@@ -18,28 +18,31 @@ public class monster_action_manager : MonoBehaviour {
     bool defenseWindowMissed = false;
     //bool attackComplete = false;
     Hero_Health_Value healthTracker;
-    int heroHealthAmount;
     Text textbox;
     GameObject healthIndicator;
 
-	void Start () {
+    public GameObject ball;
+    private GameObject test_attack;
+
+
+    void Start () {
        textbox = gameObject.GetComponent<Text>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
-       heroHealthAmount = healthTracker.healthValue;
        StartCoroutine("AttackCycle");
     }
     IEnumerator AttackCycle()
     {
-        if (heroHealthAmount > 0)
+        if (healthTracker.playerIsAlive)
         {
+            test_attack = Instantiate(ball, transform.position, transform.rotation);
             next_attack_delay = Random.Range(3.0f, 6.0f);
             //attackComplete = false;
             validDefense = false;
-            textbox.text = "attacking!";
+            //textbox.text = "attacking!";
             yield return new WaitForSeconds(defense_start);
             validDefense = true;
-            textbox.text = "defend!";
+            //textbox.text = "defend!";
             if(defenseWindowMissed)
             {
                 StartCoroutine(AssignDamage());
@@ -48,7 +51,7 @@ public class monster_action_manager : MonoBehaviour {
 
             yield return new WaitForSeconds(defense_window);
 
-            textbox.text = "attacking complete!";
+            //textbox.text = "attacking complete!";
 
             //attackComplete = true;
             validDefense = false;
@@ -59,13 +62,14 @@ public class monster_action_manager : MonoBehaviour {
 
     IEnumerator AssignDamage()
     {
-        heroHealthAmount = healthTracker.healthValue;
+
+        Destroy(test_attack);
 
         if (!attackDefended)
         {
             healthTracker.TakeDamage();
         }
-        if (heroHealthAmount > 0)
+        if (healthTracker.playerIsAlive)
         {
             yield return new WaitForSeconds(next_attack_delay);
             StartCoroutine("AttackCycle");
@@ -77,18 +81,18 @@ public class monster_action_manager : MonoBehaviour {
     {
        if(!validDefense || Input.inputString != defense_key)
         {
-            textbox.text = "defend failed!";
+            //textbox.text = "defend failed!";
             attackDefended = false;
             defenseWindowMissed = true;
         }
         if(validDefense && !defenseWindowMissed)
         {
            attackDefended = true;
-           textbox.text = "blocked";
+           //textbox.text = "blocked";
         }
     }
 	void Update () {
-        if(Input.anyKeyDown)
+        if(Input.anyKeyDown && healthTracker.playerIsAlive)
         {
             CheckDefense();
         }

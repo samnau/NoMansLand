@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Hero_Health_Value : MonoBehaviour {
     int defaultHealth = 4;
     public int healthValue = 0;
+    public bool playerIsAlive = true;
     Text textbox;
     Camera mainCamera;
 
@@ -29,6 +30,7 @@ public class Hero_Health_Value : MonoBehaviour {
         if(healthValue < 1)
         {
             textbox.text = healthValue.ToString() + " you died";
+            playerIsAlive = false;
             mainCamera.GetComponent<Camera_Shaker>().enabled = true;
         }
     }
