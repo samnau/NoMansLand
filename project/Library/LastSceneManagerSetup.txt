@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/Battle.unity
+- path: Assets/scenes/CastleExterior.unity
   isLoaded: 1
   isActive: 1

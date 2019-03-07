@@ -29,8 +29,14 @@ public class monster_action_manager : MonoBehaviour {
        textbox = gameObject.GetComponent<Text>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
-       StartCoroutine("AttackCycle");
+        StartCoroutine("InitAttack");
     }
+    IEnumerator InitAttack()
+    {
+        yield return new WaitForSeconds(1.5f);
+        StartCoroutine("AttackCycle");
+    }
+
     IEnumerator AttackCycle()
     {
         if (healthTracker.playerIsAlive)
