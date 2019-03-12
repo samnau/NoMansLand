@@ -24,8 +24,10 @@ public class monster_action_manager : MonoBehaviour {
     public GameObject ball;
     private GameObject test_attack;
 
+    Hero_Battle_Action_Manager hero_action_manager;
 
     void Start () {
+       hero_action_manager = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero_Battle_Action_Manager>();
        textbox = gameObject.GetComponent<Text>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
@@ -94,6 +96,7 @@ public class monster_action_manager : MonoBehaviour {
         if(validDefense && !defenseWindowMissed)
         {
            attackDefended = true;
+            hero_action_manager.TriggerDefense();
            //textbox.text = "blocked";
         }
     }
