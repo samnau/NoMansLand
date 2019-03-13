@@ -18,8 +18,10 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     }
     IEnumerator ShieldSpell()
     {
-        test_defense = Instantiate(shield_spell, transform.position, transform.rotation);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
+        var targetPositon = new Vector2(transform.position.x, transform.position.y + 1.0f);
+        test_defense = Instantiate(shield_spell, targetPositon, transform.rotation);
+        yield return new WaitForSeconds(0.6f);
         Destroy(test_defense);
         hero_animator.SetBool("ACTION", false);
     }

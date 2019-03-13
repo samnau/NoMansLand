@@ -17,7 +17,7 @@ public class Hero_Health_Value : MonoBehaviour {
         textbox = gameObject.GetComponent<Text>();
         textbox.text = healthValue.ToString();
         player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerMotionController>().inBattle = true;
+        //player.GetComponent<PlayerMotionController>().inBattle = true;
 	}
 	public void TakeDamage()
     {
