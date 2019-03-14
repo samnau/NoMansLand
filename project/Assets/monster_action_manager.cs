@@ -20,6 +20,8 @@ public class monster_action_manager : MonoBehaviour {
     Hero_Health_Value healthTracker;
     Text textbox;
     GameObject healthIndicator;
+    GameObject monster;
+    Vector2 attackStartPosition;
 
     public GameObject ball;
     private GameObject test_attack;
@@ -27,11 +29,13 @@ public class monster_action_manager : MonoBehaviour {
     Hero_Battle_Action_Manager hero_action_manager;
 
     void Start () {
+       monster = GameObject.FindGameObjectWithTag("Enemy");
+       attackStartPosition = new Vector2(monster.transform.position.x, monster.transform.position.y + 1.2f);
        hero_action_manager = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero_Battle_Action_Manager>();
        textbox = gameObject.GetComponent<Text>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
-        StartCoroutine("InitAttack");
+       StartCoroutine("InitAttack");
     }
     IEnumerator InitAttack()
     {
@@ -43,7 +47,7 @@ public class monster_action_manager : MonoBehaviour {
     {
         if (healthTracker.playerIsAlive)
         {
-            test_attack = Instantiate(ball, transform.position, transform.rotation);
+            test_attack = Instantiate(ball, attackStartPosition, transform.rotation);
             next_attack_delay = Random.Range(3.0f, 6.0f);
             //attackComplete = false;
             validDefense = false;

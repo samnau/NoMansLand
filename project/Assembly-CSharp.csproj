@@ -78,6 +78,7 @@
     <Compile Include="Assets\Hero_Health_Value.cs" />
     <Compile Include="Assets\monster_action_manager.cs" />
     <Compile Include="Assets\MotionController3.cs" />
+    <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2d_AnimatorController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
