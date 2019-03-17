@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     Vector2 currentPosition;
     Vector2 targetPosition;
     public bool KeepLooping = true;
-    public float speed = 0.5f;
+    public float speed = 0.25f;
     float moveIncrement = 0;
 
     void Start()

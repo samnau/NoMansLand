@@ -18,6 +18,7 @@ public class Hero_Health_Value : MonoBehaviour {
         textbox.text = healthValue.ToString();
         player = GameObject.FindGameObjectWithTag("Player");
         //player.GetComponent<PlayerMotionController>().inBattle = true;
+
 	}
 	public void TakeDamage()
     {
@@ -34,12 +35,13 @@ public class Hero_Health_Value : MonoBehaviour {
         {
             textbox.text = healthValue.ToString() + " you died";
             playerIsAlive = false;
-            IndicateDeath();
+            //IndicateDeath();
             //mainCamera.GetComponent<Camera_Shaker>().enabled = true;
         }
     }
     void IndicateDeath()
     {
+        
         foreach (SpriteRenderer sr in player.GetComponentsInChildren<SpriteRenderer>())
         {
             Debug.Log(sr);

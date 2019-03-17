@@ -100,7 +100,7 @@ public class monster_action_manager : MonoBehaviour {
         if(validDefense && !defenseWindowMissed)
         {
            attackDefended = true;
-            hero_action_manager.TriggerDefense();
+           hero_action_manager.TriggerDefense();
            //textbox.text = "blocked";
         }
     }
