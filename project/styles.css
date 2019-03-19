@@ -23,7 +23,7 @@ body {
 }
 
 .uf_body_copy {
-  background: linear-gradient(to bottom, #333333 30%,#000000 100%); 
+  background: linear-gradient(to bottom, #333333 30%,#000000 100%);
   font-family: Arial, sans-serif;
   font-size: 18px;
   padding: 30px;
@@ -51,7 +51,7 @@ h1 {
 }
 
 .uf_footer {
-  background: url('footer-image.png') center no-repeat;
+  background: url('site_footer.jpg') center no-repeat;
   background-size: cover;
   height: 330px;
   width: 100%
