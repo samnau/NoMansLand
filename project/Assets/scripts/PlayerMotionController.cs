@@ -16,6 +16,7 @@ public class PlayerMotionController : MonoBehaviour {
 	Rigidbody2D myRigidBody2D;
 	string[] directionValues = {"LEFT", "RIGHT", "UP", "DOWN" };
 	public float motionDistance = 1.0f;
+    public bool inBattle = false;
 
 	void OnCollisionEnter2D( Collision2D collision ){
 		lastKeyPressed = setCurrentKeyPressed ();
@@ -47,6 +48,10 @@ public class PlayerMotionController : MonoBehaviour {
 		startMovement();
 	}
 	private void startMovement(){
+        if(inBattle)
+        {
+            return;
+        }
 		var horizontalValue = Input.GetAxis ("Horizontal") * motionDistance;
 		var verticalValue = Input.GetAxis ("Vertical") * motionDistance;
 		var walkingVelocityReached = Mathf.Abs (horizontalValue) > 0.5 || Mathf.Abs (verticalValue) > 0.5;
@@ -171,7 +176,7 @@ public class PlayerMotionController : MonoBehaviour {
 
 		var movingHorizontal = horizontalValue != 0;
 		var movingVertical = verticalValue !=0;
-		if(movingVertical || movingHorizontal){
+		if((movingVertical || movingHorizontal) && !inBattle){
 			if(movingHorizontal){
 				animationController.SetBool("LEFT",movingLeft);
 				animationController.SetBool("RIGHT",movingRight);
