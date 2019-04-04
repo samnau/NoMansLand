@@ -8,15 +8,22 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     GameObject test_defense;
     float changeIncrement = 0;
     bool fadeEnabled = false;
+    Vector2 familiarPosition;
     // Use this for initialization
     void Start () {
         hero_animator = gameObject.GetComponent<Animator>();
+        findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
 	}
 	public void TriggerDefense()
     {
         hero_animator.SetBool("ACTION", true);
         StartCoroutine(ShieldSpell());
+    }
+    void findFamiliarPosition()
+    {
+        var familiar = GameObject.FindGameObjectWithTag("familiar");
+        familiarPosition = familiar.transform.position;
     }
     IEnumerator FadeInShield()
     {
@@ -40,7 +47,8 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     IEnumerator ShieldSpell()
     {
         yield return new WaitForSeconds(0.25f);
-        var targetPositon = new Vector2(transform.position.x, transform.position.y + 1.0f);
+        var targetPositon = new Vector2(familiarPosition.x, familiarPosition.y + 1.0f);
+        //var targetPositon = new Vector2(transform.position.x, transform.position.y + 1.0f);
         test_defense = Instantiate(shield_spell, targetPositon, transform.rotation);
         changeIncrement = 0;
         test_defense.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0f);

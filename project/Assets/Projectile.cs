@@ -13,7 +13,7 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("familiar");
         currentPosition = transform.position;
         FindPlayer();
     }
