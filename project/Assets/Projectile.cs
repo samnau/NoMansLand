@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    GameObject player;
+    GameObject familiar;
     Vector2 currentPosition;
     Vector2 targetPosition;
     public bool KeepLooping = true;
@@ -13,14 +13,14 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("familiar");
+        familiar = GameObject.FindGameObjectWithTag("familiar");
         currentPosition = transform.position;
-        FindPlayer();
+        FindFamiliar();
     }
 
-    void FindPlayer()
+    void FindFamiliar()
     {
-        targetPosition = new Vector2(player.transform.position.x, player.transform.position.y+1.0f);
+        targetPosition = new Vector2(familiar.transform.position.x, familiar.transform.position.y + 0.25f);
     }
 
     void findProjectilePosition()

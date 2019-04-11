@@ -5,6 +5,8 @@ using UnityEngine;
 public class Hero_Battle_Action_Manager : MonoBehaviour {
     Animator hero_animator;
     public GameObject shield_spell;
+    GameObject monsterHealthText;
+    MonsterHealthManager monsterHealthTracker;
     GameObject test_defense;
     float changeIncrement = 0;
     bool fadeEnabled = false;
@@ -14,7 +16,13 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         hero_animator = gameObject.GetComponent<Animator>();
         findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
+        monsterHealthText = GameObject.Find("monster_health_indicator");
+        monsterHealthTracker = monsterHealthText.GetComponent<MonsterHealthManager>();
 	}
+    void TriggerAttack ()
+    {
+        monsterHealthTracker.TakeDamage();
+    }
 	public void TriggerDefense()
     {
         hero_animator.SetBool("ACTION", true);
@@ -60,6 +68,9 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown("a"))
+        {
+            TriggerAttack();
+        }
 	}
 }

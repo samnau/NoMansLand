@@ -66,9 +66,11 @@
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser2.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\TableCodeGen.cs" />
+    <Compile Include="Assets\FamiliarActionManager.cs" />
     <Compile Include="Assets\Hero_Battle_Action_Manager.cs" />
     <Compile Include="Assets\Hero_Health_Value.cs" />
     <Compile Include="Assets\monster_action_manager.cs" />
+    <Compile Include="Assets\MonsterHealthManager.cs" />
     <Compile Include="Assets\MotionController3.cs" />
     <Compile Include="Assets\Projectile.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
