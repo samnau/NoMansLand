@@ -22,7 +22,14 @@ public class Projectile : MonoBehaviour
     {
         targetPosition = new Vector2(familiar.transform.position.x, familiar.transform.position.y + 0.25f);
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("a collision?");
+        if (collision.CompareTag("familiar"))
+        {
+            Debug.Log("Hit!");
+        }
+    }
     void findProjectilePosition()
     {
         currentPosition = transform.position;

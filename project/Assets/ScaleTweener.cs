@@ -27,15 +27,17 @@ public class ScaleTweener : MonoBehaviour {
     {
         changeIncrement += (Time.deltaTime * speed);
         findCurrentScale();
+        var currentScaleTarget = scaleMeUp ? targetScale : initialScale;
         if (changeIncrement < 1.0f)
         {
-            transform.localScale = Vector3.Lerp(currentScale, targetScale, changeIncrement);
-        }else
-        {
-            scaleMeUp = false;
-            changeIncrement = 0;
+            transform.localScale = Vector3.Lerp(currentScale, currentScaleTarget, changeIncrement);
         }
     }
+    public void ResetIncrement()
+    {
+        changeIncrement = 0;
+    }
+
     void ScaleDown()
     {
         changeIncrement += (Time.deltaTime * speed);
@@ -52,14 +54,7 @@ public class ScaleTweener : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-		if(scaleMeUp)
-        {
-            ScaleUp();
-        }
+        ScaleUp();
 
-        if (scaleMeDown)
-        {
-            ScaleDown();
-        }
     }
 }

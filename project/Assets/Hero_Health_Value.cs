@@ -44,7 +44,7 @@ public class Hero_Health_Value : MonoBehaviour {
         
         foreach (SpriteRenderer sr in player.GetComponentsInChildren<SpriteRenderer>())
         {
-            Debug.Log(sr);
+            //Debug.Log(sr);
             var deadColor = new Color(0, 0, 0, 0.5f);
             sr.material.color = Color.Lerp(Color.white, deadColor, 1.5f);
         }
@@ -53,13 +53,13 @@ public class Hero_Health_Value : MonoBehaviour {
     {
         foreach (SpriteRenderer sr in player.GetComponentsInChildren<SpriteRenderer>())
         {
-            Debug.Log(sr);
+           // Debug.Log(sr);
             sr.material.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         }
         yield return new WaitForSeconds(0.1f);
         foreach (SpriteRenderer sr in player.GetComponentsInChildren<SpriteRenderer>())
         {
-            Debug.Log(sr);
+           // Debug.Log(sr);
             sr.material.color = Color.white;
         }
     }

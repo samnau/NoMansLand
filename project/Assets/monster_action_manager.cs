@@ -15,6 +15,7 @@ public class monster_action_manager : MonoBehaviour {
     bool validDefense = false;
     bool attackDefended = false;
     bool defenseWindowMissed = false;
+    bool heroCanAttack = false;
     Hero_Health_Value healthTracker;
     GameObject healthIndicator;
     GameObject monster;
