@@ -10,12 +10,16 @@ public class Projectile : MonoBehaviour
     public bool KeepLooping = true;
     public float speed = 0.25f;
     float moveIncrement = 0;
+    GameObject monster;
+    monster_action_manager monsterManager;
 
     void Start()
     {
         familiar = GameObject.FindGameObjectWithTag("familiar");
         currentPosition = transform.position;
         FindFamiliar();
+        monster = GameObject.FindGameObjectWithTag("Enemy");
+        monsterManager = monster.GetComponent<monster_action_manager>();
     }
 
     void FindFamiliar()
@@ -24,10 +28,9 @@ public class Projectile : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("a collision?");
         if (collision.CompareTag("familiar"))
         {
-            Debug.Log("Hit!");
+            StartCoroutine(monsterManager.OpenDefenseWindow());
         }
     }
     void findProjectilePosition()

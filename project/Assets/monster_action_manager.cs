@@ -12,7 +12,7 @@ public class monster_action_manager : MonoBehaviour {
     public float defense_window = 0.5f;
     public float defense_start = 1.0f;
     float next_attack_delay;
-    bool validDefense = false;
+    public bool validDefense = false;
     bool attackDefended = false;
     bool defenseWindowMissed = false;
     bool heroCanAttack = false;
@@ -37,32 +37,26 @@ public class monster_action_manager : MonoBehaviour {
     IEnumerator InitAttack()
     {
         yield return new WaitForSeconds(1.5f);
-        StartCoroutine("AttackCycle");
+        AttackCycle();
     }
 
-    IEnumerator AttackCycle()
+    void AttackCycle()
     {
         if (healthTracker.playerIsAlive)
         {
             test_attack = Instantiate(ball, attackStartPosition, transform.rotation);
             next_attack_delay = Random.Range(3.0f, 6.0f);
             validDefense = false;
-            yield return new WaitForSeconds(defense_start);
-            validDefense = true;
-            if(defenseWindowMissed)
-            {
-                StartCoroutine(AssignDamage());
-                StopCoroutine("AttackCycle");
-            }
-
-            yield return new WaitForSeconds(defense_window);
-
-            validDefense = false;
-            
-            StartCoroutine(AssignDamage());
         }
     }
 
+    public IEnumerator OpenDefenseWindow()
+    {
+        validDefense = true;
+        yield return new WaitForSeconds(defense_window);
+        validDefense = false;
+        StartCoroutine(AssignDamage());
+    }
     IEnumerator AssignDamage()
     {
 
@@ -75,7 +69,7 @@ public class monster_action_manager : MonoBehaviour {
         if (healthTracker.playerIsAlive)
         {
             yield return new WaitForSeconds(next_attack_delay);
-            StartCoroutine("AttackCycle");
+            AttackCycle();
         }
         attackDefended = false;
         defenseWindowMissed = false;
