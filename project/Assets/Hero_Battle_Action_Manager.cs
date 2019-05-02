@@ -6,10 +6,13 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     Animator hero_animator;
     public GameObject shield_spell;
     GameObject monsterHealthText;
+    GameObject monster;
     MonsterHealthManager monsterHealthTracker;
+    monster_action_manager monsterActionManager;
     GameObject test_defense;
     float changeIncrement = 0;
     bool fadeEnabled = false;
+    bool canAttack = false;
     Vector2 familiarPosition;
     // Use this for initialization
     void Start () {
@@ -18,7 +21,14 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         hero_animator.SetBool("RIGHT", true);
         monsterHealthText = GameObject.Find("monster_health_indicator");
         monsterHealthTracker = monsterHealthText.GetComponent<MonsterHealthManager>();
+        monster = GameObject.FindGameObjectWithTag("Enemy");
+        monsterActionManager = monster.GetComponent<monster_action_manager>();
 	}
+    void setCanAttack()
+    {
+        canAttack = monsterActionManager.heroCanAttack;
+        Debug.Log(monsterActionManager.heroCanAttack);
+    }
     void TriggerAttack ()
     {
         monsterHealthTracker.TakeDamage();
@@ -68,7 +78,8 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown("a"))
+        setCanAttack();
+        if (Input.GetKeyDown("a") && canAttack)
         {
             TriggerAttack();
         }

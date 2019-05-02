@@ -15,7 +15,7 @@ public class monster_action_manager : MonoBehaviour {
     public bool validDefense = false;
     bool attackDefended = false;
     bool defenseWindowMissed = false;
-    bool heroCanAttack = false;
+    public bool heroCanAttack = false;
     Hero_Health_Value healthTracker;
     GameObject healthIndicator;
     GameObject monster;
@@ -42,6 +42,7 @@ public class monster_action_manager : MonoBehaviour {
 
     void AttackCycle()
     {
+        heroCanAttack = false;
         if (healthTracker.playerIsAlive)
         {
             test_attack = Instantiate(ball, attackStartPosition, transform.rotation);
@@ -59,7 +60,6 @@ public class monster_action_manager : MonoBehaviour {
     }
     IEnumerator AssignDamage()
     {
-
         Destroy(test_attack);
 
         if (!attackDefended)
@@ -69,6 +69,7 @@ public class monster_action_manager : MonoBehaviour {
         if (healthTracker.playerIsAlive)
         {
             yield return new WaitForSeconds(next_attack_delay);
+            heroCanAttack = false;
             AttackCycle();
         }
         attackDefended = false;
@@ -80,15 +81,17 @@ public class monster_action_manager : MonoBehaviour {
         {
             attackDefended = false;
             defenseWindowMissed = true;
+            heroCanAttack = false;
         }
         if(validDefense && !defenseWindowMissed)
         {
            attackDefended = true;
+           heroCanAttack = true;
            hero_action_manager.TriggerDefense();
         }
     }
 	void Update () {
-        if(Input.anyKeyDown && healthTracker.playerIsAlive)
+        if(Input.anyKeyDown && healthTracker.playerIsAlive && !heroCanAttack)
         {
             CheckDefense();
         }
