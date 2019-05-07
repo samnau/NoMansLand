@@ -17,6 +17,7 @@ public class monster_action_manager : MonoBehaviour {
     bool defenseWindowMissed = false;
     public bool heroCanAttack = false;
     Hero_Health_Value healthTracker;
+    MonsterHealthManager monsterHealthManager;
     GameObject healthIndicator;
     GameObject monster;
     Vector2 attackStartPosition;
@@ -32,6 +33,7 @@ public class monster_action_manager : MonoBehaviour {
        hero_action_manager = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero_Battle_Action_Manager>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
+       monsterHealthManager = GameObject.Find("monster_health_indicator").GetComponent<MonsterHealthManager>();
        StartCoroutine("InitAttack");
     }
     IEnumerator InitAttack()
@@ -43,7 +45,7 @@ public class monster_action_manager : MonoBehaviour {
     void AttackCycle()
     {
         heroCanAttack = false;
-        if (healthTracker.playerIsAlive)
+        if (healthTracker.playerIsAlive && monsterHealthManager.monsterIsAlive)
         {
             test_attack = Instantiate(ball, attackStartPosition, transform.rotation);
             next_attack_delay = Random.Range(3.0f, 6.0f);

@@ -27,11 +27,11 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     void setCanAttack()
     {
         canAttack = monsterActionManager.heroCanAttack;
-        Debug.Log(monsterActionManager.heroCanAttack);
     }
     void TriggerAttack ()
     {
         monsterHealthTracker.TakeDamage();
+        monsterActionManager.heroCanAttack = false;
     }
 	public void TriggerDefense()
     {
