@@ -13,10 +13,14 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     float changeIncrement = 0;
     bool fadeEnabled = false;
     bool canAttack = false;
+    GameObject familiar;
+    FamiliarActionManager familiarActionManager;
     Vector2 familiarPosition;
     // Use this for initialization
     void Start () {
         hero_animator = gameObject.GetComponent<Animator>();
+        familiar = GameObject.FindGameObjectWithTag("familiar");
+        familiarActionManager = familiar.GetComponent<FamiliarActionManager>();
         findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
         monsterHealthText = GameObject.Find("monster_health_indicator");
@@ -31,6 +35,7 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     void TriggerAttack ()
     {
         monsterHealthTracker.TakeDamage();
+        familiarActionManager.TriggerAttack();
         monsterActionManager.heroCanAttack = false;
     }
 	public void TriggerDefense()
@@ -40,7 +45,6 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     }
     void findFamiliarPosition()
     {
-        var familiar = GameObject.FindGameObjectWithTag("familiar");
         familiarPosition = familiar.transform.position;
     }
     IEnumerator FadeInShield()
