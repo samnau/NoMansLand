@@ -12,7 +12,7 @@ public class FamiliarActionManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         monster = GameObject.FindGameObjectWithTag("Enemy");
-        attackStartPosition = new Vector2(monster.transform.position.x, monster.transform.position.y+7.5f);
+        attackStartPosition = new Vector2(monster.transform.position.x, monster.transform.position.y+10.0f);
     }
     public void TriggerAttack ()
     {
