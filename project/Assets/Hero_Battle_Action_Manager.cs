@@ -5,7 +5,7 @@ using UnityEngine;
 public class Hero_Battle_Action_Manager : MonoBehaviour {
     Animator hero_animator;
     public GameObject shield_spell;
-    GameObject monsterHealthText;
+    //GameObject monsterHealthText;
     GameObject monster;
     MonsterHealthManager monsterHealthTracker;
     monster_action_manager monsterActionManager;
@@ -23,9 +23,9 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         familiarActionManager = familiar.GetComponent<FamiliarActionManager>();
         findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
-        monsterHealthText = GameObject.Find("monster_health_indicator");
-        monsterHealthTracker = monsterHealthText.GetComponent<MonsterHealthManager>();
+        //monsterHealthText = GameObject.Find("monster_health_indicator");
         monster = GameObject.FindGameObjectWithTag("Enemy");
+        monsterHealthTracker = monster.GetComponent<MonsterHealthManager>();
         monsterActionManager = monster.GetComponent<monster_action_manager>();
 	}
     void setCanAttack()

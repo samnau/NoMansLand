@@ -33,7 +33,7 @@ public class monster_action_manager : MonoBehaviour {
        hero_action_manager = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero_Battle_Action_Manager>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
-       monsterHealthManager = GameObject.Find("monster_health_indicator").GetComponent<MonsterHealthManager>();
+       monsterHealthManager = monster.GetComponent<MonsterHealthManager>();
        StartCoroutine("InitAttack");
     }
     IEnumerator InitAttack()

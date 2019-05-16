@@ -5,19 +5,21 @@ using UnityEngine.UI;
 
 public class MonsterHealthManager : MonoBehaviour {
     public int healthValue = 3;
-    Text textbox;
+    Animator monsterAnimator;
+    //Text textbox;
     public bool monsterIsAlive = true;
 	// Use this for initialization
 	void Start () {
-        textbox = gameObject.GetComponent<Text>();
-        textbox.text = healthValue.ToString();
+        //  textbox = gameObject.GetComponent<Text>();
+        //textbox.text = healthValue.ToString();
+        monsterAnimator = gameObject.GetComponent<Animator>();
     }
 	public void TakeDamage()
     {
         if(healthValue > 0)
         {
             healthValue -= 1;
-            textbox.text = healthValue.ToString();
+           // textbox.text = healthValue.ToString();
         }
     }
 	// Update is called once per frame
@@ -25,7 +27,8 @@ public class MonsterHealthManager : MonoBehaviour {
         monsterIsAlive = healthValue > 0;
         if(!monsterIsAlive)
         {
-            textbox.text = "you win!!";
+            monsterAnimator.SetBool("defeat", true);
+            //textbox.text = "you win!!";
         }
     }
 }
