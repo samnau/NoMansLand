@@ -24,7 +24,7 @@ public class Projectile : MonoBehaviour
 
     void FindFamiliar()
     {
-        targetPosition = new Vector2(familiar.transform.position.x, familiar.transform.position.y + 0.25f);
+        targetPosition = new Vector2(familiar.transform.position.x + 0.5f, familiar.transform.position.y + 3.25f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -69,9 +69,10 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     IEnumerator ShieldSpell()
     {
         yield return new WaitForSeconds(0.25f);
-        var targetPositon = new Vector2(familiarPosition.x, familiarPosition.y + 1.0f);
-        //var targetPositon = new Vector2(transform.position.x, transform.position.y + 1.0f);
+        float shieldScale = 1.05f;
+        var targetPositon = new Vector2(familiarPosition.x+0.25f, familiarPosition.y + 3.0f);
         test_defense = Instantiate(shield_spell, targetPositon, transform.rotation);
+        test_defense.transform.localScale = new Vector2(shieldScale, shieldScale);
         changeIncrement = 0;
         test_defense.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, 0f);
         fadeEnabled = true;
