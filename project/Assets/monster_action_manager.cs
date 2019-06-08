@@ -9,7 +9,7 @@ public class monster_action_manager : MonoBehaviour {
 
     public string[] attack_list;
     public float attack_duration = 2.0f;
-    public float defense_window = 0.5f;
+    public float defense_window = 0.75f;
     public float defense_start = 1.0f;
     float next_attack_delay;
     public bool validDefense = false;
@@ -29,7 +29,7 @@ public class monster_action_manager : MonoBehaviour {
 
     void Start () {
        monster = GameObject.FindGameObjectWithTag("Enemy");
-       attackStartPosition = new Vector2(monster.transform.position.x, monster.transform.position.y + 1.2f);
+       attackStartPosition = new Vector2(monster.transform.position.x, monster.transform.position.y + 3.6f);
        hero_action_manager = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero_Battle_Action_Manager>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
