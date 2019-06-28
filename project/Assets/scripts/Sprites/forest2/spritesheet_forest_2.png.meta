@@ -1,0 +1,328 @@
+fileFormatVersion: 2
+guid: 39aa825a3e9234836a5dc2d7d872beec
+timeCreated: 1493860738
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: forest_2_tree_1
+    21300002: forest_2_tree_2
+    21300004: forest_2_path
+    21300006: forest_2_tree_13
+    21300008: forest_2_tree_14
+    21300010: forest_2_tree_3
+    21300012: forest_2_tree_12
+    21300014: forest_2_tree_11
+    21300016: forest_2_mushrooms
+    21300018: forest_2_tree_10
+    21300020: forest_2_tree_9
+    21300022: forest_2_monument
+    21300024: forest_2_stopsign
+    21300026: forest_2_tree_4
+    21300028: forest_2_tree_5
+    21300030: forest_2_tree_6
+    21300032: forest_2_tree_7
+    21300034: forest_2_tree_8
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: forest_2_tree_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 133
+        width: 512
+        height: 768
+      alignment: 9
+      pivot: {x: 0.21696934, y: 0.005592028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_2
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 133
+        width: 261
+        height: 768
+      alignment: 9
+      pivot: {x: 0.33132643, y: 0.005592028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_path
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 133
+        width: 402
+        height: 768
+      alignment: 9
+      pivot: {x: 0.54563, y: 0.005592028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_13
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 799
+        width: 42
+        height: 102
+      alignment: 9
+      pivot: {x: 0.80876815, y: 0.03911875}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_14
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 821
+        width: 47
+        height: 80
+      alignment: 9
+      pivot: {x: 0.6034689, y: 0.054216765}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_3
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 133
+        width: 465
+        height: 768
+      alignment: 9
+      pivot: {x: 0.7919142, y: 0.005592028}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_12
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 739
+        width: 23
+        height: 20
+      alignment: 9
+      pivot: {x: 0.5, y: -0.06736145}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_11
+      rect:
+        serializedVersion: 2
+        x: 1251
+        y: 685
+        width: 28
+        height: 40
+      alignment: 9
+      pivot: {x: 0.55789185, y: 0.07447968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_mushrooms
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 617
+        width: 67
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5846804, y: 0.013691203}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_10
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 472
+        width: 79
+        height: 123
+      alignment: 9
+      pivot: {x: 0.59233767, y: 0.0057837013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_9
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 325
+        width: 66
+        height: 126
+      alignment: 9
+      pivot: {x: 0.5491222, y: -0.0017470103}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_monument
+      rect:
+        serializedVersion: 2
+        x: 1229
+        y: 123
+        width: 63
+        height: 183
+      alignment: 9
+      pivot: {x: 0.4417686, y: 0.038912915}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_stopsign
+      rect:
+        serializedVersion: 2
+        x: 1554
+        y: 42
+        width: 112
+        height: 85
+      alignment: 9
+      pivot: {x: 0.5, y: 0.025232831}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 0
+        width: 318
+        height: 123
+      alignment: 9
+      pivot: {x: -0.00761206, y: 0.7535247}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_5
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 52
+        width: 205
+        height: 71
+      alignment: 9
+      pivot: {x: 0.025759961, y: 0.4741642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_6
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 37
+        width: 318
+        height: 81
+      alignment: 9
+      pivot: {x: 0.01546128, y: 0.83968955}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_7
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 35
+        width: 229
+        height: 83
+      alignment: 9
+      pivot: {x: 0.019390523, y: 0.5442002}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: forest_2_tree_8
+      rect:
+        serializedVersion: 2
+        x: 1197
+        y: 32
+        width: 332
+        height: 81
+      alignment: 9
+      pivot: {x: 0.013793577, y: 0.45470703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,411 @@
+fileFormatVersion: 2
+guid: 38f009c16085148f98dc674d6a05d483
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: player-walking-left_0
+    21300002: player-walking-left_1
+    21300004: player-walking-left_2
+    21300006: player-walking-left_3
+    21300008: player-walking-left_4
+    21300010: player-walking-left_5
+    21300012: player-walking-left_6
+    21300014: player-walking-left_7
+    21300016: player-walking-left_8
+    21300018: player-walking-left_9
+    21300020: player-walking-left_10
+    21300022: player-walking-left_11
+    21300024: player-walking-left_12
+    21300026: player-walking-left_13
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: player-walking-left_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 486
+        width: 152
+        height: 221
+      alignment: 9
+      pivot: {x: 0.52974814, y: 0.062240392}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a91fd07e59f77df4da225a4345a0e5b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_1
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 484
+        width: 126
+        height: 228
+      alignment: 9
+      pivot: {x: 0.42653632, y: 0.06317433}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c9e810f61907d646a0ee08f5aaf2ecd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 485
+        width: 135
+        height: 227
+      alignment: 9
+      pivot: {x: 0.46137875, y: 0.054313224}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68c6f1865d12a1a4f9048b77f0db90aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_3
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 485
+        width: 135
+        height: 223
+      alignment: 9
+      pivot: {x: 0.46950865, y: 0.05530962}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55f12957e2359ca4391cd468b35d6579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 244
+        width: 145
+        height: 220
+      alignment: 9
+      pivot: {x: 0.5363781, y: 0.08760307}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75f712d82b0159a419e8cb78e0c6211b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_5
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 5
+        width: 134
+        height: 227
+      alignment: 9
+      pivot: {x: 0.4429492, y: 0.059261903}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3acfda158eaeedb4c88e8e62b2c78d19
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_6
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 252
+        width: 164
+        height: 210
+      alignment: 9
+      pivot: {x: 0.5925059, y: 0.057221405}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4165272449383cb498ac5ea13cc8eb91
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_7
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 252
+        width: 151
+        height: 222
+      alignment: 9
+      pivot: {x: 0.5615784, y: 0.06131538}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f35fd977e56f98344bc1f7e06f5e87ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 4
+        width: 146
+        height: 225
+      alignment: 9
+      pivot: {x: 0.5270502, y: 0.06369264}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c1321fc52cad94aae3780594db7d57
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_9
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 2
+        width: 134
+        height: 227
+      alignment: 9
+      pivot: {x: 0.43798828, y: 0.056333337}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0adce550b61934ca2929738afe646c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_10
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 2
+        width: 135
+        height: 223
+      alignment: 9
+      pivot: {x: 0.4655305, y: 0.091600075}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62eef0f154676b7448f415ee3fe2a379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_11
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 0
+        width: 145
+        height: 220
+      alignment: 9
+      pivot: {x: 0.5275075, y: 0.092074275}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d8650c989396194ea6fcd323bd74a70
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_12
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 7
+        width: 163
+        height: 210
+      alignment: 9
+      pivot: {x: 0.5734099, y: 0.064735256}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7cbfdf0f7d78cc4ba4279d5cd841d77
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player-walking-left_13
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 7
+        width: 151
+        height: 220
+      alignment: 9
+      pivot: {x: 0.5429534, y: 0.052955013}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5786835a481b24f439cd042e000e771a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
