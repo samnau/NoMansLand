@@ -1,0 +1,375 @@
+fileFormatVersion: 2
+guid: f5e11ec75bfdf4b6f97a279f610a63bd
+timeCreated: 1495734219
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: hero_walk_left_head
+    21300002: hero_walk_left_pigtail
+    21300004: hero_walk_left_mouth_smile
+    21300006: hero_walk_left_legUpper
+    21300008: hero_walk_left_legPivot
+    21300010: hero_walk_left_glasses
+    21300012: hero_walk_left_legLower
+    21300014: hero_walk_left_foot
+    21300016: hero_walk_left_eye_open
+    21300018: hero_walk_left_staff
+    21300020: hero_walk_left_shoulderArm
+    21300022: hero_walk_left_thumb
+    21300024: hero_walk_left_hairWisp
+    21300026: hero_walk_left_hand
+    21300028: hero_walk_left_armPivot
+    21300030: hero_walk_left_otherArm
+    21300032: hero_walk_left_keys
+    21300034: hero_walk_left_lowerArm
+    21300036: hero_walk_left_body
+    21300038: hero_walk_left_pigtail
+    21300040: hero_walk_left_mouth_smile
+    21300042: hero_walk_left_legUpper
+    21300044: hero_walk_left_legPivot
+    21300046: hero_walk_left_glasses
+    21300048: hero_walk_left_legLower
+    21300050: hero_walk_left_foot
+    21300052: hero_walk_left_eye_open
+    21300054: hero_walk_left_staff
+    21300056: hero_walk_left_shoulderArm
+    21300058: hero_walk_left_thumb
+    21300060: hero_walk_left_hairWisp
+    21300062: hero_walk_left_hand
+    21300064: hero_walk_left_armPivot
+    21300066: hero_walk_left_otherArm
+    21300068: hero_walk_left_keys
+    21300070: hero_walk_left_lowerArm
+    21300072: hero_walk_left_body
+    21300074: hero_walk_left_thumb
+    21300076: hero-sprite-sheet-left-walk_0
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hero_walk_left_head
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 229
+        width: 109
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_pigtail
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 294
+        width: 58
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_mouth_smile
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 316
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_legUpper
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 244
+        width: 20
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_legPivot
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 267
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_glasses
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 275
+        width: 67
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_legLower
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 230
+        width: 12
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_foot
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 241
+        width: 32
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_eye_open
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 253
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_staff
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 28
+        height: 228
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_shoulderArm
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 201
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_thumb
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 207
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_hairWisp
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 210
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_hand
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 185
+        width: 24
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_armPivot
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 191
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_otherArm
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 175
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_keys
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 150
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_lowerArm
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 165
+        width: 30
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero_walk_left_body
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 87
+        width: 58
+        height: 75
+      alignment: 9
+      pivot: {x: 0.4327857, y: 0.519492}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: hero-sprite-sheet-left-walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 85
+        width: 255
+        height: 247
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

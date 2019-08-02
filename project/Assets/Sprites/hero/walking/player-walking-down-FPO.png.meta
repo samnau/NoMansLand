@@ -1,0 +1,176 @@
+fileFormatVersion: 2
+guid: fcd09d64315b64620ac5c2c457de0aa2
+timeCreated: 1454266460
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: player-walking-down-FPO_0
+    21300002: player-walking-down-FPO_1
+    21300004: player-walking-down-FPO_2
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: player-walking-down-FPO_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 183
+        height: 225
+      alignment: 9
+      pivot: {x: 0.5024523, y: 0.027301775}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42.051224, y: 55.8571}
+        - {x: 51.051224, y: -6.1428986}
+        - {x: 76.05122, y: -6.1428986}
+        - {x: 91.05122, y: 100.8571}
+        - {x: 91.05122, y: 198.8571}
+        - {x: 61.051224, y: 218.8571}
+        - {x: 20.051224, y: 218.8571}
+        - {x: -77.94878, y: 183.8571}
+        - {x: -91.94878, y: 152.8571}
+        - {x: -91.94878, y: 140.8571}
+        - {x: -80.94878, y: 137.8571}
+        - {x: -68.94878, y: 138.8571}
+        - {x: -63.948776, y: 140.8571}
+        - {x: -57.948776, y: 145.8571}
+        - {x: -46.948776, y: 103.8571}
+        - {x: -67.94878, y: 56.8571}
+        - {x: -66.94878, y: 32.8571}
+        - {x: -64.94878, y: 30.857101}
+        - {x: -58.948776, y: 25.857101}
+        - {x: -50.948776, y: -4.1428986}
+        - {x: -48.948776, y: -6.1428986}
+        - {x: 49.051224, y: -6.1428986}
+        - {x: 47.051224, y: 0.85710144}
+        - {x: 35.051224, y: 15.857101}
+        - {x: 28.051224, y: 44.8571}
+    - name: player-walking-down-FPO_1
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 0
+        width: 183
+        height: 226
+      alignment: 9
+      pivot: {x: 0.51471347, y: 0.023436386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 48.807434, y: -5.296623}
+        - {x: 67.807434, y: -5.296623}
+        - {x: 74.807434, y: -2.2966232}
+        - {x: 88.807434, y: 100.70338}
+        - {x: 88.807434, y: 200.70337}
+        - {x: 58.807434, y: 220.70337}
+        - {x: 17.807434, y: 220.70337}
+        - {x: -80.192566, y: 185.70337}
+        - {x: -94.192566, y: 154.70337}
+        - {x: -94.192566, y: 142.70337}
+        - {x: -83.192566, y: 139.70337}
+        - {x: -71.192566, y: 140.70337}
+        - {x: -66.192566, y: 142.70337}
+        - {x: -60.192566, y: 147.70337}
+        - {x: -49.192566, y: 105.70338}
+        - {x: -70.192566, y: 58.703377}
+        - {x: -69.192566, y: 34.703377}
+        - {x: -64.192566, y: 16.703377}
+        - {x: -55.192566, y: -5.296623}
+        - {x: 42.807434, y: -5.296623}
+        - {x: 46.807434, y: -4.296623}
+        - {x: 46.807434, y: 7.703377}
+        - {x: 47.807434, y: -4.296623}
+      - - {x: 84.807434, y: 149.70337}
+        - {x: 84.807434, y: 148.70337}
+        - {x: 87.807434, y: 145.70337}
+        - {x: 88.807434, y: 145.70337}
+        - {x: 88.807434, y: 151.70337}
+        - {x: 86.807434, y: 151.70337}
+    - name: player-walking-down-FPO_2
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 0
+        width: 183
+        height: 226
+      alignment: 9
+      pivot: {x: 0.52697486, y: 0.035350475}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.563599, y: 43.010796}
+        - {x: 40.5636, y: 47.010796}
+        - {x: 45.5636, y: 1.0107956}
+        - {x: 43.5636, y: -6.9892044}
+        - {x: 46.5636, y: -7.9892044}
+        - {x: 65.5636, y: -7.9892044}
+        - {x: 69.5636, y: -3.9892044}
+        - {x: 68.5636, y: -0.9892044}
+        - {x: 86.5636, y: 99.010796}
+        - {x: 86.5636, y: 179.0108}
+        - {x: 60.5636, y: 218.0108}
+        - {x: 21.563599, y: 218.0108}
+        - {x: -77.4364, y: 192.0108}
+        - {x: -96.4364, y: 156.0108}
+        - {x: -96.4364, y: 140.0108}
+        - {x: -88.4364, y: 138.0108}
+        - {x: -72.4364, y: 138.0108}
+        - {x: -94.4364, y: 16.010796}
+        - {x: -59.4364, y: -7.9892044}
+        - {x: -2.4364014, y: -7.9892044}
+        - {x: 37.5636, y: -0.9892044}
+        - {x: 42.5636, y: 4.0107956}
+        - {x: 44.5636, y: 8.010796}
+        - {x: 30.563599, y: 23.010796}
+      - - {x: -96.4364, y: 153.0108}
+        - {x: -95.4364, y: 153.0108}
+        - {x: -92.4364, y: 156.0108}
+        - {x: -93.4364, y: 159.0108}
+        - {x: -96.4364, y: 159.0108}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

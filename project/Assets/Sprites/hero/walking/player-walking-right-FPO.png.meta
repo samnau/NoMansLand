@@ -1,0 +1,106 @@
+fileFormatVersion: 2
+guid: 2441a8d0ce3114bc2b648a6addd2b2b7
+timeCreated: 1454266411
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: player-walking-right-FPO_0
+    21300002: player-walking-right-FPO_1
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 50
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: player-walking-right-FPO_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 127
+        height: 228
+      alignment: 9
+      pivot: {x: 0.56869996, y: 0.06539564}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.224892, y: 213.0898}
+        - {x: -40.22489, y: 210.0898}
+        - {x: -66.22489, y: 198.0898}
+        - {x: -72.22489, y: 191.0898}
+        - {x: -72.22489, y: 108.0898}
+        - {x: -44.22489, y: -9.910202}
+        - {x: -26.224892, y: -8.910202}
+        - {x: -11.224892, y: -1.910202}
+        - {x: -10.224892, y: 11.089798}
+        - {x: -10.224892, y: 13.089798}
+        - {x: 3.7751083, y: -4.910202}
+        - {x: 15.775108, y: -14.910202}
+        - {x: 44.77511, y: -14.910202}
+        - {x: 54.77511, y: 49.089798}
+        - {x: 54.77511, y: 183.0898}
+        - {x: 37.77511, y: 213.0898}
+    - name: player-walking-right-FPO_1
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 8
+        width: 154
+        height: 215
+      alignment: 9
+      pivot: {x: 0.4736958, y: 0.028972054}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 81.05084, y: 208.77101}
+        - {x: -72.94916, y: 208.77101}
+        - {x: -72.94916, y: 4.7710114}
+        - {x: -63.949158, y: -6.2289886}
+        - {x: 31.050842, y: -6.2289886}
+        - {x: 39.050842, y: -4.2289886}
+        - {x: 45.050842, y: 1.7710114}
+        - {x: 46.050842, y: 7.7710114}
+        - {x: 81.05084, y: 102.77101}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
