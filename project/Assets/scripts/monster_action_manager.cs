@@ -21,7 +21,8 @@ public class monster_action_manager : MonoBehaviour {
     GameObject healthIndicator;
     GameObject monster;
     Vector2 attackStartPosition;
-
+    Key_Validator defenseCombo;
+    private GameObject monsterWrapper;
     public GameObject ball;
     private GameObject test_attack;
 
@@ -33,7 +34,9 @@ public class monster_action_manager : MonoBehaviour {
        hero_action_manager = GameObject.FindGameObjectWithTag("Player").GetComponent<Hero_Battle_Action_Manager>();
        var healthIndicator = GameObject.Find("health_value");
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
-       monsterHealthManager = monster.GetComponent<MonsterHealthManager>();
+       monsterHealthManager = gameObject.GetComponent<MonsterHealthManager>();
+       monsterWrapper = gameObject.transform.parent.gameObject;
+       defenseCombo = monsterWrapper.GetComponent<Key_Validator>();
        StartCoroutine("InitAttack");
     }
     IEnumerator InitAttack()
@@ -79,13 +82,15 @@ public class monster_action_manager : MonoBehaviour {
     }
     void CheckDefense()
     {
-        if (!validDefense || Input.inputString != defense_key)
+        var comboMatch = defenseCombo.comboPressed;
+        Debug.Log("valid window " + defenseWindowMissed);
+        if (!validDefense || !comboMatch)
         {
             attackDefended = false;
             defenseWindowMissed = true;
             heroCanAttack = false;
         }
-        if(validDefense && !defenseWindowMissed)
+        if(validDefense && comboMatch)
         {
            attackDefended = true;
            heroCanAttack = true;

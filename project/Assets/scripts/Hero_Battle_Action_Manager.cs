@@ -13,14 +13,17 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     float changeIncrement = 0;
     bool fadeEnabled = false;
     bool canAttack = false;
+    bool attackComoboPressed = false;
     GameObject familiar;
     FamiliarActionManager familiarActionManager;
     Vector2 familiarPosition;
+    Key_Validator attackComboValidator;
     // Use this for initialization
     void Start () {
         hero_animator = gameObject.GetComponent<Animator>();
         familiar = GameObject.FindGameObjectWithTag("familiar");
         familiarActionManager = familiar.GetComponent<FamiliarActionManager>();
+        attackComboValidator = familiar.GetComponent<Key_Validator>();
         findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
         //monsterHealthText = GameObject.Find("monster_health_indicator");
@@ -84,7 +87,8 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         setCanAttack();
-        if (Input.GetKeyDown("a") && canAttack)
+        attackComoboPressed = attackComboValidator.comboPressed;
+        if (attackComoboPressed && canAttack)
         {
             TriggerAttack();
         }

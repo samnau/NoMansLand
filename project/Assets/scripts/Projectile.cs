@@ -31,6 +31,7 @@ public class Projectile : MonoBehaviour
         if (collision.CompareTag("familiar"))
         {
             StartCoroutine(monsterManager.OpenDefenseWindow());
+            Debug.Log("defend!");
         }
     }
     void findProjectilePosition()
