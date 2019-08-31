@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +22,10 @@ public class monster_action_manager : MonoBehaviour {
     GameObject healthIndicator;
     GameObject monster;
     Vector2 attackStartPosition;
-    Key_Validator defenseCombo;
+    Monster monsterClass;
+    //List<Monster.ComboKeys> monsterCombos;
+    Monster.ComboKeys currentCombo;
+    Key_Validator defenseComboChecker;
     private GameObject monsterWrapper;
     public GameObject ball;
     private GameObject test_attack;
@@ -36,7 +40,12 @@ public class monster_action_manager : MonoBehaviour {
        healthTracker = healthIndicator.GetComponent<Hero_Health_Value>();
        monsterHealthManager = gameObject.GetComponent<MonsterHealthManager>();
        monsterWrapper = gameObject.transform.parent.gameObject;
-       defenseCombo = monsterWrapper.GetComponent<Key_Validator>();
+        defenseComboChecker = monsterWrapper.GetComponent<Key_Validator>();
+        //monster key list class
+        monsterClass = monster.GetComponent<Monster>();
+        //monsterCombos = monsterClass.battleCombos;
+        currentCombo = monsterClass.currentCombo;
+        defenseComboChecker.keyCombo = currentCombo.defense;
        StartCoroutine("InitAttack");
     }
     IEnumerator InitAttack()
@@ -82,8 +91,9 @@ public class monster_action_manager : MonoBehaviour {
     }
     void CheckDefense()
     {
-        var comboMatch = defenseCombo.comboPressed;
+        var comboMatch = defenseComboChecker.comboPressed;
         Debug.Log("valid window " + defenseWindowMissed);
+        Debug.Log("combos " + monsterClass.currentCombo.defense[0]);
         if (!validDefense || !comboMatch)
         {
             attackDefended = false;

@@ -18,6 +18,9 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     FamiliarActionManager familiarActionManager;
     Vector2 familiarPosition;
     Key_Validator attackComboValidator;
+    Monster monsterClass;
+    Monster.ComboKeys currentCombo;
+
     // Use this for initialization
     void Start () {
         hero_animator = gameObject.GetComponent<Animator>();
@@ -27,9 +30,14 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
         //monsterHealthText = GameObject.Find("monster_health_indicator");
+        // find the monster current combo keys
         monster = GameObject.FindGameObjectWithTag("Enemy");
+        monsterClass = monster.GetComponent<Monster>();
+        currentCombo = monsterClass.currentCombo;
+        attackComboValidator.keyCombo = currentCombo.counterAttack;
         monsterHealthTracker = monster.GetComponent<MonsterHealthManager>();
         monsterActionManager = monster.GetComponent<monster_action_manager>();
+
 	}
     void setCanAttack()
     {
