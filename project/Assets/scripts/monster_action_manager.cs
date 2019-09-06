@@ -44,9 +44,14 @@ public class monster_action_manager : MonoBehaviour {
         //monster key list class
         monsterClass = monster.GetComponent<Monster>();
         //monsterCombos = monsterClass.battleCombos;
-        currentCombo = monsterClass.currentCombo;
+        currentCombo = monsterClass.battleCombos[0];
         defenseComboChecker.keyCombo = currentCombo.defense;
        StartCoroutine("InitAttack");
+    }
+    void UpdateDefenseCombo()
+    {
+        currentCombo = monsterClass.currentCombo;
+        defenseComboChecker.keyCombo = currentCombo.defense;
     }
     IEnumerator InitAttack()
     {
@@ -56,7 +61,9 @@ public class monster_action_manager : MonoBehaviour {
 
     void AttackCycle()
     {
+        UpdateDefenseCombo();
         heroCanAttack = false;
+
         if (healthTracker.playerIsAlive && monsterHealthManager.monsterIsAlive)
         {
             test_attack = Instantiate(ball, attackStartPosition, transform.rotation);
@@ -92,8 +99,7 @@ public class monster_action_manager : MonoBehaviour {
     void CheckDefense()
     {
         var comboMatch = defenseComboChecker.comboPressed;
-        Debug.Log("valid window " + defenseWindowMissed);
-        Debug.Log("combos " + monsterClass.currentCombo.defense[0]);
+        //Debug.Log("combos " + monsterClass.currentCombo.defense[0]);
         if (!validDefense || !comboMatch)
         {
             attackDefended = false;
@@ -108,7 +114,8 @@ public class monster_action_manager : MonoBehaviour {
         }
     }
 	void Update () {
-        if(Input.anyKeyDown && healthTracker.playerIsAlive && !heroCanAttack)
+
+        if (Input.anyKeyDown && healthTracker.playerIsAlive && !heroCanAttack)
         {
             CheckDefense();
         }

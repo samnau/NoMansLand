@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour {
     [HideInInspector]
-    public int currentComboIndex = 1;
+    public int currentComboIndex = 0;
     [HideInInspector]
     public ComboKeys currentCombo;
 
@@ -22,13 +22,11 @@ public class Monster : MonoBehaviour {
     public List<ComboKeys> battleCombos;
     // Use this for initialization
     void Start () {
-        currentComboIndex = 1;
         currentCombo = battleCombos[currentComboIndex];
-        Debug.Log(currentComboIndex);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-       // currentCombo = battleCombos[currentComboIndex];
+       currentCombo = battleCombos[currentComboIndex];
     }
 }

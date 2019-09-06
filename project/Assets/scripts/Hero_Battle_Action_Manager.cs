@@ -20,6 +20,7 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     Key_Validator attackComboValidator;
     Monster monsterClass;
     Monster.ComboKeys currentCombo;
+    private int comboCount;
 
     // Use this for initialization
     void Start () {
@@ -37,8 +38,20 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         attackComboValidator.keyCombo = currentCombo.counterAttack;
         monsterHealthTracker = monster.GetComponent<MonsterHealthManager>();
         monsterActionManager = monster.GetComponent<monster_action_manager>();
+        comboCount = monsterClass.battleCombos.Count - 1;
+    }
+    
+    void UpdateCounterAttack()
+    {
+        if(monsterClass.currentComboIndex < comboCount)
+        {
+            monsterClass.currentComboIndex++;
+        }
+        currentCombo = monsterClass.battleCombos[monsterClass.currentComboIndex];
+        attackComboValidator.keyCombo = currentCombo.counterAttack;
+        Debug.Log("attack manager 2nd attack key: " + currentCombo.counterAttack[0]);
+    }
 
-	}
     void setCanAttack()
     {
         canAttack = monsterActionManager.heroCanAttack;
@@ -48,6 +61,7 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         monsterHealthTracker.TakeDamage();
         familiarActionManager.TriggerAttack();
         monsterActionManager.heroCanAttack = false;
+        UpdateCounterAttack();
     }
 	public void TriggerDefense()
     {
