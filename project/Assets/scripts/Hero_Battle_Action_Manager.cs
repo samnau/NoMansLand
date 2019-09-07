@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Hero_Battle_Action_Manager : MonoBehaviour {
     Animator hero_animator;
@@ -22,6 +24,10 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
     Monster.ComboKeys currentCombo;
     private int comboCount;
 
+    string attackComboText;
+    Text attackPrompt;
+
+
     // Use this for initialization
     void Start () {
         hero_animator = gameObject.GetComponent<Animator>();
@@ -30,7 +36,6 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         attackComboValidator = familiar.GetComponent<Key_Validator>();
         findFamiliarPosition();
         hero_animator.SetBool("RIGHT", true);
-        //monsterHealthText = GameObject.Find("monster_health_indicator");
         // find the monster current combo keys
         monster = GameObject.FindGameObjectWithTag("Enemy");
         monsterClass = monster.GetComponent<Monster>();
@@ -39,8 +44,17 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         monsterHealthTracker = monster.GetComponent<MonsterHealthManager>();
         monsterActionManager = monster.GetComponent<monster_action_manager>();
         comboCount = monsterClass.battleCombos.Count - 1;
+
+        attackPrompt = GameObject.Find("AttackCombo").GetComponent<Text>();
+        UpdateAttackPrompt();
     }
-    
+
+    void UpdateAttackPrompt()
+    {
+        attackComboText = "attack combo: " + currentCombo.counterAttack[0] + " + " + currentCombo.counterAttack[1];
+        attackPrompt.text = attackComboText;
+    }
+
     void UpdateCounterAttack()
     {
         if(monsterClass.currentComboIndex < comboCount)
@@ -49,7 +63,7 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         }
         currentCombo = monsterClass.battleCombos[monsterClass.currentComboIndex];
         attackComboValidator.keyCombo = currentCombo.counterAttack;
-        Debug.Log("attack manager 2nd attack key: " + currentCombo.counterAttack[0]);
+        //Debug.Log("attack manager 2nd attack key: " + currentCombo.counterAttack[0]);
     }
 
     void setCanAttack()
@@ -62,6 +76,7 @@ public class Hero_Battle_Action_Manager : MonoBehaviour {
         familiarActionManager.TriggerAttack();
         monsterActionManager.heroCanAttack = false;
         UpdateCounterAttack();
+        UpdateAttackPrompt();
     }
 	public void TriggerDefense()
     {

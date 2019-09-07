@@ -8,6 +8,8 @@ public class MonsterHealthManager : MonoBehaviour {
     Animator monsterAnimator;
     //Text textbox;
     public bool monsterIsAlive = true;
+    bool winState = false;
+
 	// Use this for initialization
 	void Start () {
         //  textbox = gameObject.GetComponent<Text>();
@@ -22,12 +24,24 @@ public class MonsterHealthManager : MonoBehaviour {
            // textbox.text = healthValue.ToString();
         }
     }
+
+    void ShowWinState ()
+    {
+        if (!winState)
+        {
+            GameObject.Find("fpo_shadow").SetActive(false);
+            GameObject.Find("AttackCombo").SetActive(false);
+            GameObject.Find("DefenseCombo").GetComponent<Text>().text = "You Win!";
+            winState = true;
+        }
+    }
 	// Update is called once per frame
 	void Update () {
         monsterIsAlive = healthValue > 0;
         if(!monsterIsAlive)
         {
             monsterAnimator.SetBool("defeat", true);
+            ShowWinState();
             //textbox.text = "you win!!";
         }
     }

@@ -66,7 +66,6 @@
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser2.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\TableCodeGen.cs" />
-    <Compile Include="Assets\Key_Validator.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2d_AnimatorController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
@@ -134,6 +133,7 @@
     <Compile Include="Assets\scripts\Hero_Stack_Order_Controller.cs" />
     <Compile Include="Assets\scripts\Input_Sequence_Manager.cs" />
     <Compile Include="Assets\scripts\InputStateTracker.cs" />
+    <Compile Include="Assets\scripts\Key_Validator.cs" />
     <Compile Include="Assets\scripts\Monster.cs" />
     <Compile Include="Assets\scripts\monster_action_manager.cs" />
     <Compile Include="Assets\scripts\MonsterHealthManager.cs" />

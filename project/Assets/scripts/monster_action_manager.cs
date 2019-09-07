@@ -10,7 +10,7 @@ public class monster_action_manager : MonoBehaviour {
 
     public string[] attack_list;
     public float attack_duration = 2.0f;
-    public float defense_window = 0.75f;
+    public float defense_window = 1.0f;
     public float defense_start = 1.0f;
     float next_attack_delay;
     public bool validDefense = false;
@@ -29,6 +29,9 @@ public class monster_action_manager : MonoBehaviour {
     private GameObject monsterWrapper;
     public GameObject ball;
     private GameObject test_attack;
+    string defenseComboText;
+    Text defensePrompt;
+    bool monsterIsAlive;
 
     Hero_Battle_Action_Manager hero_action_manager;
 
@@ -47,11 +50,25 @@ public class monster_action_manager : MonoBehaviour {
         currentCombo = monsterClass.battleCombos[0];
         defenseComboChecker.keyCombo = currentCombo.defense;
        StartCoroutine("InitAttack");
+
+        defensePrompt = GameObject.Find("DefenseCombo").GetComponent<Text>();
+        UpdateDefensePrompt();
     }
     void UpdateDefenseCombo()
     {
         currentCombo = monsterClass.currentCombo;
         defenseComboChecker.keyCombo = currentCombo.defense;
+        UpdateDefensePrompt();
+    }
+    void UpdateDefensePrompt()
+    {
+        monsterIsAlive = monster.GetComponent<MonsterHealthManager>().monsterIsAlive;
+        if(!monsterIsAlive)
+        {
+            return;
+        }
+        defenseComboText = "defense combo: " + currentCombo.defense[0] + " + " + currentCombo.defense[1];
+        defensePrompt.text = defenseComboText;
     }
     IEnumerator InitAttack()
     {
