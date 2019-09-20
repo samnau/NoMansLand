@@ -10,7 +10,7 @@ public class LegIdleController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         legAnimator = gameObject.GetComponent<Animator>();
-        startDelay = Random.Range(0.5f, 1.0f);
+        startDelay = Random.Range(0.25f, 0.5f);
         StartCoroutine("TriggerIdle");
     }
 
