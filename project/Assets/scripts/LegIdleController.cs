@@ -18,7 +18,7 @@ public class LegIdleController : MonoBehaviour {
         Debug.Log("Idle start");
        yield return new WaitForSeconds(startDelay);
         legAnimator.SetBool("startIdle", true);
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(2.5f);
         legAnimator.SetBool("startIdle", false);
         StartCoroutine("TriggerIdle");
     }
