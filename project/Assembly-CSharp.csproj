@@ -118,6 +118,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
+    <Compile Include="Assets\RavenStabTrigger.cs" />
     <Compile Include="Assets\scripts\Camera_Shaker.cs" />
     <Compile Include="Assets\scripts\Castle_Wall_Controller.cs" />
     <Compile Include="Assets\scripts\Cloud_Motion_Controller.cs" />
