@@ -203,8 +203,8 @@ C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEngin
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEngine.GoogleAudioSpatializer.xml
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEngine.SpatialTracking.xml
+C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.dll
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.pdb
-C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
