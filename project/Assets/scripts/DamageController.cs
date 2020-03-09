@@ -12,9 +12,9 @@ public class DamageController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Debug.Log(collision.name);
-        if (collision.gameObject.name == "attack")
+        if (collision.gameObject.tag == "attack")
         {
-            Debug.Log("hit!");
+          //  Debug.Log("hit!");
             damage = true;
             DefenseController.defense = false;
         }
@@ -23,9 +23,9 @@ public class DamageController : MonoBehaviour {
     private void OnTriggerExit2D(Collider2D collision)
     {
         //Debug.Log(collision.name);
-        if (collision.gameObject.name == "attack")
+        if (collision.gameObject.tag == "attack")
         {
-            Debug.Log("done!");
+          //  Debug.Log("done!");
             damage = false;
         }
     }
