@@ -4,23 +4,28 @@ using UnityEngine;
 
 public class DefenseController : MonoBehaviour {
     public bool defense = false;
-    string[] keyCombo;
+    string[] defenseCombo;
+    string[] counterAttackCombo;
+    CounterAttackController CounterAttackController;
+    FightController FightController;
+    BattleCombos BattleCombos;
 
     // Use this for initialization
     void Start () {
-		
-	}
+        CounterAttackController = GetComponent<CounterAttackController>();
+        FightController = GetComponentInParent<FightController>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var targetGameObject = collision.gameObject;
         //Debug.Log(collision.name);
         if (targetGameObject.tag == "attack")
         {
-            keyCombo = targetGameObject.GetComponent<BattleCombos>().defenseCombo;
-
-  //          Debug.Log("defend!");
-//            Debug.Log("defense keys:" + keyCombo[0] + keyCombo[1]);
-            GetComponentInParent<FightController>().defenseCombo = keyCombo;
+            BattleCombos = targetGameObject.GetComponent<BattleCombos>();
+            defenseCombo = BattleCombos.defenseCombo;
+            counterAttackCombo = BattleCombos.counterAttackCombo;
+            FightController.defenseCombo = defenseCombo;
+            FightController.counterAttackCombo = counterAttackCombo;
             defense = true;
         }
     }
