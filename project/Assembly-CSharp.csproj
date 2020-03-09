@@ -136,6 +136,7 @@
     <Compile Include="Assets\scripts\FamiliarActionManager.cs" />
     <Compile Include="Assets\scripts\FightController.cs" />
     <Compile Include="Assets\scripts\gradient_maker.cs" />
+    <Compile Include="Assets\scripts\HealthController.cs" />
     <Compile Include="Assets\scripts\Hero_Battle_Action_Manager.cs" />
     <Compile Include="Assets\scripts\Hero_Health_Value.cs" />
     <Compile Include="Assets\scripts\Hero_Stack_Order_Controller.cs" />
