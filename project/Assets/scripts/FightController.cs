@@ -29,24 +29,40 @@ public class FightController : MonoBehaviour {
 	
     IEnumerator CheckDefenseSuccess()
     {
+        //var attackObject = GameObject.FindGameObjectWithTag("attack");
+        var attackObject = GameObject.Find("attack");
+
+        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
         yield return new WaitForSeconds(0.1f);
         Debug.Log("defended: " + attackDefended);
         if(attackDefended)
         {
+            attackObjectRb.gravityScale = 0f;
+            attackObjectRb.velocity = new Vector2(0, 0);
             CounterAttackController.OpenCounterWindow();
+            Key_Validator.comboPressed = false;
         }
     }
 
     IEnumerator CheckCounterSuccess()
     {
-        yield return new WaitForSeconds(1.5f);
+        //var attackObject = GameObject.FindGameObjectWithTag("attack");
+        var attackObject = GameObject.Find("attack");
+
+        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("countered: " + attackCountered);
         if (attackCountered)
         {
             Debug.Log("Counter attack!");
-            attackCountered = false;
-            attackDefended = false;
+            var counterForce = new Vector2(500.0f, 0);
+            attackObjectRb.AddRelativeForce(counterForce);
+            // just for testing and fun
+            var attack2 = GameObject.Find("attack_2");
+            attack2.GetComponent<Rigidbody2D>().gravityScale = 0.15f;
         }
+        attackCountered = false;
+        attackDefended = false;
     }
 
     // Update is called once per frame
@@ -70,7 +86,7 @@ public class FightController : MonoBehaviour {
 
         if (Input.anyKeyDown)
         {
-            Debug.Log(canDefend);
+          //  Debug.Log(canDefend);
 
         }
     }

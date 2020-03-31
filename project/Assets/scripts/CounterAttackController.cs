@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CounterAttackController : MonoBehaviour {
     public bool canCounter = false;
-    float counterWindow = 1.5f;
+    public float counterWindow = 1.5f;
 	// Use this for initialization
 	void Start () {
 		

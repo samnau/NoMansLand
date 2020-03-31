@@ -23,7 +23,7 @@ public class Key_Validator : MonoBehaviour
         }
         //Debug.Log(inputType + ": " + keyCombo[0] + " " + keyCombo[1]);
         comboPressed = Input.GetKey(keyCombo[0]) && Input.GetKey(keyCombo[1]);
-       // Debug.Log("key pressed was" + Input.inputString);
+       Debug.Log("key pressed was " + keyCombo[0] + keyCombo[1]);
     }
 
 
