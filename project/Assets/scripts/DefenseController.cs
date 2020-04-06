@@ -10,7 +10,6 @@ public class DefenseController : MonoBehaviour {
     FightController FightController;
     BattleCombos BattleCombos;
 
-    // Use this for initialization
     void Start () {
         CounterAttackController = GetComponent<CounterAttackController>();
         FightController = GetComponentInParent<FightController>();
@@ -18,7 +17,6 @@ public class DefenseController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var targetGameObject = collision.gameObject;
-        //Debug.Log(collision.name);
         if (targetGameObject.tag == "attack")
         {
             BattleCombos = targetGameObject.GetComponent<BattleCombos>();
@@ -32,15 +30,9 @@ public class DefenseController : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //Debug.Log(collision.name);
         if (collision.gameObject.tag == "attack")
         {
-          //  Debug.Log("defense reset!");
             defense = false;
         }
     }
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

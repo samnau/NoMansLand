@@ -14,6 +14,12 @@ public class Key_Validator : MonoBehaviour
         keyCombo = new string[] { "", "" };
     }
 
+    IEnumerator resetValidCombo()
+    {
+        yield return new WaitForSeconds(0.1f);
+        comboPressed = false;
+    }
+
     void validateAnyKeyInCombo()
     {
         if (keyCombo[0]== "")
@@ -21,9 +27,11 @@ public class Key_Validator : MonoBehaviour
             Debug.Log("no combo set");
             return;
         }
-        //Debug.Log(inputType + ": " + keyCombo[0] + " " + keyCombo[1]);
         comboPressed = Input.GetKey(keyCombo[0]) && Input.GetKey(keyCombo[1]);
-       Debug.Log("key pressed was " + keyCombo[0] + keyCombo[1]);
+        if(comboPressed)
+        {
+            resetValidCombo();
+        }
     }
 
 

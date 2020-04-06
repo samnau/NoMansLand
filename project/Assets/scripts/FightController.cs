@@ -15,6 +15,8 @@ public class FightController : MonoBehaviour {
     Key_Validator Key_Validator;
     public string[] defenseCombo;
     public string[] counterAttackCombo;
+    // for testing only
+    bool secondAttackTime = false;
 
 	// Use this for initialization
 	void Start () {
@@ -24,70 +26,88 @@ public class FightController : MonoBehaviour {
         DamageController = GameObject.Find("damage_zone").GetComponent<DamageController>();
         CounterAttackController = DefenseWindow.GetComponent<CounterAttackController>();
         Key_Validator = GetComponent<Key_Validator>();
-       // Key_Validator.keyCombo = new string[] { "w", "up" };
     }
 	
     IEnumerator CheckDefenseSuccess()
     {
-        //var attackObject = GameObject.FindGameObjectWithTag("attack");
-        var attackObject = GameObject.Find("attack");
-
-        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("defended: " + attackDefended);
         if(attackDefended)
         {
-            attackObjectRb.gravityScale = 0f;
-            attackObjectRb.velocity = new Vector2(0, 0);
+            SuccessfulDefenseResponse();
             CounterAttackController.OpenCounterWindow();
-            Key_Validator.comboPressed = false;
         }
+    }
+
+    void SuccessfulDefenseResponse()
+    {
+        var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
+        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
+        attackObjectRb.gravityScale = 0f;
+        attackObjectRb.velocity = new Vector2(0, 0);
+
     }
 
     IEnumerator CheckCounterSuccess()
     {
-        //var attackObject = GameObject.FindGameObjectWithTag("attack");
-        var attackObject = GameObject.Find("attack");
-
-        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
         yield return new WaitForSeconds(0.5f);
         Debug.Log("countered: " + attackCountered);
         if (attackCountered)
         {
-            Debug.Log("Counter attack!");
-            var counterForce = new Vector2(500.0f, 0);
-            attackObjectRb.AddRelativeForce(counterForce);
-            // just for testing and fun
-            var attack2 = GameObject.Find("attack_2");
-            attack2.GetComponent<Rigidbody2D>().gravityScale = 0.15f;
+            SuccessfulCounterAttack();
         }
         attackCountered = false;
         attackDefended = false;
     }
 
-    // Update is called once per frame
-    void Update () {
+    void SuccessfulCounterAttack()
+    {
+        // HERE: trigger animation state and battle status updates, in the appliied version
+        // these are just visual debugging to see the key combos working
+
+        var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
+
+        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
+        Debug.Log("Counter attack!");
+        var counterForce = new Vector2(1000.0f, 0);
+        attackObjectRb.AddRelativeForce(counterForce);
+        // just for testing and fun
+        var attack2 = GameObject.Find("attack_2");
+        attack2.GetComponent<Rigidbody2D>().gravityScale = 0.35f;
+        secondAttackTime = true;
+    }
+
+    void DoBattleChecks()
+    {
         canDefend = DefenseController.defense;
         takeDamage = DamageController.damage;
         canCounter = CounterAttackController.canCounter;
-        if(canDefend && !takeDamage && !attackDefended)
+        watchForDefense();
+        watchForCounter();
+    }
+
+    void watchForDefense()
+    {
+        if (canDefend && !takeDamage && !attackDefended)
         {
             Key_Validator.keyCombo = defenseCombo;
             attackDefended = Key_Validator.comboPressed;
             StartCoroutine(CheckDefenseSuccess());
+            Key_Validator.comboPressed = false;
         }
+    }
 
-        if(attackDefended)
+    void watchForCounter()
+    {
+        if (attackDefended && canCounter)
         {
             Key_Validator.keyCombo = counterAttackCombo;
             attackCountered = Key_Validator.comboPressed;
             StartCoroutine(CheckCounterSuccess());
         }
+    }
 
-        if (Input.anyKeyDown)
-        {
-          //  Debug.Log(canDefend);
-
-        }
+    // Update is called once per frame
+    void Update () {
+        DoBattleChecks();
     }
 }
