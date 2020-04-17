@@ -40,10 +40,11 @@ public class FightController : MonoBehaviour {
 
     void SuccessfulDefenseResponse()
     {
-        var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
-        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
-        attackObjectRb.gravityScale = 0f;
-        attackObjectRb.velocity = new Vector2(0, 0);
+        Debug.Log("Defense Success");
+       // var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
+       // var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
+     //   attackObjectRb.gravityScale = 0f;
+     //   attackObjectRb.velocity = new Vector2(0, 0);
 
     }
 
@@ -64,16 +65,16 @@ public class FightController : MonoBehaviour {
         // HERE: trigger animation state and battle status updates, in the appliied version
         // these are just visual debugging to see the key combos working
 
-        var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
+        //var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
 
-        var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
+       // var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
         Debug.Log("Counter attack!");
-        var counterForce = new Vector2(1000.0f, 0);
-        attackObjectRb.AddRelativeForce(counterForce);
+       // var counterForce = new Vector2(1000.0f, 0);
+        //attackObjectRb.AddRelativeForce(counterForce);
         // just for testing and fun
-        var attack2 = GameObject.Find("attack_2");
-        attack2.GetComponent<Rigidbody2D>().gravityScale = 0.35f;
-        secondAttackTime = true;
+       // var attack2 = GameObject.Find("attack_2");
+        //attack2.GetComponent<Rigidbody2D>().gravityScale = 0.35f;
+       // secondAttackTime = true;
     }
 
     void DoBattleChecks()
@@ -91,6 +92,7 @@ public class FightController : MonoBehaviour {
         {
             Key_Validator.keyCombo = defenseCombo;
             attackDefended = Key_Validator.comboPressed;
+            Debug.Log("attack defended: " + attackDefended);
             StartCoroutine(CheckDefenseSuccess());
             Key_Validator.comboPressed = false;
         }

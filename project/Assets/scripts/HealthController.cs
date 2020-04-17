@@ -38,7 +38,7 @@ public class HealthController : MonoBehaviour {
         if (isDead && !deadFlagForTest)
         {
             Debug.Log("this one is toast!");
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0.25f, 0, 0.5f);
+            //gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0.25f, 0, 0.5f);
             deadFlagForTest = true;
         }
     }

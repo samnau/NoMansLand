@@ -7,7 +7,6 @@ public class Key_Validator : MonoBehaviour
 {
     public string[] keyCombo = new string[] { "", "" };
     public bool comboPressed = false;
-    public string inputType;
 
     private void Start()
     {

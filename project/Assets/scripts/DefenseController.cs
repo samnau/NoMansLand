@@ -16,14 +16,17 @@ public class DefenseController : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         var targetGameObject = collision.gameObject;
-        if (targetGameObject.tag == "attack")
+        BattleCombos = targetGameObject.GetComponent<BattleCombos>();
+        var activeAttack = BattleCombos.activeAttack;
+        if (targetGameObject.tag == "attack" && activeAttack)
         {
-            BattleCombos = targetGameObject.GetComponent<BattleCombos>();
             defenseCombo = BattleCombos.defenseCombo;
             counterAttackCombo = BattleCombos.counterAttackCombo;
             FightController.defenseCombo = defenseCombo;
             FightController.counterAttackCombo = counterAttackCombo;
+            Debug.Log("defend now");
             defense = true;
         }
     }

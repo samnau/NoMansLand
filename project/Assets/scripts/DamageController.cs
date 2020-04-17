@@ -6,17 +6,22 @@ public class DamageController : MonoBehaviour {
     public bool damage = false;
     DefenseController DefenseController;
     Transform targetParent;
-	void Start () {
+    BattleCombos BattleCombos;
+
+    void Start () {
         targetParent = gameObject.transform.parent;
         DefenseController = targetParent.GetComponentInChildren<DefenseController>();
 	}
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "attack")
+        var targetGameObject = collision.gameObject;
+        BattleCombos = targetGameObject.GetComponent<BattleCombos>();
+        var activeAttack = BattleCombos.activeAttack;
+        if (collision.gameObject.tag == "attack" && activeAttack)
         {
-            damage = true;
-            targetParent.GetComponent<HealthController>().TakeDamage();
-            DefenseController.defense = false;
+            //damage = true;
+           // targetParent.GetComponent<HealthController>().TakeDamage();
+            //DefenseController.defense = false;
         }
     }
 

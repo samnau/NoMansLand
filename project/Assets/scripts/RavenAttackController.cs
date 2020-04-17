@@ -9,6 +9,7 @@ public class RavenAttackController : MonoBehaviour {
     Animator[] allLegs;
     int[] stabOrder = { 0, 8, 1, 7, 2, 6, 3, 5, 4, 9 };
     int legIndex = 0;
+    BattleCombos BattleCombos;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +21,9 @@ public class RavenAttackController : MonoBehaviour {
         var backLegAnimators = backLegsWrapper.GetComponentsInChildren<Animator>();
         allLegs = frontLegAnimators.Concat(backLegAnimators).ToArray();
 
+
+        BattleCombos = targetLeg.GetComponentInChildren<BattleCombos>();
+
         //StartCoroutine("TriggerSlash");
     }
 
@@ -28,9 +32,14 @@ public class RavenAttackController : MonoBehaviour {
         yield return new WaitForSeconds(2.5f);
         legAnimator.SetBool("slash", true);
     }
-
-   public IEnumerator triggerStab()
+   IEnumerator ActivateAttack()
     {
+        yield return new WaitForSeconds(0.3f);
+        BattleCombos.activeAttack = true;
+    }
+    public IEnumerator triggerStab()
+    {
+        StartCoroutine(ActivateAttack());
         if (legIndex >= stabOrder.Length - 1)
         {
             Debug.Log("stopping the stab");
@@ -39,10 +48,10 @@ public class RavenAttackController : MonoBehaviour {
             //legIndex = 0;
             yield break;
         }
-        Debug.Log("index:" + legIndex);
+        //Debug.Log("index:" + legIndex);
         var targetStabOrder = stabOrder[legIndex];
         var currentAnimator = allLegs[targetStabOrder];
-        Debug.Log("target order: " + targetStabOrder);
+        //Debug.Log("target order: " + targetStabOrder);
        /* foreach(Animator leg in allLegs)
         {
             var idleController = leg.GetComponentInParent<LegIdleController>();

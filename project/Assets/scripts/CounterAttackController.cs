@@ -5,10 +5,6 @@ using UnityEngine;
 public class CounterAttackController : MonoBehaviour {
     public bool canCounter = false;
     public float counterWindow = 1.5f;
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
     public void OpenCounterWindow()
     {
@@ -21,9 +17,4 @@ public class CounterAttackController : MonoBehaviour {
         yield return new WaitForSeconds(counterWindow);
         canCounter = false;
     }
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
