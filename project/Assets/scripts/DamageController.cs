@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour {
     public bool damage = false;
+    public bool damageDefended = false;
     DefenseController DefenseController;
     Transform targetParent;
     BattleCombos BattleCombos;
@@ -17,11 +18,12 @@ public class DamageController : MonoBehaviour {
         var targetGameObject = collision.gameObject;
         BattleCombos = targetGameObject.GetComponent<BattleCombos>();
         var activeAttack = BattleCombos.activeAttack;
-        if (collision.gameObject.tag == "attack" && activeAttack)
+        if (collision.gameObject.tag == "attack" && activeAttack && !damageDefended)
         {
-            //damage = true;
-           // targetParent.GetComponent<HealthController>().TakeDamage();
-            //DefenseController.defense = false;
+            Debug.Log("damage collision");
+           damage = true;
+           targetParent.GetComponent<HealthController>().TakeDamage();
+           DefenseController.defense = false;
         }
     }
 

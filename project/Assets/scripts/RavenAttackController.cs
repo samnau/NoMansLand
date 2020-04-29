@@ -34,7 +34,7 @@ public class RavenAttackController : MonoBehaviour {
     }
    IEnumerator ActivateAttack()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.1f);
         BattleCombos.activeAttack = true;
     }
     public IEnumerator triggerStab()

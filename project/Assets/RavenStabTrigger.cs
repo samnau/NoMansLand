@@ -19,7 +19,7 @@ public class RavenStabTrigger : MonoBehaviour {
 
         StartCoroutine(wholeSpider.GetComponent<RavenAttackController>().triggerStab());
         frogAnimator = frog.GetComponent<Animator>();
-        frogAnimator.SetBool("damage", true);
+        //frogAnimator.SetBool("damage", true);
         StartCoroutine("stopFrogDamage");
     }
 

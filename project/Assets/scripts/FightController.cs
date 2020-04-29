@@ -92,6 +92,7 @@ public class FightController : MonoBehaviour {
         {
             Key_Validator.keyCombo = defenseCombo;
             attackDefended = Key_Validator.comboPressed;
+            DamageController.damageDefended = attackDefended;
             Debug.Log("attack defended: " + attackDefended);
             StartCoroutine(CheckDefenseSuccess());
             Key_Validator.comboPressed = false;
