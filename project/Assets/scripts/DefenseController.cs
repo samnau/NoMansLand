@@ -37,6 +37,10 @@ public class DefenseController : MonoBehaviour {
     {
         if (collision.gameObject.tag == "attack")
         {
+            var targetGameObject = collision.gameObject;
+            BattleCombos = targetGameObject.GetComponent<BattleCombos>();
+            //BattleCombos.activeAttack = true;
+            Debug.Log("attack exited");
             defense = false;
         }
     }

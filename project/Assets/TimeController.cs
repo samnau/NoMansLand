@@ -17,7 +17,10 @@ public class TimeController : MonoBehaviour {
         {
             targetAnimation.speed = slomoSpeed;
         }
-        mainAnimator.speed = slomoSpeed;
+         mainAnimator.speed = slomoSpeed;
+       // Time.timeScale = slomoSpeed;
+        //Time.fixedDeltaTime = Time.timeScale * .01f;
+
     }
 	// Update is called once per frame
 	void Update () {
