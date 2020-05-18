@@ -9,7 +9,6 @@ public class HealthController : MonoBehaviour {
     public bool takeDamageFromCollision = false;
 	// Use this for initialization
 	void Start () {
-		
 	}
 
     private void OnTriggerEnter2D(Collider2D collision)

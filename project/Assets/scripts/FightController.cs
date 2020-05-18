@@ -15,6 +15,7 @@ public class FightController : MonoBehaviour {
     Key_Validator Key_Validator;
     public string[] defenseCombo;
     public string[] counterAttackCombo;
+    bool attackCycleInProgress = false;
     // for testing only
     bool secondAttackTime = false;
 
@@ -82,7 +83,11 @@ public class FightController : MonoBehaviour {
         canDefend = DefenseController.defense;
         takeDamage = DamageController.damage;
         canCounter = CounterAttackController.canCounter;
-        watchForDefense();
+        if(!attackCycleInProgress)
+        {
+            watchForDefense();
+        }
+       
         watchForCounter();
     }
 
@@ -93,6 +98,10 @@ public class FightController : MonoBehaviour {
             Key_Validator.keyCombo = defenseCombo;
             attackDefended = Key_Validator.comboPressed;
             DamageController.damageDefended = attackDefended;
+            if(attackDefended)
+            {
+                attackCycleInProgress = true;
+            }
             Debug.Log("attack defended: " + attackDefended);
             StartCoroutine(CheckDefenseSuccess());
             Key_Validator.comboPressed = false;

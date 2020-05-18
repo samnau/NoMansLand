@@ -9,10 +9,13 @@ public class DefenseController : MonoBehaviour {
     CounterAttackController CounterAttackController;
     FightController FightController;
     BattleCombos BattleCombos;
+    TimeController TimeController;
+    int collisionCount= 0;
 
     void Start () {
         CounterAttackController = GetComponent<CounterAttackController>();
         FightController = GetComponentInParent<FightController>();
+        TimeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -20,10 +23,10 @@ public class DefenseController : MonoBehaviour {
         var targetGameObject = collision.gameObject;
         BattleCombos = targetGameObject.GetComponent<BattleCombos>();
         var activeAttack = BattleCombos.activeAttack;
-        if (targetGameObject.tag == "attack" && activeAttack)
+        if (targetGameObject.tag == "attack" && activeAttack && collisionCount == 0)
         {
-            var timeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
-            timeController.FreezeTime();
+            TimeController.FreezeTime();
+            collisionCount++;
             defenseCombo = BattleCombos.defenseCombo;
             counterAttackCombo = BattleCombos.counterAttackCombo;
             FightController.defenseCombo = defenseCombo;

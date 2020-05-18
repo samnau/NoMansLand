@@ -8,11 +8,13 @@ public class DamageController : MonoBehaviour {
     DefenseController DefenseController;
     Transform targetParent;
     BattleCombos BattleCombos;
+    TimeController TimeController;
 
     void Start () {
         targetParent = gameObject.transform.parent;
         DefenseController = targetParent.GetComponentInChildren<DefenseController>();
-	}
+        TimeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var targetGameObject = collision.gameObject;
@@ -20,9 +22,10 @@ public class DamageController : MonoBehaviour {
         var activeAttack = BattleCombos.activeAttack;
         if (collision.gameObject.tag == "attack" && activeAttack && !damageDefended)
         {
-            Debug.Log("damage collision");
+            Debug.Log("damage collision? "+ damageDefended);
            damage = true;
            targetParent.GetComponent<HealthController>().TakeDamage();
+           TimeController.UnFreezeTime();
            DefenseController.defense = false;
         }
     }
