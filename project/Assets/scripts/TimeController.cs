@@ -19,12 +19,19 @@ public class TimeController : MonoBehaviour {
         }
         mainAnimator.speed = timeSpeed;
     }
-    public void FreezeTime()
+
+    public void StopTime()
+    {
+        ChangeTime(0f);
+    }
+
+    public void SlowTime()
     {
         ChangeTime(slomoSpeed);
     }
     public void UnFreezeTime()
     {
+        Debug.Log("time unfreeze");
         ChangeTime(1.0f);
     }
 	// Update is called once per frame

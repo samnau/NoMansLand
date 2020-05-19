@@ -25,7 +25,7 @@ public class DefenseController : MonoBehaviour {
         var activeAttack = BattleCombos.activeAttack;
         if (targetGameObject.tag == "attack" && activeAttack && collisionCount == 0)
         {
-            TimeController.FreezeTime();
+            TimeController.SlowTime();
             collisionCount++;
             defenseCombo = BattleCombos.defenseCombo;
             counterAttackCombo = BattleCombos.counterAttackCombo;

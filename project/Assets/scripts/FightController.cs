@@ -12,6 +12,7 @@ public class FightController : MonoBehaviour {
     DefenseController DefenseController;
     DamageController DamageController;
     CounterAttackController CounterAttackController;
+    TimeController TimeController;
     Key_Validator Key_Validator;
     public string[] defenseCombo;
     public string[] counterAttackCombo;
@@ -26,6 +27,7 @@ public class FightController : MonoBehaviour {
         DefenseController = DefenseWindow.GetComponent<DefenseController>();
         DamageController = GameObject.Find("damage_zone").GetComponent<DamageController>();
         CounterAttackController = DefenseWindow.GetComponent<CounterAttackController>();
+        TimeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
         Key_Validator = GetComponent<Key_Validator>();
     }
 	
@@ -42,6 +44,7 @@ public class FightController : MonoBehaviour {
     void SuccessfulDefenseResponse()
     {
         Debug.Log("Defense Success");
+        TimeController.StopTime();
        // var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
        // var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
      //   attackObjectRb.gravityScale = 0f;
