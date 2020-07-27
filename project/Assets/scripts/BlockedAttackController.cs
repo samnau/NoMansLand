@@ -4,25 +4,42 @@ using UnityEngine;
 
 public class BlockedAttackController : MonoBehaviour {
     public bool attackBlocked = false;
-    GameObject head;
+    GameObject hero;
+    Transform head;
     Animator headAnimator;
-    GameObject beak;
+    Transform beak;
     Animator beakAnimator;
+    Transform MonsterWrapper;
 	// Use this for initialization
 	void Start () {
-        head = gameObject.transform.Find("beakWrapper").gameObject;
+        hero = GameObject.FindGameObjectWithTag("Player");
+        MonsterWrapper = gameObject.transform.Find("RavenSpiderWrapper");
+        head = MonsterWrapper.Find("raven-spider_head");
         headAnimator = head.GetComponent<Animator>();
-        beak = gameObject.transform.Find("raven-spider_head").gameObject;
+        beak = head.Find("beakWrapper"); ;
         beakAnimator = beak.GetComponent<Animator>();
 	}
 	
     IEnumerator TriggerRecoil()
     {
+        Debug.Log("recoil");
+
         headAnimator.SetBool("recoil", true);
         beakAnimator.SetBool("recoil", true);
+        hero.GetComponent<Animator>().SetBool("ACTION", true);
+        TriggerLegsRecoil();
         yield return new WaitForSeconds(0.1f);
         attackBlocked = false;
     } 
+
+    void TriggerLegsRecoil()
+    {
+        var animationArray = MonsterWrapper.GetComponentsInChildren<Animator>();
+        foreach (Animator targetAnimation in animationArray)
+        {
+            targetAnimation.SetBool("stabBlocked", true);
+        }
+    }
 
 	// Update is called once per frame
 	void Update () {

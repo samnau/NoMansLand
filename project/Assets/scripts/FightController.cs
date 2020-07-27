@@ -11,7 +11,11 @@ public class FightController : MonoBehaviour {
     GameObject DefenseWindow;
     DefenseController DefenseController;
     DamageController DamageController;
+    GameObject Monster;
+    BlockedAttackController blockedAttackController;
     CounterAttackController CounterAttackController;
+    GameObject FireShield;
+    Animator FireShieldAnimator;
     TimeController TimeController;
     Key_Validator Key_Validator;
     public string[] defenseCombo;
@@ -28,6 +32,10 @@ public class FightController : MonoBehaviour {
         DamageController = GameObject.Find("damage_zone").GetComponent<DamageController>();
         CounterAttackController = DefenseWindow.GetComponent<CounterAttackController>();
         TimeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
+        Monster = GameObject.FindGameObjectWithTag("Enemy");
+        blockedAttackController = Monster.GetComponent<BlockedAttackController>();
+        FireShield = GameObject.Find("fire_shield_wrapper");
+        FireShieldAnimator = FireShield.GetComponent<Animator>();
         Key_Validator = GetComponent<Key_Validator>();
     }
 	
@@ -44,7 +52,10 @@ public class FightController : MonoBehaviour {
     void SuccessfulDefenseResponse()
     {
         Debug.Log("Defense Success");
-        TimeController.StopTime();
+        //TimeController.StopTime();
+        FireShieldAnimator.SetBool("appear", true);
+        TimeController.UnFreezeTime();
+        blockedAttackController.attackBlocked = true;
        // var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
        // var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
      //   attackObjectRb.gravityScale = 0f;

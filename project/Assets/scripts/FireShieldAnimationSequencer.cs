@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FireShieldAnimationSequencer : MonoBehaviour {
-    float ShieldRevealDelay = 1.5f;
+    float ShieldRevealDelay = 0f;
     Transform FireCore;
     AnimationStateTrigger FlameTrigger;
     Transform Flame;
@@ -16,12 +16,17 @@ public class FireShieldAnimationSequencer : MonoBehaviour {
         CoreTrigger = FireCore.GetComponent<AnimationStateTrigger>();
         FlameTrigger = Flame.GetComponent<AnimationStateTrigger>();
         WrapperTrigger = gameObject.GetComponent<AnimationStateTrigger>();
-        StartCoroutine("TriggerFlameAppear");
     }
 	
+   public void ShowFireShield()
+    {
+        //gameObject.GetComponent<Animator>().SetBool("appear", true);
+        StartCoroutine("TriggerFlameAppear");
+    }
+
      IEnumerator TriggerFlameAppear()
     {
-        yield return new WaitForSeconds(ShieldRevealDelay);
+        //yield return new WaitForSeconds(ShieldRevealDelay);
         FlameTrigger.TriggerChange = true;
         yield return new WaitForSeconds(0.5f);
         CoreTrigger.TriggerChange = true;
