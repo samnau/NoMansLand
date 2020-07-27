@@ -53,6 +53,8 @@ public class FightController : MonoBehaviour {
     {
         Debug.Log("Defense Success");
         TimeController.StopTime();
+        var hero = GameObject.FindGameObjectWithTag("Player");
+        hero.GetComponent<Animator>().SetBool("ACTION", true);
         FireShieldAnimator.SetBool("appear", true);
         //TimeController.UnFreezeTime();
         StartCoroutine("TimeRestart");

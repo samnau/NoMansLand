@@ -26,10 +26,11 @@ public class BlockedAttackController : MonoBehaviour {
 
         headAnimator.SetBool("recoil", true);
         beakAnimator.SetBool("recoil", true);
-        hero.GetComponent<Animator>().SetBool("ACTION", true);
         TriggerLegsRecoil();
         yield return new WaitForSeconds(0.1f);
         attackBlocked = false;
+        yield return new WaitForSeconds(1.5f);
+        MonsterWrapper.GetComponent<Animator>().SetBool("retreat", true);
     } 
 
     void TriggerLegsRecoil()
