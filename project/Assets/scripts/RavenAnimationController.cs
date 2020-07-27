@@ -35,6 +35,15 @@ public class RavenAnimationController : MonoBehaviour {
         var ravenBeak = GameObject.Find("beakWrapper");
         ravenHead.GetComponent<Animator>().SetBool("startIdle", true);
         ravenBeak.GetComponent<Animator>().SetBool("startIdle", true);
+        StartCoroutine("TriggerStabAttack");
+    }
+
+    IEnumerator TriggerStabAttack()
+    {
+        Debug.Log("stab remote trigger");
+        yield return new WaitForSeconds(1.0f);
+        var stabController = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>();
+        stabController.SetBool("stab", true);
     }
 	// Update is called once per frame
 	void Update () {

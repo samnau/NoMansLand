@@ -29,9 +29,10 @@ public class BlockedAttackController : MonoBehaviour {
         TriggerLegsRecoil();
         yield return new WaitForSeconds(0.1f);
         attackBlocked = false;
-        yield return new WaitForSeconds(1.5f);
-        MonsterWrapper.GetComponent<Animator>().SetBool("retreat", true);
-    } 
+        yield return new WaitForSeconds(0.5f);
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>().SetBool("flee", true);
+        GameObject.FindGameObjectWithTag("Enemy").GetComponent<Animator>().SetBool("stab", false);
+    }
 
     void TriggerLegsRecoil()
     {
