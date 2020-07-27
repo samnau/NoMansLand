@@ -52,15 +52,22 @@ public class FightController : MonoBehaviour {
     void SuccessfulDefenseResponse()
     {
         Debug.Log("Defense Success");
-        //TimeController.StopTime();
+        TimeController.StopTime();
         FireShieldAnimator.SetBool("appear", true);
-        TimeController.UnFreezeTime();
-        blockedAttackController.attackBlocked = true;
+        //TimeController.UnFreezeTime();
+        StartCoroutine("TimeRestart");
        // var attackObject = secondAttackTime ? GameObject.Find("attack_2") : GameObject.Find("attack");
        // var attackObjectRb = attackObject.GetComponent<Rigidbody2D>();
      //   attackObjectRb.gravityScale = 0f;
      //   attackObjectRb.velocity = new Vector2(0, 0);
 
+    }
+
+    IEnumerator TimeRestart()
+    {
+        yield return new WaitForSeconds(1.75f);
+        TimeController.UnFreezeTime();
+        blockedAttackController.attackBlocked = true;
     }
 
     IEnumerator CheckCounterSuccess()
