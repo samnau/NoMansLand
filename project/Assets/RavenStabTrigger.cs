@@ -7,7 +7,7 @@ public class RavenStabTrigger : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         var targetLeg = GameObject.Find("legNormal_wrapper_1");
-        var attackComponent = targetLeg.GetComponentInChildren<BattleCombos>();
+        var attackComponent = targetLeg.GetComponentInChildren<BattleKeyCombos>();
         attackComponent.activeAttack = false;
     }
 

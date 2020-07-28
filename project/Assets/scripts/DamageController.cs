@@ -8,6 +8,7 @@ public class DamageController : MonoBehaviour {
     DefenseController DefenseController;
     Transform targetParent;
     BattleCombos BattleCombos;
+    BattleKeyCombos battleKeyCombos;
     TimeController TimeController;
 
     void Start () {
@@ -18,8 +19,8 @@ public class DamageController : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var targetGameObject = collision.gameObject;
-        BattleCombos = targetGameObject.GetComponent<BattleCombos>();
-        var activeAttack = BattleCombos.activeAttack;
+        battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
+        var activeAttack = battleKeyCombos.activeAttack;
         if (collision.gameObject.tag == "attack" && activeAttack && !damageDefended)
         {
             Debug.Log("damage collision? "+ damageDefended);

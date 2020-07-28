@@ -9,7 +9,7 @@ public class RavenAttackController : MonoBehaviour {
     Animator[] allLegs;
     int[] stabOrder = { 0, 8, 1, 7, 2, 6, 3, 5, 4, 9 };
     int legIndex = 0;
-    BattleCombos BattleCombos;
+    BattleKeyCombos battleKeyCombos;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class RavenAttackController : MonoBehaviour {
         allLegs = frontLegAnimators.Concat(backLegAnimators).ToArray();
 
 
-        BattleCombos = targetLeg.GetComponentInChildren<BattleCombos>();
+        battleKeyCombos = targetLeg.GetComponentInChildren<BattleKeyCombos>();
 
         //StartCoroutine("TriggerSlash");
     }
@@ -35,7 +35,8 @@ public class RavenAttackController : MonoBehaviour {
    IEnumerator ActivateAttack()
     {
         yield return new WaitForSeconds(0.1f);
-        BattleCombos.activeAttack = true;
+        //BattleCombos.activeAttack = true;
+        battleKeyCombos.activeAttack = true;
     }
     public IEnumerator triggerStab()
     {
