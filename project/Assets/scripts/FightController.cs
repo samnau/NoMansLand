@@ -18,15 +18,19 @@ public class FightController : MonoBehaviour {
     Animator FireShieldAnimator;
     TimeController TimeController;
     Key_Validator Key_Validator;
+    KeyCodeValidator KeyCodeValidator;
     public string[] defenseCombo;
     public string[] counterAttackCombo;
+    public KeyCode[] defenseKeyCombo;
+    public KeyCode[] counterAttackKeyCombo;
     bool attackCycleInProgress = false;
     // for testing only
     bool secondAttackTime = false;
 
 	// Use this for initialization
 	void Start () {
-       defenseCombo = new string[] { "", "" };
+        //defenseCombo = new string[] { "", "" };
+        defenseKeyCombo = new KeyCode[] { KeyCode.Underscore, KeyCode.Underscore };
         DefenseWindow = GameObject.Find("defense_window");
         DefenseController = DefenseWindow.GetComponent<DefenseController>();
         DamageController = GameObject.Find("damage_zone").GetComponent<DamageController>();
@@ -36,7 +40,8 @@ public class FightController : MonoBehaviour {
         blockedAttackController = Monster.GetComponent<BlockedAttackController>();
         FireShield = GameObject.Find("fire_shield_wrapper");
         FireShieldAnimator = FireShield.GetComponent<Animator>();
-        Key_Validator = GetComponent<Key_Validator>();
+        //Key_Validator = GetComponent<Key_Validator>();
+        KeyCodeValidator = GetComponent<KeyCodeValidator>();
     }
 	
     IEnumerator CheckDefenseSuccess()
@@ -118,8 +123,11 @@ public class FightController : MonoBehaviour {
     {
         if (canDefend && !takeDamage && !attackDefended)
         {
-            Key_Validator.keyCombo = defenseCombo;
-            attackDefended = Key_Validator.comboPressed;
+            //Key_Validator.keyCombo = defenseCombo;
+            KeyCodeValidator.keyCombo = defenseKeyCombo;
+//            attackDefended = Key_Validator.comboPressed;
+            attackDefended = KeyCodeValidator.comboPressed;
+
             DamageController.damageDefended = attackDefended;
             if(attackDefended)
             {
@@ -127,7 +135,8 @@ public class FightController : MonoBehaviour {
             }
             Debug.Log("attack defended: " + attackDefended);
             StartCoroutine(CheckDefenseSuccess());
-            Key_Validator.comboPressed = false;
+//            Key_Validator.comboPressed = false;
+            KeyCodeValidator.comboPressed = false;
         }
     }
 
@@ -135,8 +144,10 @@ public class FightController : MonoBehaviour {
     {
         if (attackDefended && canCounter)
         {
-            Key_Validator.keyCombo = counterAttackCombo;
-            attackCountered = Key_Validator.comboPressed;
+//            Key_Validator.keyCombo = counterAttackCombo;
+            KeyCodeValidator.keyCombo = counterAttackKeyCombo;
+//            attackCountered = Key_Validator.comboPressed;
+            attackCountered = KeyCodeValidator.comboPressed;
             StartCoroutine(CheckCounterSuccess());
         }
     }
