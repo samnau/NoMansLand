@@ -7,7 +7,7 @@ TextureImporter:
     21300004: frog-familiar_throat-main
     21300006: frog-familiar_eye-highlight
     21300008: frog-familiar_eye-pupil
-    21300010: frog-mini sprite sheet_5
+    21300010: frog-familiar_back-leg-upper_alt
     21300012: frog-familiar_front-leg
     21300014: frog-familiar_back-leg-upper
     21300016: frog-familiar_eye-rear
@@ -219,7 +219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog-mini sprite sheet_5
+      name: frog-familiar_back-leg-upper_alt
       rect:
         serializedVersion: 2
         x: 1178
