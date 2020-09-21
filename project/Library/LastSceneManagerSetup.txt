@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/scenes/Frog Animation Staging.unity
+- path: Assets/scenes/Forest1.unity
   isLoaded: 1
   isActive: 1

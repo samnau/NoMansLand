@@ -8,15 +8,20 @@ TextureImporter:
     21300006: frog-familiar_eye-highlight
     21300008: frog-familiar_eye-pupil
     21300010: frog-familiar_back-leg-upper_alt
-    21300012: frog-familiar_front-leg
+    21300012: frog-familiar_front-legR
     21300014: frog-familiar_back-leg-upper
     21300016: frog-familiar_eye-rear
     21300018: frog-familiar_body
-    21300020: frog-familiar_back-leg-lower
+    21300020: frog-familiar_back-legR-lower
     21300022: frog-familiar_eye-base
     21300024: frog-familiar_throat-mask
-    21300026: frog-familiar_head
+    21300026: frog-familiar_head_upper
     21300028: frog-familiar_reference
+    21300030: frog-mini sprite sheet_circle1
+    21300032: frog-mini sprite sheet_circle2
+    21300034: frog-mini sprite sheet_jaw
+    21300036: frog-familiar_front-legL
+    21300038: frog-familiar_back-legL-lower
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -35,7 +40,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -223,12 +228,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1178
-        y: 665
+        y: 746
         width: 199
-        height: 162
+        height: 81
       alignment: 9
       pivot: {x: 0.346584, y: 0.6798898}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -239,7 +244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog-familiar_front-leg
+      name: frog-familiar_front-legR
       rect:
         serializedVersion: 2
         x: 756
@@ -319,15 +324,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog-familiar_back-leg-lower
+      name: frog-familiar_back-legR-lower
       rect:
         serializedVersion: 2
         x: 137
-        y: 533
+        y: 536
         width: 465
-        height: 293
+        height: 312
       alignment: 9
-      pivot: {x: 0.06993937, y: 0.8907554}
+      pivot: {x: 0.08333002, y: 0.71083635}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -379,13 +384,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: frog-familiar_head
+      name: frog-familiar_head_upper
       rect:
         serializedVersion: 2
-        x: 1759
-        y: 228
-        width: 699
-        height: 648
+        x: 1798
+        y: 384
+        width: 710
+        height: 447
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,6 +419,106 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 02840eea768046b4083e629ddab389d7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog-mini sprite sheet_circle1
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 42
+        width: 213
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fc27ceb587f56247809224b1587005b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog-mini sprite sheet_circle2
+      rect:
+        serializedVersion: 2
+        x: 1516
+        y: 732
+        width: 230
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f800f27ab3c64419fc43317d4b1cdb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog-mini sprite sheet_jaw
+      rect:
+        serializedVersion: 2
+        x: 2595
+        y: 56
+        width: 452
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 627f654ea6980cf4f81932bd9e9c6326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog-familiar_front-legL
+      rect:
+        serializedVersion: 2
+        x: 2666
+        y: 560
+        width: 249
+        height: 268
+      alignment: 9
+      pivot: {x: 0.2235475, y: 0.86007303}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e9d95750719ca48999e5493f3b351a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog-familiar_back-legL-lower
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 43
+        width: 469
+        height: 336
+      alignment: 9
+      pivot: {x: 0.06342295, y: 0.96687}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfbb0626b9d4d14aa0273e1d1bef132
       vertices: []
       indices: 
       edges: []
