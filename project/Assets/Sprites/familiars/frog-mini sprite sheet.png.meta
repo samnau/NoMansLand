@@ -22,6 +22,7 @@ TextureImporter:
     21300034: frog-mini sprite sheet_jaw
     21300036: frog-familiar_front-legL
     21300038: frog-familiar_back-legL-lower
+    21300040: frog-familiar_tongue
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -390,7 +391,7 @@ TextureImporter:
         x: 1798
         y: 384
         width: 710
-        height: 447
+        height: 440
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -408,9 +409,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2025
-        y: 906
+        y: 911
         width: 1040
-        height: 1142
+        height: 1137
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -519,6 +520,26 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7cfbb0626b9d4d14aa0273e1d1bef132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frog-familiar_tongue
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 1960
+        width: 454
+        height: 81
+      alignment: 9
+      pivot: {x: 0.011548282, y: 0.31612292}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1e7ea0708063e48b3efb2fd8c0f202
       vertices: []
       indices: 
       edges: []
