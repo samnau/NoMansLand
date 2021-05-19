@@ -1,0 +1,516 @@
+fileFormatVersion: 2
+guid: 1bc0074590e21e546990b7696eef03e4
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: fire_shield_step6-2
+    21300002: fire_shield_step2
+    21300004: fire_shield_step1
+    21300006: fire_shield_step9
+    21300008: fire_shield_step8
+    21300010: fire_shield_core
+    21300012: fire_shield_step5
+    21300014: fire_shield_step4
+    21300016: fire_shield_step12
+    21300018: fire_shield_step10
+    21300020: fire_shield_step11
+    21300022: fire_shield_step6
+    21300024: fire_shield_step7
+    21300026: fire_shield_step3
+    21300028: fire_shield_step15
+    21300030: fire_shield_step14
+    21300032: fire_shield_step13
+    21300034: fire_shield_step16
+    21300036: fire_shield_step17
+  externalObjects: {}
+  serializedVersion: 5
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: iPhone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fire_shield_step6-2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6136
+        width: 1325
+        height: 1448
+      alignment: 9
+      pivot: {x: 0.5, y: 0.42}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee8648adc0092454699e7be415952160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step2
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 6369
+        width: 968
+        height: 968
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6301033e820bdf04a979f4f309c129d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step1
+      rect:
+        serializedVersion: 2
+        x: 1380
+        y: 5327
+        width: 876
+        height: 877
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7532c3b403fec549bc4572138baa068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4252
+        width: 1352
+        height: 1872
+      alignment: 9
+      pivot: {x: 0.5307307, y: 0.3168961}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fa8bd2e80ef1f43bcd1c416f5bb16f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step8
+      rect:
+        serializedVersion: 2
+        x: 2498
+        y: 4932
+        width: 1278
+        height: 1621
+      alignment: 9
+      pivot: {x: 0.5203187, y: 0.37199017}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a1973e824477144394170cc06d21aef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_core
+      rect:
+        serializedVersion: 2
+        x: 3837
+        y: 5836
+        width: 644
+        height: 647
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77477060d420f6f47a191d654ca92b9e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step5
+      rect:
+        serializedVersion: 2
+        x: 4597
+        y: 5481
+        width: 1217
+        height: 962
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6068f847dae42124eb51058ed331d196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step4
+      rect:
+        serializedVersion: 2
+        x: 4664
+        y: 6454
+        width: 1097
+        height: 964
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a38ba3d8ffde0545b58c2780a56079a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step12
+      rect:
+        serializedVersion: 2
+        x: 5957
+        y: 5239
+        width: 1325
+        height: 2025
+      alignment: 9
+      pivot: {x: 0.5137183, y: 0.306366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27429dda4c14b64458ab70d487df9865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step10
+      rect:
+        serializedVersion: 2
+        x: 6020
+        y: 3150
+        width: 1352
+        height: 2047
+      alignment: 9
+      pivot: {x: 0.5326513, y: 0.30083576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e313794b6a9a4b644a83aa200914f692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step11
+      rect:
+        serializedVersion: 2
+        x: 4412
+        y: 3188
+        width: 1420
+        height: 2169
+      alignment: 9
+      pivot: {x: 0.534745, y: 0.2713331}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14bc21f2a0e858744969447464e185d9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step6
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 3398
+        width: 1436
+        height: 1436
+      alignment: 9
+      pivot: {x: 0.51265806, y: 0.39692572}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ddb2f3cb8dbed94fa5f3b113bb984ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step7
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 3347
+        width: 1277
+        height: 1534
+      alignment: 9
+      pivot: {x: 0.5101673, y: 0.39335385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5161f22e8dacae0479e79ad48193e607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 3112
+        width: 1090
+        height: 1087
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7d5aad32c4ae1147ab06d296fab2248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step15
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 953
+        width: 1331
+        height: 2129
+      alignment: 9
+      pivot: {x: 0.5078039, y: 0.29265064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101478107411bab48a5fd4979b567021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step14
+      rect:
+        serializedVersion: 2
+        x: 1579
+        y: 957
+        width: 1324
+        height: 2121
+      alignment: 9
+      pivot: {x: 0.5058839, y: 0.2906443}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a97060ac13f32047943eee32a7134bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step13
+      rect:
+        serializedVersion: 2
+        x: 3090
+        y: 957
+        width: 1321
+        height: 2142
+      alignment: 9
+      pivot: {x: 0.51572573, y: 0.29997048}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9121ee7cec00e44fb18a74883013dcf
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step16
+      rect:
+        serializedVersion: 2
+        x: 4777
+        y: 953
+        width: 1324
+        height: 2122
+      alignment: 9
+      pivot: {x: 0.51372904, y: 0.28829557}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069b03f6ea771fa4b941826f44b5d396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fire_shield_step17
+      rect:
+        serializedVersion: 2
+        x: 6247
+        y: 956
+        width: 1323
+        height: 2125
+      alignment: 9
+      pivot: {x: 0.52551574, y: 0.29592642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c57f5374166a2b4a8e6dc1cb3099669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5a663ad0673c5c24a9b2adb4ca41e261
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

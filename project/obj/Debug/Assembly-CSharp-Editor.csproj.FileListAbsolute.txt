@@ -120,7 +120,6 @@ C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\Boo.Lang.P
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\Boo.Lang.Useful.dll
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\Unity.CecilTools.dll
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\Unity.Cecil.Pdb.dll
-C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\Assembly-CSharp.pdb
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEngine.xml
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEditor.xml
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\UnityEngine.AIModule.xml
@@ -204,3 +203,4 @@ C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp-Editor.csproj.CopyComplete
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp-Editor.dll
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\obj\Debug\Assembly-CSharp-Editor.pdb
+C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\bin\Debug\Assembly-CSharp.pdb
