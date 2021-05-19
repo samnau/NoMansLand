@@ -1,0 +1,94 @@
+@import "mixins";
+
+body {
+  background-color: #333;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.uf {
+  &_main_wrapper {
+    align-items: center;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    margin: auto;
+    max-width: 1220px;
+  }
+
+  h1 {
+    color: #fff;
+    font-family: "Megrim", sans-serif;
+  }
+
+  .uf_footer {
+    background: url('site_footer.jpg') center no-repeat;
+    background-size: cover;
+    height: 330px;
+    width: 100%
+  }
+
+  &_header {
+    background: url(site_header.jpg) center no-repeat;
+    background-size: cover;
+    height: 320px;
+    width: 100%;
+  }
+
+  &_copy, &_header, &_footer {
+    flex: 1 0 auto;
+  }
+
+  &_body_copy {
+    background: linear-gradient(to bottom, #333333 30%,#000000 100%);
+    font-family: Arial, sans-serif;
+    font-size: 36px;
+    padding: 50px;
+
+    @include breakpoint {
+      font-size: 18px;
+      padding: 30px;
+    }
+
+    p {
+      font-family: "Times New Roman", serif;
+      line-height: 72px;
+
+      @include breakpoint {
+        line-height: 36px;
+      }
+    }
+  }
+
+  &_social_links {
+    display: flex;
+    align-items: center;
+    font-size: 36px;
+
+    @include breakpoint{
+      font-size: 18px;
+    }
+
+    a {
+      flex: 1;
+      margin: 0 20px;
+    }
+
+    img {
+      max-width: 100px;
+      @include breakpoint{
+        max-width: 50px;
+      }
+    }
+  }
+
+  &_footer {
+    background: url('site_footer.jpg') center no-repeat;
+    background-size: cover;
+    height: 330px;
+    width: 100%
+  }
+}
