@@ -10,11 +10,12 @@ body {
 .uf {
   &_main_wrapper {
     align-items: center;
+    box-shadow: 0 0 30px black;
     background-color: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: auto;
     max-width: 1220px;
 
@@ -24,16 +25,17 @@ body {
     }
   }
 
-  .uf_footer {
-    background: url('site_footer.jpg') center no-repeat;
+  &_footer {
+    background: url('footer-image.png') center no-repeat;
     background-size: cover;
     height: 330px;
     width: 100%
   }
 
   &_header {
-    background: url(site_header.jpg) center no-repeat;
+    background: url(forest3.jpg) center no-repeat;
     background-size: cover;
+    background-position: center 63%;
     height: 320px;
     width: 100%;
   }
@@ -44,33 +46,23 @@ body {
 
   &_body_copy {
     background: linear-gradient(to bottom, #333333 30%,#000000 100%);
-    font-family: Arial, sans-serif;
-    font-size: 36px;
+    font-size: px-to-rem(18);
     padding: 50px;
 
     @include breakpoint {
-      font-size: 18px;
       padding: 30px;
     }
 
     p {
       font-family: "Times New Roman", serif;
-      line-height: 72px;
-
-      @include breakpoint {
-        line-height: 36px;
-      }
+      line-height: px-to-rem(36);
     }
   }
 
   &_social_links {
     display: flex;
     align-items: center;
-    font-size: 36px;
-
-    @include breakpoint{
-      font-size: 18px;
-    }
+    font-size: px-to-rem(18);
 
     a {
       flex: 1;
@@ -78,17 +70,11 @@ body {
     }
 
     img {
-      max-width: 100px;
+      max-width: 50px;
       @include breakpoint{
         max-width: 50px;
       }
     }
   }
 
-  &_footer {
-    background: url('site_footer.jpg') center no-repeat;
-    background-size: cover;
-    height: 330px;
-    width: 100%
-  }
 }

@@ -3,3 +3,7 @@
     @content;
   }
 }
+
+@function px-to-rem($pixels) {
+  @return (($pixels/16) * 1rem);
+}
