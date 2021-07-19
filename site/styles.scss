@@ -33,11 +33,16 @@ body {
   }
 
   &_header {
-    background: url(forest3.jpg) center no-repeat;
+    background: url(broken-pool---textured---layout_web.jpg) center no-repeat;
     background-size: cover;
-    background-position: center 63%;
-    height: 320px;
+    background-position: center;
+    height: 360px;
     width: 100%;
+
+    @include breakpoint{
+      background-position: center 91%;
+      height: 320px
+    }
   }
 
   &_copy, &_header, &_footer {

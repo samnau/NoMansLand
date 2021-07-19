@@ -27,11 +27,17 @@ body {
   width: 100%;
 }
 .uf_header {
-  background: url(forest3.jpg) center no-repeat;
+  background: url(broken-pool---textured---layout_web.jpg) center no-repeat;
   background-size: cover;
-  background-position: center 63%;
-  height: 320px;
+  background-position: center;
+  height: 360px;
   width: 100%;
+}
+@media (min-width: 540px) {
+  .uf_header {
+    background-position: center 91%;
+    height: 320px;
+  }
 }
 .uf_copy, .uf_header, .uf_footer {
   flex: 1 0 auto;
