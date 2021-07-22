@@ -19,9 +19,17 @@ body {
     margin: auto;
     max-width: 1220px;
 
-    h1 {
+    h1, h2, h3, h4, h5, h6 {
       color: #fff;
       font-family: "Megrim", sans-serif;
+
+      a {
+        color: #fff;
+        transition: color 0.3s ease;
+        &:hover {
+          color: green;
+        }
+      }
     }
   }
 
@@ -53,6 +61,7 @@ body {
     background: linear-gradient(to bottom, #333333 30%,#000000 100%);
     font-size: px-to-rem(18);
     padding: 50px;
+    width: 95%;
 
     @include breakpoint {
       padding: 30px;

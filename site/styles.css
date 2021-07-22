@@ -16,9 +16,16 @@ body {
   margin: auto;
   max-width: 1220px;
 }
-.uf_main_wrapper h1 {
+.uf_main_wrapper h1, .uf_main_wrapper h2, .uf_main_wrapper h3, .uf_main_wrapper h4, .uf_main_wrapper h5, .uf_main_wrapper h6 {
   color: #fff;
   font-family: "Megrim", sans-serif;
+}
+.uf_main_wrapper h1 a, .uf_main_wrapper h2 a, .uf_main_wrapper h3 a, .uf_main_wrapper h4 a, .uf_main_wrapper h5 a, .uf_main_wrapper h6 a {
+  color: #fff;
+  transition: color 0.3s ease;
+}
+.uf_main_wrapper h1 a:hover, .uf_main_wrapper h2 a:hover, .uf_main_wrapper h3 a:hover, .uf_main_wrapper h4 a:hover, .uf_main_wrapper h5 a:hover, .uf_main_wrapper h6 a:hover {
+  color: green;
 }
 .uf_footer {
   background: url("intro-forest-trees_web.png") center 60px no-repeat;
@@ -46,6 +53,7 @@ body {
   background: linear-gradient(to bottom, #333333 30%, #000000 100%);
   font-size: 1.125rem;
   padding: 50px;
+  width: 95%;
 }
 @media (min-width: 540px) {
   .uf_body_copy {
