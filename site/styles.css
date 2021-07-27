@@ -16,6 +16,7 @@ body {
   min-height: 100vh;
   margin: auto;
   max-width: 1220px;
+  overflow: hidden;
 }
 .uf_main_wrapper h1, .uf_main_wrapper h2, .uf_main_wrapper h3, .uf_main_wrapper h4, .uf_main_wrapper h5, .uf_main_wrapper h6 {
   color: #fff;
@@ -69,10 +70,27 @@ body {
   display: flex;
   align-items: center;
   font-size: 1.125rem;
+  flex-wrap: wrap;
+}
+.uf_social_links p {
+  flex: 100%;
+  text-align: center;
 }
 .uf_social_links a {
   flex: 1;
   margin: 0 20px;
+  text-align: center;
+}
+@media (min-width: 540px) {
+  .uf_social_links {
+    flex-wrap: nowrap;
+  }
+  .uf_social_links a {
+    text-align: left;
+  }
+  .uf_social_links p {
+    flex: none;
+  }
 }
 .uf_social_links img {
   max-width: 50px;
@@ -83,19 +101,34 @@ body {
   }
 }
 .uf .glide__slide img {
-  max-width: 200px;
+  max-width: 230px;
   min-height: 200px;
   object-fit: cover;
 }
 .uf .glide__track {
   margin: auto;
-  width: 80%;
+  width: 60vw;
+}
+@media (min-width: 540px) {
+  .uf .glide__track {
+    width: 80%;
+  }
 }
 .uf .glide__arrow--left {
-  left: 2.5rem;
+  left: 0;
+}
+@media (min-width: 540px) {
+  .uf .glide__arrow--left {
+    left: 2.5rem;
+  }
 }
 .uf .glide__arrow--right {
-  right: 2.5rem;
+  right: 0;
+}
+@media (min-width: 540px) {
+  .uf .glide__arrow--right {
+    right: 2.5rem;
+  }
 }
 .uf .glide__arrows button {
   font-family: "Megrim", sans-serif;
@@ -133,6 +166,7 @@ body {
   object-fit: contain;
   max-height: 70vh;
   margin: auto;
+  max-width: 80vw;
 }
 
 .modal__container {

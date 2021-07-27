@@ -20,6 +20,7 @@ body {
     min-height: 100vh;
     margin: auto;
     max-width: 1220px;
+    overflow: hidden;
 
     h1, h2, h3, h4, h5, h6 {
       color: #fff;
@@ -79,10 +80,29 @@ body {
     display: flex;
     align-items: center;
     font-size: px-to-rem(18);
+    flex-wrap: wrap;
+
+    p {
+      flex: 100%;
+      text-align: center;
+    }
 
     a {
       flex: 1;
       margin: 0 20px;
+      text-align: center;
+    }
+
+    @include breakpoint {
+      flex-wrap: nowrap;
+
+      a {
+        text-align: left;
+      }
+
+      p {
+        flex: none;
+      }
     }
 
     img {
@@ -97,7 +117,7 @@ body {
 
     &__slide {
       img {
-        max-width: 200px;
+        max-width: 230px;
         min-height: 200px;
         object-fit: cover;
       }
@@ -105,15 +125,24 @@ body {
 
     &__track {
       margin: auto;
-      width: 80%;
+      width: 60vw;
+      @include breakpoint{
+        width: 80%;
+      }
     }
 
     &__arrow {
       &--left {
-        left: 2.5rem;
+        left: 0;
+        @include breakpoint{
+          left: 2.5rem;
+        }
       }
       &--right {
-        right: 2.5rem;
+        right: 0;
+        @include breakpoint{
+          right: 2.5rem;
+        }
       }
     }
 
@@ -157,6 +186,7 @@ body {
     object-fit: contain;
     max-height: 70vh;
     margin: auto;
+    max-width: 80vw;
   }
 }
 
