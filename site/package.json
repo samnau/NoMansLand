@@ -10,8 +10,10 @@
   "author": "Sam Nau",
   "license": "ISC",
   "repository": "",
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
+    "@glidejs/glide": "^3.4.1",
     "sass": "^1.32.13"
   }
 }
