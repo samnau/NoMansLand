@@ -1,79 +1,219 @@
 fileFormatVersion: 2
 guid: 344e9e3a3d58a4bc48f4f8b8741e3ddd
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: player-walk-forward-pigtail-L
-    21300002: player-walk-forward-pigtail-R
-    21300004: player-walk-forward-book
-    21300006: player-walk-forward-staff
-    21300008: player-walk-forward-guide-5
-    21300010: player-walk-forward-leg
-    21300012: player-walk-forward-body
-    21300014: player-walk-forward-arm-whole
-    21300016: player-walk-forward-hand-L-1
-    21300018: player-walk-forward-foot-up
-    21300020: player-walk-forward-guide-8
-    21300022: player-walk-forward-hand-R-1
-    21300024: player-walk-forward-backback-strap-L
-    21300026: player-walk-forward-backpack-strap-R
-    21300028: player-walk-forward-head
-    21300030: player-walk-forward-eye
-    21300032: player-walk-forward-mouth-frown
-    21300034: player-walk-forward-keys
-    21300036: player-walk-forward-glasses
-    21300038: player-walk-forward-shoe
-    21300040: player-walk-forward-shoe-inside
-    21300042: player-walk-forward-guide-1
-    21300044: player-walk-forward-guide-3
-    21300046: player-walk-forward-guide-6
-    21300048: player-walk-forward-guide-9
-    21300050: player-walk-forward-guide-2
-    21300052: player-walk-forward-guide-4
-    21300054: player-walk-forward-guide-7
-    21300056: sprite-sheet-walk-forward_30
-    21300058: player-walk-forward-pigtail-R
-    21300060: player-walk-forward-book
-    21300062: player-walk-forward-staff
-    21300064: player-walk-forward-guide-5
-    21300066: player-walk-forward-leg
-    21300068: player-walk-forward-body
-    21300070: player-walk-forward-shoulder
-    21300072: player-walk-forward-hand-L-1
-    21300074: player-walk-forward-foot-up
-    21300076: player-walk-forward-guide-7
-    21300078: player-walk-forward-hand-R-1
-    21300080: player-walk-forward-backback-strap-L
-    21300082: player-walk-forward-backpack-strap-R
-    21300084: player-walk-forward-eye
-    21300086: player-walk-forward-mouth-frown
-    21300088: player-walk-forward-keys
-    21300090: player-walk-forward-glasses
-    21300092: player-walk-forward-shoe
-    21300094: player-walk-forward-shoe-inside
-    21300096: player-walk-forward-guide-1
-    21300098: player-walk-forward-guide-3
-    21300100: sprite-sheet-walk-forward_23
-    21300102: player-walk-forward-guide-8
-    21300104: player-walk-forward-guide-2
-    21300106: player-walk-forward-guide-4
-    21300108: player-walk-forward-guide-6
-    21300110: sprite-sheet-walk-forward_30
-    21300112: player-walk-forward-body
-    21300114: player-walk-forward-head
-    21300116: sprite-sheet-walk-forward_30
-    21300118: player-walk-forward-body
-    21300120: sprite-sheet-walk-forward_23
-    21300122: player-walk-forward-guide-9
-    21300124: sprite-sheet-walk-forward_30
-    21300126: player-walk-forward-leg-alt
-    21300128: player-walk-forward-kneecap
-    21300130: player-walk-forward-foot-front
-    21300132: player-walk-forward-foot-down
-    21300134: player-walk-forward-foot-inside
-    21300136: player-walk-forward-hand-front
-    21300138: player-walk-forward-hand-angled
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: player-walk-forward-pigtail-L
+  - first:
+      213: 21300002
+    second: player-walk-forward-pigtail-R
+  - first:
+      213: 21300004
+    second: player-walk-forward-book
+  - first:
+      213: 21300006
+    second: player-walk-forward-staff
+  - first:
+      213: 21300008
+    second: player-walk-forward-guide-5
+  - first:
+      213: 21300010
+    second: player-walk-forward-leg
+  - first:
+      213: 21300012
+    second: player-walk-forward-body
+  - first:
+      213: 21300014
+    second: player-walk-forward-arm-whole
+  - first:
+      213: 21300016
+    second: player-walk-forward-hand-L-1
+  - first:
+      213: 21300018
+    second: player-walk-forward-foot-up
+  - first:
+      213: 21300020
+    second: player-walk-forward-guide-8
+  - first:
+      213: 21300022
+    second: player-walk-forward-hand-R-1
+  - first:
+      213: 21300024
+    second: player-walk-forward-backback-strap-L
+  - first:
+      213: 21300026
+    second: player-walk-forward-backpack-strap-R
+  - first:
+      213: 21300028
+    second: player-walk-forward-head
+  - first:
+      213: 21300030
+    second: player-walk-forward-eye
+  - first:
+      213: 21300032
+    second: player-walk-forward-mouth-frown
+  - first:
+      213: 21300034
+    second: player-walk-forward-keys
+  - first:
+      213: 21300036
+    second: player-walk-forward-glasses
+  - first:
+      213: 21300038
+    second: player-walk-forward-shoe
+  - first:
+      213: 21300040
+    second: player-walk-forward-shoe-inside
+  - first:
+      213: 21300042
+    second: player-walk-forward-guide-1
+  - first:
+      213: 21300044
+    second: player-walk-forward-guide-3
+  - first:
+      213: 21300046
+    second: player-walk-forward-guide-6
+  - first:
+      213: 21300048
+    second: player-walk-forward-guide-9
+  - first:
+      213: 21300050
+    second: player-walk-forward-guide-2
+  - first:
+      213: 21300052
+    second: player-walk-forward-guide-4
+  - first:
+      213: 21300054
+    second: player-walk-forward-guide-7
+  - first:
+      213: 21300056
+    second: sprite-sheet-walk-forward_30
+  - first:
+      213: 21300058
+    second: player-walk-forward-pigtail-R
+  - first:
+      213: 21300060
+    second: player-walk-forward-book
+  - first:
+      213: 21300062
+    second: player-walk-forward-staff
+  - first:
+      213: 21300064
+    second: player-walk-forward-guide-5
+  - first:
+      213: 21300066
+    second: player-walk-forward-leg
+  - first:
+      213: 21300068
+    second: player-walk-forward-body
+  - first:
+      213: 21300070
+    second: player-walk-forward-shoulder
+  - first:
+      213: 21300072
+    second: player-walk-forward-hand-L-1
+  - first:
+      213: 21300074
+    second: player-walk-forward-foot-up
+  - first:
+      213: 21300076
+    second: player-walk-forward-guide-7
+  - first:
+      213: 21300078
+    second: player-walk-forward-hand-R-1
+  - first:
+      213: 21300080
+    second: player-walk-forward-backback-strap-L
+  - first:
+      213: 21300082
+    second: player-walk-forward-backpack-strap-R
+  - first:
+      213: 21300084
+    second: player-walk-forward-eye
+  - first:
+      213: 21300086
+    second: player-walk-forward-mouth-frown
+  - first:
+      213: 21300088
+    second: player-walk-forward-keys
+  - first:
+      213: 21300090
+    second: player-walk-forward-glasses
+  - first:
+      213: 21300092
+    second: player-walk-forward-shoe
+  - first:
+      213: 21300094
+    second: player-walk-forward-shoe-inside
+  - first:
+      213: 21300096
+    second: player-walk-forward-guide-1
+  - first:
+      213: 21300098
+    second: player-walk-forward-guide-3
+  - first:
+      213: 21300100
+    second: sprite-sheet-walk-forward_23
+  - first:
+      213: 21300102
+    second: player-walk-forward-guide-8
+  - first:
+      213: 21300104
+    second: player-walk-forward-guide-2
+  - first:
+      213: 21300106
+    second: player-walk-forward-guide-4
+  - first:
+      213: 21300108
+    second: player-walk-forward-guide-6
+  - first:
+      213: 21300110
+    second: sprite-sheet-walk-forward_30
+  - first:
+      213: 21300112
+    second: player-walk-forward-body
+  - first:
+      213: 21300114
+    second: player-walk-forward-head
+  - first:
+      213: 21300116
+    second: sprite-sheet-walk-forward_30
+  - first:
+      213: 21300118
+    second: player-walk-forward-body
+  - first:
+      213: 21300120
+    second: sprite-sheet-walk-forward_23
+  - first:
+      213: 21300122
+    second: player-walk-forward-guide-9
+  - first:
+      213: 21300124
+    second: sprite-sheet-walk-forward_30
+  - first:
+      213: 21300126
+    second: player-walk-forward-leg-alt
+  - first:
+      213: 21300128
+    second: player-walk-forward-kneecap
+  - first:
+      213: 21300130
+    second: player-walk-forward-foot-front
+  - first:
+      213: 21300132
+    second: player-walk-forward-foot-down
+  - first:
+      213: 21300134
+    second: player-walk-forward-foot-inside
+  - first:
+      213: 21300136
+    second: player-walk-forward-hand-front
+  - first:
+      213: 21300138
+    second: player-walk-forward-hand-angled
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -91,6 +231,9 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -99,9 +242,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -122,11 +265,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -137,7 +284,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -148,7 +296,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -159,7 +308,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -170,6 +320,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -189,6 +340,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: aff4f17e5bea83740b3d2c8d06dee2d9
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -209,6 +361,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 92bb901ff6528d84e86aa461d838cb9f
+      internalID: 21300028
       vertices: []
       indices: 
       edges: []
@@ -229,6 +382,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0a20b670f25766a47a170ff7bc831aa9
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -249,6 +403,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e373cda547b799542882678a1ccd83c2
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -269,6 +424,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 49ff15e5e69cb5b408ed0ae2746dd3b2
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -289,6 +445,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 295aa80c9f2369f438a9aac9ed5fdd56
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -309,6 +466,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 64b13ffee4ca21e418bac466e0f56a98
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -329,6 +487,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0368b29777e9be949b4cd76e08d1243a
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -349,6 +508,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6c152f5f0c077844f888973a5efc2085
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -369,6 +529,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a47bf5f193aa4fd4ea1fdea2207e357b
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -389,6 +550,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b27ed4a9928c2364cb16acf3617514e8
+      internalID: 21300018
       vertices: []
       indices: 
       edges: []
@@ -409,6 +571,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 97b4d8d325c36ef49814af839e229ce4
+      internalID: 21300020
       vertices: []
       indices: 
       edges: []
@@ -429,6 +592,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ab037e445a473fa4688d08b0805f20ed
+      internalID: 21300022
       vertices: []
       indices: 
       edges: []
@@ -449,6 +613,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 413b08515e05ecb46a5776173abd3eb6
+      internalID: 21300024
       vertices: []
       indices: 
       edges: []
@@ -469,6 +634,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 63171b21f4bc35a498b233327c2ea6bf
+      internalID: 21300026
       vertices: []
       indices: 
       edges: []
@@ -489,6 +655,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9f803f03dd2bdb8409868bb98dcfa3fb
+      internalID: 21300030
       vertices: []
       indices: 
       edges: []
@@ -509,6 +676,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6daf8d4c3c4f1654981048b7af14304b
+      internalID: 21300032
       vertices: []
       indices: 
       edges: []
@@ -529,6 +697,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cea44634cd61b2546803dde7d515e7a2
+      internalID: 21300034
       vertices: []
       indices: 
       edges: []
@@ -549,6 +718,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 41b7d0d121ff54b4b997dad8049b50fd
+      internalID: 21300036
       vertices: []
       indices: 
       edges: []
@@ -569,6 +739,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d88d4f19d39262e499409da5644e88ee
+      internalID: 21300038
       vertices: []
       indices: 
       edges: []
@@ -589,6 +760,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 7d5408a18f35b7a41b04c70fc8568059
+      internalID: 21300040
       vertices: []
       indices: 
       edges: []
@@ -609,6 +781,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0eb1feab85a99444780c1ef5c3b00e98
+      internalID: 21300042
       vertices: []
       indices: 
       edges: []
@@ -629,6 +802,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cfb4ab4cb89dae543a8ca7ea6437cd99
+      internalID: 21300044
       vertices: []
       indices: 
       edges: []
@@ -649,6 +823,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0a8efd2da7962014faad1575d6179f6e
+      internalID: 21300046
       vertices: []
       indices: 
       edges: []
@@ -669,6 +844,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: dba3e438b9c8a7f47b8a563ccfaa17c6
+      internalID: 21300048
       vertices: []
       indices: 
       edges: []
@@ -689,6 +865,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: aa955d30a62bb544a8b2e3903aca8641
+      internalID: 21300050
       vertices: []
       indices: 
       edges: []
@@ -709,6 +886,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: cbebcdb451267914ca2bda535864619b
+      internalID: 21300052
       vertices: []
       indices: 
       edges: []
@@ -729,6 +907,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8df4ed2cc1a128040906f44cab7637a5
+      internalID: 21300054
       vertices: []
       indices: 
       edges: []
@@ -749,6 +928,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 05c3b21ac1c702542856d7b8fa95665c
+      internalID: 21300126
       vertices: []
       indices: 
       edges: []
@@ -769,6 +949,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: aa26f9473dbcfce4d9355dcd7683bf83
+      internalID: 21300128
       vertices: []
       indices: 
       edges: []
@@ -789,6 +970,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ab04c73922d71ea468cbccbd54629bec
+      internalID: 21300070
       vertices: []
       indices: 
       edges: []
@@ -809,6 +991,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 1a7ef3fc693a23449a0ddce35efa47b7
+      internalID: 21300130
       vertices: []
       indices: 
       edges: []
@@ -829,6 +1012,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4b60ba7142ed3664aa42c7d91b7e0824
+      internalID: 21300132
       vertices: []
       indices: 
       edges: []
@@ -849,6 +1033,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: bea9bafc9c05f3c42b8e144ad93a0527
+      internalID: 21300134
       vertices: []
       indices: 
       edges: []
@@ -869,6 +1054,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 670987716c6b256408eb04195bca3d4a
+      internalID: 21300136
       vertices: []
       indices: 
       edges: []
@@ -889,6 +1075,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b487072d26c11424aa5fa70e065f9510
+      internalID: 21300138
       vertices: []
       indices: 
       edges: []
@@ -897,11 +1084,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,0 +1,12 @@
+Molly.BrokenPool
+
+Molly: This definitely was not in the park before!
+
+
+if(monsterTriggered){
+<<triggerRoar>>
+Molly: Holy crap!
+<<switchExpression Molly shocked>>
+Molly: What is that??
+<<runCastle>>
+}
