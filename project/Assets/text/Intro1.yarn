@@ -1,0 +1,26 @@
+title: Intro1
+tags: 
+colorID: 0
+position: 520,498
+---
+Molly: Man, time flies when you're at the library!
+<<walk1>>
+(Frog hops in from park)
+Molly: Hi there little froggy.
+Molly: Are you having a bad day too?
+Molly: Or are you just looking for a friend?
+<<crouch>>
+(Picks up frog)
+(From off screen)
+Meena: There you are, you little freak!
+<<switchExpression portraitSurprise>>
+Molly: Oh, no, Meena!!
+<<run1>>
+===
+title: Node
+tags: 
+colorID: 0
+position: 972,687
+---
+Empty Text
+===

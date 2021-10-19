@@ -40,6 +40,7 @@ public class EyeBlinkController : MonoBehaviour
     IEnumerator triggerBlink()
     {
         Debug.Log("blink trigger");
+        targetAnimator.SetBool("left", false);
         targetAnimator.SetBool("blink", true);
         yield return new WaitForSeconds(.2f);
         targetAnimator.SetBool("blink", false);

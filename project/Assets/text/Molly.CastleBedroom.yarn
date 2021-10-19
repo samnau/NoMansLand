@@ -1,0 +1,19 @@
+Molly.CastleBedroom
+
+if(King.Meeting) {
+<<simpleSleepingScene>>
+} else {
+<<bedroomCrying>>
+Molly: When I woke up today, my biggest worry was a math test.
+Molly: I mean it went pretty awful at lunch.
+Molly: But I didn't expect this.
+Molly: And now here I am, alone.
+Molly: Sort of.
+Molly: This place is terrifying.
+Molly: But, at least I have the little froggy.
+Molly: How will I get back?
+Molly: Mom.
+Molly: Dad.
+Molly: *sobbing*
+}
+

@@ -1,0 +1,69 @@
+Molly.ThroneRoom
+
+Molly: Whoa a dead guy!
+Molly: Coooooooool.
+Molly: And look at that staff!
+<<collectStaff>>
+King: Ooooooooooo...
+King: Whooooo...
+Molly: Yikes! A ghost!
+King: Er. Um.
+King: Greetings…young lady.
+Molly: (trembles)
+<<triggerCrouch>>
+King: Do not be alarmed! 
+King: I mean you no harm.
+King: May I ask, how in the world did you get into the castle?
+<<triggerStand>>
+Molly: Um. Through the front door, actually.
+<<switchExpression King shocked>>
+King: That is not possible!
+Molly: Well there were also a bunch of glowing lines and a giant windstorm...
+King: Astounding!
+Molly: Listen, do you know what part of town this is?
+Molly: I am completely lost.
+King: It cannot be.
+<<switchExpression King confused>>
+Molly: Hey, old ghost guy, I really need some help. I have zero phone reception here.
+Molly: I don't recognize ANYTHING around here.
+<<switchExpression Molly frown>>
+King: "Old ghost guy?"
+King: Young lady, I am the King of Verdania!
+<<switchExpression King angry>>
+Molly: Verdania? How far is that from West Groves?
+King: West..Groves?
+King: I have never heard of such a place.
+Molly: Never heard of West Groves??
+<<switchExpression Molly shocked>>
+Molly: Where the heck am I??
+<<switchExpression Molly frown>>
+King: Excuse my poor manners.
+King: May I ask your name, my dear?
+Molly: Molly. My name is Molly.
+King: Pleasure to meet you, fair Molly.
+King: I am King Alaster the 1st, of the kingdom of Verdania.
+Molly: Why do you keep saying "kingdom"?
+<<switchExpression Molly confused>>
+Molly: There's nothing around West Groves like that.
+Molly: But then, there's no weird magical castles either.
+Molly: At least I think there isn't.
+King: I think I may be able to explain a few things.
+King: But I feel that you have likely been through a trying day.
+King; And it seems that the hour is getting late.
+King: I know it may sound odd...
+King: But I think it best that you sleep here tonight.
+King: It is not safe outside these walls.
+Molly: But my parents will freak out!
+<<switchExpression Molly shocked>>
+Molly: I have to get home!
+King: Inconceivable. I have a strong indication that returning you to your home is out of the question.
+King: For the moment, least.
+<<switchExpression Molly crying>>
+Molly: How did this happen?
+Molly: Mom will be flipping out!
+Molly: I just wanna go home...
+King: There, there.
+King: I know it comes as a shock, but I will explain what I can tomorrow morning.
+King: I promise you will be safe within these walls.
+King: You have my word.
+<<triggerFade>>

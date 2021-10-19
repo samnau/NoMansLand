@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/scenes/Animation_staging.unity
+- path: Assets/scenes/YarnSpinnerLab.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
