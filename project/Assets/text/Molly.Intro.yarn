@@ -1,0 +1,50 @@
+title: Molly.Intro1
+tags: 
+colorID: 0
+position: 237,134
+---
+<<SetSpeaker Molly surprise smirk>>
+Man, time flies when you're at the library!
+<<SetSpeaker Molly idle smile>>
+Hi there little froggy.
+Are you having a bad day too?
+<<SetSpeaker Molly idle smirk>>
+Or are you just looking for a friend?
+<<SetSpeaker Meena surprise frown>>
+There you are, you little freak!
+<<SetSpeaker Meena surprise surprise>>
+Oh, no, Meena!!
+<<SetSpeaker Molly idle>>
+[[Molly.Intro2]]
+===
+title: Molly.Intro2
+tags: 
+colorID: 0
+position: 263,415
+---
+I SAID, get back here!!
+<<SetSpeaker Meena idle>>
+Oh no, oh no, oh no.
+<<SetSpeaker Molly idle>>
+[[Molly.Intro3]]
+===
+title: Molly.Intro3
+tags: 
+colorID: 0
+position: 580,465
+---
+Meena: You can't run forever, loser!
+Why won't she just leave me alone??
+What to do? What to do?
+If only I could just disappear!
+[[Molly.Intro4]]
+===
+title: Molly.Intro4
+tags: 
+colorID: 0
+position: 700,245
+---
+Unnnngh.
+What just happened?
+Am I still in the park?
+===

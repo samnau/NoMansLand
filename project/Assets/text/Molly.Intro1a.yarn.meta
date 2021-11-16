@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 20f6ef66b3858b44096bd237537627f2
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs: []
+  compilationStatus: 0
+  isSuccesfullyCompiled: 0
+  compilationErrorMessage: "Error on line 9 at position 23:\nmismatched input '<EOF>'
+    expecting HEADER_NEWLINE\r\nMolly: Oh, no, Meena!!\r\n                      "
+  baseLanguage: {instanceID: 0}
+  localizations: []

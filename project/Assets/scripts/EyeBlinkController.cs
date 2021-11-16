@@ -9,20 +9,18 @@ public class EyeBlinkController : MonoBehaviour
     public bool blinkActive = true;
     float currentInterval = 0f;
     Animator targetAnimator;
-    // Start is called before the first frame update
+
     void Start()
     {
         currentInterval = setBlinkInterval();
         targetAnimator = GetComponent<Animator>();
         targetAnimator.SetBool("blink", false);
         //startBlinkCycle();
-        Debug.Log("blink time");
         StartCoroutine("triggerBlink");
     }
 
     public void startBlinkCycle()
     {
-        Debug.Log("blink start");
         if(blinkActive)
         {
             StartCoroutine("triggerBlink");
@@ -39,7 +37,6 @@ public class EyeBlinkController : MonoBehaviour
   
     IEnumerator triggerBlink()
     {
-        Debug.Log("blink trigger");
         targetAnimator.SetBool("left", false);
         targetAnimator.SetBool("blink", true);
         yield return new WaitForSeconds(.2f);

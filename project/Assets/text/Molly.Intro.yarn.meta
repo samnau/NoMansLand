@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: dc2f69827b6e6d04b85f2ba4029eb199
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs:
+  - Molly.Intro-Molly.Intro1-0
+  - Molly.Intro-Molly.Intro1-1
+  - Molly.Intro-Molly.Intro1-2
+  - Molly.Intro-Molly.Intro1-3
+  - Molly.Intro-Molly.Intro1-4
+  - Molly.Intro-Molly.Intro1-5
+  - Molly.Intro-Molly.Intro2-6
+  - Molly.Intro-Molly.Intro2-7
+  - Molly.Intro-Molly.Intro3-8
+  - Molly.Intro-Molly.Intro3-9
+  - Molly.Intro-Molly.Intro3-10
+  - Molly.Intro-Molly.Intro3-11
+  - Molly.Intro-Molly.Intro4-12
+  - Molly.Intro-Molly.Intro4-13
+  - Molly.Intro-Molly.Intro4-14
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: dc2f69827b6e6d04b85f2ba4029eb199,
+    type: 3}
+  localizations: []
