@@ -31,10 +31,21 @@ public class EyeController : MonoBehaviour
 
     public void SwitchExpression(string expressionValue)
     {
-        switch(expressionValue)
+        foreach (AnimatorControllerParameter parameter in leftEyeBrowAnimator.parameters)
+        {
+            leftEyeBrowAnimator.SetBool(parameter.name, false);
+        }
+        foreach (AnimatorControllerParameter parameter in rightEyeBrowAnimator.parameters)
+        {
+            rightEyeBrowAnimator.SetBool(parameter.name, false);
+        }
+        switch (expressionValue)
         {
             case "surprise":
                 TriggerSurprise();
+                break;
+            case "angry":
+                TriggerAnger();
                 break;
             default:
                 TriggerIdle();
@@ -50,14 +61,19 @@ public class EyeController : MonoBehaviour
         Debug.Log(leftEyeBrowAnimator);
         leftEyeBrowAnimator.SetBool("surprise", true);
         rightEyeBrowAnimator.SetBool("surprise", true);
-       // StartCoroutine("SurpriseDemo2");
+    }
+
+    void TriggerAnger()
+    {
+        Debug.Log(leftEyeBrowAnimator);
+        leftEyeBrowAnimator.SetBool("angryL", true);
+        rightEyeBrowAnimator.SetBool("angryR", true);
     }
 
     void TriggerIdle()
     {
-        leftEyeBrowAnimator.SetBool("surprise", false);
-        rightEyeBrowAnimator.SetBool("surprise", false);
-        //StartCoroutine("SurpriseDemo");
+        leftEyeBrowAnimator.SetBool("idle", true);
+        rightEyeBrowAnimator.SetBool("idle", true);
     }
 
 }

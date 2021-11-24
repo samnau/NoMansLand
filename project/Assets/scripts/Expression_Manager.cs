@@ -53,10 +53,4 @@ public class Expression_Manager : MonoBehaviour
       SetSpeakerName(speakerName);
       expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

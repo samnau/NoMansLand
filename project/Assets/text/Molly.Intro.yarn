@@ -3,10 +3,28 @@ tags:
 colorID: 0
 position: 237,134
 ---
+<<SetSpeaker Molly idle annoyed>>
+Today...did not go well.
+<<SetSpeaker Molly idle smile>>
+The library after school was nice.
+<<SetSpeaker Molly idle frown>>
+But afterward, everything got oh so much worse.
+<<SetSpeaker Molly idle smirk>>
+As you can see here, I'm running for my life.
+Why, you may ask?
+<<SetSpeaker Meena surprise frown>>
+There you are, you little freak!
+<<SetSpeaker Molly angry frown>>
+Because Meena decided she wasn't done making my day a nightmare.
+<<SetSpeaker Molly idle frown>>
+If only I had known how this wasn't even the worst part.
+<<SetSpeaker Molly surprise surprise>>
+My life, as I knew it, would change forever.
+
 <<SetSpeaker Molly surprise smirk>>
 Man, time flies when you're at the library!
 <<SetSpeaker Molly idle smile>>
-(A frog hopps onto the sidewalk)
+(A frog hops onto the sidewalk)
 <<SetSpeaker Molly surprise smile>>
 Oh, hello there, little froggy.
 <<SetSpeaker Molly idle frown>>
@@ -26,6 +44,7 @@ tags:
 colorID: 0
 position: 263,415
 ---
+(Meena calls out, closer now.)
 <<SetSpeaker Meena surprise frown>>
 I SAID, get back here!!
 <<SetSpeaker Molly surprise surprise>>
