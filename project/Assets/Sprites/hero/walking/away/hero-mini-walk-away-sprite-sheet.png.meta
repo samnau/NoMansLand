@@ -1,31 +1,75 @@
 fileFormatVersion: 2
 guid: a97a48e3f358f4951888d49f3ec51963
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: hero-mini-walk-away-layout
-    21300002: hero-mini-walk-away-body
-    21300004: hero-mini-walk-away-sprite-hand-forward
-    21300006: hero-mini-walk-away-sprite-hand-profile
-    21300008: hero-mini-walk-away-head
-    21300010: hero-mini-walk-away-foot-side
-    21300012: hero-mini-walk-away-foot-toe-up
-    21300014: hero-mini-walk-away-foot-flat
-    21300016: hero-mini-walk-away-foot-heel-up
-    21300018: hero-mini-walk-away-sprite-leg-alt-r
-    21300020: hero-mini-walk-away-body
-    21300022: hero-mini-walk-away-sprite-hand-forward
-    21300024: hero-mini-walk-away-sprite-hand-profile
-    21300026: hero-mini-walk-away-head
-    21300028: hero-mini-walk-away-foot-side
-    21300030: hero-mini-walk-away-foot-toe-up
-    21300032: hero-mini-walk-away-foot-flat
-    21300034: hero-mini-walk-away-foot-heel-up
-    21300036: hero-mini-walk-away-sprite-leg-alt-r
-    21300038: hero-mini-walk-away-arm-whole-l
-    21300040: hero-mini-walk-away-arm-whole-r
-    21300042: hero-mini-walk-away-sprite-hand-backside
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: hero-mini-walk-away-layout
+  - first:
+      213: 21300002
+    second: hero-mini-walk-away-body
+  - first:
+      213: 21300004
+    second: hero-mini-walk-away-sprite-hand-forward
+  - first:
+      213: 21300006
+    second: hero-mini-walk-away-sprite-hand-profile
+  - first:
+      213: 21300008
+    second: hero-mini-walk-away-head
+  - first:
+      213: 21300010
+    second: hero-mini-walk-away-foot-side
+  - first:
+      213: 21300012
+    second: hero-mini-walk-away-foot-toe-up
+  - first:
+      213: 21300014
+    second: hero-mini-walk-away-foot-flat
+  - first:
+      213: 21300016
+    second: hero-mini-walk-away-foot-heel-up
+  - first:
+      213: 21300018
+    second: hero-mini-walk-away-sprite-leg-alt-r
+  - first:
+      213: 21300020
+    second: hero-mini-walk-away-body
+  - first:
+      213: 21300022
+    second: hero-mini-walk-away-sprite-hand-forward
+  - first:
+      213: 21300024
+    second: hero-mini-walk-away-sprite-hand-profile
+  - first:
+      213: 21300026
+    second: hero-mini-walk-away-head
+  - first:
+      213: 21300028
+    second: hero-mini-walk-away-foot-side
+  - first:
+      213: 21300030
+    second: hero-mini-walk-away-foot-toe-up
+  - first:
+      213: 21300032
+    second: hero-mini-walk-away-foot-flat
+  - first:
+      213: 21300034
+    second: hero-mini-walk-away-foot-heel-up
+  - first:
+      213: 21300036
+    second: hero-mini-walk-away-sprite-leg-alt-r
+  - first:
+      213: 21300038
+    second: hero-mini-walk-away-arm-whole-l
+  - first:
+      213: 21300040
+    second: hero-mini-walk-away-arm-whole-r
+  - first:
+      213: 21300042
+    second: hero-mini-walk-away-sprite-hand-backside
   externalObjects: {}
-  serializedVersion: 5
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -43,6 +87,9 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -51,9 +98,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -1
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -74,11 +121,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
-  - serializedVersion: 2
+  - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -89,7 +140,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -100,7 +152,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: iPhone
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -111,7 +164,8 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
-  - serializedVersion: 2
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
     buildTarget: Android
     maxTextureSize: 4096
     resizeAlgorithm: 0
@@ -122,6 +176,7 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -141,6 +196,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8fd82904ca937994d90f755c0582ad8a
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -161,6 +217,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c6f9b85a09aaf7d4c80c9bd798b5b2ce
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -181,6 +238,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4d4c79755320cef4d848f303777bdc06
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -201,6 +259,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 274104721106b1c41ac4bcc1bd6c975f
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -221,6 +280,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 83fcc569d6a174c4c82e8d28e5a5c06b
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -241,6 +301,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f799493a96ad0a1479aa4a9e287cf792
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -261,6 +322,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0c93e4ba84631f74b94e809e6eddeb77
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -281,6 +343,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2c6e984a22244504090f467a4ffd5672
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -301,6 +364,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 23fdae3593872de48aee9cc53bd2c3e2
+      internalID: 21300016
       vertices: []
       indices: 
       edges: []
@@ -321,6 +385,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 54f781fb580169348ae9dff96dbfdf91
+      internalID: 21300018
       vertices: []
       indices: 
       edges: []
@@ -341,6 +406,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c59c75658d8cfbb4ea8cff3dfb0d8267
+      internalID: 21300038
       vertices: []
       indices: 
       edges: []
@@ -361,6 +427,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a7e7725b5fdd4cd4a9af059ce95107ab
+      internalID: 21300040
       vertices: []
       indices: 
       edges: []
@@ -381,6 +448,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e235445b8d6db8a47a92c4586c3cf6ea
+      internalID: 21300042
       vertices: []
       indices: 
       edges: []
@@ -389,11 +457,15 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

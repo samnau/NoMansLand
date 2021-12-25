@@ -1,0 +1,1200 @@
+fileFormatVersion: 2
+guid: d22b1a7400ce41c40841d6c2ace05918
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2946392279051543674
+    second: hero-expressions_grimace
+  - first:
+      213: -5664051225497844568
+    second: hero-expressions_mouth-talking1
+  - first:
+      213: -2575298642384727863
+    second: hero-expressions_eyebrow2
+  - first:
+      213: -1676766820674908302
+    second: hero-expressions_mouth-confused
+  - first:
+      213: -532262075637215903
+    second: hero-expressions_body
+  - first:
+      213: 7245994884048592675
+    second: hero-expressions_mouth-baseline
+  - first:
+      213: -4660550438031767376
+    second: hero-expressions_mouth-talking3
+  - first:
+      213: -2402943265676032451
+    second: hero-expressions_mouth-talking4
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: hero-expressions_face-base
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 524
+        width: 452
+        height: 454
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d4b7765c498751b0800000000000000
+      internalID: -5667910645061274410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_hair
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 162
+        width: 397
+        height: 350
+      alignment: 9
+      pivot: {x: 0.54609823, y: 0.50000006}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98c81e378b323ece0800000000000000
+      internalID: -1377217785920123767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_glasses
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 13
+        width: 443
+        height: 147
+      alignment: 9
+      pivot: {x: 0.49733475, y: 0.58032066}
+      border: {x: 0, y: 0, z: 4, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd349e399d045fd0800000000000000
+      internalID: -2354241753376866874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-talking2
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 908
+        width: 75
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a79f9d2d5a34e60800000000000000
+      internalID: 7945376492630407776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_eyebrow1
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 905
+        width: 89
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458966b0b69c55ed0800000000000000
+      internalID: -2425811362679187372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-neutral
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 820
+        width: 132
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c117013dd789beb50800000000000000
+      internalID: 6623555343157850396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_eyebrow3
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 741
+        width: 46
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dfde00f75accf240800000000000000
+      internalID: 4826955379672801233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_eye
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 730
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a027a2e2f954a640800000000000000
+      internalID: 5090292378555064481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-surprise
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 799
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34c0b3494b7be1a60800000000000000
+      internalID: 7646751203530574915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_grimace
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 813
+        width: 96
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7422d9ca20b3e820800000000000000
+      internalID: 2946392279051543674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-talking1
+      rect:
+        serializedVersion: 2
+        x: 821
+        y: 742
+        width: 88
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4c59a7b6f3561b0800000000000000
+      internalID: -5664051225497844568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_eyebrow2
+      rect:
+        serializedVersion: 2
+        x: 713
+        y: 892
+        width: 96
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0dc1e7783b24cd0800000000000000
+      internalID: -2575298642384727863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-confused
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 905
+        width: 93
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27fc282e57deab8e0800000000000000
+      internalID: -1676766820674908302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_body
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 7
+        width: 469
+        height: 712
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d4b3656760d98f0800000000000000
+      internalID: -532262075637215903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-baseline
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 773
+        width: 142
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones:
+      - name: bone_mouth_baseline_middle
+        position: {x: 67.65051, y: 13.080139, z: 0}
+        rotation: {x: 0, y: 0, z: -0.9997421, w: 0.02271095}
+        length: 11.289016
+        parentId: -1
+      - name: bone_mouth_baseline_left1
+        position: {x: 11.28902, y: -0.0000068990457, z: 0}
+        rotation: {x: 0, y: 0, z: -0.014653523, w: 0.99989265}
+        length: 10.595384
+        parentId: 0
+      - name: bone_mouth_baseline_left2
+        position: {x: 10.595387, y: 0.000019982323, z: 0}
+        rotation: {x: 0, y: 0, z: 0.03867222, w: 0.99925196}
+        length: 10.983473
+        parentId: 1
+      - name: bone_mouth_baseline_left3
+        position: {x: 10.983471, y: -0.000008852267, z: 0}
+        rotation: {x: 0, y: 0, z: -0.03780122, w: 0.9992853}
+        length: 9.570219
+        parentId: 2
+      - name: bone_mouth_baseline_left4
+        position: {x: 9.57022, y: 0.0000019505258, z: 0}
+        rotation: {x: 0, y: 0, z: 0.011887919, w: 0.99992937}
+        length: 8.208905
+        parentId: 3
+      - name: bone_mouth_baseline_left5
+        position: {x: 8.208904, y: 0.000024887458, z: 0}
+        rotation: {x: 0, y: 0, z: -0.013465016, w: 0.99990934}
+        length: 11.620337
+        parentId: 4
+      - name: bone_mouth_baseline_right1
+        position: {x: -4.11985, y: -0.32583138, z: 0}
+        rotation: {x: 0, y: -0, z: 0.9999912, w: 0.0042037405}
+        length: 9.23343
+        parentId: 0
+      - name: bone_mouth_baseline_right2
+        position: {x: 9.233425, y: 0.000015696736, z: 0}
+        rotation: {x: 0, y: 0, z: 0.014055589, w: 0.99990124}
+        length: 7.8765793
+        parentId: 6
+      - name: bone_mouth_baseline_right3
+        position: {x: 7.8765726, y: 0.000012581649, z: 0}
+        rotation: {x: 0, y: 0, z: -0.0325587, w: 0.9994698}
+        length: 8.885131
+        parentId: 7
+      - name: bone_mouth_baseline_right4
+        position: {x: 8.885126, y: 0.000001967618, z: 0}
+        rotation: {x: 0, y: 0, z: 0.008329455, w: 0.9999653}
+        length: 10.253627
+        parentId: 8
+      - name: bone_mouth_baseline_right5
+        position: {x: 10.253617, y: 0.000028309069, z: 0}
+        rotation: {x: 0, y: 0, z: 0.02423211, w: 0.9997064}
+        length: 7.8767
+        parentId: 9
+      - name: bone_mouth_baseline_right6
+        position: {x: 7.8766966, y: 0.0000016946283, z: 0}
+        rotation: {x: 0, y: 0, z: -0, w: 1}
+        length: 7.876669
+        parentId: 10
+      - name: bone_mouth_baseline_right7
+        position: {x: 7.876664, y: -0.00011866842, z: 0}
+        rotation: {x: 0, y: 0, z: -0.01644071, w: 0.9998649}
+        length: 10.5993805
+        parentId: 11
+      spriteID: 32f9304c4f1fe8460800000000000000
+      internalID: 7245994884048592675
+      vertices:
+      - {x: 17.026001, y: 3.7680054}
+      - {x: 30.487, y: 4.1539917}
+      - {x: 43.577026, y: 4.835022}
+      - {x: 57.05603, y: 5.1849976}
+      - {x: 70.14099, y: 6.007019}
+      - {x: 83.22699, y: 6.8120117}
+      - {x: 96.70398, y: 7.182007}
+      - {x: 109.789, y: 8.012024}
+      - {x: 122.903015, y: 8.955017}
+      - {x: 134.96198, y: 9.963013}
+      - {x: 135.15302, y: 19.846008}
+      - {x: 119.958984, y: 20.75299}
+      - {x: 106.48303, y: 20.757996}
+      - {x: 93.39697, y: 19.986023}
+      - {x: 80.310974, y: 19.187012}
+      - {x: 66.833984, y: 18.827026}
+      - {x: 53.744995, y: 18.075012}
+      - {x: 40.473022, y: 17.489014}
+      - {x: 27.184021, y: 16.896973}
+      - {x: 13.937012, y: 15.515015}
+      - {x: 3.1456552, y: 10.865776}
+      - {x: 5.839966, y: 5.1610107}
+      - {x: 13.429016, y: 3.434021}
+      - {x: 10.977539, y: 8.687622}
+      - {x: 129.79578, y: 15.200439}
+      - {x: 123.83356, y: 15.155212}
+      - {x: 111.996155, y: 14.437378}
+      - {x: 117.887146, y: 14.703125}
+      - {x: 27.669617, y: 8.19928}
+      - {x: 22.97461, y: 10.790894}
+      - {x: 17.252625, y: 9.88855}
+      - {x: 39.32788, y: 11.196167}
+      - {x: 34.068176, y: 9.862976}
+      - {x: 29.689392, y: 12.905029}
+      - {x: 45.036194, y: 11.092957}
+      - {x: 50.29956, y: 12.420959}
+      - {x: 54.621643, y: 9.24939}
+      - {x: 61.261963, y: 11.267029}
+      - {x: 56.70465, y: 14.019043}
+      - {x: 90.00372, y: 13.602966}
+      - {x: 84.357666, y: 13.145752}
+      - {x: 78.400085, y: 12.865295}
+      - {x: 72.47766, y: 12.506531}
+      - {x: 66.692505, y: 12.353638}
+      - {x: 106.32904, y: 14.161865}
+      - {x: 100.85181, y: 13.77771}
+      - {x: 95.4447, y: 13.653015}
+      - {x: 23.75647, y: 3.9609985}
+      - {x: 37.031982, y: 4.494507}
+      - {x: 50.31653, y: 5.01001}
+      - {x: 63.59851, y: 5.5960083}
+      - {x: 76.68396, y: 6.409546}
+      - {x: 89.965454, y: 6.9970093}
+      - {x: 103.24646, y: 7.597046}
+      - {x: 116.34601, y: 8.4835205}
+      - {x: 128.9325, y: 9.458984}
+      - {x: 127.55603, y: 20.2995}
+      - {x: 113.22101, y: 20.755493}
+      - {x: 99.94, y: 20.37201}
+      - {x: 86.854004, y: 19.586548}
+      - {x: 73.57251, y: 19.007019}
+      - {x: 60.28949, y: 18.45105}
+      - {x: 47.10901, y: 17.781982}
+      - {x: 33.82849, y: 17.192993}
+      - {x: 20.560547, y: 16.205994}
+      - {x: 6.0637317, y: 14.557348}
+      - {x: 137.10793, y: 15.246279}
+      indices: 16000000150000001700000000000000160000001e0000002f000000000000001e000000130000001e000000170000001e00000016000000170000001c0000001d000000210000002f0000001e0000001d0000002f0000001d0000001c000000400000001d0000001e0000001c000000010000002f0000001400000017000000150000002000000030000000010000003100000002000000220000001f0000003000000020000000200000001c00000021000000300000001f000000020000002500000003000000240000002400000003000000310000003200000003000000250000001c0000002000000001000000230000002400000031000000170000001400000041000000210000003f000000200000001d00000012000000210000001f000000200000003f00000041000000130000001700000013000000400000001e000000120000001d0000004000000021000000120000003f0000003f000000110000001f0000003e000000230000002200000023000000310000002200000023000000260000002400000032000000250000002b0000002400000026000000250000002b000000250000003d0000003e00000022000000110000003d0000002600000010000000230000003e0000001000000025000000260000003d0000002300000010000000260000003d0000000f0000002b0000001f00000011000000220000001f00000022000000020000002b00000004000000320000002a0000003300000004000000280000003400000005000000290000000500000033000000290000002a0000003c00000029000000330000002a0000000e0000002800000029000000340000002800000027000000290000002800000005000000280000003b00000027000000270000002e000000340000002b0000000f0000002a00000035000000060000002d0000002c000000350000002d0000002c00000007000000350000000d0000002e000000270000002d000000060000002e0000003700000008000000190000001b000000080000003600000036000000070000001a000000090000003700000018000000340000002e000000060000002d0000002e0000003a0000003c0000002a0000000f0000000e0000003b00000028000000290000003c0000000e0000002d0000003a0000002c0000003b0000000d000000270000000d0000003a0000002e0000003a0000000c0000002c0000000c0000001a0000002c0000001b0000001a00000039000000190000001800000037000000380000001800000019000000080000001b000000190000001b000000360000001a000000190000001b0000000b0000000b0000001b00000039000000380000000a00000018000000190000000b0000003800000042000000180000000a0000001a000000070000002c0000000c000000390000001a000000420000000900000018000000040000002b0000002a000000
+      edges:
+      - {x: 1, y: 47}
+      - {x: 2, y: 48}
+      - {x: 49, y: 3}
+      - {x: 50, y: 4}
+      - {x: 5, y: 51}
+      - {x: 6, y: 52}
+      - {x: 7, y: 53}
+      - {x: 8, y: 54}
+      - {x: 9, y: 55}
+      - {x: 10, y: 66}
+      - {x: 11, y: 56}
+      - {x: 12, y: 57}
+      - {x: 58, y: 13}
+      - {x: 59, y: 14}
+      - {x: 15, y: 60}
+      - {x: 16, y: 61}
+      - {x: 17, y: 62}
+      - {x: 63, y: 18}
+      - {x: 19, y: 64}
+      - {x: 20, y: 65}
+      - {x: 21, y: 20}
+      - {x: 22, y: 21}
+      - {x: 0, y: 22}
+      - {x: 47, y: 0}
+      - {x: 48, y: 1}
+      - {x: 49, y: 2}
+      - {x: 50, y: 3}
+      - {x: 51, y: 4}
+      - {x: 52, y: 5}
+      - {x: 53, y: 6}
+      - {x: 54, y: 7}
+      - {x: 55, y: 8}
+      - {x: 56, y: 10}
+      - {x: 57, y: 11}
+      - {x: 58, y: 12}
+      - {x: 13, y: 59}
+      - {x: 14, y: 60}
+      - {x: 15, y: 61}
+      - {x: 16, y: 62}
+      - {x: 17, y: 63}
+      - {x: 64, y: 18}
+      - {x: 65, y: 19}
+      - {x: 66, y: 9}
+      weights:
+      - weight[0]: 0.5991348
+        weight[1]: 0.40086523
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 4
+        boneIndex[1]: 5
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.78879666
+        weight[1]: 0.21120329
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 1
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.5472937
+        weight[1]: 0.45270628
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 1
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.51497734
+        weight[1]: 0.48502266
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 6
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.6680372
+        weight[1]: 0.33196273
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 7
+        boneIndex[1]: 6
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.61111087
+        weight[1]: 0.38888904
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 8
+        boneIndex[1]: 9
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.76468426
+        weight[1]: 0.23531574
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 10
+        boneIndex[1]: 9
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.7371433
+        weight[1]: 0.26285663
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 11
+        boneIndex[1]: 12
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 11
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.5589316
+        weight[1]: 0.4410684
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 9
+        boneIndex[1]: 10
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 8
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.6422559
+        weight[1]: 0.3577441
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 6
+        boneIndex[1]: 7
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.8119633
+        weight[1]: 0.18803668
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 6
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.81895524
+        weight[1]: 0.18104476
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.87499726
+        weight[1]: 0.12500277
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 4
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 5
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 5
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 5
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.7587122
+        weight[1]: 0.24128784
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 5
+        boneIndex[1]: 4
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 5
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.99999994
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.54833204
+        weight[1]: 0.45166796
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 11
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.99999994
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 10
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.99999994
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 11
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.81115633
+        weight[1]: 0.18884368
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 4
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 4
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.7300847
+        weight[1]: 0.26991525
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 4
+        boneIndex[1]: 5
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.8047435
+        weight[1]: 0.19525643
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 2
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.8430112
+        weight[1]: 0.15698881
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 1
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.8107576
+        weight[1]: 0.18924244
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.70937544
+        weight[1]: 0.29062456
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 1
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 8
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 7
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 6
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 6
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 9
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 9
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 8
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.7447746
+        weight[1]: 0.2552254
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 4
+        boneIndex[1]: 3
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.69165003
+        weight[1]: 0.30835
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 2
+        boneIndex[1]: 3
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.866238
+        weight[1]: 0.13376205
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 2
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.99999994
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 6
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.59368426
+        weight[1]: 0.40631577
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 8
+        boneIndex[1]: 7
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.99999994
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 9
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.5991424
+        weight[1]: 0.40085763
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 11
+        boneIndex[1]: 10
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.79847205
+        weight[1]: 0.20152797
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 10
+        boneIndex[1]: 11
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.88234496
+        weight[1]: 0.11765514
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 9
+        boneIndex[1]: 8
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.7108771
+        weight[1]: 0.28912282
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 7
+        boneIndex[1]: 8
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 6
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 0
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.724944
+        weight[1]: 0.27505603
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 1
+        boneIndex[1]: 2
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 0.629205
+        weight[1]: 0.37079498
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 3
+        boneIndex[1]: 2
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 4
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 5
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+      - weight[0]: 1
+        weight[1]: 0
+        weight[2]: 0
+        weight[3]: 0
+        boneIndex[0]: 12
+        boneIndex[1]: 0
+        boneIndex[2]: 0
+        boneIndex[3]: 0
+    - serializedVersion: 2
+      name: hero-expressions_mouth-talking3
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 808
+        width: 75
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8435bb116625fb0800000000000000
+      internalID: -4660550438031767376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hero-expressions_mouth-talking4
+      rect:
+        serializedVersion: 2
+        x: 473
+        y: 738
+        width: 92
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3686f9c4d707aed0800000000000000
+      internalID: -2402943265676032451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

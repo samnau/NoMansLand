@@ -1,0 +1,31 @@
+Molly.FirstMorning-b
+
+Molly: Yaaawn.
+Molly: Sigh.
+<<switchExpression Molly sad>>
+Molly: Still here.
+Molly: I wish it had been a dream.
+<<triggerStretch>>
+Molly: Little froggy??
+<<switchExpression Molly surprised>>
+Molly: Well, not so little now, I guess!
+Molly: What happened to you?
+<<switchExpression Molly confused>>
+Froggy: *ribbit*
+<<triggerKingAppear>>
+King: Perhaps I may be able to shed some light on that.
+Molly: Oh geez. He's back!!
+<<switchExpression Molly surprised>>
+King: Do not be alarmed, young lady.
+<<switchExpression King neutral>>
+King: I pose no threat, I assure you.
+Molly: Ummmm, okaaayyy.
+Molly: Are you following me?
+<<switchExpression Molly confused>>
+King: Alas, I am uncertain why I am here as well.
+King: I am not here of my own choosing.
+King: But I suspect it has something to do with the staff you stole.
+Molly: The staff?
+<<triggerMonster>>
+<<switchExpression Molly surprised>>
+<<triggerRun>>

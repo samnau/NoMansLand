@@ -1,0 +1,9 @@
+Molly.Intro4
+
+<<triggerLanding>>
+Molly: Unnnngh.
+Molly: What just happened?
+<<switchExpression portraitConfused>>
+Molly: Am I still in the park?
+<<switchExpression portraitNeutral>>
+<<initControl>>

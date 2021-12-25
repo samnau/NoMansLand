@@ -1,0 +1,27 @@
+Molly.Demo
+
+Molly: Hi there.
+<<switchExpression Molly happy>>
+Molly: My name’s, Molly.
+Molly: So today has pretty much been the worst day of my life.
+<<switchExpression Molly sad>>
+Molly: When I woke up today, my biggest worry was a math test.
+<<switchExpression Molly neutral>>
+Molly: I mean, it went pretty awful at lunch.
+<<switchExpression Molly frown>>
+Molly: Meena just LOOOOVES to pick on me.
+<<switchExpression Molly angry>>
+Molly: But I didn't expect this.
+<<switchExpression Molly confused>>
+Molly: And now here I am, alone.
+Molly: Sort of.
+<<zoomOut>>
+Molly: And I have ZERO cell reception, so I have no idea where I am.
+Molly: Aaand, this place is terrifying.
+<<switchExpression Molly neutral>>
+Molly: How will I get back?
+<<switchExpression Molly sad>>
+Molly: I just want to go home.
+<<switchExpression Molly crying>>
+Molly: Mom…
+Molly: Dad…

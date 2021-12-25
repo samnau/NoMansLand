@@ -1,0 +1,13 @@
+Molly.Intro3
+
+Meena: You can't run forever, loser!
+Molly: Why won't she just leave me alone??
+<<switchExpression portraitSurprise>>
+
+<<startPacingg>>
+Molly: What to do? What to do?
+Molly: If only I could just disappear!
+<<switchExpression portraitEyesShut>>
+<<triggerPortal>>
+<<switchExpression portraitShocked>>
+<<triggerFall>>

@@ -1,0 +1,14 @@
+Molly.ThroneRoom-b
+
+Molly: Whoa a dead guy!
+Molly: Coooooooool.
+Molly: And look at that staff!
+<<collectStaff>>
+King: Ooooooooooo...
+King: Feeooooee...
+Molly: Yikes! A ghost!
+<<triggerRunn>>
+King: Fear not, you lady!
+King; I mean you no harm!
+<<switchExpression King confused>>
+<<exitCastle>>
