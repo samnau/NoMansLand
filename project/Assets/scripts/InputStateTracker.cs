@@ -21,9 +21,9 @@ public class InputStateTracker : MonoBehaviour {
 
 	void printUserInput (string inputValue){
 
-//		if (Input.anyKeyDown) {
-		//	print ("input string: " + inputValue);
-//		}
+		if (Input.anyKeyDown) {
+			print("input string: " + inputValue);
+		}
 
 	}
 //	void inputChecker(InputMethod inputMethod){

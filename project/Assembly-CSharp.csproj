@@ -64,6 +64,7 @@
     <Compile Include="Assets\scripts\sceneSwitcher.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\FixedArray3.cs" />
     <Compile Include="Assets\scripts\StoryGameObjectManager.cs" />
+    <Compile Include="Assets\scripts\EyeBlinkControllerProfile.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
@@ -182,7 +183,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\EyeBlinkControllerProfile.cs" />
+    <Compile Include="Assets\scripts\HeroMotionController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />
