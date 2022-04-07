@@ -6,7 +6,7 @@ public class HeroMotionController : MonoBehaviour
 {
     public GameObject Player;
     public Animator animator;
-    public float motionDistance = 1.0f;
+    public float motionDistance = 2.5f;
     InputStateTracker inputStateTracker;
     Rigidbody2D myRigidBody2D;
     string[] directionValues = { "LEFT", "RIGHT", "UP", "DOWN" };
@@ -46,17 +46,14 @@ public class HeroMotionController : MonoBehaviour
 
         if (walkingVelocityReached)
         {
-            //myRigidBody2D.velocity = new Vector2(horizontalValue,myRigidBody2D.velocity.y);
             myRigidBody2D.velocity = new Vector2(horizontalValue, verticalValue);
             var myTransform = gameObject.transform;
-            //var scaleX = myTransform.localScale.x;
-            //var scaleY = myTransform.localScale.y;
-            //var newScale = scaleX * directionModifier;
             var newRotation = horizontalValue < 0 ? 0f : 180f;
-            //var scaleVector = new Vector3 (newScale, 1, 1);
-            //print(newScale);
-            this.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
-           // myTransform.localScale = scaleVector;
+
+            if(Input.GetAxis("Horizontal") != 0)
+            {
+                this.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
+            }
         }
     }
     private void stopMovement()
