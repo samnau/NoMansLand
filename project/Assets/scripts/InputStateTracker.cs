@@ -10,15 +10,6 @@ public class InputStateTracker : MonoBehaviour {
 	public bool isWalking = false;
 	string[] directionValues = {"left", "right", "up", "down" };
 
-	// lastKeyPressed should always determine directon?
-	// Use this for initialization
-//	void Start () {
-//
-//	}
-//	delegate bool InputMethod(string name);
-
-//	InputMethod inputMethod;
-
 	void printUserInput (string inputValue){
 
 		if (Input.anyKeyDown) {
@@ -26,20 +17,7 @@ public class InputStateTracker : MonoBehaviour {
 		}
 
 	}
-//	void inputChecker(InputMethod inputMethod){
-//		if (InputMethod ("left")) {
-//			printUserInput("left");
-//		}
-//		if (InputMethod ("right")) {
-//			printUserInput("right");
-//		}
-//		if (InputMethod ("up")) {
-//			printUserInput("up");
-//		}
-//		if (InputMethod ("down")) {
-//			printUserInput("down");
-//		}
-//	}
+
 	private void setCurrentKeyPressed(){
 		foreach(string value in directionValues){
 			if(Input.GetKey (value)){

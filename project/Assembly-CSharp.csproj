@@ -71,6 +71,7 @@
     <Compile Include="Assets\scripts\LegIdleController.cs" />
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SkinnedVertices.cs" />
+    <Compile Include="Assets\scripts\HeroMotionController.cs" />
     <Compile Include="Assets\scripts\CounterAttackController.cs" />
     <Compile Include="Assets\scripts\EyeBlinkController.cs" />
     <Compile Include="Assets\scripts\ExpressionAnimationManager.cs" />
@@ -183,7 +184,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\HeroMotionController.cs" />
+    <Compile Include="Assets\PlayerPermananceController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />
