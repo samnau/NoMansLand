@@ -8,6 +8,7 @@ public class InputStateTracker : MonoBehaviour {
 	string lastKeyReleased;
 	public string direction = "down";
 	public bool isWalking = false;
+	public bool isRunning = false;
 	string[] directionValues = {"left", "right", "up", "down" };
 
 	void printUserInput (string inputValue){
@@ -16,6 +17,14 @@ public class InputStateTracker : MonoBehaviour {
 			print("input string: " + inputValue);
 		}
 
+	}
+
+	private void logAnyKey (string inputValue)
+    {
+		if (Input.anyKeyDown)
+		{
+			print("input string: " + inputValue);
+		}
 	}
 
 	private void setCurrentKeyPressed(){
@@ -57,6 +66,8 @@ public class InputStateTracker : MonoBehaviour {
 		if(Input.anyKeyDown){
 			setCurrentKeyDown();
 		}
+
+		isRunning = Input.GetKey(KeyCode.LeftShift) && isWalking;
 	}
 	// Update is called once per frame
 	void Update () {

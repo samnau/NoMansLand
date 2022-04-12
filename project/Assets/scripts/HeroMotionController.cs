@@ -7,6 +7,7 @@ public class HeroMotionController : MonoBehaviour
     public GameObject Player;
     public Animator animator;
     public float motionDistance = 2.5f;
+    private float runModifier = 1.0f;
     InputStateTracker inputStateTracker;
     Rigidbody2D myRigidBody2D;
     string[] directionValues = { "LEFT", "RIGHT", "UP", "DOWN" };
@@ -22,32 +23,27 @@ public class HeroMotionController : MonoBehaviour
     }
     private bool isMoving()
     {
-        // moveKeyPressed = Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("left") || Input.GetKey("right");
         return inputStateTracker.isWalking;
     }
     void setAnimationStates()
     {
         animator.SetBool("WALK", isMoving());
+        animator.SetBool("RUN", inputStateTracker.isRunning);
         var currentDirection = inputStateTracker.direction.ToUpper();
-        foreach (string value in directionValues)
-        {
-            //var directonMatch = value == currentDirection;
-            //animator.SetBool(value, directonMatch);
-        }
         // checkForAdditionalInput();
     }
 
     private void startMovement()
     {
-        var horizontalValue = Input.GetAxis("Horizontal") * motionDistance;
-        var verticalValue = Input.GetAxis("Vertical") * motionDistance;
-        var directionModifier = horizontalValue < 0 ? 1 : -1;
+        float targetRunModifier = inputStateTracker.isRunning ? runModifier : 0f;
+        float motionSpeed = motionDistance + targetRunModifier;
+        var horizontalValue = Input.GetAxis("Horizontal") * motionSpeed;
+        var verticalValue = Input.GetAxis("Vertical") * motionSpeed;
         var walkingVelocityReached = Mathf.Abs(horizontalValue) > 0.5 || Mathf.Abs(verticalValue) > 0.5;
 
         if (walkingVelocityReached)
         {
             myRigidBody2D.velocity = new Vector2(horizontalValue, verticalValue);
-            var myTransform = gameObject.transform;
             var newRotation = horizontalValue < 0 ? 0f : 180f;
 
             if(Input.GetAxis("Horizontal") != 0)
