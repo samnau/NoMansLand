@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InputStateTracker : MonoBehaviour {
@@ -21,16 +22,18 @@ public class InputStateTracker : MonoBehaviour {
 
 	private void logAnyKey (string inputValue)
     {
-		if (Input.anyKeyDown)
+		if (Input.anyKey)
 		{
 			print("input string: " + inputValue);
 		}
 	}
-
+	bool directionKeyPressed()
+    {
+		return directionValues.Any(direction => Input.GetKey(direction));
+	}
 	private void setCurrentKeyPressed(){
 		foreach(string value in directionValues){
 			if(Input.GetKey (value)){
-				isWalking = true;
 				printUserInput("current key held " + value);
 				currentKeyPressed = value;
 				direction = value;
@@ -50,7 +53,6 @@ public class InputStateTracker : MonoBehaviour {
 	void setCurrentReleased(){
 		foreach(string value in directionValues){
 			if(Input.GetKeyUp (value)){
-				isWalking = false;
 				printUserInput("current key released " + value);
 				lastKeyReleased = value;
 			}
@@ -58,7 +60,9 @@ public class InputStateTracker : MonoBehaviour {
 	}
 
 	void inputStateTracker(){
-		if(Input.anyKey){
+		isWalking = directionKeyPressed();
+		isRunning = Input.GetKey(KeyCode.LeftShift) && isWalking;
+		if (Input.anyKey){
 			setCurrentKeyPressed();
 		}else{
 			setCurrentReleased();
@@ -66,14 +70,9 @@ public class InputStateTracker : MonoBehaviour {
 		if(Input.anyKeyDown){
 			setCurrentKeyDown();
 		}
-
-		isRunning = Input.GetKey(KeyCode.LeftShift) && isWalking;
 	}
 	// Update is called once per frame
 	void Update () {
 		inputStateTracker();
-	}
-	void Start(){
-//		inputMethod = Input.GetKey;
 	}
 }
