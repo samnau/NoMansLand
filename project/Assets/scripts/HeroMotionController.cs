@@ -7,7 +7,7 @@ public class HeroMotionController : MonoBehaviour
     public GameObject Player;
     public Animator animator;
     public float motionDistance = 2.5f;
-    private float runModifier = 1.0f;
+    private float runModifier = 2.5f;
     InputStateTracker inputStateTracker;
     Rigidbody2D myRigidBody2D;
     string[] directionValues = { "LEFT", "RIGHT", "UP", "DOWN" };
