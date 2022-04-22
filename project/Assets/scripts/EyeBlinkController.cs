@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EyeBlinkController : MonoBehaviour
 {
-    public float blinkMin = 0.14f;
-    public float blinkMax = 4.0f;
+    public float blinkMin = 2.0f;
+    public float blinkMax = 6.0f;
     public bool blinkActive = true;
     float currentInterval = 0f;
     Animator targetAnimator;
@@ -15,7 +15,6 @@ public class EyeBlinkController : MonoBehaviour
         currentInterval = setBlinkInterval();
         targetAnimator = GetComponent<Animator>();
         targetAnimator.SetBool("blink", false);
-        //startBlinkCycle();
         StartCoroutine("triggerBlink");
     }
 
@@ -46,9 +45,4 @@ public class EyeBlinkController : MonoBehaviour
         startBlinkCycle();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //startBlinkCycle();
-    }
 }
