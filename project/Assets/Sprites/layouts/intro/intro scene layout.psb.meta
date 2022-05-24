@@ -1,0 +1,1335 @@
+fileFormatVersion: 2
+guid: 0a7b42a7969d9d34e9b31092cb2e7883
+ScriptedImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8916895642011677628
+    second: street light left bulb dim 2
+  - first:
+      213: -277635795991484244
+    second: street light right - bulb dim 2
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 200
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: crow - temp
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7917
+      y: 9656
+      width: 172
+      height: 191
+    spriteID: a27ab567a09a34d42a9105a37573ce62
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6933, y: 6639}
+  - name: street light right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 614
+      y: 13509
+      width: 402
+      height: 1396
+    spriteID: ca9e25dcd0b52204e8448a418d082614
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -383, y: 11825}
+  - name: street light right shadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 6638
+      y: 2685
+      width: 704
+      height: 944
+    spriteID: 0145123aea8c87146b35d8a951d7b8a6
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5616, y: 1944}
+  - name: fire hydrant base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7810
+      y: 4683
+      width: 101
+      height: 201
+    spriteID: 7a840409615b1ed4c9fc9a4788edd704
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6180, y: 3319}
+  - name: fire hydrant shadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7917
+      y: 9361
+      width: 195
+      height: 287
+    spriteID: 9bf169c80b8bc3a428e8073e6b63e1aa
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6268, y: 8250}
+  - name: street light left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 12726
+      width: 602
+      height: 2913
+    spriteID: 6becd3cd69e17a54aa818b1087319f44
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -267, y: 12450}
+  - name: street sign shadows
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7492
+      y: 3909
+      width: 310
+      height: 478
+    spriteID: dfbedbf79a5835e49928a0e5efb99949
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4576, y: 2991}
+  - name: street sign
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7810
+      y: 3909
+      width: 113
+      height: 766
+    spriteID: c77301bef94349249af0db946bd58683
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4948, y: 2516}
+  - name: sidewalk
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 614
+      y: 13337
+      width: 5434
+      height: 164
+    spriteID: a31842327f1e9c248adc4d076f975662
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 614, y: 11872}
+  - name: tree tops - front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1491
+      width: 7482
+      height: 1186
+    spriteID: 983b1e06327a83649bb369397f81912d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: -860}
+  - name: front tree trunk line
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 2685
+      width: 6626
+      height: 1216
+    spriteID: a9d8f1c6b8ea3b847918f3b38dc1cde0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1123}
+  - name: forest - mid near
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3909
+      width: 7480
+      height: 1032
+    spriteID: c2c553fd6b962484385a15092544bd8a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1299}
+  - name: water tower light lit
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7898
+      y: 4892
+      width: 9
+      height: 12
+    spriteID: b2b772297c09ae24fa42a30ef5286edd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6217, y: 1217}
+  - name: water tower light dim
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7898
+      y: 4912
+      width: 9
+      height: 12
+    spriteID: b0f231d8209c2854ca48bc59b6ca8b3e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6217, y: 1237}
+  - name: water tower light
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7917
+      y: 9961
+      width: 9
+      height: 12
+    spriteID: 346e3a4a40921064ea81cff6ca0935b2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6236, y: 6286}
+  - name: water tower base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 15647
+      width: 468
+      height: 547
+    spriteID: e20a90c056b16f845a7982e9c8859dd3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1440, y: 12457}
+  - name: forest - second closest
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 10016
+      width: 5980
+      height: 685
+    spriteID: ae8a7aee618833841b0cac73b9f6e87f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 7126}
+  - name: radio tower light lit
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7915
+      y: 4892
+      width: 8
+      height: 11
+    spriteID: 2f8f100dff5c84d4585cf61d48232669
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5660, y: 847}
+  - name: radio tower light dim
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7915
+      y: 4912
+      width: 8
+      height: 11
+    spriteID: fd5d4e5bf8a8a174484e32a1bfa2ac6e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5660, y: 867}
+  - name: radio tower base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7350
+      y: 2685
+      width: 757
+      height: 841
+    spriteID: 06c00001ee1a9bb4fbc60f062e08ecbe
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 5497, y: -537}
+  - name: forest - second farthest
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 10709
+      width: 5407
+      height: 641
+    spriteID: a7d55d48f6be9784dafd83b86f4515ed
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 7858}
+  - name: forest - farthest
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 8444
+      width: 6471
+      height: 909
+    spriteID: c1bc35b184ffa6f46ab8e7f75dff0fcb
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 5784}
+  - name: front clouds - left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 12042
+      width: 4381
+      height: 676
+    spriteID: 57868206ca6530443b577d356c282911
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 8118}
+  - name: front clouds - right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 11358
+      width: 4385
+      height: 676
+    spriteID: e47793f67bdebb84485aec7e7f69aa9e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3440, y: 7434}
+  - name: clouds - mid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 9361
+      width: 7905
+      height: 647
+    spriteID: 981196981ba21d1448ca146b9a56cd42
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 5562}
+  - name: clouds - far
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 614
+      y: 12726
+      width: 4032
+      height: 366
+    spriteID: ae467dd0da88a8642bbbc18b82a98e8c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 614, y: 8938}
+  - name: sun base
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7492
+      y: 4395
+      width: 267
+      height: 453
+    spriteID: d720eed345de17c45ba28581fabe3eed
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 7492, y: 1242}
+  - name: sun rings
+    originalName: 
+    pivot: {x: 0, y: 0.5}
+    alignment: 4
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7494
+      y: 1491
+      width: 617
+      height: 1153
+    spriteID: ca8b02b93da3e324aa2ca35e104f0c4e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 7494, y: -1312}
+  - name: sunset bands
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4949
+      width: 5465
+      height: 1362
+    spriteID: cdfe11760bd8d0241be4d730125c4215
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1895}
+  - name: storm sky bg
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 8053
+      height: 1479
+    spriteID: 9585c146949df5b4c8800feb2e874f2f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: -3117}
+  - name: curb
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 614
+      y: 13100
+      width: 5550
+      height: 229
+    spriteID: 4be4514dbb6b45e42a6fc5e6a3fc9edf
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 614, y: 11886}
+  - name: grass
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 7533
+      width: 6827
+      height: 903
+    spriteID: 2582af4086065fd4b9439fd219d4e0b6
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 6315}
+  - name: road surface
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6319
+      width: 5942
+      height: 1206
+    spriteID: 31573dfa6f9d3db46bab51d9b1b3dc9d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 5829}
+  - name: street light right - bulb lit
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7810
+      y: 4892
+      width: 36
+      height: 49
+    spriteID: 50b04b6c3edee7c4d8c83238520e78bd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6477, y: 2151}
+  - name: street light right - bulb dim
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7854
+      y: 4892
+      width: 36
+      height: 49
+    spriteID: d2a03a6f003f0654388edd2a652fdc3c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6521, y: 2151}
+  - name: street light left bulb lit
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7917
+      y: 9855
+      width: 79
+      height: 98
+    spriteID: f7a5ce5ff9386974481ac4b1cf13a6d3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 7646, y: 6818}
+  - name: street light left bulb dim
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 8004
+      y: 9855
+      width: 79
+      height: 98
+    spriteID: 74db719187a897b48ab469363525c5c3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 7733, y: 6818}
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 8192
+  importedTextureHeight: 16384
+  documentSize: {x: 8100, y: 4600}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 8192
+  textureActualHeight: 16384
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: street light right - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 671
+    mosaicPosition: {x: 0, y: 0}
+  - name: crow - temp
+    spriteName: crow - temp
+    isGroup: 0
+    parentIndex: 0
+    spriteID: a27ab567a09a34d42a9105a37573ce62
+    layerID: 839
+    mosaicPosition: {x: 7917, y: 9656}
+  - name: street light right - bulb lit
+    spriteName: street light right - bulb lit
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 50b04b6c3edee7c4d8c83238520e78bd
+    layerID: 895
+    mosaicPosition: {x: 7810, y: 4892}
+  - name: street light right - bulb dim
+    spriteName: street light right - bulb dim
+    isGroup: 0
+    parentIndex: 0
+    spriteID: d2a03a6f003f0654388edd2a652fdc3c
+    layerID: 896
+    mosaicPosition: {x: 7854, y: 4892}
+  - name: street light right
+    spriteName: street light right
+    isGroup: 0
+    parentIndex: 0
+    spriteID: ca9e25dcd0b52204e8448a418d082614
+    layerID: 650
+    mosaicPosition: {x: 614, y: 13509}
+  - name: street light right shadow
+    spriteName: street light right shadow
+    isGroup: 0
+    parentIndex: 0
+    spriteID: 0145123aea8c87146b35d8a951d7b8a6
+    layerID: 7
+    mosaicPosition: {x: 6638, y: 2685}
+  - name: fire hydrant - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 137
+    mosaicPosition: {x: 0, y: 0}
+  - name: fire hydrant base
+    spriteName: fire hydrant base
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 7a840409615b1ed4c9fc9a4788edd704
+    layerID: 136
+    mosaicPosition: {x: 7810, y: 4683}
+  - name: fire hydrant shadow
+    spriteName: fire hydrant shadow
+    isGroup: 0
+    parentIndex: 6
+    spriteID: 9bf169c80b8bc3a428e8073e6b63e1aa
+    layerID: 26
+    mosaicPosition: {x: 7917, y: 9361}
+  - name: street light left - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 665
+    mosaicPosition: {x: 0, y: 0}
+  - name: street light left bulb lit
+    spriteName: street light left bulb lit
+    isGroup: 0
+    parentIndex: 9
+    spriteID: f7a5ce5ff9386974481ac4b1cf13a6d3
+    layerID: 898
+    mosaicPosition: {x: 7917, y: 9855}
+  - name: street light left bulb dim
+    spriteName: street light left bulb dim
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 74db719187a897b48ab469363525c5c3
+    layerID: 899
+    mosaicPosition: {x: 8004, y: 9855}
+  - name: street light left
+    spriteName: street light left
+    isGroup: 0
+    parentIndex: 9
+    spriteID: 6becd3cd69e17a54aa818b1087319f44
+    layerID: 4
+    mosaicPosition: {x: 4, y: 12726}
+  - name: street sign - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 657
+    mosaicPosition: {x: 0, y: 0}
+  - name: street sign shadows
+    spriteName: street sign shadows
+    isGroup: 0
+    parentIndex: 13
+    spriteID: dfbedbf79a5835e49928a0e5efb99949
+    layerID: 723
+    mosaicPosition: {x: 7492, y: 3909}
+  - name: street sign
+    spriteName: street sign
+    isGroup: 0
+    parentIndex: 13
+    spriteID: c77301bef94349249af0db946bd58683
+    layerID: 6
+    mosaicPosition: {x: 7810, y: 3909}
+  - name: sidewalk
+    spriteName: sidewalk
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a31842327f1e9c248adc4d076f975662
+    layerID: 653
+    mosaicPosition: {x: 614, y: 13337}
+  - name: forest wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 850
+    mosaicPosition: {x: 0, y: 0}
+  - name: forest - front
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: 00000000000000000000000000000000
+    layerID: 667
+    mosaicPosition: {x: 0, y: 0}
+  - name: tree tops - front
+    spriteName: tree tops - front
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 983b1e06327a83649bb369397f81912d
+    layerID: 682
+    mosaicPosition: {x: 4, y: 1491}
+  - name: front tree trunk line
+    spriteName: front tree trunk line
+    isGroup: 0
+    parentIndex: 18
+    spriteID: a9d8f1c6b8ea3b847918f3b38dc1cde0
+    layerID: 713
+    mosaicPosition: {x: 4, y: 2685}
+  - name: forest - mid near
+    spriteName: forest - mid near
+    isGroup: 0
+    parentIndex: 17
+    spriteID: c2c553fd6b962484385a15092544bd8a
+    layerID: 840
+    mosaicPosition: {x: 4, y: 3909}
+  - name: water tower - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: 00000000000000000000000000000000
+    layerID: 586
+    mosaicPosition: {x: 0, y: 0}
+  - name: water tower light wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 22
+    spriteID: 00000000000000000000000000000000
+    layerID: 879
+    mosaicPosition: {x: 0, y: 0}
+  - name: water tower light lit
+    spriteName: water tower light lit
+    isGroup: 0
+    parentIndex: 23
+    spriteID: b2b772297c09ae24fa42a30ef5286edd
+    layerID: 831
+    mosaicPosition: {x: 7898, y: 4892}
+  - name: water tower light dim
+    spriteName: water tower light dim
+    isGroup: 0
+    parentIndex: 23
+    spriteID: b0f231d8209c2854ca48bc59b6ca8b3e
+    layerID: 835
+    mosaicPosition: {x: 7898, y: 4912}
+  - name: water tower light
+    spriteName: water tower light
+    isGroup: 0
+    parentIndex: 23
+    spriteID: 346e3a4a40921064ea81cff6ca0935b2
+    layerID: 829
+    mosaicPosition: {x: 7917, y: 9961}
+  - name: water tower base
+    spriteName: water tower base
+    isGroup: 0
+    parentIndex: 22
+    spriteID: e20a90c056b16f845a7982e9c8859dd3
+    layerID: 584
+    mosaicPosition: {x: 4, y: 15647}
+  - name: forest - second closest
+    spriteName: forest - second closest
+    isGroup: 0
+    parentIndex: 17
+    spriteID: ae8a7aee618833841b0cac73b9f6e87f
+    layerID: 841
+    mosaicPosition: {x: 4, y: 10016}
+  - name: radio tower - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: 00000000000000000000000000000000
+    layerID: 544
+    mosaicPosition: {x: 0, y: 0}
+  - name: radio twoer light wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 29
+    spriteID: 00000000000000000000000000000000
+    layerID: 881
+    mosaicPosition: {x: 0, y: 0}
+  - name: radio tower light lit
+    spriteName: radio tower light lit
+    isGroup: 0
+    parentIndex: 30
+    spriteID: 2f8f100dff5c84d4585cf61d48232669
+    layerID: 734
+    mosaicPosition: {x: 7915, y: 4892}
+  - name: radio tower light dim
+    spriteName: radio tower light dim
+    isGroup: 0
+    parentIndex: 30
+    spriteID: fd5d4e5bf8a8a174484e32a1bfa2ac6e
+    layerID: 740
+    mosaicPosition: {x: 7915, y: 4912}
+  - name: radio tower base
+    spriteName: radio tower base
+    isGroup: 0
+    parentIndex: 30
+    spriteID: 06c00001ee1a9bb4fbc60f062e08ecbe
+    layerID: 543
+    mosaicPosition: {x: 7350, y: 2685}
+  - name: far and mid far forest
+    spriteName: 
+    isGroup: 1
+    parentIndex: 17
+    spriteID: 00000000000000000000000000000000
+    layerID: 430
+    mosaicPosition: {x: 0, y: 0}
+  - name: forest - second farthest
+    spriteName: forest - second farthest
+    isGroup: 0
+    parentIndex: 34
+    spriteID: a7d55d48f6be9784dafd83b86f4515ed
+    layerID: 842
+    mosaicPosition: {x: 4, y: 10709}
+  - name: forest - farthest
+    spriteName: forest - farthest
+    isGroup: 0
+    parentIndex: 34
+    spriteID: c1bc35b184ffa6f46ab8e7f75dff0fcb
+    layerID: 642
+    mosaicPosition: {x: 4, y: 8444}
+  - name: sky - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 595
+    mosaicPosition: {x: 0, y: 0}
+  - name: cloud wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 37
+    spriteID: 00000000000000000000000000000000
+    layerID: 852
+    mosaicPosition: {x: 0, y: 0}
+  - name: clouds - front
+    spriteName: 
+    isGroup: 1
+    parentIndex: 38
+    spriteID: 00000000000000000000000000000000
+    layerID: 625
+    mosaicPosition: {x: 0, y: 0}
+  - name: front clouds - left
+    spriteName: front clouds - left
+    isGroup: 0
+    parentIndex: 39
+    spriteID: 57868206ca6530443b577d356c282911
+    layerID: 765
+    mosaicPosition: {x: 4, y: 12042}
+  - name: front clouds - right
+    spriteName: front clouds - right
+    isGroup: 0
+    parentIndex: 39
+    spriteID: e47793f67bdebb84485aec7e7f69aa9e
+    layerID: 843
+    mosaicPosition: {x: 4, y: 11358}
+  - name: clouds - mid
+    spriteName: clouds - mid
+    isGroup: 0
+    parentIndex: 38
+    spriteID: 981196981ba21d1448ca146b9a56cd42
+    layerID: 609
+    mosaicPosition: {x: 4, y: 9361}
+  - name: clouds - far
+    spriteName: clouds - far
+    isGroup: 0
+    parentIndex: 38
+    spriteID: ae467dd0da88a8642bbbc18b82a98e8c
+    layerID: 636
+    mosaicPosition: {x: 614, y: 12726}
+  - name: sun
+    spriteName: 
+    isGroup: 1
+    parentIndex: 37
+    spriteID: 00000000000000000000000000000000
+    layerID: 592
+    mosaicPosition: {x: 0, y: 0}
+  - name: sun base
+    spriteName: sun base
+    isGroup: 0
+    parentIndex: 44
+    spriteID: d720eed345de17c45ba28581fabe3eed
+    layerID: 591
+    mosaicPosition: {x: 7492, y: 4395}
+  - name: sun rings
+    spriteName: sun rings
+    isGroup: 0
+    parentIndex: 44
+    spriteID: ca8b02b93da3e324aa2ca35e104f0c4e
+    layerID: 590
+    mosaicPosition: {x: 7494, y: 1491}
+  - name: sunset bands
+    spriteName: sunset bands
+    isGroup: 0
+    parentIndex: 37
+    spriteID: cdfe11760bd8d0241be4d730125c4215
+    layerID: 594
+    mosaicPosition: {x: 4, y: 4949}
+  - name: storm sky bg
+    spriteName: storm sky bg
+    isGroup: 0
+    parentIndex: 37
+    spriteID: 9585c146949df5b4c8800feb2e874f2f
+    layerID: 673
+    mosaicPosition: {x: 4, y: 4}
+  - name: ground level
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 651
+    mosaicPosition: {x: 0, y: 0}
+  - name: curb
+    spriteName: curb
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 4be4514dbb6b45e42a6fc5e6a3fc9edf
+    layerID: 306
+    mosaicPosition: {x: 614, y: 13100}
+  - name: grass
+    spriteName: grass
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 2582af4086065fd4b9439fd219d4e0b6
+    layerID: 698
+    mosaicPosition: {x: 4, y: 7533}
+  - name: road surface
+    spriteName: road surface
+    isGroup: 0
+    parentIndex: 49
+    spriteID: 31573dfa6f9d3db46bab51d9b1b3dc9d
+    layerID: 869
+    mosaicPosition: {x: 4, y: 6319}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 1
+  textureAssetName: intro scene layout Texture
+  prefabAssetName: intro scene layout Prefab
+  spriteLibAssetName: intro scene layout Sprite Lib
+  secondarySpriteTextures: []

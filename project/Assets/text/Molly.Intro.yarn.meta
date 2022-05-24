@@ -8,7 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: 
+  baseLanguageID: en-US
   stringIDs:
   - Molly.Intro-Molly.Intro1-0
   - Molly.Intro-Molly.Intro1-1
@@ -16,15 +16,27 @@ ScriptedImporter:
   - Molly.Intro-Molly.Intro1-3
   - Molly.Intro-Molly.Intro1-4
   - Molly.Intro-Molly.Intro1-5
-  - Molly.Intro-Molly.Intro2-6
-  - Molly.Intro-Molly.Intro2-7
-  - Molly.Intro-Molly.Intro3-8
-  - Molly.Intro-Molly.Intro3-9
-  - Molly.Intro-Molly.Intro3-10
-  - Molly.Intro-Molly.Intro3-11
-  - Molly.Intro-Molly.Intro4-12
-  - Molly.Intro-Molly.Intro4-13
-  - Molly.Intro-Molly.Intro4-14
+  - Molly.Intro-Molly.Intro1-6
+  - Molly.Intro-Molly.Intro1-7
+  - Molly.Intro-Molly.Intro1-8
+  - Molly.Intro-Molly.Intro1-9
+  - Molly.Intro-Molly.Intro1-10
+  - Molly.Intro-Molly.Intro1-11
+  - Molly.Intro-Molly.Intro1-12
+  - Molly.Intro-Molly.Intro1-13
+  - Molly.Intro-Molly.Intro1-14
+  - Molly.Intro-Molly.Intro1-15
+  - Molly.Intro-Molly.Intro1-16
+  - Molly.Intro-Molly.Intro2-17
+  - Molly.Intro-Molly.Intro2-18
+  - Molly.Intro-Molly.Intro2-19
+  - Molly.Intro-Molly.Intro3-20
+  - Molly.Intro-Molly.Intro3-21
+  - Molly.Intro-Molly.Intro3-22
+  - Molly.Intro-Molly.Intro3-23
+  - Molly.Intro-Molly.Intro4-24
+  - Molly.Intro-Molly.Intro4-25
+  - Molly.Intro-Molly.Intro4-26
   compilationStatus: 1
   isSuccesfullyCompiled: 1
   compilationErrorMessage: 
