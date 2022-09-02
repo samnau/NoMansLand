@@ -61,7 +61,7 @@ public class InputStateTracker : MonoBehaviour {
 
 	void inputStateTracker(){
 		isWalking = directionKeyPressed();
-		isRunning = Input.GetKey(KeyCode.LeftShift) && isWalking;
+		isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
 		if (Input.anyKey){
 			setCurrentKeyPressed();
 		}else{
