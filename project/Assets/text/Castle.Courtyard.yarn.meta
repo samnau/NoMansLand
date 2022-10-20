@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: e71277a12062a2f4ea87922cf771622e
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs:
+  - Castle.Courtyard-Gate-0
+  - Castle.Courtyard-Gate-1
+  - Castle.Courtyard-Gate-2
+  - Castle.Courtyard-Gate-3
+  - Castle.Courtyard-Gate-4
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {instanceID: 0}
+  localizations: []
