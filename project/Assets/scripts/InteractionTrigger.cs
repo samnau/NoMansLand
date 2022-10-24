@@ -12,11 +12,15 @@ public class InteractionTrigger : MonoBehaviour
     protected string targetText;
     bool dialogActive = false;
     bool triggerActive = false;
+    GameObject player;
+    GameObject interactionIndicator;
     void Start()
     {
         dialogManager = FindObjectOfType<Dialog_Manager>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        interactionIndicator = player.transform.Find("InteractionIndicator").gameObject;
     }
-
+    // InteractionIndicator
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space) && triggerActive && !dialogActive)
@@ -34,11 +38,14 @@ public class InteractionTrigger : MonoBehaviour
         {
             return;
         }
+        interactionIndicator.SetActive(true);
         dialogManager.targetText = targetText;
         triggerActive = true;
     }
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
+        interactionIndicator.SetActive(false);
         triggerActive = false;
         dialogActive = false;
     }

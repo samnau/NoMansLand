@@ -9,15 +9,18 @@ public class Dialog_Manager : MonoBehaviour
     [SerializeField] Image speakerPortrait;
     [SerializeField] Text text_dialog, text_speakerName;
     GameObject dialogWrapper;
+    GameObject player;
     Animator dialogWrapperAnimator;
-    // Start is called before the first frame update
-    public YarnProgram scriptToLoad;
+   // public YarnProgram scriptToLoad;
     [SerializeField]
     protected YarnProgram targetDialog;
     [SerializeField]
     public string targetText;
     protected DialogueRunner dialogueRunner;
     protected DialogueUI dialogueUI;
+    InputStateTracker inputTracker;
+    HeroMotionController motionController;
+    bool dialogActive = false;
 
     void Start()
     {
@@ -26,17 +29,27 @@ public class Dialog_Manager : MonoBehaviour
         dialogueRunner.Add(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
-       print(targetDialog);
+        player = GameObject.FindGameObjectWithTag("Player");
+        inputTracker = player.GetComponent<InputStateTracker>();
+        motionController = player.GetComponent<HeroMotionController>();
+        print(targetDialog);
     }
     void AdvanceDialog()
     {
         dialogueUI.MarkLineComplete();
     }
+    void TogglePlayerMotion()
+    {
+        inputTracker.enabled = !dialogActive;
+        motionController.enabled = !dialogActive;
+    }
     public void BeginDialog()
     {
+        dialogActive = true;
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
-        dialogWrapperAnimator.SetBool("show", true);
+        dialogWrapperAnimator.SetBool("show", dialogActive);
+        TogglePlayerMotion();
     }
 
     public void NextDialogLine()
@@ -45,8 +58,10 @@ public class Dialog_Manager : MonoBehaviour
     }
     public void EndDialog()
     {
-        dialogWrapperAnimator.SetBool("show", false);
+        dialogActive = false;
+        dialogWrapperAnimator.SetBool("show", dialogActive);
         dialogueRunner.ResetDialogue();
+        TogglePlayerMotion();
     }
 
 }

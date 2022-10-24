@@ -37,8 +37,11 @@ public class HeroMotionController : MonoBehaviour
         var currentDirection = inputStateTracker.direction.ToUpper();
         var isHorizontal = currentDirection == "LEFT" || currentDirection == "RIGHT";
         var isDown = currentDirection == "DOWN";
-        stateAnimator.SetBool("HORIZONTAL", isHorizontal && !isDown);
+        var isUp = currentDirection == "UP";
+        stateAnimator.SetBool("HORIZONTAL", isHorizontal && !isDown && !isUp);
         stateAnimator.SetBool("DOWN", isDown);
+        stateAnimator.SetBool("UP", isUp);
+        print(currentDirection);
         // checkForAdditionalInput();
     }
 
