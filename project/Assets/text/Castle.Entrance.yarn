@@ -1,6 +1,4 @@
-title: Gate
-tags: 
-position: -209,-186
+title: TreeGate
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Wow. That is the biggest tree I've ever seen!
@@ -9,15 +7,24 @@ Wait...are those steps floating?
 <<SetSpeaker Molly surprise frown>>
 How is that possible?
 <<SetSpeaker Molly surprise frown>>
-Well I can't even check them out because these stone things are in the way.
-<<SetSpeaker Molly idle annoyed>>
+How can I get past these stone things?
+<<SetSpeaker Molly surprise annoyed>>
 There's a weird keyhole-looking thing in one of them...
 ===
-title: DoorLeft
-position: 0,1
+title: LeftEntranceDoor
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Wow. Something was really mad at this door.
 <<SetSpeaker Molly surprise frown>>
 Do I really want to go inside?
+...
+......
+Okay. Here I go then...
+===
+title: RightEntranceDoor
+---
+<<SetSpeaker Molly surprise frown>>
+This door has seen better days....
+<<SetSpeaker Molly idle annoyed>>
+...aaaaand it's locked.
 ===

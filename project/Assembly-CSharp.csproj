@@ -91,6 +91,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_VertHandler.cs" />
     <Compile Include="Assets\scripts\WallManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\scripts\InteractionTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\scripts\RavenAnimationController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\PointSet.cs" />
@@ -219,7 +220,7 @@
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\InteractionTrigger.cs" />
+    <Compile Include="Assets\scripts\DialogAnimator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -8,31 +8,45 @@ public class Dialog_Manager : MonoBehaviour
 {
     [SerializeField] Image speakerPortrait;
     [SerializeField] Text text_dialog, text_speakerName;
+    GameObject dialogWrapper;
+    Animator dialogWrapperAnimator;
     // Start is called before the first frame update
     public YarnProgram scriptToLoad;
-
-    public DialogueRunner dialogueRunner;
-    public DialogueUI dialogueUI;
+    [SerializeField]
+    protected YarnProgram targetDialog;
+    [SerializeField]
+    public string targetText;
+    protected DialogueRunner dialogueRunner;
+    protected DialogueUI dialogueUI;
 
     void Start()
     {
-        dialogueRunner.Add(scriptToLoad);
-        print("start text");
+        dialogueUI = FindObjectOfType<DialogueUI>();
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
+        dialogueRunner.Add(targetDialog);
+        dialogWrapper = GameObject.Find("DialogElements");
+        dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
+       print(targetDialog);
     }
-
+    void AdvanceDialog()
+    {
+        dialogueUI.MarkLineComplete();
+    }
     public void BeginDialog()
     {
-        dialogueRunner.StartDialogue();
+        dialogueRunner.startNode = targetText;
+        dialogueRunner.StartDialogue(targetText);
+        dialogWrapperAnimator.SetBool("show", true);
     }
 
     public void NextDialogLine()
     {
         dialogueUI.MarkLineComplete();
     }
-
-    // Update is called once per frame
-    void Update()
+    public void EndDialog()
     {
-        
+        dialogWrapperAnimator.SetBool("show", false);
+        dialogueRunner.ResetDialogue();
     }
+
 }

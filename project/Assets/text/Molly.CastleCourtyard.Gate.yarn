@@ -1,7 +1,6 @@
-title: Molly.CastleCourtyard.Gate
+title: Gate
 tags: 
-colorID: 0
-position: 237,134
+position: 317,315
 ---
 <<SetSpeaker Molly surprise surprise>>
 Wow. That is the biggest tree I've ever seen!
@@ -13,4 +12,14 @@ How is that possible?
 Well I can't even check them out because these stone things are in the way.
 <<SetSpeaker Molly idle frown>>
 There's a weird keyhole-looking thing in one of them...
+===
+title: LeftDoor
+tags: 
+---
+
+===
+title: RightDoor
+tags: 
+---
+
 ===
