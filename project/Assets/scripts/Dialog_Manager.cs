@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Yarn.Unity;
 
 public class Dialog_Manager : MonoBehaviour
@@ -61,6 +62,12 @@ public class Dialog_Manager : MonoBehaviour
         dialogActive = false;
         dialogWrapperAnimator.SetBool("show", dialogActive);
         dialogueRunner.ResetDialogue();
+        //demo code only
+        if(targetText == "LeftEntranceDoor")
+        {
+            GameObject.Find("MusicPlayer").SetActive(false);
+            SceneManager.LoadScene("TitleCard");
+        }
         TogglePlayerMotion();
     }
 

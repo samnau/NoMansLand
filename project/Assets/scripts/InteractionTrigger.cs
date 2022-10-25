@@ -27,6 +27,11 @@ public class InteractionTrigger : MonoBehaviour
         {
             dialogActive = true;
             dialogManager.BeginDialog();
+            // demo code only
+            if(targetText == "TreeGate")
+            {
+                player.GetComponent<Animator>().Play("hero-up");
+            }
         } else if (Input.GetKeyDown(KeyCode.Space) && triggerActive && dialogActive)
         {
             dialogManager.NextDialogLine();
