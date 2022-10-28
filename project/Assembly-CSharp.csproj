@@ -67,6 +67,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\FixedArray3.cs" />
     <Compile Include="Assets\scripts\StoryGameObjectManager.cs" />
     <Compile Include="Assets\scripts\EyeBlinkControllerProfile.cs" />
+    <Compile Include="Assets\scripts\DialogAnimator.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
@@ -220,7 +221,7 @@
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\DialogAnimator.cs" />
+    <Compile Include="Assets\scripts\DiscHover.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

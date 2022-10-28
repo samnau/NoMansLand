@@ -14,11 +14,27 @@ public class InteractionTrigger : MonoBehaviour
     bool triggerActive = false;
     GameObject player;
     GameObject interactionIndicator;
+    AudioSource doorOpen;
+    AudioClip audioClip;
+    GameObject leftDoor;
+    AudioSource interactionSound;
     void Start()
     {
         dialogManager = FindObjectOfType<Dialog_Manager>();
         player = GameObject.FindGameObjectWithTag("Player");
+        interactionSound = gameObject.GetComponent<AudioSource>();
+        audioClip = interactionSound.clip;
+        print(audioClip);
         interactionIndicator = player.transform.Find("InteractionIndicator").gameObject;
+    }
+    public void Awake()
+    {
+        var dialogRunner = FindObjectOfType<DialogueRunner>();
+        // Create a new command called 'camera_look', which looks at a target.
+        dialogRunner.AddCommandHandler(
+            "PlayInteractionSound",     // the name of the command
+            PlayInteractionSound // the method to run
+        );
     }
     // InteractionIndicator
     void Update()
@@ -35,6 +51,16 @@ public class InteractionTrigger : MonoBehaviour
         } else if (Input.GetKeyDown(KeyCode.Space) && triggerActive && dialogActive)
         {
             dialogManager.NextDialogLine();
+        }
+    }
+    //[YarnCommand("PlayInteractionSound")]
+    void PlayInteractionSound(string[] parameter)
+    {
+        if(audioClip != null)
+        {
+            print(audioClip);
+            interactionSound.clip = audioClip;
+            interactionSound.Play();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

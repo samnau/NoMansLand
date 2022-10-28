@@ -22,6 +22,9 @@ public class Dialog_Manager : MonoBehaviour
     InputStateTracker inputTracker;
     HeroMotionController motionController;
     bool dialogActive = false;
+    // demo items
+    AudioSource doorOpen;
+    GameObject leftDoor;
 
     void Start()
     {
@@ -33,6 +36,8 @@ public class Dialog_Manager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         inputTracker = player.GetComponent<InputStateTracker>();
         motionController = player.GetComponent<HeroMotionController>();
+        leftDoor = GameObject.Find("door left");
+        doorOpen = leftDoor.GetComponent<AudioSource>();
         print(targetDialog);
     }
     void AdvanceDialog()
@@ -57,6 +62,15 @@ public class Dialog_Manager : MonoBehaviour
     {
         dialogueUI.MarkLineComplete();
     }
+    IEnumerator sceneTransition()
+    {
+        var sceneCover = GameObject.Find("SceneCover");
+        var coverAnimator = sceneCover.GetComponent<Animator>();
+        coverAnimator.Play("show");
+        yield return new WaitForSeconds(1.5f);
+        GameObject.Find("MusicPlayer").SetActive(false);
+        SceneManager.LoadScene("TitleCard");
+    }
     public void EndDialog()
     {
         dialogActive = false;
@@ -65,8 +79,9 @@ public class Dialog_Manager : MonoBehaviour
         //demo code only
         if(targetText == "LeftEntranceDoor")
         {
-            GameObject.Find("MusicPlayer").SetActive(false);
-            SceneManager.LoadScene("TitleCard");
+            StartCoroutine("sceneTransition");
+            
+            //SceneManager.LoadScene("TitleCard");
         }
         TogglePlayerMotion();
     }

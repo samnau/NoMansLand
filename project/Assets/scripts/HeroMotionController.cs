@@ -41,7 +41,7 @@ public class HeroMotionController : MonoBehaviour
         stateAnimator.SetBool("HORIZONTAL", isHorizontal && !isDown && !isUp);
         stateAnimator.SetBool("DOWN", isDown);
         stateAnimator.SetBool("UP", isUp);
-        print(currentDirection);
+        //print(currentDirection);
         // checkForAdditionalInput();
     }
 
