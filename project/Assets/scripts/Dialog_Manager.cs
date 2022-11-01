@@ -12,7 +12,6 @@ public class Dialog_Manager : MonoBehaviour
     GameObject dialogWrapper;
     GameObject player;
     Animator dialogWrapperAnimator;
-   // public YarnProgram scriptToLoad;
     [SerializeField]
     protected YarnProgram targetDialog;
     [SerializeField]
@@ -22,23 +21,35 @@ public class Dialog_Manager : MonoBehaviour
     InputStateTracker inputTracker;
     HeroMotionController motionController;
     bool dialogActive = false;
-    // demo items
-    AudioSource doorOpen;
-    GameObject leftDoor;
+    AudioSource interactionPlayer;
 
+
+    public void Awake()
+    {
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
+        dialogueRunner.AddCommandHandler(
+         "PlayInteractionSound",
+          PlayInteractionSound
+        );
+    }
     void Start()
     {
         dialogueUI = FindObjectOfType<DialogueUI>();
-        dialogueRunner = FindObjectOfType<DialogueRunner>();
         dialogueRunner.Add(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         inputTracker = player.GetComponent<InputStateTracker>();
         motionController = player.GetComponent<HeroMotionController>();
-        leftDoor = GameObject.Find("door left");
-        doorOpen = leftDoor.GetComponent<AudioSource>();
-        print(targetDialog);
+    }
+
+    public void PlayInteractionSound (string[] parameter)
+    {
+        interactionPlayer?.Play();
+    }
+    public void SetInteractionSound(AudioSource targetSoundPlayer)
+    {
+        interactionPlayer = targetSoundPlayer;
     }
     void AdvanceDialog()
     {
@@ -76,12 +87,10 @@ public class Dialog_Manager : MonoBehaviour
         dialogActive = false;
         dialogWrapperAnimator.SetBool("show", dialogActive);
         dialogueRunner.ResetDialogue();
-        //demo code only
+        //demo code only - REMOVE LATER
         if(targetText == "LeftEntranceDoor")
         {
             StartCoroutine("sceneTransition");
-            
-            //SceneManager.LoadScene("TitleCard");
         }
         TogglePlayerMotion();
     }

@@ -7,6 +7,7 @@ Wait...are those steps floating?
 <<SetSpeaker Molly surprise frown>>
 How is that possible?
 <<SetSpeaker Molly surprise frown>>
+<<PlayInteractionSound>>
 And how can I get past these stone things?
 <<SetSpeaker Molly surprise annoyed>>
 There's a weird keyhole-looking thing in one of them...
@@ -28,6 +29,7 @@ title: RightEntranceDoor
 <<SetSpeaker Molly surprise frown>>
 This door has seen better days....
 <<SetSpeaker Molly idle annoyed>>
+<<PlayInteractionSound>>
 ...aaaaand it's locked.
 ===
 title: TreeSecret
@@ -35,5 +37,6 @@ title: TreeSecret
 <<SetSpeaker Molly surprise smirk>>
 Hey, what's this back here?
 <<SetSpeaker Molly idle annoyed>>
+<<PlayInteractionSound>>
 Aw, man. It's locked!
 ===
