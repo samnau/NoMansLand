@@ -6,25 +6,25 @@ using Yarn.Unity;
 
 public class Expression_Manager : MonoBehaviour
 {
-    public DialogueRunner dialogueRunner;
+    DialogueRunner dialogueRunner;
     public ExpressionAnimationManager expressionAnimationManager;
 
     public Text SpeakerText;
     string defaultName = "Molly";
     string defaultExpression = "idle";
 
-    // Start is called before the first frame update
     void Start()
     {
         SpeakerText.text = defaultName;
+        expressionAnimationManager.ChangeExpression(defaultExpression, "smile");
     }
     public void Awake()
     {
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
 
-        // Create a new command called 'camera_look', which looks at a target.
         dialogueRunner.AddCommandHandler(
-            "SetSpeaker",     // the name of the command
-            UpdateSpeaker // the method to run
+            "SetSpeaker",  
+            UpdateSpeaker
         );
     }
 

@@ -1,48 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HeroMotionController : MonoBehaviour
 {
-    public GameObject Player;
-    public Animator animator;
+    Animator animator;
     public Animator downAnimator;
-    public Animator stateAnimator;
+    Animator stateAnimator;
     public float motionDistance = 2.5f;
     private float runModifier = 2.5f;
     InputStateTracker inputStateTracker;
     Rigidbody2D myRigidBody2D;
-    string[] directionValues = { "LEFT", "RIGHT", "UP", "DOWN" };
+    SpriteRenderer[] horizontalSprites = {};
+    SpriteRenderer[] downSprites = {};
+    SpriteRenderer[] upSprites = {};
+    bool isHorizontalOnly = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         stateAnimator = GetComponent<Animator>();
         var profileHero = GameObject.Find("hero-profile");
-        //var downHero = GameObject.Find("hero-art-down");
         animator = profileHero.GetComponent<Animator>();
-        //downAnimator = downHero.GetComponent<Animator>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
         inputStateTracker = GetComponent<InputStateTracker>();
+        horizontalSprites = GetSpriteRenderers("hero-profile-state-wrapper");
+        downSprites = GetSpriteRenderers("hero-front-wrapper");
+        upSprites = GetSpriteRenderers("hero-up-wrapper");
     }
     private bool isMoving()
     {
         return inputStateTracker.isWalking;
+    }
+
+    SpriteRenderer[] GetSpriteRenderers(string parentName)
+    {
+        GameObject parentGameObject = gameObject.transform.Find(parentName)?.gameObject;
+        return parentGameObject?.GetComponentsInChildren<SpriteRenderer>(true);
+    }
+    void ShowHorizontalSprites()
+    {
+        ToggleSprites(horizontalSprites, false);
+        ToggleSprites(upSprites);
+        ToggleSprites(downSprites);
+    }
+    void ShowUpSprites()
+    {
+        ToggleSprites(horizontalSprites);
+        ToggleSprites(upSprites, false);
+        ToggleSprites(downSprites);
+    }
+    void ShowDownSprites()
+    {
+        ToggleSprites(horizontalSprites);
+        ToggleSprites(upSprites);
+        ToggleSprites(downSprites, false);
+    }
+    void ToggleSprites(SpriteRenderer[] spriteArray, bool hideSprites = true)
+    {
+        float newAlpha = hideSprites ? 0f : 255f;
+        foreach (SpriteRenderer sprite in spriteArray)
+        {
+            var newColor = sprite.color;
+            newColor.a = newAlpha;
+            sprite.color = newColor;
+        }
     }
     void setAnimationStates()
     {
         animator.SetBool("WALK", isMoving());
         animator.SetBool("RUN", inputStateTracker.isRunning);
         downAnimator.SetBool("WALK", isMoving());
-        var currentDirection = inputStateTracker.direction.ToUpper();
-        var isHorizontal = currentDirection == "LEFT" || currentDirection == "RIGHT";
-        var isDown = currentDirection == "DOWN";
-        var isUp = currentDirection == "UP";
-        stateAnimator.SetBool("HORIZONTAL", isHorizontal && !isDown && !isUp);
-        stateAnimator.SetBool("DOWN", isDown);
-        stateAnimator.SetBool("UP", isUp);
-        //print(currentDirection);
-        // checkForAdditionalInput();
+        var currentDirection = inputStateTracker.direction;
+        var isHorizontal = currentDirection == "left" || currentDirection == "right";
+        var isDown = currentDirection == "down";
+        var isUp = currentDirection == "up";
+
+        isHorizontalOnly = isHorizontal && !isDown && !isUp;
+        if(isHorizontalOnly)
+        {
+            ShowHorizontalSprites();
+        } else if(isDown) {
+            ShowDownSprites();
+        } else if(isUp)
+        {
+            ShowUpSprites();
+        }
     }
 
     private void startMovement()
@@ -57,8 +100,7 @@ public class HeroMotionController : MonoBehaviour
         {
             myRigidBody2D.velocity = new Vector2(horizontalValue, verticalValue);
             var newRotation = horizontalValue < 0 ? 0f : 180f;
-
-            if(Input.GetAxis("Horizontal") != 0 && Input.GetAxis("Vertical") == 0)
+            if (Input.GetAxis("Horizontal") != 0 && isHorizontalOnly)
             {
                 this.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
             } else

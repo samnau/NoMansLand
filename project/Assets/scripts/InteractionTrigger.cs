@@ -32,7 +32,7 @@ public class InteractionTrigger : MonoBehaviour
             // demo code only - REMOVE LATER
             if (targetText == "TreeGate")
             {
-                player.GetComponent<Animator>().Play("hero-up");
+               // player.GetComponent<Animator>().Play("hero-up");
             }
         } else if (Input.GetKeyDown(KeyCode.Space) && triggerActive && dialogActive)
         {
