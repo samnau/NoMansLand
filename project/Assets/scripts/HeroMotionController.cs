@@ -70,7 +70,7 @@ public class HeroMotionController : MonoBehaviour
     {
         animator.SetBool("WALK", isMoving());
         animator.SetBool("RUN", inputStateTracker.isRunning);
-        downAnimator.SetBool("WALK", isMoving());
+        downAnimator?.SetBool("WALK", isMoving());
         var currentDirection = inputStateTracker.direction;
         var isHorizontal = currentDirection == "left" || currentDirection == "right";
         var isDown = currentDirection == "down";
