@@ -76,6 +76,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SkinnedVertices.cs" />
     <Compile Include="Assets\scripts\HeroMotionController.cs" />
     <Compile Include="Assets\scripts\CounterAttackController.cs" />
+    <Compile Include="Assets\scripts\PerspectiveScaleController.cs" />
     <Compile Include="Assets\scripts\EyeBlinkController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\scripts\ExpressionAnimationManager.cs" />
@@ -222,7 +223,13 @@
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\PerspectiveScaleController.cs" />
+    <Compile Include="Assets\scripts\SaveDataManager.cs" />
+    <Compile Include="Assets\scripts\PlayerData.cs" />
+    <Compile Include="Assets\scripts\DataPersistance\Data\GameData.cs" />
+    <Compile Include="Assets\scripts\DataPersistance\DataPersistanceManager.cs" />
+    <Compile Include="Assets\scripts\DataPersistance\IDataPersistance.cs" />
+    <Compile Include="Assets\scripts\GameStateManager.cs" />
+    <Compile Include="Assets\scripts\DataPersistance\FileDataHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

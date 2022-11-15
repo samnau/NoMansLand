@@ -21,6 +21,7 @@ public class InteractionTrigger : MonoBehaviour
         interactionSound = gameObject.GetComponent<AudioSource>();
 
         interactionIndicator = player.transform.Find("InteractionIndicator")?.gameObject;
+        print(player);
     }
 
     void Update()
@@ -52,7 +53,7 @@ public class InteractionTrigger : MonoBehaviour
             dialogManager?.SetInteractionSound(interactionSound);
         }
 
-        interactionIndicator.SetActive(true);
+        interactionIndicator?.SetActive(true);
         dialogManager.targetText = targetText;
         triggerActive = true;
     }

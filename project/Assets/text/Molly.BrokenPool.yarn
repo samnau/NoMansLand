@@ -11,12 +11,10 @@ Should I take you with me?
 ===
 title: BrokenSpire
 ---
+<<SetSpeaker Molly idle smile>>
+This pool is pretty, but...
+<<SetSpeaker Molly idle annoyed>>
+...everything is so worn down.
 <<SetSpeaker Molly surprise annoyed>>
-Something was really mad at this door.
-<<SetSpeaker Molly surprise frown>>
-Do I really want to go inside?
-...
-......
-<<SetSpeaker Molly surprise annoyed>>
-Okay. Here I go then...
+I wish somone would tell me where I am.
 ===
