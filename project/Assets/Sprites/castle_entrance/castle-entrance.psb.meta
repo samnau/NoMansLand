@@ -1,0 +1,898 @@
+fileFormatVersion: 2
+guid: aa99266cecf5e9c4088254e00d0d37f6
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 300
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: leaves bottom right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 14179
+      width: 1573
+      height: 608
+    spriteID: 2ff553bd35bafe54f97ccb1fdf3a57f5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -364, y: 14179}
+  - name: leaves mid right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3171
+      y: 10797
+      width: 580
+      height: 867
+    spriteID: 3f6703634bd900641a5a08e90473ce5f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -89, y: 10454}
+  - name: 'leaves bottom left '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 15534
+      width: 1743
+      height: 706
+    spriteID: 5624a8d0754e6854099f61f002e7ca01
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 15534}
+  - name: leaves mid left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 13895
+      width: 1430
+      height: 1631
+    spriteID: d15446cb31fb3114d92111cdc080ae38
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 13631}
+  - name: tree top left
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6356
+      width: 1891
+      height: 1667
+    spriteID: 014d1259da3ded349a20095ab2a1b96f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 3020}
+  - name: tree top right
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 9122
+      width: 1299
+      height: 1667
+    spriteID: aa526140155a156408643ab11e153be2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -638, y: 5786}
+  - name: trunk right
+    originalName: 
+    pivot: {x: 0.5, y: 0.11}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 11170
+      width: 868
+      height: 2717
+    spriteID: 77cbaab0cb2b3ab498ae41eb507699e3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -2968, y: 10172}
+  - name: trunk left
+    originalName: 
+    pivot: {x: 0.39331412, y: 0.13417909}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1889
+      y: 6342
+      width: 818
+      height: 2758
+    spriteID: 17e545fd888f6e144b780048b0220852
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1903, y: 5191}
+  - name: gem window exterior
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 10797
+      width: 1260
+      height: 1307
+    spriteID: c2e5fb5b25a50774a97a6e1c0cf111d8
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 407, y: 7205}
+  - name: grass fringe
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3852
+      y: 670
+      width: 2990
+      height: 241
+    spriteID: 6564d83f6e36ae849af75ae6bb179960
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3444, y: -1232}
+  - name: front edge
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3852
+      y: 4
+      width: 3840
+      height: 658
+    spriteID: db50183852c11c84290cd18ae2306bac
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 3852, y: -1905}
+  - name: gem window interior
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 14795
+      width: 925
+      height: 946
+    spriteID: 84308d20cad48964390d249107fc72c5
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 226, y: 11022}
+  - name: curved wall
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 3625
+      width: 3840
+      height: 2723
+    spriteID: cf16d60f543bc744fae392ec343f550e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 1345}
+  - name: grass
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 3840
+      height: 3613
+    spriteID: f00ebebbacec80842a9bd32753913c36
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  - name: tree top left's Drop Shadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 7700
+      y: 4
+      width: 195
+      height: 311
+    spriteID: 7f19d16f79b657d4391ed0be2a35e01c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 6389, y: -1444}
+  - name: tree top right's Drop Shadow wall edge
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3484
+      y: 14179
+      width: 185
+      height: 428
+    spriteID: 6de2b2acde50fbe498ab48f060fa9aed
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 833, y: 13197}
+  - name: tree top right's Drop Shadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 15749
+      width: 1057
+      height: 607
+    spriteID: b509718a86e803a49a2b233c5944e681
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -880, y: 14971}
+  - name: tree top left's Drop Shadow main
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 13427
+      width: 1361
+      height: 744
+    spriteID: 5e63632a5d05eb041952c3813c5abc19
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1903, y: 12338}
+  - name: gem window exterior's Drop Shadow
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1903
+      y: 12112
+      width: 1260
+      height: 1307
+    spriteID: 088376cb95a79224694a34f9dcaf24f2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 407, y: 8602}
+  - name: bike shadow main
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3171
+      y: 11672
+      width: 659
+      height: 304
+    spriteID: 267f0e90da35fc9439013187f0aec241
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 321, y: 10977}
+  - name: bike shadow wall edge
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 3484
+      y: 14615
+      width: 107
+      height: 172
+    spriteID: be25b11b4fc0e0e4691727b449b846c0
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 713, y: 13860}
+  - name: gem - front
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 880
+      y: 11170
+      width: 762
+      height: 778
+    spriteID: 77ac4ea00805eda49923f7d938f9bb1b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -870, y: 7245}
+  - name: gem - back
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2968
+      y: 15749
+      width: 686
+      height: 595
+    spriteID: b00883156600457489e70b7b6e847b54
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1180, y: 11733}
+  - name: walkway - edges
+    originalName: 
+    pivot: {x: 0.5, y: 1}
+    alignment: 2
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 8031
+      width: 1797
+      height: 1640
+    spriteID: ea86638d27cc7ea4bbc02b51b6b22421
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1107, y: 7620}
+  - name: walkway - floor
+    originalName: 
+    pivot: {x: 0.5, y: 1}
+    alignment: 2
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 9679
+      width: 1706
+      height: 1483
+    spriteID: ac571cf7eda16b144899a30d6bc6723a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1171, y: 9171}
+  - name: gem - front flash
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 2836
+      y: 14795
+      width: 762
+      height: 778
+    spriteID: fe5135d0c495c3540829103964123b67
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1086, y: 10870}
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 4096
+  importedTextureHeight: 8192
+  documentSize: {x: 3840, y: 5003}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 8192
+  textureActualHeight: 16384
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: leaves bottom right
+    spriteName: leaves bottom right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2ff553bd35bafe54f97ccb1fdf3a57f5
+    layerID: 101
+    mosaicPosition: {x: 1903, y: 14179}
+  - name: leaves mid right
+    spriteName: leaves mid right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 3f6703634bd900641a5a08e90473ce5f
+    layerID: 103
+    mosaicPosition: {x: 3171, y: 10797}
+  - name: 'leaves bottom left '
+    spriteName: 'leaves bottom left '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5624a8d0754e6854099f61f002e7ca01
+    layerID: 105
+    mosaicPosition: {x: 4, y: 15534}
+  - name: leaves mid left
+    spriteName: leaves mid left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: d15446cb31fb3114d92111cdc080ae38
+    layerID: 107
+    mosaicPosition: {x: 4, y: 13895}
+  - name: tree top left
+    spriteName: tree top left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 014d1259da3ded349a20095ab2a1b96f
+    layerID: 109
+    mosaicPosition: {x: 4, y: 6356}
+  - name: tree top left's Drop Shadow
+    spriteName: tree top left's Drop Shadow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7f19d16f79b657d4391ed0be2a35e01c
+    layerID: 229
+    mosaicPosition: {x: 7700, y: 4}
+  - name: tree top right
+    spriteName: tree top right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: aa526140155a156408643ab11e153be2
+    layerID: 111
+    mosaicPosition: {x: 1903, y: 9122}
+  - name: trunk right
+    spriteName: trunk right
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 77cbaab0cb2b3ab498ae41eb507699e3
+    layerID: 135
+    mosaicPosition: {x: 4, y: 11170}
+  - name: tree top right's Drop Shadow wall edge
+    spriteName: tree top right's Drop Shadow wall edge
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6de2b2acde50fbe498ab48f060fa9aed
+    layerID: 222
+    mosaicPosition: {x: 3484, y: 14179}
+  - name: tree top right's Drop Shadow
+    spriteName: tree top right's Drop Shadow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b509718a86e803a49a2b233c5944e681
+    layerID: 221
+    mosaicPosition: {x: 1903, y: 15749}
+  - name: trunk left
+    spriteName: trunk left
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 17e545fd888f6e144b780048b0220852
+    layerID: 137
+    mosaicPosition: {x: 1903, y: 6356}
+  - name: tree top left's Drop Shadow main
+    spriteName: tree top left's Drop Shadow main
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5e63632a5d05eb041952c3813c5abc19
+    layerID: 223
+    mosaicPosition: {x: 1903, y: 13427}
+  - name: gem window exterior
+    spriteName: gem window exterior
+    isGroup: 0
+    parentIndex: -1
+    spriteID: c2e5fb5b25a50774a97a6e1c0cf111d8
+    layerID: 76
+    mosaicPosition: {x: 1903, y: 10797}
+  - name: gem window exterior's Drop Shadow
+    spriteName: gem window exterior's Drop Shadow
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 088376cb95a79224694a34f9dcaf24f2
+    layerID: 224
+    mosaicPosition: {x: 1903, y: 12112}
+  - name: bike shadow main
+    spriteName: bike shadow main
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 267f0e90da35fc9439013187f0aec241
+    layerID: 225
+    mosaicPosition: {x: 3171, y: 11672}
+  - name: bike shadow wall edge
+    spriteName: bike shadow wall edge
+    isGroup: 0
+    parentIndex: -1
+    spriteID: be25b11b4fc0e0e4691727b449b846c0
+    layerID: 226
+    mosaicPosition: {x: 3484, y: 14615}
+  - name: grass fringe
+    spriteName: grass fringe
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 6564d83f6e36ae849af75ae6bb179960
+    layerID: 133
+    mosaicPosition: {x: 3852, y: 670}
+  - name: walkway - edges
+    spriteName: walkway - edges
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ea86638d27cc7ea4bbc02b51b6b22421
+    layerID: 250
+    mosaicPosition: {x: 4, y: 8031}
+  - name: front edge
+    spriteName: front edge
+    isGroup: 0
+    parentIndex: -1
+    spriteID: db50183852c11c84290cd18ae2306bac
+    layerID: 71
+    mosaicPosition: {x: 3852, y: 4}
+  - name: walkway - floor
+    spriteName: walkway - floor
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ac571cf7eda16b144899a30d6bc6723a
+    layerID: 243
+    mosaicPosition: {x: 4, y: 9679}
+  - name: gem - front flash
+    spriteName: gem - front flash
+    isGroup: 0
+    parentIndex: -1
+    spriteID: fe5135d0c495c3540829103964123b67
+    layerID: 255
+    mosaicPosition: {x: 2836, y: 14795}
+  - name: gem - front
+    spriteName: gem - front
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 77ac4ea00805eda49923f7d938f9bb1b
+    layerID: 228
+    mosaicPosition: {x: 880, y: 11170}
+  - name: gem - back
+    spriteName: gem - back
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b00883156600457489e70b7b6e847b54
+    layerID: 227
+    mosaicPosition: {x: 2968, y: 15749}
+  - name: gem window interior
+    spriteName: gem window interior
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 84308d20cad48964390d249107fc72c5
+    layerID: 82
+    mosaicPosition: {x: 1903, y: 14795}
+  - name: curved wall
+    spriteName: curved wall
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cf16d60f543bc744fae392ec343f550e
+    layerID: 66
+    mosaicPosition: {x: 4, y: 3625}
+  - name: grass
+    spriteName: grass
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f00ebebbacec80842a9bd32753913c36
+    layerID: 34
+    mosaicPosition: {x: 4, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: castle-entrance Texture
+  prefabAssetName: castle-entrance Prefab
+  spriteLibAssetName: castle-entrance Sprite Lib
+  secondarySpriteTextures: []

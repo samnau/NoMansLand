@@ -21,7 +21,7 @@ public class InteractionTrigger : MonoBehaviour
         interactionSound = gameObject.GetComponent<AudioSource>();
 
         interactionIndicator = player.transform.Find("InteractionIndicator")?.gameObject;
-        print(player);
+        print(dialogManager.CameraEvent);
     }
 
     void Update()
@@ -31,9 +31,9 @@ public class InteractionTrigger : MonoBehaviour
             dialogActive = true;
             dialogManager.BeginDialog();
             // demo code only - REMOVE LATER
-            if (targetText == "TreeGate")
+            if (targetText == "Wall")
             {
-               // player.GetComponent<Animator>().Play("hero-up");
+                dialogManager.CameraEvent.Invoke();
             }
         } else if (Input.GetKeyDown(KeyCode.Space) && triggerActive && dialogActive)
         {

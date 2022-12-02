@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 using Yarn.Unity;
 
 public class Dialog_Manager : MonoBehaviour
@@ -22,7 +23,7 @@ public class Dialog_Manager : MonoBehaviour
     HeroMotionController motionController;
     bool dialogActive = false;
     AudioSource interactionPlayer;
-
+    public UnityEvent CameraEvent = new UnityEvent();
 
     public void Awake()
     {
@@ -42,6 +43,8 @@ public class Dialog_Manager : MonoBehaviour
         inputTracker = player.GetComponent<InputStateTracker>();
         motionController = player.GetComponent<HeroMotionController>();
     }
+
+
 
     public void PlayInteractionSound (string[] parameter)
     {
