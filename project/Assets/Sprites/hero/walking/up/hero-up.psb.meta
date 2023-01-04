@@ -10550,7 +10550,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1463, y: -620}
+    uvTransform: {x: 1458, y: -615}
   - name: shoulder-l-alt
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -10898,7 +10898,7 @@ ScriptedImporter:
     - {x: 0, y: 25}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 96, y: 450}
+    uvTransform: {x: 101, y: 455}
   platformSettings:
   - name: DefaultTexturePlatform
     overridden: 0
