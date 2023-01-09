@@ -7,6 +7,7 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public bool newGame = true;
     [HideInInspector] public string sceneName = "";
     [HideInInspector] public int days = 0;
+    [HideInInspector] public string sceneDirection = "";
     // Start is called before the first frame update
     void Start()
     {

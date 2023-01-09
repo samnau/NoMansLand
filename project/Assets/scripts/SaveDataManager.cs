@@ -11,12 +11,14 @@ public class SaveDataManager : MonoBehaviour
     [HideInInspector] public bool newGame;
     [HideInInspector] public string sceneName;
     [HideInInspector] public int days;
+    [HideInInspector] public string sceneDirection;
 
     public void PlayerData (PlayerData playerData)
     {
         newGame = playerData.newGame;
         sceneName = playerData.sceneName;
         days = playerData.days;
+        sceneDirection = playerData.sceneDirection;
     }
 
 }

@@ -9,6 +9,7 @@ public class HeroMotionController : MonoBehaviour
     public Animator downAnimator;
     public Animator upAnimator;
     Animator stateAnimator;
+    GameObject horizontalHero;
     public float motionDistance = 2.5f;
     private float runModifier = 2.5f;
     InputStateTracker inputStateTracker;
@@ -22,12 +23,14 @@ public class HeroMotionController : MonoBehaviour
     {
         stateAnimator = GetComponent<Animator>();
         var profileHero = GameObject.Find("hero-profile");
+        string profileHeroName = "hero-profile-state-wrapper";
         animator = profileHero.GetComponent<Animator>();
         myRigidBody2D = GetComponent<Rigidbody2D>();
         inputStateTracker = GetComponent<InputStateTracker>();
         horizontalSprites = GetSpriteRenderers("hero-profile-state-wrapper");
         downSprites = GetSpriteRenderers("hero-front-wrapper");
         upSprites = GetSpriteRenderers("hero-up-wrapper");
+        horizontalHero = gameObject.transform.Find(profileHeroName).gameObject;
     }
     private bool isMoving()
     {
@@ -96,18 +99,21 @@ public class HeroMotionController : MonoBehaviour
         float motionSpeed = motionDistance + targetRunModifier;
         var horizontalValue = Input.GetAxis("Horizontal") * motionSpeed;
         var verticalValue = Input.GetAxis("Vertical") * motionSpeed;
-        var walkingVelocityReached = Mathf.Abs(horizontalValue) > 0.5 || Mathf.Abs(verticalValue) > 0.5;
-
+        // TODO: revisit this calculation later
+        //var walkingVelocityReached = Mathf.Abs(horizontalValue) > 0.5 || Mathf.Abs(verticalValue) > 0.5;
+        var walkingVelocityReached = true;
         if (walkingVelocityReached)
         {
             myRigidBody2D.velocity = new Vector2(horizontalValue, verticalValue);
             var newRotation = horizontalValue < 0 ? 0f : 180f;
             if (Input.GetAxis("Horizontal") != 0 && isHorizontalOnly)
             {
-                this.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
+                horizontalHero.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
+                //this.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
             } else
             {
-                this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                horizontalHero.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+                //this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             }
         }
     }

@@ -64,11 +64,11 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void SaveGame()
     {
-        // TODO pass data to save sripts
-        // TODO save data to a file handler
+        // passes data to save sripts
+        // saves data to a file handler
         foreach (IDataPersistance dataPersistanceObject in dataPersistanceObjects)
         {
-            dataPersistanceObject.SaveData(gameData);
+            dataPersistanceObject.SaveData(ref gameData);
             print($"Saved days passed {gameData.dayCount}");
         }
         dataHandler.Save(gameData);

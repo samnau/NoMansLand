@@ -16,7 +16,7 @@ public class GameStateManager : MonoBehaviour, IDataPersistance
         this.dayCount = data.dayCount;
     }
 
-    public void SaveData(GameData data)
+    public void SaveData(ref GameData data)
     {
         data.dayCount = this.dayCount;
     }
