@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneFadeTrigger : MonoBehaviour {
 
-	public string sceneName;
+	public Object targetScene;
 	Fade_Controller fadeController;
 	enum Directions { up, down, left, right };
 	[SerializeField] Directions direction;
@@ -16,7 +16,7 @@ public class SceneFadeTrigger : MonoBehaviour {
 		if(other.CompareTag("Player")) {
 		scenePosition.currentDirection = scenePosition.startDirection[direction.ToString()];
 		scenePosition.lastDirection = direction.ToString();
-		fadeController.triggerLevelChange(sceneName);
+		fadeController.triggerLevelChange(targetScene.name);
 		}
 	}
 
