@@ -71,6 +71,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
+    <Compile Include="Assets\scripts\Inventory\Gem.cs" />
     <Compile Include="Assets\scripts\LegIdleController.cs" />
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SkinnedVertices.cs" />
@@ -89,6 +90,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationPoint.cs" />
     <Compile Include="Assets\scripts\DamageController.cs" />
     <Compile Include="Assets\scripts\Hero_Battle_Action_Manager.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryItem.cs" />
     <Compile Include="Assets\scripts\DataPersistance\Data\GameData.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\MathUtil.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_VertHandler.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\scripts\FireShieldAnimationSequencer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\scripts\Inventory\ItemData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\scripts\SoundFXController.cs" />
     <Compile Include="Assets\scripts\DataPersistance\IDataPersistance.cs" />
@@ -151,7 +154,9 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Util\TriangulationUtil.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\scripts\CollisionDetector.cs" />
+    <Compile Include="Assets\scripts\HeroPositionManager.cs" />
     <Compile Include="Assets\scripts\Expression_Manager.cs" />
+    <Compile Include="Assets\ScenePositionManager.cs" />
     <Compile Include="Assets\scripts\SaveDataManager.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDLineDisplay.cs" />
@@ -168,6 +173,8 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_GlobalControl.cs" />
     <Compile Include="Assets\scripts\BlockedAttackController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonPoint.cs" />
+    <Compile Include="Assets\scripts\Inventory\Collector.cs" />
+    <Compile Include="Assets\scripts\PositionMarker.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationContext.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepBasin.cs" />
@@ -178,6 +185,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_ParentControl.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
     <Compile Include="Assets\scripts\AnimationStateTrigger.cs" />
+    <Compile Include="Assets\scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonSet.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_HiddenBone.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
@@ -190,6 +198,7 @@
     <Compile Include="Assets\scripts\PlayerMotionController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Orientation.cs" />
     <Compile Include="Assets\scripts\Key_Validator.cs" />
+    <Compile Include="Assets\scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonUtil.cs" />
@@ -210,6 +219,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser2.cs" />
     <Compile Include="Assets\scripts\PlayerData.cs" />
+    <Compile Include="Assets\scripts\Inventory\ICollectable.cs" />
     <Compile Include="Assets\scripts\MotionController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Guides.cs" />
@@ -220,6 +230,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SplineControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\scripts\ScriptableObjects\ScenePosition.cs" />
     <Compile Include="Assets\scripts\Hero_Health_Value.cs" />
     <Compile Include="Assets\scripts\FrogFamiliarSoundFXController.cs" />
     <Compile Include="Assets\scripts\BattleKeyCombos.cs" />
@@ -230,10 +241,8 @@
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\ScenePositionManager.cs" />
-    <Compile Include="Assets\scripts\ScriptableObjects\ScenePosition.cs" />
-    <Compile Include="Assets\scripts\PositionMarker.cs" />
-    <Compile Include="Assets\scripts\HeroPositionManager.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventorySlot.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -931,6 +940,9 @@
     </Reference>
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UIBuilderModule">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UIBuilderModule.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>Library\ScriptAssemblies\Unity.Analytics.DataPrivacy.dll</HintPath>

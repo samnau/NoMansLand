@@ -11,8 +11,12 @@ public class HeroPositionManager : MonoBehaviour
     void Start()
     {
         fadeController = GameObject.FindObjectOfType<Fade_Controller>();
-        scenePosition = fadeController.scenePosition;
-        string currentDirection = scenePosition.currentDirection;
+        if(fadeController == null)
+        {
+            return;
+        }
+        scenePosition = fadeController?.scenePosition;
+        string currentDirection = scenePosition?.currentDirection;
         string inputDirection = currentDirection == "up" || currentDirection == "down" ? scenePosition.lastDirection : currentDirection;
         InputStateTracker inputStateTracker = gameObject.GetComponent<InputStateTracker>();
         positionMarkers = GameObject.FindObjectsOfType<PositionMarker>();
