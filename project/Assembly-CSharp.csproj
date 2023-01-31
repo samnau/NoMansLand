@@ -178,6 +178,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationContext.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepBasin.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationDebugContext.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_IKHandle.cs" />
     <Compile Include="Assets\scripts\InputStateTracker.cs" />
@@ -227,6 +228,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\scripts\treeBreezeTrigger.cs" />
     <Compile Include="Assets\scripts\TimeController.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SplineControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
@@ -241,8 +243,9 @@
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Inventory\InventorySlot.cs" />
-    <Compile Include="Assets\scripts\Inventory\InventoryManager.cs" />
+    <Compile Include="Assets\scripts\SaveSystem\ISaveable.cs" />
+    <Compile Include="Assets\scripts\SaveSystem\SaveableEntity.cs" />
+    <Compile Include="Assets\scripts\SaveSystem\SaveLoadSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
