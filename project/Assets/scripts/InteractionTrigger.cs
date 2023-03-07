@@ -21,7 +21,6 @@ public class InteractionTrigger : MonoBehaviour
         interactionSound = gameObject.GetComponent<AudioSource>();
 
         interactionIndicator = player.transform.Find("InteractionIndicator")?.gameObject;
-        print(dialogManager.CameraEvent);
     }
 
     void Update()
