@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleSpinner : MonoBehaviour
+public class BattleSpinner : BattleChallenge
 {
     Transform targetTransform;
     float rotationModifier = 1.0f;
@@ -11,8 +11,6 @@ public class BattleSpinner : MonoBehaviour
     float defaultRotationSpeed;
     int successCount = 0;
     public int successLimit = 3;
-    bool success = false;
-    bool failure = false;
     [HideInInspector]
     public bool triggerValid = false;
     [SerializeField]
@@ -26,6 +24,7 @@ public class BattleSpinner : MonoBehaviour
         battleTrigger = GameObject.FindGameObjectWithTag("BattleTrigger");
         triggerWrapper =  battleTrigger.transform.parent.gameObject;
         defaultRotationSpeed = rotationSpeed;
+        StartCoroutine(Timeout());
     }
     bool IsKeyValid()
     {
@@ -84,10 +83,14 @@ public class BattleSpinner : MonoBehaviour
 
     void Update()
     {
-        SetRotation();
-        if (IsKeyValid())
+        if(!success && !failure)
         {
-            CheckForValidTrigger();
+            SetRotation();
+            if (IsKeyValid())
+            {
+                CheckForValidTrigger();
+            }
         }
+
     }
 }

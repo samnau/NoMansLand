@@ -60,6 +60,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationConstraint.cs" />
     <Compile Include="Assets\scripts\Fade_controller1.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveableEntity.cs" />
+    <Compile Include="Assets\scripts\Battle\ChargeBar\ChargeBarController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\CSV2Table\Demo\C2TDemo.cs" />
     <Compile Include="Assets\scripts\DefenseController.cs" />
@@ -252,7 +253,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\ChargeBar\ChargeBarController.cs" />
+    <Compile Include="Assets\scripts\Battle\BattleChallenge.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

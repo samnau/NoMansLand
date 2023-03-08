@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeBarController : MonoBehaviour
+public class ChargeBarController : BattleChallenge
 {
     float currentX;
     float currentY;
     float minY;
     RectTransform targetTransform;
-    bool success = false;
 
     void Start()
     {
@@ -18,6 +17,8 @@ public class ChargeBarController : MonoBehaviour
         float height = targetTransform.rect.height;
         float startPosY = minY = (height) * -1f;
         targetTransform.anchoredPosition = new Vector2(currentX, startPosY);
+
+        StartCoroutine(Timeout());
     }
 
     void SetCurrentY()
@@ -64,7 +65,7 @@ public class ChargeBarController : MonoBehaviour
 
     void Update()
     {
-        if (!success)
+        if (!success && !failure)
         {
             SetCurrentY();
             CheckForChargeSuccess();
