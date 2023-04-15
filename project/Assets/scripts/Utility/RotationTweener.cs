@@ -2,16 +2,10 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
-public class RotationTweener : MonoBehaviour
+public class RotationTweener : BaseTweener
 {
     [SerializeField]
     float endRotation;
-    [SerializeField]
-    float speed = 1.5f;
-    [HideInInspector]
-    public float progress = 0f;
-    [HideInInspector]
-
 
     IEnumerator SetRotation()
     {
@@ -30,7 +24,7 @@ public class RotationTweener : MonoBehaviour
         } 
     }
 
-    public void TriggerRotaton([Optional] float targetRotation, [Optional] float targetSpeed)
+    public void TriggerRotation([Optional] float targetRotation, [Optional] float targetSpeed)
     {
         if (targetSpeed != 0)
         {

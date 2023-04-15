@@ -7,7 +7,9 @@ public class ChargeBarController : BattleChallenge
     float currentX;
     float currentY;
     float minY;
+    float chargeProgress = 0;
     RectTransform targetTransform;
+    PositionTweener positionTweener;
 
     void Start()
     {

@@ -11,14 +11,14 @@ public class RadarSweeperTargetController : BattleChallenge
     public GameObject battleTrigger;
     int hitCount = 0;
     bool hitActive = false;
+    public int hitSuccessLimit = 4;
+    public float triggerTimeLimit = .75f;
+    ColorTweener colorTweener;
 
-    // Start is called before the first frame update
     void Start()
     {
-        //rotationMultiplier = Random.Range(1, 4) * 1f;
         SetTargetRotation();
         StartCoroutine(SetRotation());
-        //rotationModfier = Random.Range(-1, 1);
     }
 
     void SetTargetRotation()
@@ -35,6 +35,12 @@ public class RadarSweeperTargetController : BattleChallenge
             print("sweeper trigger");
             hitActive = true;
         }
+
+        if (collision.CompareTag("BattleTrigger"))
+        {
+            ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
+            targetTweener.TriggerAlphaImageTween(1f, 10);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -44,23 +50,32 @@ public class RadarSweeperTargetController : BattleChallenge
             print("sweeper trigger");
             hitActive = false;
         }
+        if (collision.CompareTag("BattleTrigger"))
+        {
+            ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
+            targetTweener.TriggerAlphaImageTween(0.5f, 10);
+        }
     }
     IEnumerator SetRotation()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(triggerTimeLimit);
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
+        yield return new WaitForSeconds(triggerTimeLimit);
         StartCoroutine(SetRotation());
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.D) && hitActive)
         {
-            print("hit");
-            print(hitCount);
             hitCount++;
+            print($"hit: {hitCount}");
+
+            if (hitCount >= hitSuccessLimit)
+            {
+                print("YOU WIN!!!");
+            }
         }
     }
 }

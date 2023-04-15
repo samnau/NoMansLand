@@ -17,12 +17,14 @@ public class BattleSpinner : BattleChallenge
     KeyCode triggerKey = KeyCode.D;
     GameObject battleTrigger;
     GameObject triggerWrapper;
+    RotationTweener rotationTweener;
 
     void Start()
     {
         targetTransform = gameObject.transform;
         battleTrigger = GameObject.FindGameObjectWithTag("BattleTrigger");
         triggerWrapper =  battleTrigger.transform.parent.gameObject;
+        rotationTweener = triggerWrapper.GetComponent<RotationTweener>();
         defaultRotationSpeed = rotationSpeed;
         StartCoroutine(Timeout());
     }
@@ -42,7 +44,8 @@ public class BattleSpinner : BattleChallenge
     void RotateTriggerWrapper()
     {
         float targetRotation = Random.Range(60f, 270f);
-        triggerWrapper.transform.Rotate(0 , 0, targetRotation);
+        rotationTweener.TriggerRotation(targetRotation);
+//        triggerWrapper.transform.Rotate(0 , 0, targetRotation);
     }
     void CheckForValidTrigger()
     {
