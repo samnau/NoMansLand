@@ -5,8 +5,6 @@ using UnityEngine;
 public class UtilityScaleTweener : BaseTweener
 {
     [SerializeField]
-    float endRotation;
-    [SerializeField]
     float endScale;
     [SerializeField]
     bool animationBounce = false;
@@ -43,7 +41,7 @@ public class UtilityScaleTweener : BaseTweener
         {
             speed = targetSpeed;
         }
-        endRotation = targetScale;
+        endScale = targetScale;
         progress = 0;
         StartCoroutine(SetScale());
     }

@@ -24,6 +24,26 @@ public class RotationTweener : BaseTweener
         } 
     }
 
+    IEnumerator RotateContinuous()
+    {
+        transform.Rotate(new Vector3(0f, 0f, speed * Time.fixedDeltaTime), Space.Self);
+        yield return new WaitForFixedUpdate();
+        StartCoroutine(RotateContinuous());
+    }
+   
+    public void TriggerContinuousRotation(float targetSpeed)
+    {
+        if (targetSpeed != 0)
+        {
+            speed = targetSpeed;
+        }
+        StartCoroutine(RotateContinuous());
+    }
+
+    void StopContinuousRotation()
+    {
+        StopCoroutine(RotateContinuous());
+    }
     public void TriggerRotation([Optional] float targetRotation, [Optional] float targetSpeed)
     {
         if (targetSpeed != 0)
