@@ -11,6 +11,7 @@ public class InputStateTracker : MonoBehaviour {
 	public string direction = "down";
 	public bool isWalking = false;
 	public bool isRunning = false;
+	public bool isUiActive = false;
 	string[] directionValues = {"left", "right", "up", "down" };
 
 	void printUserInput (string inputValue){
@@ -76,6 +77,10 @@ public class InputStateTracker : MonoBehaviour {
 		CheckLastKeyReleased();
 		isWalking = directionKeyPressed();
 		isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
+		if(isUiActive)
+        {
+			return;
+        }
 		if (Input.anyKey){
 			setCurrentKeyPressed();
 		}

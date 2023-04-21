@@ -9,13 +9,13 @@ public class AlphaTweenSequencer : MonoBehaviour
     void Start()
     {
         targetTweeners = gameObject.GetComponentsInChildren<ColorTweener>();
-        TweenSequence(targetTweeners);
+       // TweenSequence(targetTweeners);
     }
-    public void TweenSequence(ColorTweener[] tweenTargets)
+    public void TweenSequence()
     {
-        for (int index = 0; index < tweenTargets.Length; index++)
+        for (int index = 0; index < targetTweeners.Length; index++)
          {
-           StartCoroutine(DelayedAlphaTween(.1f, index, tweenTargets[index]));
+           StartCoroutine(DelayedAlphaTween(.05f, index, targetTweeners[index]));
          }
 
     }
@@ -23,7 +23,7 @@ public class AlphaTweenSequencer : MonoBehaviour
     IEnumerator DelayedAlphaTween(float delay, int delayFactor, ColorTweener tweenTarget)
     {
         yield return new WaitForSeconds(delay*delayFactor);
-        tweenTarget.TriggerAlphaImageTween(1f, 10.5f);
+        tweenTarget.TriggerAlphaImageTween(1f, 1.5f);
     }
 
 }

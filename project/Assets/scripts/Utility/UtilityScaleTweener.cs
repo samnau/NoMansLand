@@ -5,13 +5,10 @@ using UnityEngine;
 public class UtilityScaleTweener : BaseTweener
 {
     [SerializeField]
-    float endScale;
+    float endScale = 1f;
     [SerializeField]
     bool animationBounce = false;
-    private void Start()
-    {
-        TriggerScale();
-    }
+
     IEnumerator SetScale()
     {
         Vector3 targeScale = new Vector3(endScale, endScale, endScale);

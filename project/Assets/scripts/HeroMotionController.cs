@@ -18,6 +18,7 @@ public class HeroMotionController : MonoBehaviour
     SpriteRenderer[] downSprites = {};
     SpriteRenderer[] upSprites = {};
     bool isHorizontalOnly = false;
+    bool isUiActive = false;
 
     void Start()
     {
@@ -31,6 +32,7 @@ public class HeroMotionController : MonoBehaviour
         downSprites = GetSpriteRenderers("hero-front-wrapper");
         upSprites = GetSpriteRenderers("hero-up-wrapper");
         horizontalHero = gameObject.transform.Find(profileHeroName).gameObject;
+        isUiActive = inputStateTracker.isUiActive;
     }
     private bool isMoving()
     {
@@ -133,7 +135,11 @@ public class HeroMotionController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        setAnimationStates();
-        updateMovement();
+        isUiActive = inputStateTracker.isUiActive;
+        if(!isUiActive)
+        {
+            setAnimationStates();
+            updateMovement();
+        }
     }
 }
