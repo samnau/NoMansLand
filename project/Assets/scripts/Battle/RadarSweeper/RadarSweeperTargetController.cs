@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using System.Linq;
 
@@ -13,7 +13,7 @@ public class RadarSweeperTargetController : BattleChallenge
     int hitCount = 0;
     bool hitActive = false;
     public int hitSuccessLimit = 4;
-    public float triggerTimeLimit = .75f;
+    public float triggerTimeLimit = 2f;
     ColorTweener colorTweener;
     [SerializeField]
     GameObject orbitRing1;
@@ -30,6 +30,8 @@ public class RadarSweeperTargetController : BattleChallenge
 
     [SerializeField]
     GameObject pointerArm;
+
+    bool hitInerruption = false;
 
     void Start()
     {
@@ -55,7 +57,6 @@ public class RadarSweeperTargetController : BattleChallenge
     {
         if (collision.gameObject.name == battleTrigger.name)
         {
-            print("sweeper trigger");
             hitActive = true;
         }
 
@@ -81,16 +82,24 @@ public class RadarSweeperTargetController : BattleChallenge
     }
     IEnumerator SetRotation()
     {
-        yield return new WaitForSeconds(triggerTimeLimit);
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
-        yield return new WaitForSeconds(triggerTimeLimit);
+        for (float timer = triggerTimeLimit; timer >= 0; timer -= Time.deltaTime)
+        {
+            if (hitInerruption)
+            {
+                print("interruptions");
+                hitInerruption = false;
+                StartCoroutine(SetRotation());
+                yield break;
+            }
+            yield return null;
+        }
         StartCoroutine(SetRotation());
     }
 
     void RevealOrbitRing()
     {
-        print($"ring: {orbitRings[hitCount]}");
         GameObject targetRing = orbitRings[hitCount];
         GameObject targetDot = orbitDots[hitCount];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
@@ -108,6 +117,7 @@ public class RadarSweeperTargetController : BattleChallenge
             if (hitCount < hitSuccessLimit)
             {
                 RevealOrbitRing();
+                hitInerruption = true;
             }
 
             hitCount++;

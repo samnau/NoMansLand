@@ -35,7 +35,7 @@ public class FightController : MonoBehaviour {
         Monster = GameObject.FindGameObjectWithTag("Enemy");
         blockedAttackController = Monster.GetComponent<BlockedAttackController>();
         FireShield = GameObject.Find("fire_shield_wrapper");
-        FireShieldAnimator = FireShield.GetComponent<Animator>();
+       // FireShieldAnimator = FireShield.GetComponent<Animator>();
         KeyCodeValidator = GetComponent<KeyCodeValidator>();
     }
 	

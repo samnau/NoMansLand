@@ -46,6 +46,7 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        pointerArm.transform.parent.GetComponent<RotationTweener>().TriggerRotation(1f);
         // TODO: move this to higher palce in the UI code later
         yield return new WaitForSeconds(.5f);
         inputStateTracker.isUiActive = true;
