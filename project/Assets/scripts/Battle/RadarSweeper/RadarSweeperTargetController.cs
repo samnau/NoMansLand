@@ -25,8 +25,14 @@ public class RadarSweeperTargetController : BattleChallenge
     GameObject orbitDot2;
     GameObject orbitDot3;
 
+    float orbitRing1Scale;
+    float orbitRing2Scale;
+    float orbitRing3Scale;
+
+
     GameObject[] orbitRings;
     GameObject[] orbitDots;
+    float[] orbitScales;
 
     [SerializeField]
     GameObject pointerArm;
@@ -41,6 +47,12 @@ public class RadarSweeperTargetController : BattleChallenge
 
         orbitRings = new GameObject[] { orbitRing1, orbitRing2, orbitRing3 };
         orbitDots = new GameObject[] { orbitDot1, orbitDot2, orbitDot3 };
+
+        orbitRing1Scale = orbitRing1.transform.localScale.y;
+        orbitRing2Scale = orbitRing2.transform.localScale.y;
+        orbitRing3Scale = orbitRing3.transform.localScale.y;
+
+        orbitScales = new float[] { orbitRing1Scale, orbitRing2Scale, orbitRing3Scale };
 
         SetTargetRotation();
         StartCoroutine(SetRotation());
@@ -110,23 +122,48 @@ public class RadarSweeperTargetController : BattleChallenge
         targetDotColor.TriggerAlphaImageTween(1f, 3f);
     }
 
+    void HideOrbitRing()
+    {
+        print($"hide the{ orbitRings[hitCount]}");
+        GameObject targetRing = orbitRings[hitCount];
+        GameObject targetDot = orbitDots[hitCount];
+        ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
+        UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
+        ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
+        float targetScale = orbitScales[hitCount];
+        targetRingColor.TriggerAlphaImageTween(0, 3f);
+        targetRingScaler.TriggerScale(targetScale, 3f);
+        targetDotColor.TriggerAlphaImageTween(0, 3f);
+    }
+
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D) && hitActive)
+        if(Input.GetKeyDown(KeyCode.D) )
         {
-            if (hitCount < hitSuccessLimit)
+            if(hitActive)
             {
-                RevealOrbitRing();
-                hitInerruption = true;
-            }
+                if (hitCount < hitSuccessLimit)
+                {
+                    RevealOrbitRing();
+                    hitInerruption = true;
+                    hitCount++;
+                }
 
-            hitCount++;
 
-            print($"hit: {hitCount}");
+                print($"hit: {hitCount}");
 
-            if (hitCount >= hitSuccessLimit)
+                if (hitCount >= hitSuccessLimit)
+                {
+                    print("YOU WIN!!!");
+                }
+            } else
             {
-                print("YOU WIN!!!");
+                print("miss");
+                if(hitCount > 0)
+                {
+                    hitCount--;
+                    HideOrbitRing();
+                }
             }
         }
     }
