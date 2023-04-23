@@ -83,7 +83,6 @@ public class RadarSweeperTargetController : BattleChallenge
     {
         if (collision.gameObject.name == battleTrigger.name)
         {
-            print("sweeper trigger");
             hitActive = false;
         }
         if (collision.CompareTag("BattleTrigger"))
@@ -94,13 +93,13 @@ public class RadarSweeperTargetController : BattleChallenge
     }
     IEnumerator SetRotation()
     {
+        float delayModifier = 4f;
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
         for (float timer = triggerTimeLimit; timer >= 0; timer -= Time.deltaTime)
         {
             if (hitInerruption)
             {
-                print("interruptions");
                 hitInerruption = false;
                 StartCoroutine(SetRotation());
                 yield break;
@@ -108,6 +107,19 @@ public class RadarSweeperTargetController : BattleChallenge
             yield return null;
         }
         StartCoroutine(SetRotation());
+
+        if (hitCount == 1)
+        {
+            yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
+            hitInerruption = true;
+        }
+        else if (hitCount >= 2)
+        {
+            yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
+            hitInerruption = true;
+            yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
+            hitInerruption = true;
+        }
     }
 
     void RevealOrbitRing()
