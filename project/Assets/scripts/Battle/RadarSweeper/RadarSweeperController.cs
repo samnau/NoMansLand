@@ -6,7 +6,7 @@ public class RadarSweeperController : BattleChallenge
 {
     RotationTweener rotationTweener;
     RectTransform targetTransform;
-    bool canSweep = true;
+    public bool canSweep = true;
 
     void Start()
     {

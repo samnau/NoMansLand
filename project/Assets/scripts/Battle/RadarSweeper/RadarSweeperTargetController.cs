@@ -38,6 +38,7 @@ public class RadarSweeperTargetController : BattleChallenge
     GameObject pointerArm;
 
     bool hitInerruption = false;
+    bool stopRotation = false;
 
     void Start()
     {
@@ -93,6 +94,10 @@ public class RadarSweeperTargetController : BattleChallenge
     }
     IEnumerator SetRotation()
     {
+        if(stopRotation)
+        {
+            yield return false;
+        }
         float delayModifier = 4f;
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
@@ -122,6 +127,13 @@ public class RadarSweeperTargetController : BattleChallenge
         }
     }
 
+    public void StopRotation()
+    {
+        transform.Rotate(0, 0, 45f);
+        StopCoroutine(SetRotation());
+        stopRotation = true;
+    }
+
     void RevealOrbitRing()
     {
         GameObject targetRing = orbitRings[hitCount];
@@ -136,7 +148,6 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void HideOrbitRing()
     {
-        print($"hide the{ orbitRings[hitCount]}");
         GameObject targetRing = orbitRings[hitCount];
         GameObject targetDot = orbitDots[hitCount];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();

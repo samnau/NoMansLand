@@ -31,6 +31,7 @@ public class RuneIntroSequencer : MonoBehaviour
     GameObject powerRune4;
     [SerializeField]
     GameObject pointerArm;
+    GameObject pointerDot;
 
     InputStateTracker inputStateTracker;
     void Start()
@@ -38,6 +39,7 @@ public class RuneIntroSequencer : MonoBehaviour
         orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
         orbitDot2 = orbitRing2.transform.Find("orbit ring 2 dot").gameObject;
         orbitDot3 = orbitRing3.transform.Find("orbit ring 3 dot").gameObject;
+        pointerDot = pointerArm.transform.parent.gameObject;
         inputStateTracker = FindObjectOfType<InputStateTracker>();
         StartCoroutine(RuneRingIntroSequence());
     }
@@ -46,7 +48,7 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        pointerArm.transform.parent.GetComponent<RotationTweener>().TriggerRotation(1f);
+        pointerDot.GetComponent<RotationTweener>().TriggerRotation();
         // TODO: move this to higher palce in the UI code later
         yield return new WaitForSeconds(.5f);
         inputStateTracker.isUiActive = true;
@@ -63,12 +65,48 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
+
+        runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
+        StartCoroutine(RuneRingExitSequence());
         yield return null;
     }
-    // Update is called once per frame
-    void Update()
+    IEnumerator RuneRingExitSequence()
     {
-        
+        RadarSweeperTargetController radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
+        radarSweeperTargetController.StopRotation();
+
+        yield return new WaitForSeconds(radarSweeperTargetController.timeLimit);
+        yield return new WaitForSeconds(.5f);
+
+        midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        yield return new WaitForSeconds(.5f);
+
+        outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        yield return new WaitForSeconds(.5f);
+
+        runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        yield return new WaitForSeconds(.5f);
+
+        pointerDot.GetComponent<RotationTweener>().TriggerRotation(45f);
+        yield return new WaitForSeconds(.125f);
+
+        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        yield return new WaitForSeconds(.25f);
+
+        float runeSpeed = 3.5f;
+        float runeDelay = .1f;
+        powerRune1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f,runeSpeed);
+        yield return new WaitForSeconds(runeDelay);
+
+        powerRune4.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
+        yield return new WaitForSeconds(runeDelay);
+
+        powerRune3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
+        yield return new WaitForSeconds(runeDelay);
+
+        powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
     }
+
 }
