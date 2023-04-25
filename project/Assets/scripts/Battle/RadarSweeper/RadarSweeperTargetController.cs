@@ -56,7 +56,7 @@ public class RadarSweeperTargetController : BattleChallenge
         orbitScales = new float[] { orbitRing1Scale, orbitRing2Scale, orbitRing3Scale };
 
         SetTargetRotation();
-        StartCoroutine(SetRotation());
+        StartCoroutine(TriggerFailure());
     }
 
     void SetTargetRotation()
@@ -94,10 +94,6 @@ public class RadarSweeperTargetController : BattleChallenge
     }
     IEnumerator SetRotation()
     {
-        if(stopRotation)
-        {
-            yield return false;
-        }
         float delayModifier = 4f;
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
@@ -111,7 +107,10 @@ public class RadarSweeperTargetController : BattleChallenge
             }
             yield return null;
         }
-        StartCoroutine(SetRotation());
+        if(!hitInerruption)
+        {
+            StartCoroutine(SetRotation());
+        }
 
         if (hitCount == 1)
         {
@@ -126,12 +125,14 @@ public class RadarSweeperTargetController : BattleChallenge
             hitInerruption = true;
         }
     }
-
+    public void StartRotation()
+    {
+        StartCoroutine(SetRotation());
+    }
     public void StopRotation()
     {
         transform.Rotate(0, 0, 45f);
-        StopCoroutine(SetRotation());
-        stopRotation = true;
+        StopAllCoroutines();
     }
 
     void RevealOrbitRing()
@@ -159,6 +160,16 @@ public class RadarSweeperTargetController : BattleChallenge
         targetDotColor.TriggerAlphaImageTween(0, 3f);
     }
 
+    IEnumerator TriggerFailure()
+    {
+        yield return new WaitForSeconds(timeLimit);
+        if (hitCount < hitSuccessLimit - 1)
+        {
+            print("YOU FAILED...");
+            failure = true;
+        }
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.D) )
@@ -175,9 +186,9 @@ public class RadarSweeperTargetController : BattleChallenge
 
                 print($"hit: {hitCount}");
 
-                if (hitCount >= hitSuccessLimit)
+                if (hitCount >= hitSuccessLimit - 1 && !failure)
                 {
-                    print("YOU WIN!!!");
+                    success = true;
                 }
             } else
             {
@@ -188,6 +199,11 @@ public class RadarSweeperTargetController : BattleChallenge
                     HideOrbitRing();
                 }
             }
+        }
+
+        if (hitCount >= hitSuccessLimit-1 && !failure)
+        {
+            success = true;
         }
     }
 }

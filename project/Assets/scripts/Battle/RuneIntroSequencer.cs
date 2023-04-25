@@ -32,6 +32,8 @@ public class RuneIntroSequencer : MonoBehaviour
     [SerializeField]
     GameObject pointerArm;
     GameObject pointerDot;
+    [SerializeField]
+    GameObject pointerTarget;
 
     InputStateTracker inputStateTracker;
     void Start()
@@ -48,7 +50,10 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        pointerDot.GetComponent<RotationTweener>().TriggerRotation();
+        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f);
+        pointerTarget.GetComponent<RotationTweener>().TriggerRotation(0f);
+        pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
+
         // TODO: move this to higher palce in the UI code later
         yield return new WaitForSeconds(.5f);
         inputStateTracker.isUiActive = true;
@@ -68,16 +73,17 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
+
         StartCoroutine(RuneRingExitSequence());
         yield return null;
     }
     IEnumerator RuneRingExitSequence()
     {
         RadarSweeperTargetController radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
-        radarSweeperTargetController.StopRotation();
 
         yield return new WaitForSeconds(radarSweeperTargetController.timeLimit);
         yield return new WaitForSeconds(.5f);
+        radarSweeperTargetController.StopRotation();
 
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.5f);
@@ -88,7 +94,6 @@ public class RuneIntroSequencer : MonoBehaviour
         runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.5f);
 
-        pointerDot.GetComponent<RotationTweener>().TriggerRotation(45f);
         yield return new WaitForSeconds(.125f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
@@ -107,6 +112,35 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(runeDelay);
 
         powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
+        print($"challenge: {radarSweeperTargetController.failure}");
+        if(radarSweeperTargetController.failure)
+        {
+            StartCoroutine(RuneFailureSequence());
+        } else if (radarSweeperTargetController.success)
+        {
+            StartCoroutine(RuneSuccessSequence());
+        }
+    }
+
+    IEnumerator RuneSuccessSequence()
+    {
+        yield return null;
+    }
+
+    IEnumerator RuneFailureSequence()
+    {
+        print("fail sequence?");
+        yield return new WaitForSeconds(.25f);
+        orbitDot1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+        orbitRing1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+        yield return new WaitForSeconds(.25f);
+
+        orbitDot2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+        orbitRing2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+        yield return new WaitForSeconds(.25f);
+
+        orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+        orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
     }
 
 }
