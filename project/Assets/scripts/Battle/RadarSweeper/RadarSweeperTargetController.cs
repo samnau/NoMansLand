@@ -40,6 +40,8 @@ public class RadarSweeperTargetController : BattleChallenge
     bool hitInerruption = false;
     bool stopRotation = false;
 
+    RuneAnimationSoundFX runeAnimationSoundFX;
+
     void Start()
     {
         orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
@@ -54,9 +56,10 @@ public class RadarSweeperTargetController : BattleChallenge
         orbitRing3Scale = orbitRing3.transform.localScale.y;
 
         orbitScales = new float[] { orbitRing1Scale, orbitRing2Scale, orbitRing3Scale };
+        runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
 
         SetTargetRotation();
-        StartCoroutine(TriggerFailure());
+        //StartCoroutine(TriggerFailure());
     }
 
     void SetTargetRotation()
@@ -137,6 +140,8 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void RevealOrbitRing()
     {
+        runeAnimationSoundFX.SetVolume(.2f);
+
         GameObject targetRing = orbitRings[hitCount];
         GameObject targetDot = orbitDots[hitCount];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
@@ -145,6 +150,17 @@ public class RadarSweeperTargetController : BattleChallenge
         targetRingColor.TriggerAlphaImageTween(1f, 3f);
         targetRingScaler.TriggerScale(1f, 3f);
         targetDotColor.TriggerAlphaImageTween(1f, 3f);
+
+        if(hitCount == 0)
+        {
+            runeAnimationSoundFX.PlayRuneHit1();
+        } else if (hitCount == 1)
+        {
+            runeAnimationSoundFX.PlayRuneHit2();
+        } else if (hitCount == 2)
+        {
+            runeAnimationSoundFX.PlayRuneHit3();
+        }
     }
 
     void HideOrbitRing()
@@ -160,7 +176,7 @@ public class RadarSweeperTargetController : BattleChallenge
         targetDotColor.TriggerAlphaImageTween(0, 3f);
     }
 
-    IEnumerator TriggerFailure()
+    public IEnumerator TriggerFailure()
     {
         yield return new WaitForSeconds(timeLimit);
         if (hitCount < hitSuccessLimit - 1)
@@ -172,7 +188,7 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D) )
+        if(Input.GetKeyDown(KeyCode.D))
         {
             if(hitActive)
             {

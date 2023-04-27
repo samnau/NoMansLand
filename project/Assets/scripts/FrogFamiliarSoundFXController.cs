@@ -26,5 +26,6 @@ public class FrogFamiliarSoundFXController : MonoBehaviour {
     void PlayOneShot(AudioClip TargetSound)
     {
         SoundSource.PlayOneShot(TargetSound);
+        SoundSource.volume = .2f;
     }
 }

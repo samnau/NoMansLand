@@ -34,6 +34,7 @@ public class RuneIntroSequencer : MonoBehaviour
     GameObject pointerDot;
     [SerializeField]
     GameObject pointerTarget;
+    RuneAnimationSoundFX runeAnimationSoundFX;
 
     InputStateTracker inputStateTracker;
     void Start()
@@ -42,11 +43,13 @@ public class RuneIntroSequencer : MonoBehaviour
         orbitDot2 = orbitRing2.transform.Find("orbit ring 2 dot").gameObject;
         orbitDot3 = orbitRing3.transform.Find("orbit ring 3 dot").gameObject;
         pointerDot = pointerArm.transform.parent.gameObject;
+        runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
         inputStateTracker = FindObjectOfType<InputStateTracker>();
         StartCoroutine(RuneRingIntroSequence());
     }
     IEnumerator RuneRingIntroSequence()
     {
+        RadarSweeperTargetController radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
         yield return new WaitForSeconds(.5f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
@@ -60,9 +63,10 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.5f);
 
         runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        runeAnimationSoundFX.SetVolume(.6f);
+        runeAnimationSoundFX.PlayRingAppears();
 
         yield return new WaitForSeconds(.5f);
-
         outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.5f);
 
@@ -75,11 +79,20 @@ public class RuneIntroSequencer : MonoBehaviour
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
 
         StartCoroutine(RuneRingExitSequence());
+        StartCoroutine(RuneCountDown());
         yield return null;
+    }
+
+    IEnumerator RuneCountDown()
+    {
+        RadarSweeperTargetController radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
+        yield return new WaitForSeconds(radarSweeperTargetController.timeLimit - 1f);
+        runeAnimationSoundFX.PlayCountDown();
     }
     IEnumerator RuneRingExitSequence()
     {
         RadarSweeperTargetController radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
+        radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
 
         yield return new WaitForSeconds(radarSweeperTargetController.timeLimit);
         yield return new WaitForSeconds(.5f);
@@ -124,12 +137,14 @@ public class RuneIntroSequencer : MonoBehaviour
 
     IEnumerator RuneSuccessSequence()
     {
+        runeAnimationSoundFX.PlaySpellSuccess();
         yield return null;
     }
 
     IEnumerator RuneFailureSequence()
     {
         print("fail sequence?");
+        runeAnimationSoundFX.PlaySpellFailure();
         yield return new WaitForSeconds(.25f);
         orbitDot1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
         orbitRing1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
