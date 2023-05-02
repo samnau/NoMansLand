@@ -30,6 +30,11 @@ public class AlphaTweenSequencer : MonoBehaviour
         }
     }
 
+    public void FastForwardReverseTween(int currentIndex, float currentDelay)
+    {
+
+    }
+
     IEnumerator DelayedAlphaTween(float delay, int delayFactor, ColorTweener tweenTarget, float targetAlpha)
     {
         yield return new WaitForSeconds(delay*delayFactor);

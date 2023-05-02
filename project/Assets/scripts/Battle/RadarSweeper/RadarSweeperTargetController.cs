@@ -14,7 +14,7 @@ public class RadarSweeperTargetController : BattleChallenge
     bool hitActive = false;
     public int hitSuccessLimit = 4;
     public float triggerTimeLimit = 2f;
-    ColorTweener colorTweener;
+    //ColorTweener colorTweener;
     [SerializeField]
     GameObject orbitRing1;
     [SerializeField]
@@ -42,6 +42,8 @@ public class RadarSweeperTargetController : BattleChallenge
 
     RuneAnimationSoundFX runeAnimationSoundFX;
 
+    RuneIntroSequencer runeIntroSequencer;
+
     void Start()
     {
         orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
@@ -57,9 +59,9 @@ public class RadarSweeperTargetController : BattleChallenge
 
         orbitScales = new float[] { orbitRing1Scale, orbitRing2Scale, orbitRing3Scale };
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
+        runeIntroSequencer = FindObjectOfType<RuneIntroSequencer>();
 
         SetTargetRotation();
-        //StartCoroutine(TriggerFailure());
     }
 
     void SetTargetRotation()
@@ -140,10 +142,9 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void RevealOrbitRing()
     {
-        runeAnimationSoundFX.SetVolume(.2f);
-
-        GameObject targetRing = orbitRings[hitCount];
-        GameObject targetDot = orbitDots[hitCount];
+        int targetIndex = hitCount - 1;
+        GameObject targetRing = orbitRings[targetIndex];
+        GameObject targetDot = orbitDots[targetIndex];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
         UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
         ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
@@ -151,26 +152,29 @@ public class RadarSweeperTargetController : BattleChallenge
         targetRingScaler.TriggerScale(1f, 3f);
         targetDotColor.TriggerAlphaImageTween(1f, 3f);
 
-        if(hitCount == 0)
+        if(targetIndex == 0)
         {
             runeAnimationSoundFX.PlayRuneHit1();
-        } else if (hitCount == 1)
+        } else if (targetIndex == 1)
         {
             runeAnimationSoundFX.PlayRuneHit2();
-        } else if (hitCount == 2)
+        } else if (targetIndex == 2)
         {
             runeAnimationSoundFX.PlayRuneHit3();
+            runeIntroSequencer.winTrigger = true;
         }
     }
 
     void HideOrbitRing()
     {
-        GameObject targetRing = orbitRings[hitCount];
-        GameObject targetDot = orbitDots[hitCount];
+        int targetIndex = hitCount - 1;
+        runeAnimationSoundFX.PlayRuneMiss();
+        GameObject targetRing = orbitRings[targetIndex];
+        GameObject targetDot = orbitDots[targetIndex];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
         UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
         ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
-        float targetScale = orbitScales[hitCount];
+        float targetScale = orbitScales[targetIndex];
         targetRingColor.TriggerAlphaImageTween(0, 3f);
         targetRingScaler.TriggerScale(targetScale, 3f);
         targetDotColor.TriggerAlphaImageTween(0, 3f);
@@ -179,7 +183,7 @@ public class RadarSweeperTargetController : BattleChallenge
     public IEnumerator TriggerFailure()
     {
         yield return new WaitForSeconds(timeLimit);
-        if (hitCount < hitSuccessLimit - 1)
+        if (hitCount < hitSuccessLimit)
         {
             print("YOU FAILED...");
             failure = true;
@@ -188,21 +192,18 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D))
+        if(Input.GetKeyDown(KeyCode.D) && !runeIntroSequencer.exitAnimationStarted)
         {
             if(hitActive)
             {
                 if (hitCount < hitSuccessLimit)
                 {
+                    hitCount++;
                     RevealOrbitRing();
                     hitInerruption = true;
-                    hitCount++;
                 }
 
-
-                print($"hit: {hitCount}");
-
-                if (hitCount >= hitSuccessLimit - 1 && !failure)
+                if (hitCount >= hitSuccessLimit && !failure)
                 {
                     success = true;
                 }
@@ -211,13 +212,13 @@ public class RadarSweeperTargetController : BattleChallenge
                 print("miss");
                 if(hitCount > 0)
                 {
-                    hitCount--;
                     HideOrbitRing();
+                    hitCount--;
                 }
             }
         }
 
-        if (hitCount >= hitSuccessLimit-1 && !failure)
+        if (hitCount >= hitSuccessLimit && !failure)
         {
             success = true;
         }

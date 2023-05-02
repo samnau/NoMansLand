@@ -26,43 +26,39 @@ public class RuneAnimationSoundFX : SoundFXPlayer
     [SerializeField]
     AudioClip countdown3;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float orbitRingVolume = 0.1f;
 
     public void PlayRingAppears()
     {
-        PlayOneShot(ringAppear);
+        PlayOneShot(ringAppear, .6f);
     }
     public void PlaySpellFailure()
     {
-        PlayOneShot(failedSpell);
+        PlayOneShot(failedSpell, .5f);
     }
     public void PlaySpellSuccess()
     {
-        PlayOneShot(successSpell);
+        PlayOneShot(successSpell, .5f);
     }
     public void PlayRuneMiss()
     {
-        PlayOneShot(failedHit);
+        PlayOneShot(failedHit,.3f);
     }
     public void PlayRuneHit1()
     {
-        PlayOneShot(score1);
+        PlayOneShot(score1, orbitRingVolume);
     }
     public void PlayRuneHit2()
     {
-        PlayOneShot(score2);
+        PlayOneShot(score2, orbitRingVolume);
     }
     public void PlayRuneHit3()
     {
-        PlayOneShot(score3);
+        PlayOneShot(score3, orbitRingVolume);
     }
     public void PlayCountDown()
     {
-        StartCoroutine(PlayCountDownSequence(.5f));
+        StartCoroutine(PlayCountDownSequence(1f));
     }
 
     IEnumerator PlayCountDownSequence(float interval)

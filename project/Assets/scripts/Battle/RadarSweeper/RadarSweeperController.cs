@@ -7,11 +7,13 @@ public class RadarSweeperController : BattleChallenge
     RotationTweener rotationTweener;
     RectTransform targetTransform;
     public bool canSweep = true;
+    RuneIntroSequencer runeIntroSequencer;
 
     void Start()
     {
         rotationTweener = gameObject.GetComponent<RotationTweener>();
         targetTransform = gameObject.GetComponent<RectTransform>();
+        runeIntroSequencer = FindObjectOfType<RuneIntroSequencer>();
     }
 
     IEnumerator InputGuard()
@@ -42,7 +44,7 @@ public class RadarSweeperController : BattleChallenge
 
     void Update()
     {
-        if(Input.anyKeyDown && canSweep)
+        if(Input.anyKeyDown && canSweep && !runeIntroSequencer.exitAnimationStarted)
         {
             CheckForInput();
         }
