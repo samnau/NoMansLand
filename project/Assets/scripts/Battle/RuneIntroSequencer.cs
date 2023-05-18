@@ -41,6 +41,9 @@ public class RuneIntroSequencer : MonoBehaviour
     [HideInInspector]
     public bool exitAnimationStarted = false;
 
+    float defaultGlow = 7f;
+    float defaultGlowSpeed = 3f;
+
     InputStateTracker inputStateTracker;
     void Start()
     {
@@ -67,6 +70,7 @@ public class RuneIntroSequencer : MonoBehaviour
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
         // TODO: move this to higher palce in the UI code later
         yield return new WaitForSeconds(.25f);
@@ -76,7 +80,10 @@ public class RuneIntroSequencer : MonoBehaviour
         runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         runeAnimationSoundFX.PlayRingAppears();
 
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.125f);
+        runeWrapperBorder.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
+        yield return new WaitForSeconds(.125f);
+
         outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
@@ -84,11 +91,10 @@ public class RuneIntroSequencer : MonoBehaviour
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
+
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
         yield return new WaitForSeconds(2.5f);
-        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-
-        yield return new WaitForSeconds(.5f);
+        StartCoroutine(GlowFadeIn(pointerArm));
 
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
@@ -136,6 +142,24 @@ public class RuneIntroSequencer : MonoBehaviour
         powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
     }
 
+    IEnumerator GlowFadeIn(GameObject targetObject)
+    {
+        GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
+        ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
+        targetTweener.TriggerAlphaImageTween(1f, 10f);
+        yield return new WaitForSeconds(.1f);
+        targetGlow.TriggerGlowTween(7f, 4f);
+    }
+
+    IEnumerator GlowFadeOut(GameObject targetObject)
+    {
+        ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
+        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 4f);
+        yield return new WaitForSeconds(.1f);
+        targetTweener.TriggerAlphaImageTween(0.5f, 6f);
+    }
+
+
     IEnumerator RuneCountDown()
     {
         yield return new WaitForSeconds(radarSweeperTargetController.timeLimit - 2.5f);
@@ -152,14 +176,21 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         radarSweeperTargetController.StopRotation();
 
+        midRing.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
+        yield return new WaitForSeconds(.25f);
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
 
         outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.5f);
 
+        runeWrapperBorder.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
+        yield return new WaitForSeconds(.25f);
         runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
+
+        pointerArm.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
 
         yield return new WaitForSeconds(.125f);
 
@@ -199,13 +230,25 @@ public class RuneIntroSequencer : MonoBehaviour
         print("fail sequence?");
         runeAnimationSoundFX.PlaySpellFailure();
         yield return new WaitForSeconds(.25f);
+
+        orbitDot1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+        orbitRing1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+        yield return new WaitForSeconds(.125f);
+
         orbitDot1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
         orbitRing1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.125f);
 
+        orbitDot2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+        orbitRing2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+        yield return new WaitForSeconds(.125f);
         orbitDot2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
         orbitRing2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        yield return new WaitForSeconds(.25f);
+        yield return new WaitForSeconds(.125f);
+
+        orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+        orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+        yield return new WaitForSeconds(.125f);
 
         orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
         orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);

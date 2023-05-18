@@ -71,6 +71,7 @@
     <Compile Include="Assets\scripts\EyeBlinkControllerProfile.cs" />
     <Compile Include="Assets\scripts\DialogAnimator.cs" />
     <Compile Include="Assets\scripts\Utility\AlphaTweenSequencer.cs" />
+    <Compile Include="Assets\scripts\Sound\SoundFXPlayer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Assets\scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationDebugContext.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_IKHandle.cs" />
+    <Compile Include="Assets\scripts\Utility\GlowTweener.cs" />
     <Compile Include="Assets\scripts\InputStateTracker.cs" />
     <Compile Include="Assets\scripts\SpeakerMotionController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_ParentControl.cs" />
@@ -239,6 +241,7 @@
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser2.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveLoadSystem.cs" />
     <Compile Include="Assets\scripts\PlayerData.cs" />
+    <Compile Include="Assets\scripts\Battle\RuneAnimationSoundFX.cs" />
     <Compile Include="Assets\scripts\Inventory\ICollectable.cs" />
     <Compile Include="Assets\scripts\MotionController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -264,8 +267,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Sound\SoundFXPlayer.cs" />
-    <Compile Include="Assets\scripts\Battle\RuneAnimationSoundFX.cs" />
+    <Compile Include="Assets\scripts\Utility\AnimationTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

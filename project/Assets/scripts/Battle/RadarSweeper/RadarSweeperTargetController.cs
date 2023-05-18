@@ -80,8 +80,9 @@ public class RadarSweeperTargetController : BattleChallenge
 
         if (collision.CompareTag("BattleTrigger"))
         {
-            ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
-            targetTweener.TriggerAlphaImageTween(1f, 10);
+            //ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
+            //targetTweener.TriggerAlphaImageTween(1f, 10);
+            StartCoroutine(HighlightRune(collision.gameObject));
         }
     }
 
@@ -93,9 +94,28 @@ public class RadarSweeperTargetController : BattleChallenge
         }
         if (collision.CompareTag("BattleTrigger"))
         {
-            ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
-            targetTweener.TriggerAlphaImageTween(0.5f, 10);
+            StartCoroutine(UnHighlightRune(collision.gameObject));
+//            ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
+//            targetTweener.TriggerAlphaImageTween(0.5f, 10);
         }
+    }
+
+    IEnumerator UnHighlightRune(GameObject targetObject)
+    {
+        ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
+        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 4f);
+        yield return new WaitForSeconds(.1f);
+        targetTweener.TriggerAlphaImageTween(0.5f, 6f);
+    }
+
+    IEnumerator HighlightRune(GameObject targetObject)
+    {
+        GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
+        ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
+        targetTweener.TriggerAlphaImageTween(1f, 10f);
+        yield return new WaitForSeconds(.1f);
+        targetGlow.SetGlowColor(Color.blue);
+        targetGlow.TriggerGlowTween(12f, 4f);
     }
     IEnumerator SetRotation()
     {
@@ -151,6 +171,8 @@ public class RadarSweeperTargetController : BattleChallenge
         targetRingColor.TriggerAlphaImageTween(1f, 3f);
         targetRingScaler.TriggerScale(1f, 3f);
         targetDotColor.TriggerAlphaImageTween(1f, 3f);
+        targetDot.GetComponent<GlowTweener>().TriggerGlowTween(7f);
+        targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
 
         if(targetIndex == 0)
         {
@@ -175,9 +197,14 @@ public class RadarSweeperTargetController : BattleChallenge
         UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
         ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
         float targetScale = orbitScales[targetIndex];
+
+        targetDot.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
+        targetRing.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
+
         targetRingColor.TriggerAlphaImageTween(0, 3f);
         targetRingScaler.TriggerScale(targetScale, 3f);
         targetDotColor.TriggerAlphaImageTween(0, 3f);
+
     }
 
     public IEnumerator TriggerFailure()

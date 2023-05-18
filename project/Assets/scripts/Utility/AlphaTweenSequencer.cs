@@ -37,8 +37,18 @@ public class AlphaTweenSequencer : MonoBehaviour
 
     IEnumerator DelayedAlphaTween(float delay, int delayFactor, ColorTweener tweenTarget, float targetAlpha)
     {
+        GlowTweener targetGlow = tweenTarget.GetComponent<GlowTweener>();
         yield return new WaitForSeconds(delay*delayFactor);
         tweenTarget.TriggerAlphaImageTween(targetAlpha, 1.5f);
+        if(targetAlpha == 1f)
+        {
+            targetGlow.SetGlowColor(Color.blue);
+            yield return new WaitForSeconds(.1f);
+            targetGlow.TriggerGlowTween(20f, 4f);
+            yield return new WaitForSeconds(.2f);
+            targetGlow.TriggerGlowTween(0, 4f);
+        }
+
     }
 
 }
