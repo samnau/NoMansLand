@@ -33,6 +33,7 @@ public class HeroMotionController : MonoBehaviour
         upSprites = GetSpriteRenderers("hero-up-wrapper");
         horizontalHero = gameObject.transform.Find(profileHeroName).gameObject;
         isUiActive = inputStateTracker.isUiActive;
+        SetFacingDirection();
     }
     private bool isMoving()
     {
@@ -92,6 +93,21 @@ public class HeroMotionController : MonoBehaviour
         } else if(isUp)
         {
             ShowUpSprites();
+        }
+    }
+
+    void SetFacingDirection()
+    {
+        var currentDirection = inputStateTracker.direction;
+        var newRotation = 0f;
+        if(currentDirection == "right")
+        {
+            newRotation = 180f;
+        }
+
+        if(currentDirection == "left" || currentDirection == "right")
+        {
+            horizontalHero.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
         }
     }
 

@@ -37,7 +37,8 @@ public class RadarSweeperController : BattleChallenge
         var targetAngle = targetTransform.eulerAngles.z + (90f * rotationModifier);
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
-            rotationTweener.TriggerRotation(targetAngle, 4f);
+            //rotationTweener.TriggerRotation(targetAngle, 4f);
+            rotationTweener.TriggerRotation(targetAngle, .5f);
             StartCoroutine(InputGuard());
         }
     }

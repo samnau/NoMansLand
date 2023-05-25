@@ -31,6 +31,21 @@ public class RotationTweener : BaseTweener
         } 
     }
 
+    IEnumerator SetRotationEaseIn(float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+        Quaternion targetAngles = Quaternion.Euler(0, 0, endRotation);
+        Quaternion startAngles = transform.rotation;
+
+        while (elapsed_time <= duration)
+        {
+            transform.rotation = Quaternion.Lerp(startAngles, targetAngles, EaseOutQuint(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+        transform.rotation = Quaternion.Lerp(startAngles, targetAngles, 1.0f);
+    }
+
     IEnumerator RotateContinuous()
     {
         float directionModifier = selectedDirection == targetDirections.Left ? 1f : -1f;
@@ -53,6 +68,7 @@ public class RotationTweener : BaseTweener
     {
         StopCoroutine(RotateContinuous());
     }
+
     public void TriggerRotation([Optional] float targetRotation, [Optional] float targetSpeed)
     {
         if (targetSpeed != 0)
@@ -61,7 +77,8 @@ public class RotationTweener : BaseTweener
         }
         endRotation = targetRotation;
         progress = 0;
-        StartCoroutine(SetRotation());
+        //StartCoroutine(SetRotation());
+        StartCoroutine(SetRotationEaseIn(speed));
     }
     private void Start()
     {

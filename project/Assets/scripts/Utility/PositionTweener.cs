@@ -6,7 +6,7 @@ public class PositionTweener : BaseTweener
 {
     [SerializeField]
     Vector3 endPosition;
-    public Vector3 startPositionStatic;
+    Vector3 startPositionStatic;
 
     private void Start()
     {
@@ -19,13 +19,48 @@ public class PositionTweener : BaseTweener
         while (progress < 1)
         {
             transform.position = Vector3.Lerp(startPostion, endPosition, progress);
-            progress += (Time.deltaTime * speed);
+//            progress += (Time.deltaTime * speed);
+            progress += EaseInQuad((Time.deltaTime * speed));
+
             if (progress >= 1)
             {
                 progress = 1f;
                 transform.position = endPosition;
             }
             yield return null;
+        }
+    }
+
+    IEnumerator SetPositionByDuration(Vector3 targetPosition, float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+
+        Vector3 startPostion = transform.position;
+        while (elapsed_time < duration)
+        {
+            transform.position = Vector3.Lerp(startPostion, targetPosition, EaseOutElastic(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+    }
+
+    public static IEnumerator ChangeObjectPos(Transform transform, float y_target, float duration)
+    {
+        float elapsed_time = 0; //Elapsed time
+
+        Vector3 pos = transform.position; //Start object's position
+
+        float y_start = pos.y; //Start "y" value
+
+        while (elapsed_time <= duration) //Inside the loop until the time expires
+        {
+            pos.y = Mathf.Lerp(y_start, y_target, elapsed_time / duration); //Changes and interpolates the position's "y" value
+
+            transform.position = pos;//Changes the object's position
+
+            yield return null; //Waits/skips one frame
+
+            elapsed_time += Time.deltaTime; //Adds to the elapsed time the amount of time needed to skip/wait one frame
         }
     }
 
