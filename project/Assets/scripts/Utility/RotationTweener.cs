@@ -41,6 +41,7 @@ public class RotationTweener : BaseTweener
         {
             transform.rotation = Quaternion.Lerp(startAngles, targetAngles, EaseOutQuint(elapsed_time / duration));
             yield return null;
+            //elapsed_time += Time.deltaTime;
             elapsed_time += Time.deltaTime;
         }
         transform.rotation = Quaternion.Lerp(startAngles, targetAngles, 1.0f);

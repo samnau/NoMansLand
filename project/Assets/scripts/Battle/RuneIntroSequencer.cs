@@ -53,8 +53,13 @@ public class RuneIntroSequencer : MonoBehaviour
         pointerDot = pointerArm.transform.parent.gameObject;
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
         inputStateTracker = FindObjectOfType<InputStateTracker>();
-        StartCoroutine(RuneRingIntroSequence());
+        //StartCoroutine(RuneRingIntroSequence());
         radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
+    }
+
+    public void TriggerIntroSequence()
+    {
+        StartCoroutine(RuneRingIntroSequence());
     }
 
     float SetPointerStartRotation()

@@ -16,10 +16,10 @@ public class RadarSweeperController : BattleChallenge
         runeIntroSequencer = FindObjectOfType<RuneIntroSequencer>();
     }
 
-    IEnumerator InputGuard()
+    IEnumerator InputGuard(float inputDelay)
     {
         canSweep = false;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(inputDelay);
         canSweep = true;
     }
 
@@ -37,9 +37,10 @@ public class RadarSweeperController : BattleChallenge
         var targetAngle = targetTransform.eulerAngles.z + (90f * rotationModifier);
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
         {
+            float rotationSpeed = .5f;
             //rotationTweener.TriggerRotation(targetAngle, 4f);
-            rotationTweener.TriggerRotation(targetAngle, .5f);
-            StartCoroutine(InputGuard());
+            rotationTweener.TriggerRotation(targetAngle, rotationSpeed);
+            StartCoroutine(InputGuard(rotationSpeed));
         }
     }
 
