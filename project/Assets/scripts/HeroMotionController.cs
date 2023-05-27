@@ -100,15 +100,28 @@ public class HeroMotionController : MonoBehaviour
     {
         var currentDirection = inputStateTracker.direction;
         var newRotation = 0f;
-        if(currentDirection == "right")
+        string startDirection = inputStateTracker.startDirection.ToString();
+        //print(inputStateTracker.startDirection.ToString());
+
+        if (startDirection == "right")
         {
             newRotation = 180f;
         }
 
-        if(currentDirection == "left" || currentDirection == "right")
+        if (startDirection == "left" || startDirection == "right")
         {
             horizontalHero.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
         }
+
+        //if(currentDirection == "right")
+        //{
+        //    newRotation = 180f;
+        //}
+
+        //if(currentDirection == "left" || currentDirection == "right")
+        //{
+        //    horizontalHero.transform.rotation = Quaternion.Euler(new Vector3(0f, newRotation, 0f));
+        //}
     }
 
     private void startMovement()

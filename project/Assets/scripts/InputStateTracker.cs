@@ -14,7 +14,12 @@ public class InputStateTracker : MonoBehaviour {
 	public bool isUiActive = false;
 	string[] directionValues = {"left", "right", "up", "down" };
 
-	void printUserInput (string inputValue){
+	public enum StartDirections
+	{ up, down, left, right }
+
+	public StartDirections startDirection;
+
+    void printUserInput (string inputValue){
 		print($"input string: {inputValue}");
 	}
 

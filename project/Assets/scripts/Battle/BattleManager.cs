@@ -9,8 +9,12 @@ public class BattleManager : MonoBehaviour
     [SerializeField] GameObject familiar;
     [SerializeField] GameObject monster;
     Animator heroAnimator;
-    Animation heroAnimation;
     RuneIntroSequencer introSequencer;
+
+    GameObject[] battleChallenges = new GameObject[3];
+    bool showBattleUI = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +28,9 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator StartBattleSequence()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         heroAnimator.Play("summon_staff");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         introSequencer.TriggerIntroSequence();
     }
 
