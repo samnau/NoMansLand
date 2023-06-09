@@ -9,17 +9,15 @@ public class BaseCreature : MonoBehaviour
     // array of defenses goes here
     public bool isDead = false;
     bool isDamaged = false;
-    bool attackSuccess = false;
     bool defenseSuccess = false;
-    public int health = 3;
+    bool battleChallengeActive = false;
+    public int attcackCount = 0;
+    public int defenseCount = 0;
     [SerializeField] GameObject hero;
     [SerializeField] GameObject battleUI;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public List<BattleCombo> defenseCombos;
+    public bool canDefend = false;
+    [HideInInspector] public int defenseComboIndex = 0;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
