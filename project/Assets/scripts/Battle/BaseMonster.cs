@@ -31,6 +31,46 @@ public class BaseMonster : BaseCreature
         pressedKeys = new List<KeyCode>();
     }
 
+    void CheckCombo(List<BattleCombo> targetComboList, ref int targetComboIndex)
+    {
+        if(targetComboIndex >= targetComboList.Count)
+        {
+            return;
+        }
+        List<KeyCode> comboList = new List<KeyCode> { targetComboList[targetComboIndex].keyCode1, targetComboList[targetComboIndex].keyCode2 };
+
+        // TEMP: logging variable for the key pressed
+        KeyCode matchedKey = KeyCode.None;
+        foreach (KeyCode keyCode in comboList)
+        {
+            if (Input.GetKeyDown(keyCode))
+            {
+                matchedKey = keyCode;
+                if (!pressedKeys.Contains(keyCode))
+                {
+                    pressedKeys.Add(keyCode);
+                    comboMatchCount++;
+                }
+                print($"target key match:{matchedKey}, match count: {comboMatchCount}");
+            }
+        }
+        if (comboMatchCount > 0)
+        {
+            StartCoroutine(ComboIntervalReset());
+        }
+        if (comboMatchCount >= comboList.Count)
+        {
+            comboMatchCount = 0;
+            targetComboIndex++;
+        }
+        if (targetComboIndex < targetComboList.Count)
+        {
+            print($"target key combo match count {defenseComboIndex}");
+            print($"arrow key: {targetComboList[targetComboIndex].keyCode1}");
+        }
+
+    }
+
     void CheckDefenseCombo()
     {
         List<KeyCode> comboList = new List<KeyCode> { defenseCombos[defenseComboIndex].keyCode1, defenseCombos[defenseComboIndex].keyCode2 };
@@ -69,7 +109,8 @@ public class BaseMonster : BaseCreature
     {
         if(Input.anyKeyDown)
         {
-            CheckDefenseCombo();
+            //CheckDefenseCombo();
+            CheckCombo(defenseCombos, ref defenseComboIndex);
             //print($"defesne key press:{CheckDefenseCombo()}");
         }
         
