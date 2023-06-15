@@ -9,10 +9,10 @@ public class BaseCreature : MonoBehaviour
     // array of defenses goes here
     public bool isDead = false;
     bool isDamaged = false;
-    bool defenseSuccess = false;
+    public bool defenseSuccess = false;
     bool battleChallengeActive = false;
-    public int attcackCount = 0;
-    public int defenseCount = 0;
+    [HideInInspector] public int attcackCount = 0;
+    [HideInInspector] public int defenseCount = 0;
     [SerializeField] GameObject hero;
     [SerializeField] GameObject battleUI;
     public List<BattleCombo> defenseCombos;

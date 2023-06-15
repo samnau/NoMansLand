@@ -12,6 +12,7 @@ public class InputStateTracker : MonoBehaviour {
 	public bool isWalking = false;
 	public bool isRunning = false;
 	public bool isUiActive = false;
+	public bool isBattleActive = false;
 	string[] directionValues = {"left", "right", "up", "down" };
 
 	public enum StartDirections
@@ -82,7 +83,7 @@ public class InputStateTracker : MonoBehaviour {
 		CheckLastKeyReleased();
 		isWalking = directionKeyPressed();
 		isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
-		if(isUiActive)
+		if(isUiActive || isBattleActive)
         {
 			return;
         }

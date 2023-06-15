@@ -10,6 +10,9 @@ public class BaseMonster : BaseCreature
     int counterComboIndex = 0;
     float comboInterval = 2f;
     int comboMatchCount = 0;
+    [SerializeField] GameEvent takeDamage;
+    [SerializeField] GameEvent startAttack;
+    [SerializeField] GameEvent startDefense;
 
     public enum Familiars
     { frog, bear, raven, dragon }
@@ -29,6 +32,7 @@ public class BaseMonster : BaseCreature
         yield return new WaitForSeconds(.125f);
         comboMatchCount = 0;
         pressedKeys = new List<KeyCode>();
+        canDefend = false;
     }
 
     void CheckCombo(List<BattleCombo> targetComboList, ref int targetComboIndex)
@@ -62,10 +66,14 @@ public class BaseMonster : BaseCreature
         {
             comboMatchCount = 0;
             targetComboIndex++;
+            canDefend = false;
+            defenseSuccess = true;
+            print("combo success");
+            takeDamage.Invoke();
         }
         if (targetComboIndex < targetComboList.Count)
         {
-            print($"target key combo match count {defenseComboIndex}");
+            print($"target key combo match count {defenseCount}");
             print($"arrow key: {targetComboList[targetComboIndex].keyCode1}");
         }
 
@@ -73,7 +81,7 @@ public class BaseMonster : BaseCreature
 
     void CheckDefenseCombo()
     {
-        List<KeyCode> comboList = new List<KeyCode> { defenseCombos[defenseComboIndex].keyCode1, defenseCombos[defenseComboIndex].keyCode2 };
+        List<KeyCode> comboList = new List<KeyCode> { defenseCombos[defenseCount].keyCode1, defenseCombos[defenseCount].keyCode2 };
         
         // TEMP: logging variable for the key pressed
         KeyCode matchedKey = KeyCode.None;
@@ -98,19 +106,25 @@ public class BaseMonster : BaseCreature
         {
             print($"defense key combo match");
             comboMatchCount = 0;
-            //defenseComboIndex++;
+            //defenseCount++;
             counterComboIndex++;
         }
         print($"defense key combo match count {counterComboIndex}");
     }
 
+    public void StartAttack()
+    {
+        print("Rarr! I am starting my attack");
+        startAttack.Invoke();
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown)
+        if(Input.anyKeyDown && canDefend)
         {
             //CheckDefenseCombo();
-            CheckCombo(defenseCombos, ref defenseComboIndex);
+            CheckCombo(defenseCombos, ref defenseCount);
             //print($"defesne key press:{CheckDefenseCombo()}");
         }
         
