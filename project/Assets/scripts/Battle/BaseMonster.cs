@@ -79,6 +79,13 @@ public class BaseMonster : BaseCreature
 
     }
 
+    public void MoveToFamiliar()
+    {
+        PositionTweener positionTweener = gameObject.GetComponent<PositionTweener>();
+        Vector3 targetPosition = familiar.transform.position;
+        positionTweener.TriggerPosition(targetPosition, 12f);
+    }
+
     void CheckDefenseCombo()
     {
         List<KeyCode> comboList = new List<KeyCode> { defenseCombos[defenseCount].keyCode1, defenseCombos[defenseCount].keyCode2 };
@@ -112,10 +119,20 @@ public class BaseMonster : BaseCreature
         print($"defense key combo match count {counterComboIndex}");
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        bool isFamiliar = collision.name == familiar.name;
+        if(isFamiliar)
+        {
+            print($"{collision.name} trigger");
+            canDefend = true;
+        }
+    }
     public void StartAttack()
     {
         print("Rarr! I am starting my attack");
         startAttack.Invoke();
+        MoveToFamiliar();
     }
 
     // Update is called once per frame
