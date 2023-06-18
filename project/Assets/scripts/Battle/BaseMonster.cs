@@ -11,6 +11,7 @@ public class BaseMonster : BaseCreature
     float comboInterval = 2f;
     int comboMatchCount = 0;
     [SerializeField] GameEvent takeDamage;
+    [SerializeField] GameEvent dealDamage;
     [SerializeField] GameEvent startAttack;
     [SerializeField] GameEvent startDefense;
 
@@ -79,11 +80,18 @@ public class BaseMonster : BaseCreature
 
     }
 
-    public void MoveToFamiliar()
+    IEnumerator MoveToFamiliar()
     {
+        Vector3 originalPosition = transform.position;
         PositionTweener positionTweener = gameObject.GetComponent<PositionTweener>();
         Vector3 targetPosition = familiar.transform.position;
         positionTweener.TriggerPosition(targetPosition, 12f);
+        yield return new WaitForSeconds(2.5f);
+        positionTweener.TriggerPosition(originalPosition, 18f);
+        if(!defenseSuccess)
+        {
+            dealDamage.Invoke();
+        }
     }
 
     void CheckDefenseCombo()
@@ -111,7 +119,8 @@ public class BaseMonster : BaseCreature
         }
         if (comboMatchCount >= comboList.Count)
         {
-            print($"defense key combo match");
+            //print($"defense key combo match");
+            defenseSuccess = true;
             comboMatchCount = 0;
             //defenseCount++;
             counterComboIndex++;
@@ -128,11 +137,23 @@ public class BaseMonster : BaseCreature
             canDefend = true;
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        bool isFamiliar = collision.name == familiar.name;
+        if (isFamiliar)
+        {
+            print($"{collision.name} trigger exit");
+            canDefend = false;
+            print("attack over");
+        }
+    }
+
     public void StartAttack()
     {
         print("Rarr! I am starting my attack");
         startAttack.Invoke();
-        MoveToFamiliar();
+        StartCoroutine(MoveToFamiliar());
     }
 
     // Update is called once per frame

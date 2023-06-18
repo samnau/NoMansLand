@@ -11,7 +11,7 @@ public class BaseCreature : MonoBehaviour
     bool isDamaged = false;
     public bool defenseSuccess = false;
     bool battleChallengeActive = false;
-    [HideInInspector] public int attcackCount = 0;
+    [HideInInspector] public int attackCount = 0;
     [HideInInspector] public int defenseCount = 0;
     [SerializeField] GameObject hero;
     [SerializeField] GameObject battleUI;

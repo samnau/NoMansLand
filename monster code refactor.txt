@@ -1,0 +1,36 @@
+attack sequence:
+
+    public bool isDead = false; <-- might be redundant and also is probably the realm of the health tracker
+    bool isDamaged = false; <-- seems redundant, tracking success or failure of counters should be enough
+    public bool defenseSuccess = false;
+    bool battleChallengeActive = false; <-- probably belongs to the battle controller
+    [HideInInspector] public int attcackCount = 0;
+    [HideInInspector] public int defenseCount = 0;
+    [SerializeField] GameObject hero; <-- unsure if I need this in the monster
+    [SerializeField] GameObject battleUI; <-- unsure if I need this in the monster
+    public List<BattleCombo> defenseCombos;
+    public bool canDefend = false;
+    [HideInInspector] public int defenseComboIndex = 0; <-- redundant, defenseCount should be fine
+    bool hasRequiredFamiliar = false;
+    public List<BattleCombo> counterCombos;
+    List<KeyCode> pressedKeys = new List<KeyCode>();
+    int counterComboIndex = 0; <-- redundant but the attackCount name doesn't match up with the counterCombo index purpose
+    float comboInterval = 2f; <-- may not be needed
+    int comboMatchCount = 0; <-- has a purpose, needs a better name
+    [SerializeField] GameEvent takeDamage;
+    [SerializeField] GameEvent dealDamage;
+    [SerializeField] GameEvent startAttack;
+    [SerializeField] GameEvent startDefense;
+
+    public enum Familiars
+    { frog, bear, raven, dragon }
+
+    public Familiars requiredFamiliar;
+
+    public enum Runes
+    { power, speed, magic, harmony }
+
+    public Runes requiredRune;
+
+    bool hasRequiredRune = false;
+    [SerializeField] GameObject familiar;
