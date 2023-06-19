@@ -6,7 +6,9 @@ public class BaseFamiliar : BaseCreature
 {
     public bool canCounter = false;
     bool attackCounterSuccess = false;
-    bool battleChallengeSuccess = false;
+    //bool battleChallengeSuccess = false;
+    // this should be an event on the Battle UI and not the familiar
+    [SerializeField] GameEvent battleChallengeSuccess;
 
     // Start is called before the first frame update
     void Start()

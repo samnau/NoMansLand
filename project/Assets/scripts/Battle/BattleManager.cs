@@ -18,16 +18,11 @@ public class BattleManager : MonoBehaviour
     GameObject[] battleChallenges = new GameObject[3];
     bool showBattleUI = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         heroAnimator = hero.GetComponent<Animator>();
         introSequencer = battleUI.GetComponentInChildren<RuneIntroSequencer>();
         inputStateTracker = FindObjectOfType<InputStateTracker>();
-
-        //        heroAnimator.Play("summon_staff");
-        //heroAnimator.SetBool("BATTLE_START", true);
         StartCoroutine("StartBattleSequence");
     }
 
@@ -43,7 +38,6 @@ public class BattleManager : MonoBehaviour
         heroAnimator.Play("summon_staff");
         yield return new WaitForSeconds(2.5f);
         startBattle.Invoke();
-        //print("Monster begins attack #1");
         yield return new WaitForSeconds(.5f);
         //var defenseCombos = monster.GetComponent<BaseMonster>().defenseCombos;
         //BattleCombo currentCombo = defenseCombos[0];
@@ -57,9 +51,4 @@ public class BattleManager : MonoBehaviour
             //introSequencer.TriggerIntroSequence();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
