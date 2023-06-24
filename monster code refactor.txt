@@ -2,7 +2,7 @@ attack sequence:
 
     public bool isDead = false; <-- might be redundant and also is probably the realm of the health tracker
     bool isDamaged = false; <-- seems redundant, tracking success or failure of counters should be enough
-    public bool defenseSuccess = false;
+    public bool defenseSuccess = false; <-- should this be an event instead?
     bool battleChallengeActive = false; <-- probably belongs to the battle controller
     [HideInInspector] public int attcackCount = 0;
     [HideInInspector] public int defenseCount = 0;
@@ -34,3 +34,18 @@ attack sequence:
 
     bool hasRequiredRune = false;
     [SerializeField] GameObject familiar;
+
+
+order:
+
+- all intro animation plays
+- monster starts attack
+- monster collider hits familiar
+- defense boolean set to true
+- user input can be evaluated as long as defense is enabled
+- combo interval reset check for success? I need it to happen within a time, I don't want to check the time in 2 places. method name doesn't cover the success check, but where else could I check success after time interval?
+	- no extra interval check. the end of the attack will trigger the check
+- fire counter start event on defense success
+- trigger hero counter announcement
+- set canCounter bool to true
+- listen for counter combo input

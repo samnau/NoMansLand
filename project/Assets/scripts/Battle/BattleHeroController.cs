@@ -18,6 +18,12 @@ public class BattleHeroController : MonoBehaviour
         currentCombo = baseMonster.defenseCombos[baseMonster.defenseCount];
     }
 
+    public void StartCounter()
+    {
+        currentCombo = baseMonster.counterCombos[baseMonster.counterCount];
+        AnnounceCombo();
+    }
+
     // Update is called once per frame
     void Update()
     {

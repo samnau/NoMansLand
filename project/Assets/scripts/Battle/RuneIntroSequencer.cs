@@ -45,6 +45,9 @@ public class RuneIntroSequencer : MonoBehaviour
     float defaultGlowSpeed = 3f;
 
     InputStateTracker inputStateTracker;
+
+    [SerializeField] GameEvent battleChallengeSuccess;
+
     void Start()
     {
         orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
@@ -227,6 +230,7 @@ public class RuneIntroSequencer : MonoBehaviour
     IEnumerator RuneSuccessSequence()
     {
         runeAnimationSoundFX.PlaySpellSuccess();
+        battleChallengeSuccess.Invoke();
         yield return null;
     }
 

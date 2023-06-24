@@ -13,15 +13,15 @@ public class BaseCreature : MonoBehaviour
     public bool canDefend = false;
     [HideInInspector] public int defenseComboIndex = 0;
 
-    // having these in the base is questionable
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        print($"creature {gameObject.name} is being hit");
-    }
+    //// having these in the base is questionable
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    print($"creature {gameObject.name} is being hit");
+    //}
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        print($"creature {gameObject.name} is done being hit");
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    print($"creature {gameObject.name} is done being hit");
+    //}
 
 }

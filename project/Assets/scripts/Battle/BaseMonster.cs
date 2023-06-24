@@ -6,6 +6,7 @@ public class BaseMonster : BaseCreature
 {
     bool hasRequiredFamiliar = false;
     bool canCounter = false;
+    [HideInInspector] public int counterCount = 0;
     public List<BattleCombo> counterCombos;
     List<KeyCode> pressedKeys = new List<KeyCode>();
     int counterComboIndex = 0;
@@ -15,6 +16,8 @@ public class BaseMonster : BaseCreature
     [SerializeField] GameEvent dealDamage;
     [SerializeField] GameEvent startAttack;
     [SerializeField] GameEvent defenseSuccess;
+    [SerializeField] GameEvent battleChallengeStart;
+    [SerializeField] GameEvent counterStart;
     [SerializeField] GameEvent counterSuccess;
 
     public enum Familiars
@@ -76,8 +79,15 @@ public class BaseMonster : BaseCreature
         if (currentComboMatchCount >= comboList.Count)
         {
             targetComboIndex++;
-            defenseSuccess.Invoke();
-            canCounter = true;
+            // defense / counter logic
+
+            if (canDefend)
+            {
+                defenseSuccess.Invoke();
+                battleChallengeStart.Invoke();
+                canCounter = true;
+            }
+
         }
 
         // this is currently just test code 
@@ -121,12 +131,14 @@ public class BaseMonster : BaseCreature
             print($"{collision.name} trigger exit");
             canDefend = false;
             print("attack over");
-            if(canCounter)
+            if(!canCounter)
             {
-                takeDamage.Invoke();
+                //counterStart.Invoke();
+                dealDamage.Invoke();
+                //takeDamage.Invoke();
             } else
             {
-                dealDamage.Invoke();
+                //dealDamage.Invoke();
             }
         }
     }
@@ -142,9 +154,18 @@ public class BaseMonster : BaseCreature
     //TODO: needs logic to check for defense or counter combos
     void Update()
     {
-        if(Input.anyKeyDown && canDefend)
+        if(Input.anyKeyDown)
         {
-            CheckCombo(defenseCombos, ref defenseCount);
+            if(canDefend)
+            {
+                CheckCombo(defenseCombos, ref defenseCount);
+            }
+
+            // expand on this later if the current flow doesn't turn out well
+            //if(canCounter)
+            //{
+            //    CheckCombo(counterCombos, ref counterCount);
+            //}
         }
         
     }
