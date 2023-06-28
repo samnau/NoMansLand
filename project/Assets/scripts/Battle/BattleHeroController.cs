@@ -9,12 +9,18 @@ public class BattleHeroController : MonoBehaviour
     public void AnnounceCombo()
     {
         //print("Defend with the combo!");
+        UpdateCombo();
         print($"Molly yells out: {currentCombo.keyCode1} + {currentCombo.keyCode2}");
     }
     // Start is called before the first frame update
     void Start()
     {
         baseMonster = FindObjectOfType<BaseMonster>();
+        //UpdateCombo();
+    }
+
+    public void UpdateCombo()
+    {
         currentCombo = baseMonster.defenseCombos[baseMonster.defenseCount];
     }
 

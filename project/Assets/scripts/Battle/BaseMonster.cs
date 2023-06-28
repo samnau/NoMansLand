@@ -94,7 +94,7 @@ public class BaseMonster : BaseCreature
         if (targetComboIndex < targetComboList.Count)
         {
             print($"target key combo match count {defenseCount}");
-            print($"arrow key: {targetComboList[targetComboIndex].keyCode1}");
+            //print($"arrow key: {targetComboList[targetComboIndex].keyCode1}");
         }
 
     }
@@ -130,7 +130,7 @@ public class BaseMonster : BaseCreature
         {
             print($"{collision.name} trigger exit");
             canDefend = false;
-            print("attack over");
+            //print("attack over");
             if(!canCounter)
             {
                 //counterStart.Invoke();
