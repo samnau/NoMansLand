@@ -10,7 +10,7 @@ public class BaseCreature : MonoBehaviour
     [SerializeField] GameObject hero;
     [SerializeField] GameObject battleUI;
     public List<BattleCombo> defenseCombos;
-    public bool canDefend = false;
+    [HideInInspector] public bool canDefend = false;
     [HideInInspector] public int defenseComboIndex = 0;
 
     //// having these in the base is questionable

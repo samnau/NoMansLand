@@ -17,6 +17,7 @@ public class BaseHelathManager : MonoBehaviour
     public void DecreaseHealth()
     {
         health--;
+        this.transform.GetChild(health).gameObject.SetActive(false);
         print($"{this.name} took damage, health is {health}");
     }
 

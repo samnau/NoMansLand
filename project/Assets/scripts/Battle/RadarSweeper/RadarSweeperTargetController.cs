@@ -103,7 +103,7 @@ public class RadarSweeperTargetController : BattleChallenge
     IEnumerator UnHighlightRune(GameObject targetObject)
     {
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
-        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 4f);
+        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 6f);
         yield return new WaitForSeconds(.1f);
         targetTweener.TriggerAlphaImageTween(0.5f, 6f);
     }
@@ -115,7 +115,7 @@ public class RadarSweeperTargetController : BattleChallenge
         targetTweener.TriggerAlphaImageTween(1f, 10f);
         yield return new WaitForSeconds(.1f);
         targetGlow.SetGlowColor(Color.blue);
-        targetGlow.TriggerGlowTween(12f, 4f);
+        targetGlow.TriggerGlowTween(12f, 6f);
     }
     IEnumerator SetRotation()
     {
