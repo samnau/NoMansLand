@@ -48,6 +48,8 @@ public class RuneIntroSequencer : MonoBehaviour
 
     [SerializeField] GameEvent battleChallengeSuccess;
 
+    bool debugReset = false;
+
     void Start()
     {
         orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
@@ -65,22 +67,34 @@ public class RuneIntroSequencer : MonoBehaviour
         StartCoroutine(RuneRingIntroSequence());
     }
 
-    float SetPointerStartRotation()
+    float SetPointerTriggerStartRotation()
     {
         var randomModfier = Random.Range(0, 10);
         float rotationMultiplier = Random.Range(1, 4) * 1f;
         float rotationModfier = randomModfier < 5 ? -1f : 1f;
         return 90f * rotationMultiplier * rotationModfier;
     }
+
+    void ResetRuneRing()
+    {
+        exitAnimationStarted = false;
+        pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
+        pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
+        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
+
+        // target controller hit count needs to be reset, somewhere
+        TriggerIntroSequence();
+    }
     IEnumerator RuneRingIntroSequence()
     {
         yield return new WaitForSeconds(.5f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f);
+        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
-        // TODO: move this to higher palce in the UI code later
+        // TODO: tie this boolean into an event instead
         yield return new WaitForSeconds(.25f);
         inputStateTracker.isUiActive = true;
         yield return new WaitForSeconds(.5f);
@@ -107,13 +121,14 @@ public class RuneIntroSequencer : MonoBehaviour
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
 
-        pointerTarget.GetComponent<RotationTweener>().TriggerRotation(SetPointerStartRotation());
+        pointerTarget.GetComponent<RotationTweener>().TriggerRotation(SetPointerTriggerStartRotation());
         pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
 
         pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
 
 
         radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
+
 
         StartCoroutine(RuneCountDown());
 
@@ -128,10 +143,13 @@ public class RuneIntroSequencer : MonoBehaviour
             }
             yield return null;
         }
-        if(!exitAnimationStarted)
+        if (!exitAnimationStarted)
         {
             StartCoroutine(RuneRingExitSequence());
         }
+        
+
+        
     }
 
     IEnumerator RevealRunes()
@@ -180,6 +198,7 @@ public class RuneIntroSequencer : MonoBehaviour
     {
         exitAnimationStarted = true;
 
+        // start the pointer spinning as it fades out
         pointerDot.GetComponent<RotationTweener>().TriggerContinuousRotation(400f);
         yield return new WaitForSeconds(.5f);
         radarSweeperTargetController.StopRotation();
@@ -225,6 +244,9 @@ public class RuneIntroSequencer : MonoBehaviour
         {
             StartCoroutine(RuneSuccessSequence());
         }
+
+        // TEMP: just for working on the reset code for the ring
+        debugReset = true;
     }
 
     IEnumerator RuneSuccessSequence()
@@ -236,7 +258,6 @@ public class RuneIntroSequencer : MonoBehaviour
 
     IEnumerator RuneFailureSequence()
     {
-        print("fail sequence?");
         runeAnimationSoundFX.PlaySpellFailure();
         yield return new WaitForSeconds(.25f);
 
@@ -261,6 +282,10 @@ public class RuneIntroSequencer : MonoBehaviour
 
         orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
         orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+
+        // TEMP: just for testing reset code, remove when done
+        yield return new WaitForSeconds(1.5f);
+        ResetRuneRing();
     }
 
 }

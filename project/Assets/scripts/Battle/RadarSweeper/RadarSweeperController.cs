@@ -46,6 +46,7 @@ public class RadarSweeperController : BattleChallenge
 
     void Update()
     {
+        // TODO: having a boolean from a totally different class is a dependency to remove
         if(Input.anyKeyDown && canSweep && !runeIntroSequencer.exitAnimationStarted)
         {
             CheckForInput();

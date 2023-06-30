@@ -11,7 +11,7 @@ public class RadarSweeperTargetController : BattleChallenge
     float targetRotaton;
     public GameObject battleTrigger;
     int hitCount = 0;
-    bool hitActive = false;
+    public bool hitActive = false;
     public int hitSuccessLimit = 4;
     public float triggerTimeLimit = 2f;
     //ColorTweener colorTweener;
@@ -105,7 +105,7 @@ public class RadarSweeperTargetController : BattleChallenge
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
         targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 6f);
         yield return new WaitForSeconds(.1f);
-        targetTweener.TriggerAlphaImageTween(0.5f, 6f);
+        targetTweener.TriggerAlphaImageTween(0.5f, 10f);
     }
 
     IEnumerator HighlightRune(GameObject targetObject)
