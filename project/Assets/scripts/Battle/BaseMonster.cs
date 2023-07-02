@@ -105,6 +105,15 @@ public class BaseMonster : BaseCreature
         Vector3 originalPosition = transform.position;
         PositionTweener positionTweener = gameObject.GetComponent<PositionTweener>();
         Vector3 targetPosition = familiar.transform.position;
+        Vector3 currentPos = this.transform.position;
+        var upValue = currentPos.y + 10f;
+        Vector3 upPosition = new Vector3(currentPos.x, upValue, currentPos.z);
+        positionTweener.TriggerPosition(upPosition, 18f);
+        yield return new WaitForSeconds(.5f);
+        Vector3 overPosition = new Vector3(targetPosition.x, upValue, currentPos.z);
+        positionTweener.TriggerPosition(overPosition, 18f);
+        yield return new WaitForSeconds(.5f);
+
         positionTweener.TriggerPosition(targetPosition, 18f);
         yield return new WaitForSeconds(1.0f);
         positionTweener.TriggerPosition(originalPosition, 18f);
@@ -128,13 +137,13 @@ public class BaseMonster : BaseCreature
         bool isFamiliar = collision.name == familiar.name;
         if (isFamiliar)
         {
-            print($"{collision.name} trigger exit");
             canDefend = false;
             //print("attack over");
             if(!canCounter)
             {
                 //counterStart.Invoke();
                 dealDamage.Invoke();
+                StartNextAttackCycle();
                 //takeDamage.Invoke();
             } else
             {
@@ -148,6 +157,17 @@ public class BaseMonster : BaseCreature
         print("Rarr! I am starting my attack");
         startAttack.Invoke();
         StartCoroutine(MoveToFamiliar());
+    }
+
+    public void StartNextAttackCycle ()
+    {
+        StartCoroutine(StartNextAttaack());
+    }
+
+    IEnumerator StartNextAttaack()
+    {
+        yield return new WaitForSeconds(2f);
+        StartAttack();
     }
 
     // check in update for input only if defense is enabled

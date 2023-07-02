@@ -47,6 +47,7 @@ public class RuneIntroSequencer : MonoBehaviour
     InputStateTracker inputStateTracker;
 
     [SerializeField] GameEvent battleChallengeSuccess;
+    [SerializeField] GameEvent battleChallengeFailure;
 
     bool debugReset = false;
 
@@ -84,12 +85,13 @@ public class RuneIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
         // target controller hit count needs to be reset, somewhere
-        TriggerIntroSequence();
+        //TriggerIntroSequence();
     }
     IEnumerator RuneRingIntroSequence()
     {
         yield return new WaitForSeconds(.5f);
 
+        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
@@ -253,6 +255,7 @@ public class RuneIntroSequencer : MonoBehaviour
     {
         runeAnimationSoundFX.PlaySpellSuccess();
         battleChallengeSuccess.Invoke();
+        ResetRuneRing();
         yield return null;
     }
 
@@ -283,8 +286,10 @@ public class RuneIntroSequencer : MonoBehaviour
         orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
         orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
 
+        battleChallengeFailure.Invoke();
+
         // TEMP: just for testing reset code, remove when done
-        yield return new WaitForSeconds(1.5f);
+        //yield return new WaitForSeconds(1.5f);
         ResetRuneRing();
     }
 

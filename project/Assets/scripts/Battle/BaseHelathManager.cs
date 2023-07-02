@@ -7,6 +7,8 @@ public class BaseHelathManager : MonoBehaviour
 {
     public int health = 3;
     public bool isDead = false;
+    bool deathAnnounced = false;
+    public GameEvent creatureDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -30,5 +32,10 @@ public class BaseHelathManager : MonoBehaviour
     void Update()
     {
         isDead = health > 0;
+        if(isDead && !deathAnnounced)
+        {
+            creatureDeath.Invoke();
+            deathAnnounced = true;
+        }
     }
 }

@@ -10,7 +10,7 @@ public class RadarSweeperTargetController : BattleChallenge
     float rotationBase = 90f;
     float targetRotaton;
     public GameObject battleTrigger;
-    int hitCount = 0;
+    [HideInInspector] public int hitCount = 0;
     public bool hitActive = false;
     public int hitSuccessLimit = 4;
     public float triggerTimeLimit = 2f;
@@ -140,14 +140,14 @@ public class RadarSweeperTargetController : BattleChallenge
         if (hitCount == 1)
         {
             yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
-            hitInerruption = true;
+            //hitInerruption = true;
         }
         else if (hitCount >= 2)
         {
             yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
-            hitInerruption = true;
+            //hitInerruption = true;
             yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
-            hitInerruption = true;
+            //hitInerruption = true;
         }
     }
     public void StartRotation()
@@ -217,6 +217,12 @@ public class RadarSweeperTargetController : BattleChallenge
         }
     }
 
+    public void ResetHitCount()
+    {
+        hitCount = 0;
+        print($"hitcount: {hitCount}");
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.D) && !runeIntroSequencer.exitAnimationStarted)
@@ -236,7 +242,6 @@ public class RadarSweeperTargetController : BattleChallenge
                 }
             } else
             {
-                print("miss");
                 if(hitCount > 0)
                 {
                     HideOrbitRing();
