@@ -21,9 +21,13 @@ public class BattleHeroController : MonoBehaviour
 
     public void UpdateCombo()
     {
-        currentCombo = baseMonster.defenseCombos[baseMonster.defenseCount];
+        if(baseMonster.defenseCount < baseMonster.defenseCombos.Count)
+        {
+            currentCombo = baseMonster.defenseCombos[baseMonster.defenseCount];
+        }
     }
 
+    // NOTE: can be removed?
     public void StartCounter()
     {
         currentCombo = baseMonster.counterCombos[baseMonster.counterCount];

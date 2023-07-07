@@ -18,9 +18,12 @@ public class BaseHelathManager : MonoBehaviour
 
     public void DecreaseHealth()
     {
-        health--;
-        this.transform.GetChild(health).gameObject.SetActive(false);
-        print($"{this.name} took damage, health is {health}");
+        if(health > 0)
+        {
+            health--;
+            this.transform.GetChild(health).gameObject.SetActive(false);
+            print($"{this.name} took damage, health is {health}");
+        }
     }
 
     public bool CheckForDeath()
@@ -28,12 +31,13 @@ public class BaseHelathManager : MonoBehaviour
         return health <= 0; 
     }
 
-    // Update is called once per frame
+    // TODO: maybe convert to event?
     void Update()
     {
-        isDead = health > 0;
+        isDead = health <= 0;
         if(isDead && !deathAnnounced)
         {
+            print($"oh no, {this.name} is dead!");
             creatureDeath.Invoke();
             deathAnnounced = true;
         }

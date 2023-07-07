@@ -12,6 +12,8 @@ public class BaseCreature : MonoBehaviour
     public List<BattleCombo> defenseCombos;
     [HideInInspector] public bool canDefend = false;
     [HideInInspector] public int defenseComboIndex = 0;
+    [HideInInspector] public bool isDead = false;
+    [HideInInspector] public bool victory = false;
 
     //// having these in the base is questionable
     //private void OnCollisionEnter2D(Collision2D collision)
@@ -23,5 +25,18 @@ public class BaseCreature : MonoBehaviour
     //{
     //    print($"creature {gameObject.name} is done being hit");
     //}
+    public void TriggerDeath()
+    {
+        isDead = true;
+        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        sprite.color = Color.red;
+    }
 
+    public void TriggerVictory()
+    {
+        victory = true;
+        print($"{this.name} wins!");
+        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        sprite.color = Color.blue;
+    }
 }

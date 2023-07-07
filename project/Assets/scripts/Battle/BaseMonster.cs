@@ -154,9 +154,12 @@ public class BaseMonster : BaseCreature
 
     public void StartAttack()
     {
-        print("Rarr! I am starting my attack");
-        startAttack.Invoke();
-        StartCoroutine(MoveToFamiliar());
+        if(!isDead && !victory)
+        {
+            print("Rarr! I am starting my attack");
+            startAttack.Invoke();
+            StartCoroutine(MoveToFamiliar());
+        }
     }
 
     public void StartNextAttackCycle ()
