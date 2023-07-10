@@ -119,7 +119,7 @@ public class RadarSweeperTargetController : BattleChallenge
     }
     IEnumerator SetRotation()
     {
-        float delayModifier = 4f;
+        //float delayModifier = 4f;
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
         for (float timer = triggerTimeLimit; timer >= 0; timer -= Time.deltaTime)
@@ -137,18 +137,18 @@ public class RadarSweeperTargetController : BattleChallenge
             StartCoroutine(SetRotation());
         }
 
-        if (hitCount == 1)
-        {
-            yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
-            //hitInerruption = true;
-        }
-        else if (hitCount >= 2)
-        {
-            yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
-            //hitInerruption = true;
-            yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
-            //hitInerruption = true;
-        }
+        //if (hitCount == 1)
+        //{
+        //    yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
+        //    //hitInerruption = true;
+        //}
+        //else if (hitCount >= 2)
+        //{
+        //    yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
+        //    //hitInerruption = true;
+        //    yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
+        //    //hitInerruption = true;
+        //}
     }
     public void StartRotation()
     {
@@ -187,9 +187,9 @@ public class RadarSweeperTargetController : BattleChallenge
         }
     }
 
-    void HideOrbitRing()
+    void HideOrbitRing(int targetIndex)
     {
-        int targetIndex = hitCount - 1;
+        //int targetIndex = hitCount - 1;
         runeAnimationSoundFX.PlayRuneMiss();
         GameObject targetRing = orbitRings[targetIndex];
         GameObject targetDot = orbitDots[targetIndex];
@@ -205,6 +205,22 @@ public class RadarSweeperTargetController : BattleChallenge
         targetRingScaler.TriggerScale(targetScale, 3f);
         targetDotColor.TriggerAlphaImageTween(0, 3f);
 
+    }
+
+    IEnumerator ResetOrbitRings()
+    {
+        yield return new WaitForSeconds(2f);
+        int targetIndex = 0;
+        foreach(GameObject orbitRing in orbitRings)
+        {
+            HideOrbitRing(targetIndex);
+            targetIndex++;
+        }
+    }
+
+    public void TriggerOrbitRingReset()
+    {
+        StartCoroutine(ResetOrbitRings());
     }
 
     public IEnumerator TriggerFailure()
@@ -244,7 +260,7 @@ public class RadarSweeperTargetController : BattleChallenge
             {
                 if(hitCount > 0)
                 {
-                    HideOrbitRing();
+                    HideOrbitRing(hitCount - 1);
                     hitCount--;
                 }
             }
