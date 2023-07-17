@@ -190,7 +190,10 @@ public class RadarSweeperTargetController : BattleChallenge
     void HideOrbitRing(int targetIndex)
     {
         //int targetIndex = hitCount - 1;
-        runeAnimationSoundFX.PlayRuneMiss();
+        if(!success)
+        {
+            runeAnimationSoundFX.PlayRuneMiss();
+        }
         GameObject targetRing = orbitRings[targetIndex];
         GameObject targetDot = orbitDots[targetIndex];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
@@ -216,6 +219,7 @@ public class RadarSweeperTargetController : BattleChallenge
             HideOrbitRing(targetIndex);
             targetIndex++;
         }
+        success = false;
     }
 
     public void TriggerOrbitRingReset()
@@ -241,7 +245,7 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.D) && !runeIntroSequencer.exitAnimationStarted)
+        if(Input.GetKeyDown(KeyCode.Space) && !runeIntroSequencer.exitAnimationStarted)
         {
             if(hitActive)
             {

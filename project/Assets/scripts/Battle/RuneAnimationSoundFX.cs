@@ -42,7 +42,7 @@ public class RuneAnimationSoundFX : SoundFXPlayer
     }
     public void PlayRuneMiss()
     {
-        PlayOneShot(failedHit,.3f);
+        PlayOneShot(failedHit,.2f);
     }
     public void PlayRuneHit1()
     {

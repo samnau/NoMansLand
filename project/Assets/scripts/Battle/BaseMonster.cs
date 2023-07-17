@@ -126,7 +126,6 @@ public class BaseMonster : BaseCreature
         bool isFamiliar = collision.name == familiar.name;
         if(isFamiliar)
         {
-            print($"{collision.name} trigger");
             canDefend = true;
         }
     }
@@ -138,16 +137,12 @@ public class BaseMonster : BaseCreature
         if (isFamiliar)
         {
             canDefend = false;
-            //print("attack over");
             if(!canCounter)
             {
                 //counterStart.Invoke();
                 dealDamage.Invoke();
                 StartNextAttackCycle();
                 //takeDamage.Invoke();
-            } else
-            {
-                //dealDamage.Invoke();
             }
         }
     }
@@ -164,6 +159,7 @@ public class BaseMonster : BaseCreature
 
     public void StartNextAttackCycle ()
     {
+        canCounter = false;
         StartCoroutine(StartNextAttaack());
     }
 
