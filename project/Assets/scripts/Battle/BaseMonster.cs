@@ -147,6 +147,39 @@ public class BaseMonster : BaseCreature
         }
     }
 
+    public void ShowDamage()
+    {
+        StartCoroutine(DamageShake());
+    }
+
+    IEnumerator DamageShake()
+    {
+        float shakeDelay = .05f;
+        float flucation = .5f;
+        Quaternion startRotation = transform.rotation;
+        Quaternion damageRotation = Quaternion.Euler(0, 0, -15f);
+        Vector3 origin = transform.position;
+        Vector3 leftPos = new Vector3(origin.x + flucation, origin.y, origin.z);
+        Vector3 rightPos = new Vector3(origin.x - flucation, origin.y, origin.z);
+
+        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        sprite.color = Color.red;
+
+        transform.rotation = damageRotation;
+
+        transform.position = leftPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = rightPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = leftPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = rightPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = origin;
+        transform.rotation = startRotation;
+        sprite.color = Color.white;
+
+    }
     public void StartAttack()
     {
         if(!isDead && !victory)

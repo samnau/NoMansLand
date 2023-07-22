@@ -81,8 +81,8 @@ public class RuneIntroSequencer : MonoBehaviour
         exitAnimationStarted = false;
         pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
         pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
-        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
+        //pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        //pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
         // target controller hit count needs to be reset, somewhere
         //TriggerIntroSequence();

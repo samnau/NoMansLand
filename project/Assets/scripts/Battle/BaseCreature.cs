@@ -27,16 +27,18 @@ public class BaseCreature : MonoBehaviour
     //}
     public void TriggerDeath()
     {
+        ColorTweener colorTweener = this.GetComponentInChildren<ColorTweener>();
         isDead = true;
-        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-        sprite.color = Color.red;
+        //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        //sprite.color = Color.red;
+        colorTweener.TriggerAlphaSpriteTween(0);
     }
 
     public void TriggerVictory()
     {
         victory = true;
         print($"{this.name} wins!");
-        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-        sprite.color = Color.blue;
+        //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        //sprite.color = Color.blue;
     }
 }

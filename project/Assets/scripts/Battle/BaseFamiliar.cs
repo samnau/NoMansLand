@@ -10,6 +10,35 @@ public class BaseFamiliar : BaseCreature
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
 
+    public void ShowDamage()
+    {
+        StartCoroutine(DamageShake());
+    }
+
+    IEnumerator DamageShake()
+    {
+        yield return new WaitForSeconds(.25f);
+
+        float shakeDelay = .05f;
+        float flucation = .5f;
+        Vector3 origin = transform.position;
+        Vector3 leftPos = new Vector3(origin.x + flucation, origin.y, origin.z);
+        Vector3 rightPos = new Vector3(origin.x - flucation, origin.y, origin.z);
+        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+        sprite.color = Color.red;
+
+        transform.position = leftPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = rightPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = leftPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = rightPos;
+        yield return new WaitForSeconds(shakeDelay);
+        transform.position = origin;
+        sprite.color = Color.white;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

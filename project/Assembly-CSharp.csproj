@@ -169,6 +169,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\scripts\CollisionDetector.cs" />
     <Compile Include="Assets\scripts\HeroPositionManager.cs" />
+    <Compile Include="Assets\scripts\Battle\BattleComboAnnouncer.cs" />
     <Compile Include="Assets\scripts\Battle\Ring\BattleRingTrigger.cs" />
     <Compile Include="Assets\scripts\Expression_Manager.cs" />
     <Compile Include="Assets\ScenePositionManager.cs" />
@@ -277,7 +278,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\BattleComboAnnouncer.cs" />
+    <Compile Include="Assets\scripts\Battle\CreatureSoundFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
