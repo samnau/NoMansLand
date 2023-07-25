@@ -143,13 +143,7 @@ public class RadarSweeperTargetController : BattleChallenge
         targetGlow.TriggerGlowTween(12f, 15f);
         print($"{targetObject.name} is highlighted");
     }
-    void DebugGlow()
-    {
-        foreach (GameObject powerRune in powerRunes)
-        {
-            powerRune.GetComponent<GlowTweener>().LogGlowAmount();
-        }
-    }
+
     IEnumerator SetRotation()
     {
         ResetHightLight();
@@ -167,7 +161,7 @@ public class RadarSweeperTargetController : BattleChallenge
                 print("hit interrupt event");
                 hitInerruption = false;
                 StartCoroutine(SetRotation());
-                //SetTargetRotation();
+                SetTargetRotation();
                 transform.Rotate(0, 0, targetRotaton);
                 //timer = triggerTimeLimit;
                 yield break;

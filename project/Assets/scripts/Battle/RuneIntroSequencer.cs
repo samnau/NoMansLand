@@ -59,7 +59,6 @@ public class RuneIntroSequencer : MonoBehaviour
         pointerDot = pointerArm.transform.parent.gameObject;
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
         inputStateTracker = FindObjectOfType<InputStateTracker>();
-        //StartCoroutine(RuneRingIntroSequence());
         radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
     }
 
@@ -81,6 +80,7 @@ public class RuneIntroSequencer : MonoBehaviour
         exitAnimationStarted = false;
         pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
         pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
+        radarSweeperTargetController.failure = false;
         //pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         //pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
@@ -123,7 +123,6 @@ public class RuneIntroSequencer : MonoBehaviour
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
 
-        //pointerTarget.GetComponent<RotationTweener>().TriggerRotation(SetPointerTriggerStartRotation());
         pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(SetPointerTriggerStartRotation());
         pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
 
@@ -135,7 +134,6 @@ public class RuneIntroSequencer : MonoBehaviour
 
         StartCoroutine(RuneCountDown());
 
-        //yield return new WaitForSeconds(radarSweeperTargetController.timeLimit);
         for (float timer = radarSweeperTargetController.timeLimit; timer >= 0; timer -= Time.deltaTime)
         {
             if (winTrigger)
@@ -262,6 +260,7 @@ public class RuneIntroSequencer : MonoBehaviour
 
     IEnumerator RuneFailureSequence()
     {
+        print("spell failure");
         runeAnimationSoundFX.PlaySpellFailure();
         yield return new WaitForSeconds(.25f);
 
@@ -289,8 +288,6 @@ public class RuneIntroSequencer : MonoBehaviour
 
         battleChallengeFailure.Invoke();
 
-        // TEMP: just for testing reset code, remove when done
-        //yield return new WaitForSeconds(1.5f);
         ResetRuneRing();
     }
 

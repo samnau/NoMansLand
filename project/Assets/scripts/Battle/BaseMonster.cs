@@ -46,7 +46,9 @@ public class BaseMonster : BaseCreature
     // checks the passed list of combos with an index for targeting the current combo to check
     void CheckCombo(List<BattleCombo> targetComboList, ref int targetComboIndex)
     {
-        if(targetComboIndex >= targetComboList.Count)
+        print($"defense count:{targetComboIndex}");
+
+        if (targetComboIndex >= targetComboList.Count)
         {
             return;
         }
@@ -88,13 +90,6 @@ public class BaseMonster : BaseCreature
                 canCounter = true;
             }
 
-        }
-
-        // this is currently just test code 
-        if (targetComboIndex < targetComboList.Count)
-        {
-            print($"target key combo match count {defenseCount}");
-            //print($"arrow key: {targetComboList[targetComboIndex].keyCode1}");
         }
 
     }
@@ -142,7 +137,6 @@ public class BaseMonster : BaseCreature
                 //counterStart.Invoke();
                 dealDamage.Invoke();
                 StartNextAttackCycle();
-                //takeDamage.Invoke();
             }
         }
     }
@@ -184,7 +178,6 @@ public class BaseMonster : BaseCreature
     {
         if(!isDead && !victory)
         {
-            print("Rarr! I am starting my attack");
             startAttack.Invoke();
             StartCoroutine(MoveToFamiliar());
         }
@@ -200,6 +193,15 @@ public class BaseMonster : BaseCreature
     {
         yield return new WaitForSeconds(2f);
         StartAttack();
+    }
+
+    // keep the target defense combo the same if rune ring challenge fails
+    public void ReduceDefenseCount()
+    {
+        if(defenseCount > 0)
+        {
+            defenseCount--;
+        }
     }
 
     // check in update for input only if defense is enabled
