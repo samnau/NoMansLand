@@ -31,6 +31,11 @@ public class RotationTweener : BaseTweener
         } 
     }
 
+    public void SimpleSetRotation(float targetRotation = 0)
+    {
+        transform.rotation = Quaternion.Euler(0, 0, targetRotation);
+    }
+
     IEnumerator SetRotationEaseIn(float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time

@@ -33,6 +33,11 @@ public class ColorTweener : BaseTweener
 
     // REFACTOR: create reference to the "color" and set it in the init func. then just modify the color in the tween
 
+    public void SetImageAlpha(float targetAlpha = 0)
+    {
+        image.color = new Color(endRed, endGreen, endBlue, targetAlpha);
+    }
+
     IEnumerator SetSpriteColor()
     {
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);

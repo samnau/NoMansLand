@@ -123,7 +123,8 @@ public class RuneIntroSequencer : MonoBehaviour
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
 
-        pointerTarget.GetComponent<RotationTweener>().TriggerRotation(SetPointerTriggerStartRotation());
+        //pointerTarget.GetComponent<RotationTweener>().TriggerRotation(SetPointerTriggerStartRotation());
+        pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(SetPointerTriggerStartRotation());
         pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
 
         pointerDot.GetComponent<RadarSweeperController>().canSweep = true;

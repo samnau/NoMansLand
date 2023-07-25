@@ -30,6 +30,19 @@ public class GlowTweener : BaseTweener
         }
     }
 
+    public void TurnOffGlow()
+    {
+        material.SetFloat("_Fade", 0);
+    }
+
+    public void TurnOnGlow()
+    {
+        material.SetFloat("_Fade", targetIntensity);
+    }
+    public void LogGlowAmount()
+    {
+        print(material.GetFloat("_Fade"));
+    }
     public void SetGlowColor(Color targetColor)
     {
         material.SetColor("_Color", targetColor);

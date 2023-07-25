@@ -32,7 +32,10 @@ public class RadarSweeperTargetController : BattleChallenge
 
     GameObject[] orbitRings;
     GameObject[] orbitDots;
+    GameObject[] powerRunes;
     float[] orbitScales;
+
+    GameObject targetRune;
 
     [SerializeField]
     GameObject pointerArm;
@@ -53,6 +56,8 @@ public class RadarSweeperTargetController : BattleChallenge
         orbitRings = new GameObject[] { orbitRing1, orbitRing2, orbitRing3 };
         orbitDots = new GameObject[] { orbitDot1, orbitDot2, orbitDot3 };
 
+        powerRunes = GameObject.FindGameObjectsWithTag("BattleTrigger");
+
         orbitRing1Scale = orbitRing1.transform.localScale.y;
         orbitRing2Scale = orbitRing2.transform.localScale.y;
         orbitRing3Scale = orbitRing3.transform.localScale.y;
@@ -66,6 +71,7 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void SetTargetRotation()
     {
+        print("setting target rotation");
         var randomModfier = Random.Range(0, 10);
         rotationMultiplier = Random.Range(1, 4) * 1f;
         rotationModfier = randomModfier < 5 ? -1f : 1f;
@@ -83,6 +89,7 @@ public class RadarSweeperTargetController : BattleChallenge
             //ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
             //targetTweener.TriggerAlphaImageTween(1f, 10);
             StartCoroutine(HighlightRune(collision.gameObject));
+            targetRune = collision.gameObject;
         }
     }
 
@@ -102,23 +109,52 @@ public class RadarSweeperTargetController : BattleChallenge
 
     IEnumerator UnHighlightRune(GameObject targetObject)
     {
+        GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
+
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
-        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 6f);
+        //targetGlow.TurnOffGlow();
+        //targetGlow.SetGlowColor(Color.white);
+
+        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 15f);
         yield return new WaitForSeconds(.1f);
+        //targetTweener.SetImageAlpha(.5f);
         targetTweener.TriggerAlphaImageTween(0.5f, 10f);
+        //ResetHightLight();
+    }
+
+    void ResetHightLight()
+    {
+        foreach (GameObject powerRune in powerRunes)
+        {
+            powerRune.GetComponent<GlowTweener>().TurnOffGlow();
+            ColorTweener targetTweener = powerRune.GetComponent<ColorTweener>();
+            targetTweener.SetImageAlpha(.5f);
+        }
     }
 
     IEnumerator HighlightRune(GameObject targetObject)
     {
+        //ResetHightLight();
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
         targetTweener.TriggerAlphaImageTween(1f, 10f);
         yield return new WaitForSeconds(.1f);
         targetGlow.SetGlowColor(Color.blue);
-        targetGlow.TriggerGlowTween(12f, 6f);
+        targetGlow.TriggerGlowTween(12f, 15f);
+        print($"{targetObject.name} is highlighted");
+    }
+    void DebugGlow()
+    {
+        foreach (GameObject powerRune in powerRunes)
+        {
+            powerRune.GetComponent<GlowTweener>().LogGlowAmount();
+        }
     }
     IEnumerator SetRotation()
     {
+        ResetHightLight();
+        hitInerruption = false;
+
         //float delayModifier = 4f;
         SetTargetRotation();
         transform.Rotate(0, 0, targetRotaton);
@@ -126,14 +162,21 @@ public class RadarSweeperTargetController : BattleChallenge
         {
             if (hitInerruption)
             {
+                UnHighlightRune(targetRune);
+                //ResetHightLight();
+                print("hit interrupt event");
                 hitInerruption = false;
                 StartCoroutine(SetRotation());
+                //SetTargetRotation();
+                transform.Rotate(0, 0, targetRotaton);
+                //timer = triggerTimeLimit;
                 yield break;
             }
             yield return null;
         }
         if(!hitInerruption)
         {
+            print("normal rotation coroutine end");
             StartCoroutine(SetRotation());
         }
 
@@ -254,6 +297,7 @@ public class RadarSweeperTargetController : BattleChallenge
                     hitCount++;
                     RevealOrbitRing();
                     hitInerruption = true;
+                    //ResetHightLight();
                 }
 
                 if (hitCount >= hitSuccessLimit && !failure)
