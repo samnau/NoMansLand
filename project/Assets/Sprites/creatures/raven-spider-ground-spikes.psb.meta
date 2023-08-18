@@ -1,0 +1,808 @@
+fileFormatVersion: 2
+guid: 6a8d2e45a0e7ada4596e4f17d8bf443a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: leg spike - light mid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 128
+      y: 4
+      width: 96
+      height: 555
+    spriteID: be9fb59c8ac2a594a8dbd9829b0ec0de
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -92, y: -6}
+  - name: crow-leg-hole leg spike - light mid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 417
+      y: 993
+      width: 61
+      height: 18
+    spriteID: a8948f59eeefa81408baceab30574491
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 159, y: 992}
+  - name: leg spike light left - b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 4
+      width: 73
+      height: 592
+    spriteID: 5cab0011fdca4214a8384dbf25b16a7a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 244, y: -36}
+  - name: crow-leg-hole leg spike light left - b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 982
+      width: 61
+      height: 18
+    spriteID: 659eb1b0dda017d4c9fc2271c52a575c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -107, y: 951}
+  - name: leg spike light left a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 232
+      y: 4
+      width: 96
+      height: 555
+    spriteID: ae65a3ddfd03b9a4e8042657c1461116
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 231, y: -96}
+  - name: crow-leg-hole leg spike light left a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 786
+      width: 59
+      height: 18
+    spriteID: ebc48628ba207c940bf33fa5e07cc4f2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 336, y: 695}
+  - name: leg spike light right a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 514
+      y: 4
+      width: 74
+      height: 542
+    spriteID: b595c9c42a584e24683b326f3d9b5f53
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 83, y: -66}
+  - name: crow-leg-hole leg spike light right a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 734
+      width: 60
+      height: 18
+    spriteID: f931376a4b6755e48a2d0a92be1c46ce
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -114, y: 673}
+  - name: leg spike dark left b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 667
+      y: 4
+      width: 59
+      height: 475
+    spriteID: 1743d45a62f91294c95e5108ef9f5f88
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 527, y: -216}
+  - name: crow-leg-hole leg spike dark left b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 604
+      width: 61
+      height: 18
+    spriteID: 840128d90351d72409cc5ab27e4d5b73
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 187, y: 393}
+  - name: leg spike light right b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 596
+      y: 4
+      width: 63
+      height: 542
+    spriteID: aae266ecd96ef904d93806069334cebd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 234, y: -16}
+  - name: crow-leg-hole leg spike light right b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 630
+      width: 61
+      height: 18
+    spriteID: 04da60d37aa8c944785e5094ab1e3735
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -17, y: 619}
+  - name: left spike dark left a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 417
+      y: 4
+      width: 89
+      height: 473
+    spriteID: db2d163bda8f3744185a25be082e9094
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 355, y: -186}
+  - name: crow-leg-hole left spike dark left a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 656
+      width: 61
+      height: 18
+    spriteID: c7c62cbbc34bc5e4e8067084335cc8a4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 278, y: 475}
+  - name: leg spike dark right a
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 116
+      height: 500
+    spriteID: c532c66716bbb0a40bca78e1df6f2d3c
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -377, y: -176}
+  - name: crow-leg-hole left spike dark left a_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 682
+      width: 61
+      height: 18
+    spriteID: 89533a8497050d146b19180281880d34
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -108, y: 511}
+  - name: leg spike dark right b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 512
+      width: 103
+      height: 462
+    spriteID: b5a690ae9b8a8fb4092d9532c19b1733
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -275, y: 272}
+  - name: crow-leg-hole leg spike dark right b
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 708
+      width: 61
+      height: 18
+    spriteID: e6c18719c8dc3d14ebbe7182a17c9fe3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 2, y: 477}
+  - name: leg spike dark mid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 417
+      y: 485
+      width: 70
+      height: 500
+    spriteID: debb454436d5efe47864ae0ea3386268
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 201, y: 275}
+  - name: crow-leg-hole leg spike dark mid
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 336
+      y: 760
+      width: 60
+      height: 18
+    spriteID: 21f56d5df23a62949b591cfc0fa62fbc
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 110, y: 559}
+  - name: Layer 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 405
+      y: 604
+      width: 0
+      height: 0
+    spriteID: 021f466380394e141891a05fbe1a512f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -107, y: -106}
+  platformSettings: []
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 1024
+  importedTextureHeight: 1024
+  documentSize: {x: 512, y: 710}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 1024
+  textureActualHeight: 1024
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: ground spikes
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 
+    layerID: 44
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike - light mid -wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 43
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike - light mid
+    spriteName: leg spike - light mid
+    isGroup: 0
+    parentIndex: 1
+    spriteID: be9fb59c8ac2a594a8dbd9829b0ec0de
+    layerID: 42
+    mosaicPosition: {x: 128, y: 4}
+  - name: crow-leg-hole leg spike - light mid
+    spriteName: crow-leg-hole leg spike - light mid
+    isGroup: 0
+    parentIndex: 1
+    spriteID: a8948f59eeefa81408baceab30574491
+    layerID: 41
+    mosaicPosition: {x: 417, y: 993}
+  - name: leg spike light left - b - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 39
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike light left - b
+    spriteName: leg spike light left - b
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 5cab0011fdca4214a8384dbf25b16a7a
+    layerID: 38
+    mosaicPosition: {x: 336, y: 4}
+  - name: crow-leg-hole leg spike light left - b
+    spriteName: crow-leg-hole leg spike light left - b
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 659eb1b0dda017d4c9fc2271c52a575c
+    layerID: 37
+    mosaicPosition: {x: 4, y: 982}
+  - name: leg spike light left a - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 35
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike light left a
+    spriteName: leg spike light left a
+    isGroup: 0
+    parentIndex: 7
+    spriteID: ae65a3ddfd03b9a4e8042657c1461116
+    layerID: 34
+    mosaicPosition: {x: 232, y: 4}
+  - name: crow-leg-hole leg spike light left a
+    spriteName: crow-leg-hole leg spike light left a
+    isGroup: 0
+    parentIndex: 7
+    spriteID: ebc48628ba207c940bf33fa5e07cc4f2
+    layerID: 33
+    mosaicPosition: {x: 336, y: 786}
+  - name: leg spike light right a - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 31
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike light right a
+    spriteName: leg spike light right a
+    isGroup: 0
+    parentIndex: 10
+    spriteID: b595c9c42a584e24683b326f3d9b5f53
+    layerID: 30
+    mosaicPosition: {x: 514, y: 4}
+  - name: crow-leg-hole leg spike light right a
+    spriteName: crow-leg-hole leg spike light right a
+    isGroup: 0
+    parentIndex: 10
+    spriteID: f931376a4b6755e48a2d0a92be1c46ce
+    layerID: 29
+    mosaicPosition: {x: 336, y: 734}
+  - name: leg spike dark left b - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 27
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike dark left b
+    spriteName: leg spike dark left b
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 1743d45a62f91294c95e5108ef9f5f88
+    layerID: 26
+    mosaicPosition: {x: 667, y: 4}
+  - name: crow-leg-hole leg spike dark left b
+    spriteName: crow-leg-hole leg spike dark left b
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 840128d90351d72409cc5ab27e4d5b73
+    layerID: 25
+    mosaicPosition: {x: 336, y: 604}
+  - name: leg spike light right b - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 23
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike light right b
+    spriteName: leg spike light right b
+    isGroup: 0
+    parentIndex: 16
+    spriteID: aae266ecd96ef904d93806069334cebd
+    layerID: 22
+    mosaicPosition: {x: 596, y: 4}
+  - name: crow-leg-hole leg spike light right b
+    spriteName: crow-leg-hole leg spike light right b
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 04da60d37aa8c944785e5094ab1e3735
+    layerID: 21
+    mosaicPosition: {x: 336, y: 630}
+  - name: left spike dark left a - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 19
+    mosaicPosition: {x: 0, y: 0}
+  - name: left spike dark left a
+    spriteName: left spike dark left a
+    isGroup: 0
+    parentIndex: 19
+    spriteID: db2d163bda8f3744185a25be082e9094
+    layerID: 18
+    mosaicPosition: {x: 417, y: 4}
+  - name: crow-leg-hole left spike dark left a
+    spriteName: crow-leg-hole left spike dark left a
+    isGroup: 0
+    parentIndex: 19
+    spriteID: c7c62cbbc34bc5e4e8067084335cc8a4
+    layerID: 17
+    mosaicPosition: {x: 336, y: 656}
+  - name: leg spike dark right a - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 15
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike dark right a
+    spriteName: leg spike dark right a
+    isGroup: 0
+    parentIndex: 22
+    spriteID: c532c66716bbb0a40bca78e1df6f2d3c
+    layerID: 14
+    mosaicPosition: {x: 4, y: 4}
+  - name: crow-leg-hole left spike dark left a
+    spriteName: crow-leg-hole left spike dark left a_1
+    isGroup: 0
+    parentIndex: 22
+    spriteID: 89533a8497050d146b19180281880d34
+    layerID: 13
+    mosaicPosition: {x: 336, y: 682}
+  - name: leg spike dark right b - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 11
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike dark right b
+    spriteName: leg spike dark right b
+    isGroup: 0
+    parentIndex: 25
+    spriteID: b5a690ae9b8a8fb4092d9532c19b1733
+    layerID: 10
+    mosaicPosition: {x: 4, y: 512}
+  - name: crow-leg-hole leg spike dark right b
+    spriteName: crow-leg-hole leg spike dark right b
+    isGroup: 0
+    parentIndex: 25
+    spriteID: e6c18719c8dc3d14ebbe7182a17c9fe3
+    layerID: 9
+    mosaicPosition: {x: 336, y: 708}
+  - name: leg spike dark mid - wrapper
+    spriteName: 
+    isGroup: 1
+    parentIndex: 0
+    spriteID: 
+    layerID: 7
+    mosaicPosition: {x: 0, y: 0}
+  - name: leg spike dark mid
+    spriteName: leg spike dark mid
+    isGroup: 0
+    parentIndex: 28
+    spriteID: debb454436d5efe47864ae0ea3386268
+    layerID: 6
+    mosaicPosition: {x: 417, y: 485}
+  - name: crow-leg-hole leg spike dark mid
+    spriteName: crow-leg-hole leg spike dark mid
+    isGroup: 0
+    parentIndex: 28
+    spriteID: 21f56d5df23a62949b591cfc0fa62fbc
+    layerID: 5
+    mosaicPosition: {x: 336, y: 760}
+  - name: Layer 1
+    spriteName: Layer 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 021f466380394e141891a05fbe1a512f
+    layerID: 2
+    mosaicPosition: {x: 405, y: 604}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: raven-spider-ground-spikes Texture
+  prefabAssetName: raven-spider-ground-spikes Prefab
+  spriteLibAssetName: raven-spider-ground-spikes Sprite Lib
+  secondarySpriteTextures: []
