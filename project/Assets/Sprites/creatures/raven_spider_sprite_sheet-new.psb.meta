@@ -52208,13 +52208,6 @@ ScriptedImporter:
     spriteID: c9c891f38aac0ea409f1ce3ceb9b2c3b
     layerID: 513
     mosaicPosition: {x: 1806, y: 645}
-  - name: leg stretch sequence
-    spriteName: 
-    isGroup: 1
-    parentIndex: 16
-    spriteID: 00000000000000000000000000000000
-    layerID: 103
-    mosaicPosition: {x: 0, y: 0}
   - name: light leg left a
     spriteName: 
     isGroup: 1
@@ -52225,42 +52218,42 @@ ScriptedImporter:
   - name: light leg left a - top
     spriteName: light leg left a - top
     isGroup: 0
-    parentIndex: 38
+    parentIndex: 37
     spriteID: 649e2a1239b73724f82643c8c4947ebe
     layerID: 32
     mosaicPosition: {x: 660, y: 2138}
   - name: light leg left a - joint
     spriteName: light leg left a - joint
     isGroup: 0
-    parentIndex: 38
+    parentIndex: 37
     spriteID: 3f32d28696a112741838f0d421a26af2
     layerID: 31
     mosaicPosition: {x: 1949, y: 4}
   - name: light leg left a - mid
     spriteName: light leg left a - mid
     isGroup: 0
-    parentIndex: 38
+    parentIndex: 37
     spriteID: 1524833be5b1f9640a4843a9ea656b78
     layerID: 30
     mosaicPosition: {x: 569, y: 2411}
   - name: light leg left a - claw
     spriteName: light leg left a - claw
     isGroup: 0
-    parentIndex: 38
+    parentIndex: 37
     spriteID: 88adf2f6bda94c5408024518ddc72556
     layerID: 29
     mosaicPosition: {x: 1806, y: 167}
   - name: crow-leg-hole light leg left a
     spriteName: crow-leg-hole light leg left a
     isGroup: 0
-    parentIndex: 38
+    parentIndex: 37
     spriteID: 51d2cac3c3b0ac34c9eac0fc95884d83
     layerID: 511
     mosaicPosition: {x: 569, y: 3079}
   - name: crow leg smear light leg left a
     spriteName: crow leg smear light leg left a
     isGroup: 0
-    parentIndex: 38
+    parentIndex: 37
     spriteID: b0ebb1178477599499a7d19912f32969
     layerID: 508
     mosaicPosition: {x: 4, y: 4}
@@ -52274,42 +52267,42 @@ ScriptedImporter:
   - name: light leg left b - top
     spriteName: light leg left b - top
     isGroup: 0
-    parentIndex: 45
+    parentIndex: 44
     spriteID: 064327b6be4df604c92150296f16c9b9
     layerID: 38
     mosaicPosition: {x: 660, y: 3153}
   - name: light leg left b - joint
     spriteName: light leg left b - joint
     isGroup: 0
-    parentIndex: 45
+    parentIndex: 44
     spriteID: 7ccbe489830b8f34d8aaf66bc224a4f0
     layerID: 37
     mosaicPosition: {x: 1164, y: 2195}
   - name: light leg left b - mid
     spriteName: light leg left b - mid
     isGroup: 0
-    parentIndex: 45
+    parentIndex: 44
     spriteID: 9b2776eaba0f09c4f893999bb2da8789
     layerID: 36
     mosaicPosition: {x: 1806, y: 354}
   - name: light leg left b - claw
     spriteName: light leg left b - claw
     isGroup: 0
-    parentIndex: 45
+    parentIndex: 44
     spriteID: 90e4d685c4b172e4ea9a64c60da04991
     layerID: 35
     mosaicPosition: {x: 1806, y: 4}
   - name: crow leg smear light leg left b
     spriteName: crow leg smear light leg left b
     isGroup: 0
-    parentIndex: 45
+    parentIndex: 44
     spriteID: 75f03ca6ac6842d41874907f4449d476
     layerID: 509
     mosaicPosition: {x: 4, y: 1655}
   - name: crow-leg-hole llight leg left b
     spriteName: crow-leg-hole llight leg left b
     isGroup: 0
-    parentIndex: 45
+    parentIndex: 44
     spriteID: 2427b33857b196b4b9bfed8e760b03f5
     layerID: 510
     mosaicPosition: {x: 1930, y: 620}
@@ -52323,245 +52316,245 @@ ScriptedImporter:
   - name: dark leg right a
     spriteName: 
     isGroup: 1
-    parentIndex: 52
+    parentIndex: 51
     spriteID: 00000000000000000000000000000000
     layerID: 19
     mosaicPosition: {x: 0, y: 0}
   - name: dark leg right - top
     spriteName: dark leg right - top
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: 9087e599030c6154e8f2f51e5a524fb3
     layerID: 18
     mosaicPosition: {x: 660, y: 3517}
   - name: dark leg right - joint
     spriteName: dark leg right - joint
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: b96e03f2f3b5b5846be0df5d08d5be1a
     layerID: 17
     mosaicPosition: {x: 1014, y: 2682}
   - name: dark leg right - mid
     spriteName: dark leg right - mid
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: 5c9af083612c10540b1615f56b5c53c6
     layerID: 16
     mosaicPosition: {x: 569, y: 3168}
   - name: dark leg right - claw
     spriteName: dark leg right - claw
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: 864aa8e86f4faa24a9f9d69bc6980b8e
     layerID: 15
     mosaicPosition: {x: 538, y: 3925}
   - name: crow-leg-hole dark leg right a
     spriteName: crow-leg-hole dark leg right a
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: 33094acd13b5edf49adc7047a1b9b19d
     layerID: 517
     mosaicPosition: {x: 635, y: 3889}
   - name: crow-leg-hole dark leg right a
     spriteName: crow-leg-hole dark leg right a_1
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: f1cbd3ca220fa4547bf2088e618d2231
     layerID: 525
     mosaicPosition: {x: 569, y: 3116}
   - name: crow leg smear - dark leg right a
     spriteName: crow leg smear - dark leg right a
     isGroup: 0
-    parentIndex: 53
+    parentIndex: 52
     spriteID: 4e93cdfc61564614c87b4b969063ad77
     layerID: 214
     mosaicPosition: {x: 660, y: 694}
   - name: dark leg right b
     spriteName: 
     isGroup: 1
-    parentIndex: 52
+    parentIndex: 51
     spriteID: 00000000000000000000000000000000
     layerID: 90
     mosaicPosition: {x: 0, y: 0}
   - name: dark leg right - top
     spriteName: dark leg right - top_1
     isGroup: 0
-    parentIndex: 61
+    parentIndex: 60
     spriteID: a34154790977d5f46a46f8050c3c586f
     layerID: 89
     mosaicPosition: {x: 1014, y: 2195}
   - name: dark leg right - joint
     spriteName: dark leg right - joint_1
     isGroup: 0
-    parentIndex: 61
+    parentIndex: 60
     spriteID: 733792fd4476a64458eeb736085e3955
     layerID: 88
     mosaicPosition: {x: 1179, y: 2032}
   - name: dark leg right - mid
     spriteName: dark leg right - mid_1
     isGroup: 0
-    parentIndex: 61
+    parentIndex: 60
     spriteID: 00f2ae395a6d4a84bb5bd199e5d57890
     layerID: 87
     mosaicPosition: {x: 866, y: 3766}
   - name: dark leg right - claw
     spriteName: dark leg right - claw_1
     isGroup: 0
-    parentIndex: 61
+    parentIndex: 60
     spriteID: bd57accf8c28fd74b9bfb6750a82c1af
     layerID: 86
     mosaicPosition: {x: 866, y: 3456}
   - name: crow-leg-hole dark leg right b
     spriteName: crow-leg-hole dark leg right b
     isGroup: 0
-    parentIndex: 61
+    parentIndex: 60
     spriteID: 597e27a7748556b4f8c6bcf700f961ef
     layerID: 520
     mosaicPosition: {x: 1930, y: 653}
   - name: crow leg smear - dark leg right b
     spriteName: crow leg smear - dark leg right b
     isGroup: 0
-    parentIndex: 61
+    parentIndex: 60
     spriteID: d8a550b9d538c11438c6369b9b895150
     layerID: 241
     mosaicPosition: {x: 4, y: 3168}
   - name: dark leg mid
     spriteName: 
     isGroup: 1
-    parentIndex: 52
+    parentIndex: 51
     spriteID: 00000000000000000000000000000000
     layerID: 13
     mosaicPosition: {x: 0, y: 0}
   - name: dark leg mid - top
     spriteName: dark leg mid - top
     isGroup: 0
-    parentIndex: 68
+    parentIndex: 67
     spriteID: 82bbfad8b70be7c4d89310542f9062f2
     layerID: 12
     mosaicPosition: {x: 866, y: 2921}
   - name: dark leg mid - joint
     spriteName: dark leg mid - joint
     isGroup: 0
-    parentIndex: 68
+    parentIndex: 67
     spriteID: fc7b674b32f91774499e8f59f79b5833
     layerID: 11
     mosaicPosition: {x: 1014, y: 2579}
   - name: dark leg mid - mid
     spriteName: dark leg mid - mid
     isGroup: 0
-    parentIndex: 68
+    parentIndex: 67
     spriteID: c01e2a6a6144d90419a93da9f0bab46e
     layerID: 10
     mosaicPosition: {x: 569, y: 2701}
   - name: dark leg mid - claw
     spriteName: dark leg mid - claw
     isGroup: 0
-    parentIndex: 68
+    parentIndex: 67
     spriteID: cdc9582722ed29545a2243d0a9c1987d
     layerID: 9
     mosaicPosition: {x: 569, y: 3674}
   - name: crow-leg-hole - dark leg mid
     spriteName: crow-leg-hole - dark leg mid
     isGroup: 0
-    parentIndex: 68
+    parentIndex: 67
     spriteID: 23b43a6ed6b6f374ca734e4250158064
     layerID: 522
     mosaicPosition: {x: 660, y: 4071}
   - name: dark leg left - b
     spriteName: 
     isGroup: 1
-    parentIndex: 52
+    parentIndex: 51
     spriteID: 00000000000000000000000000000000
     layerID: 84
     mosaicPosition: {x: 0, y: 0}
   - name: dark leg left - top
     spriteName: dark leg left - top
     isGroup: 0
-    parentIndex: 74
+    parentIndex: 73
     spriteID: 82fad1d559b1a114382b65fcd24fe27e
     layerID: 83
     mosaicPosition: {x: 660, y: 2473}
   - name: dark leg left - joint
     spriteName: dark leg left - joint
     isGroup: 0
-    parentIndex: 74
+    parentIndex: 73
     spriteID: 7227802b2b7ab3c4aa67406270b09074
     layerID: 82
     mosaicPosition: {x: 1164, y: 2309}
   - name: dark leg left - mid
     spriteName: dark leg left - mid
     isGroup: 0
-    parentIndex: 74
+    parentIndex: 73
     spriteID: 640a49ba35a413846a4f9d587b514134
     layerID: 81
     mosaicPosition: {x: 961, y: 2527}
   - name: dark leg left - claw
     spriteName: dark leg left - claw
     isGroup: 0
-    parentIndex: 74
+    parentIndex: 73
     spriteID: c8548e198af8a8f48aa58bcb1b780df4
     layerID: 80
     mosaicPosition: {x: 1930, y: 457}
   - name: crow leg smear - dark leg left b
     spriteName: crow leg smear - dark leg left b
     isGroup: 0
-    parentIndex: 74
+    parentIndex: 73
     spriteID: 46ae897a487e2c24b83a846b4fb854a0
     layerID: 245
     mosaicPosition: {x: 660, y: 4}
   - name: crow-leg-hole - dark leg left - b
     spriteName: crow-leg-hole - dark leg left - b
     isGroup: 0
-    parentIndex: 74
+    parentIndex: 73
     spriteID: 9d11356fbe54a2b45b9316e3fabc9b98
     layerID: 523
     mosaicPosition: {x: 569, y: 3889}
   - name: dark leg left - a
     spriteName: 
     isGroup: 1
-    parentIndex: 52
+    parentIndex: 51
     spriteID: 00000000000000000000000000000000
     layerID: 7
     mosaicPosition: {x: 0, y: 0}
   - name: dark leg left - top
     spriteName: dark leg left - top_1
     isGroup: 0
-    parentIndex: 81
+    parentIndex: 80
     spriteID: 748585aaa7d79654fba67be443473ca0
     layerID: 6
     mosaicPosition: {x: 866, y: 2195}
   - name: dark leg left - joint
     spriteName: dark leg left - joint_1
     isGroup: 0
-    parentIndex: 81
+    parentIndex: 80
     spriteID: 7abe2504fd24985478731cd734568337
     layerID: 5
     mosaicPosition: {x: 1014, y: 2786}
   - name: dark leg left - mid
     spriteName: dark leg left - mid_1
     isGroup: 0
-    parentIndex: 81
+    parentIndex: 80
     spriteID: 263f4eecc662df94789c798df752e039
     layerID: 4
     mosaicPosition: {x: 940, y: 3766}
   - name: dark leg left - claw
     spriteName: dark leg left - claw_1
     isGroup: 0
-    parentIndex: 81
+    parentIndex: 80
     spriteID: c7d7c9f7ef9af0848960498a78f9c28c
     layerID: 3
     mosaicPosition: {x: 866, y: 3617}
   - name: crow-leg-hole - dark leg left - a
     spriteName: crow-leg-hole - dark leg left - a
     isGroup: 0
-    parentIndex: 81
+    parentIndex: 80
     spriteID: 6e2089be6308b2649a5f09b0d1fa4708
     layerID: 524
     mosaicPosition: {x: 1164, y: 2414}
   - name: crow leg smear dark leg left a
     spriteName: crow leg smear dark leg left a
     isGroup: 0
-    parentIndex: 81
+    parentIndex: 80
     spriteID: 134b2dc30a436f647831a89d7a1e9be3
     layerID: 243
     mosaicPosition: {x: 1231, y: 4}
@@ -53463,4 +53456,6 @@ ScriptedImporter:
   textureAssetName: raven_spider_sprite_sheet-new Texture
   prefabAssetName: raven_spider_sprite_sheet-new Prefab
   spriteLibAssetName: raven_spider_sprite_sheet-new Sprite Lib
-  secondarySpriteTextures: []
+  secondarySpriteTextures:
+  - name: _GlowTex
+    texture: {fileID: 2800000, guid: 157a490cdd3e9bf4ea9bdbc6911b464b, type: 3}

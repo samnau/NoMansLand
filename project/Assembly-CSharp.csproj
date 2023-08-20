@@ -122,6 +122,7 @@
     <Compile Include="Assets\scripts\KeyCodeValidator.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepPointComparator.cs" />
     <Compile Include="Assets\scripts\MonsterHealthManager.cs" />
+    <Compile Include="Assets\scripts\Battle\CreatureSoundFX.cs" />
     <Compile Include="Assets\scripts\Fade_Controller.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\scripts\FireShieldAnimationSequencer.cs" />
@@ -278,7 +279,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\CreatureSoundFX.cs" />
+    <Compile Include="Assets\scripts\Battle\RavenSpiderSoundFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -36,9 +36,12 @@ public class BattleManager : MonoBehaviour
         print("Molly decides to fight");
         print("Summon the staff!");
         heroAnimator.Play("summon_staff");
-        yield return new WaitForSeconds(2.5f);
-        startBattle.Invoke();
-        yield return new WaitForSeconds(.5f);
+        // **** TEMP: turning off the battle system for animation testing- lines 40-42
+        //yield return new WaitForSeconds(2.5f);
+        //startBattle.Invoke();
+        //yield return new WaitForSeconds(.5f);
+
+        // **** END testing disable block
         //var defenseCombos = monster.GetComponent<BaseMonster>().defenseCombos;
         //BattleCombo currentCombo = defenseCombos[0];
         //print($"Molly yells out: {currentCombo.keyCode1} + {currentCombo.keyCode2}");
