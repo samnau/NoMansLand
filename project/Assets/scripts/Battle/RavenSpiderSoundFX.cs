@@ -14,17 +14,26 @@ public class RavenSpiderSoundFX : SoundFXPlayer
 
     public void PlayRustle()
     {
-        PlayOneShot(rustle);
+        PlayOneShot(rustle, .2f);
     }
 
     public void PlayCrash()
     {
         PlayOneShot(crash);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void PlayHum()
     {
-        
+        PlayOneShot(hum);
     }
+    public void PlayCrack1()
+    {
+        PlayOneShot(legCrack1, .6f);
+    }
+
+    public void PlayCrack2()
+    {
+        PlayOneShot(legCrack2, .6f);
+    }
+
+ 
 }
