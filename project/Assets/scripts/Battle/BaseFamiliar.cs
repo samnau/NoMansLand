@@ -42,12 +42,17 @@ public class BaseFamiliar : BaseCreature
 
     public void BringToFront()
     {
-        this.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Player");
+        SortingGroup sortingGroup = this.GetComponent<SortingGroup>();
+        sortingGroup.sortingLayerID = SortingLayer.NameToID("Creatures");
+        sortingGroup.sortingOrder = 100;
     }
 
     public void SendToBack()
     {
-        this.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Familiar");
+        SortingGroup sortingGroup = this.GetComponent<SortingGroup>();
+
+        sortingGroup.sortingLayerID = SortingLayer.NameToID("Familiar");
+        sortingGroup.sortingOrder = 0;
     }
 
     // Start is called before the first frame update
