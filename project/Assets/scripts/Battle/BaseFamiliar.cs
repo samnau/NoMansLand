@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class BaseFamiliar : BaseCreature
 {
@@ -37,6 +38,16 @@ public class BaseFamiliar : BaseCreature
         yield return new WaitForSeconds(shakeDelay);
         transform.position = origin;
         sprite.color = Color.white;
+    }
+
+    public void BringToFront()
+    {
+        this.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Player");
+    }
+
+    public void SendToBack()
+    {
+        this.GetComponent<SortingGroup>().sortingLayerID = SortingLayer.NameToID("Familiar");
     }
 
     // Start is called before the first frame update
