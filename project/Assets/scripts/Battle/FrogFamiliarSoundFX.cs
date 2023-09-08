@@ -31,11 +31,11 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     }
     public void PlaySlam()
     {
-        PlayOneShot(slam, .5f);
+        PlayOneShot(slam);
     }
     public void PlayCrash()
     {
-        PlayOneShot(crash);
+        PlayOneShot(crash,.6f);
     }
     public void PlayCroak()
     {
