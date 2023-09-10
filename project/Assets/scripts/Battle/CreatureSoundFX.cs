@@ -21,6 +21,21 @@ public class CreatureSoundFX : SoundFXPlayer
         PlayOneShot(damage);
     }
 
+    public void PlayAttaack1()
+    {
+        PlayOneShot(attack1);
+    }
+
+    public void PlayAttaack2()
+    {
+        PlayOneShot(attack2);
+    }
+
+    public void PlayAttaack3()
+    {
+        PlayOneShot(attack3);
+    }
+
     public void Death()
     {
         PlayOneShot(death);
