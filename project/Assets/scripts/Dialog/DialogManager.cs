@@ -30,6 +30,9 @@ public class DialogManager : MonoBehaviour
 
 
     [SerializeField] List<GameObject> dialogSpeakers;
+
+    GameObject currentSpeaker;
+    GameObject nextSpeaker;
     //[SerializeField] List<GameObject> dialogMarks;
 
     public void Awake()
@@ -53,8 +56,18 @@ public class DialogManager : MonoBehaviour
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        
         inputTracker = player.GetComponent<InputStateTracker>();
         motionController = player.GetComponent<HeroMotionController>();
+        if(dialogSpeakers.Count > 1)
+        {
+            nextSpeaker = dialogSpeakers[1];
+        }
+
+        if(dialogSpeakers.Count >= 1)
+        {
+            currentSpeaker = dialogSpeakers[0];
+        }
     }
 
     public void SetSpeakerName(string[] parameters)
@@ -71,16 +84,20 @@ public class DialogManager : MonoBehaviour
             name = name.Replace("-", " ");
         }
         SpeakerText.text = name;
+        SwapSpeakerPortraits();
     }
 
-    void HideSpeaker(GameObject targetSpeaker, bool tween = true)
+    IEnumerator HideSpeaker(GameObject targetSpeaker)
     {
         targetSpeaker?.GetComponent<Animator>()?.SetBool("DIALOG_SHOW", false);
+        yield return new WaitForEndOfFrame();
+        nextSpeaker = targetSpeaker;
     }
 
     void ShowSpeaker(GameObject targetSpeaker)
     {
         targetSpeaker?.GetComponent<Animator>()?.SetBool("DIALOG_SHOW", true);
+        currentSpeaker = targetSpeaker;
     }
 
     void SwapSpeakerPortraits(int currentSpeakerIndex = 0, int newSpeakerIndex = 1)
@@ -90,18 +107,8 @@ public class DialogManager : MonoBehaviour
             return;
         }
 
-        GameObject currentSpeaker = dialogSpeakers[currentSpeakerIndex];
-        GameObject newSpeaker = dialogSpeakers[newSpeakerIndex];
-        HideSpeaker(currentSpeaker);
-        ShowSpeaker(newSpeaker);
-    }
-
-    IEnumerator TestSpeakerSwap()
-    {
-        yield return new WaitForSeconds(1f);
-        SwapSpeakerPortraits(0, 1);
-        yield return new WaitForSeconds(2f);
-        SwapSpeakerPortraits(1, 0);
+        StartCoroutine(HideSpeaker(currentSpeaker));
+        ShowSpeaker(nextSpeaker);
     }
 
     public void PlayInteractionSound(string[] parameter)
@@ -132,7 +139,6 @@ public class DialogManager : MonoBehaviour
         dialogueRunner.StartDialogue(targetText);
         dialogWrapperAnimator.SetBool("show", dialogActive);
         TogglePlayerMotion();
-        StartCoroutine(TestSpeakerSwap());
     }
 
     public void NextDialogLine()

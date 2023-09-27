@@ -46,11 +46,6 @@ public class Expression_Manager : MonoBehaviour
 
     public void SetExpression(string[] parameters)
     {
-        //if (parameters.Length < 1)
-        //{
-        //    SetSpeakerName(null);
-        //    return;
-        //}
         var speakerEyesState = parameters.Length > 0 ? parameters[0] : "idle";
         var speakerMouthState = parameters.Length > 1 ? parameters[1] : "idle"; ;
 
