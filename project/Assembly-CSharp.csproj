@@ -77,6 +77,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
+    <Compile Include="Assets\scripts\Characters\GhostKingBlinker.cs" />
     <Compile Include="Assets\scripts\Inventory\Gem.cs" />
     <Compile Include="Assets\scripts\LegIdleController.cs" />
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
@@ -86,6 +87,7 @@
     <Compile Include="Assets\scripts\PerspectiveScaleController.cs" />
     <Compile Include="Assets\scripts\EyeBlinkController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\scripts\Dialog\SceneDialogController.cs" />
     <Compile Include="Assets\scripts\ExpressionAnimationManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\scripts\MotionController3.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Assets\CSV2Table\Demo\SampleTable.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\scripts\Characters\GhostKingController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweep.cs" />
     <Compile Include="Assets\scripts\KeyCodeValidator.cs" />
@@ -141,6 +144,7 @@
     <Compile Include="Assets\scripts\Battle\BattleCombo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\scripts\Dialog_Controller.cs" />
+    <Compile Include="Assets\scripts\Utility\EyeBlinker.cs" />
     <Compile Include="Assets\scripts\monster_action_manager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
@@ -266,6 +270,7 @@
     <Compile Include="Assets\scripts\TimeController.cs" />
     <Compile Include="Assets\scripts\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
+    <Compile Include="Assets\scripts\Battle\DemoMonsterDamage.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SplineControl.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\scripts\ScriptableObjects\ScenePosition.cs" />
@@ -280,9 +285,9 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
-    <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\DemoMonsterDamage.cs" />
     <Compile Include="Assets\scripts\Battle\DemoFrogAttack.cs" />
+    <Compile Include="Assets\scripts\StoryTextManager.cs" />
+    <Compile Include="Assets\scripts\Dialog\DialogManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

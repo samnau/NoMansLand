@@ -5,7 +5,6 @@ using UnityEngine;
 public class MouthController : MonoBehaviour
 {
     public Animator mouthAnimator;
-    // Start is called before the first frame update
     void Awake()
     {
        // mouthAnimator = GetComponent<Animator>();
@@ -31,9 +30,4 @@ public class MouthController : MonoBehaviour
         mouthAnimator.SetBool(targetExpression, expressionValue);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

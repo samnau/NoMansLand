@@ -1,0 +1,47 @@
+title: Intro
+tags: 
+colorID: 0
+position: 237,135
+---
+<<SetExpression surprise surprise>>
+What the heck is that thing??
+Is it dead?
+<<SetExpression surprise frown>>
+Ummm… I think it just moved.
+<<SetExpression surprise frown>>
+<<SetSpeakerName King's-Ghost>>
+It is an unfamiliar, to be certain. We must face it head on.
+<<SetExpression idle annoyed>>
+<<SetSpeakerName Molly>>
+Do I really have to fight this thing?
+<<SetSpeakerName King's-Ghost>>
+Unfortunately, you must. Be brave, child.
+<<SetExpression idle annoyed>>
+<<SetSpeakerName Molly>>
+And how exactly do I fight it?
+<<SetSpeakerName King's-Ghost>>
+Unfamiliars may only be defeated by the appropriate familiar.
+<<SetExpression surprise frown>>
+<<SetSpeakerName Molly>>
+But all I have is this frog!
+<<SetSpeakerName King's-Ghost>>
+Then let us hope it is the familiar we need.
+<<SetExpression idle annoyed>>
+<<SetSpeakerName Molly>>
+Ooookaaay...
+
+[[Win]]
+===
+title: Win
+tags: 
+colorID: 0
+position: 263,417
+---
+(Meena calls out, closer now.)
+<<SetSpeaker Meena surprise frown>>
+I SAID, get back here!!
+<<SetSpeaker Molly surprise surprise>>
+Oh no, oh no, oh no.
+[[Molly.Intro3]]
+===
+

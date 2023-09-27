@@ -26,6 +26,11 @@ public class Expression_Manager : MonoBehaviour
             "SetSpeaker",  
             UpdateSpeaker
         );
+
+        dialogueRunner.AddCommandHandler(
+            "SetExpression",
+            SetExpression
+        );
     }
 
     void SetSpeakerName(string name)
@@ -39,6 +44,18 @@ public class Expression_Manager : MonoBehaviour
         SpeakerText.text = name;
     }
 
+    public void SetExpression(string[] parameters)
+    {
+        //if (parameters.Length < 1)
+        //{
+        //    SetSpeakerName(null);
+        //    return;
+        //}
+        var speakerEyesState = parameters.Length > 0 ? parameters[0] : "idle";
+        var speakerMouthState = parameters.Length > 1 ? parameters[1] : "idle"; ;
+
+        expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
+    }
     public void UpdateSpeaker(string[] parameters)
     {
         if(parameters.Length <1)

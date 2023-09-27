@@ -6,7 +6,9 @@ using Yarn.Unity;
 
 public class InteractionTrigger : MonoBehaviour
 {
-    protected Dialog_Manager dialogManager;
+//    protected Dialog_Manager dialogManager;
+    protected DialogManager dialogManager;
+
     [SerializeField]
     protected string targetText;
     bool dialogActive = false;
@@ -16,7 +18,7 @@ public class InteractionTrigger : MonoBehaviour
     AudioSource interactionSound;
     void Start()
     {
-        dialogManager = FindObjectOfType<Dialog_Manager>();
+        dialogManager = FindObjectOfType<DialogManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         interactionSound = gameObject.GetComponent<AudioSource>();
 

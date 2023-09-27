@@ -8,6 +8,7 @@ using Yarn.Unity;
 
 public class Dialog_Manager : MonoBehaviour
 {
+    // NOTE: this field may be unused 
     [SerializeField] Image speakerPortrait;
     [SerializeField] Text text_dialog, text_speakerName;
     GameObject dialogWrapper;
@@ -25,13 +26,16 @@ public class Dialog_Manager : MonoBehaviour
     AudioSource interactionPlayer;
     public UnityEvent CameraEvent = new UnityEvent();
 
+    [SerializeField] List<GameObject> dialogSpeakers;
+    [SerializeField] List<GameObject> dialogMarks;
+
     public void Awake()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
-        dialogueRunner.AddCommandHandler(
-         "PlayInteractionSound",
-          PlayInteractionSound
-        );
+        //dialogueRunner.AddCommandHandler(
+        // "PlayInteractionSound",
+        //  PlayInteractionSound
+        //);
     }
     void Start()
     {
@@ -44,7 +48,36 @@ public class Dialog_Manager : MonoBehaviour
         motionController = player.GetComponent<HeroMotionController>();
     }
 
+    void HideSpeaker (GameObject targetSpeaker, bool tween = true)
+    {
+        targetSpeaker?.GetComponent<Animator>()?.SetBool("DIALOG_SHOW", false);
+    }
 
+    void ShowSpeaker(GameObject targetSpeaker)
+    {
+        targetSpeaker?.GetComponent<Animator>()?.SetBool("DIALOG_SHOW", true);
+    }
+
+    void SwapSpeakerPortraits (int currentSpeakerIndex = 0, int newSpeakerIndex = 1)
+    {
+        if(dialogSpeakers.Count == 0)
+        {
+            return;
+        }
+
+        GameObject currentSpeaker = dialogSpeakers[currentSpeakerIndex];
+        GameObject newSpeaker = dialogSpeakers[newSpeakerIndex];
+        HideSpeaker(currentSpeaker);
+        ShowSpeaker(newSpeaker);
+    }
+
+    IEnumerator TestSpeakerSwap()
+    {
+        yield return new WaitForSeconds(1f);
+        SwapSpeakerPortraits(0, 1);
+        yield return new WaitForSeconds(2f);
+        SwapSpeakerPortraits(1, 0);
+    }
 
     public void PlayInteractionSound (string[] parameter)
     {
@@ -54,10 +87,14 @@ public class Dialog_Manager : MonoBehaviour
     {
         interactionPlayer = targetSoundPlayer;
     }
+
+    // NOTE: currently unused
     void AdvanceDialog()
     {
         dialogueUI.MarkLineComplete();
     }
+
+    // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
     {
         inputTracker.enabled = !dialogActive;
@@ -70,6 +107,7 @@ public class Dialog_Manager : MonoBehaviour
         dialogueRunner.StartDialogue(targetText);
         dialogWrapperAnimator.SetBool("show", dialogActive);
         TogglePlayerMotion();
+        StartCoroutine(TestSpeakerSwap());
     }
 
     public void NextDialogLine()

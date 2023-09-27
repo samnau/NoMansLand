@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: e364a49adf6b68d48b8a01cc400fd7c8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - Battle.Crow-Intro-0
+  - Battle.Crow-Intro-1
+  - Battle.Crow-Intro-2
+  - Battle.Crow-Intro-3
+  - Battle.Crow-Intro-4
+  - Battle.Crow-Intro-5
+  - Battle.Crow-Intro-6
+  - Battle.Crow-Intro-7
+  - Battle.Crow-Intro-8
+  - Battle.Crow-Intro-9
+  - Battle.Crow-Intro-10
+  - Battle.Crow-Win-11
+  - Battle.Crow-Win-12
+  - Battle.Crow-Win-13
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: e364a49adf6b68d48b8a01cc400fd7c8,
+    type: 3}
+  localizations: []
