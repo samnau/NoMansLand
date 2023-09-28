@@ -167,4 +167,12 @@ public class DialogManager : MonoBehaviour
         TogglePlayerMotion();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && dialogActive)
+        {
+            NextDialogLine();
+        }
+    }
+
 }

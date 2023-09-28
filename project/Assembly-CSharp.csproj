@@ -156,6 +156,7 @@
     <Compile Include="Assets\scripts\Camera_Shaker.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationMode.cs" />
     <Compile Include="Assets\scripts\Battle\BattleManager.cs" />
+    <Compile Include="Assets\scripts\Dialog\DialogManager.cs" />
     <Compile Include="Assets\scripts\SceneFadeTrigger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\scripts\Battle\FrogFamiliarSoundFX.cs" />
@@ -287,7 +288,7 @@
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\Battle\DemoFrogAttack.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Dialog\DialogManager.cs" />
+    <Compile Include="Assets\scripts\Battle\RavenSpiderController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
