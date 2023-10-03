@@ -7,12 +7,16 @@ public class RavenSpiderController : MonoBehaviour
     [SerializeField] DialogManager dialogManager;
 
     bool introStarted = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    bool introComplete = false;
 
+    public void TriggerRise()
+    {
+        if (!introComplete)
+        {
+            gameObject.GetComponent<Animator>().SetBool("RISE", true);
+            introComplete = true;
+        }
+    }
     public void StartIntro()
     {
         if(!introStarted)
@@ -21,5 +25,4 @@ public class RavenSpiderController : MonoBehaviour
             introStarted = true;
         }
     }
-    // Update is called once per frame
 }

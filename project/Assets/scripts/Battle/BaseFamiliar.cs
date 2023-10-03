@@ -6,10 +6,12 @@ using UnityEngine.Rendering;
 public class BaseFamiliar : BaseCreature
 {
     public bool canCounter = false;
+    public bool summoned = true;
     bool attackCounterSuccess = false;
     //bool battleChallengeSuccess = false;
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
+    SpriteRenderer[] allSprites;
 
     public void ShowDamage()
     {
@@ -39,6 +41,26 @@ public class BaseFamiliar : BaseCreature
         transform.position = origin;
         sprite.color = Color.white;
     }
+    void ToggleSprites(bool hideSprites = true)
+    {
+        float newAlpha = hideSprites ? 0f : 255f;
+        foreach (SpriteRenderer sprite in allSprites)
+        {
+            var newColor = sprite.color;
+            newColor.a = newAlpha;
+            sprite.color = newColor;
+        }
+    }
+    public void HideFamiliar()
+    {
+        print("hide the familiar");
+        ToggleSprites(true);
+    }
+
+    public void ShowFamiliar()
+    {
+        ToggleSprites(false);
+    }
 
     public void BringToFront()
     {
@@ -58,7 +80,14 @@ public class BaseFamiliar : BaseCreature
     // Start is called before the first frame update
     void Start()
     {
-       // print($"combo: {defenseCombos[0].keyCode2}");
+        allSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        if (summoned)
+        {
+            ShowFamiliar();
+        } else
+        {
+            HideFamiliar();
+        }
     }
 
     // Update is called once per frame

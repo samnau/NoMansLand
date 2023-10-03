@@ -261,6 +261,7 @@
     <Compile Include="Assets\scripts\GameEvents\GameEvent.cs" />
     <Compile Include="Assets\scripts\PlayerData.cs" />
     <Compile Include="Assets\scripts\Battle\RuneAnimationSoundFX.cs" />
+    <Compile Include="Assets\scripts\Battle\RavenSpiderController.cs" />
     <Compile Include="Assets\scripts\Inventory\ICollectable.cs" />
     <Compile Include="Assets\scripts\MotionController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
@@ -288,7 +289,7 @@
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\Battle\DemoFrogAttack.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\RavenSpiderController.cs" />
+    <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
