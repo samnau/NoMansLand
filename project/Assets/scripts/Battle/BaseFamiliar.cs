@@ -60,6 +60,7 @@ public class BaseFamiliar : BaseCreature
     public void ShowFamiliar()
     {
         ToggleSprites(false);
+        this.GetComponent<Animator>().SetBool("HIDDEN", false);
     }
 
     public void BringToFront()
@@ -90,9 +91,4 @@ public class BaseFamiliar : BaseCreature
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

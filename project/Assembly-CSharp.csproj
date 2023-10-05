@@ -284,12 +284,14 @@
     <Compile Include="Assets\scripts\RavenSoundFXController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
     <Compile Include="Assets\scripts\MouthController.cs" />
+    <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\Battle\DemoFrogAttack.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
+    <Compile Include="Assets\scripts\Objects\SpellRingController.cs" />
+    <Compile Include="Assets\scripts\Objects\SpellRingSoundFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
