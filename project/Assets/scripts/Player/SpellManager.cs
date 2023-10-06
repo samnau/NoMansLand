@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class SpellManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject spellRing;
 
-    // Update is called once per frame
-    void Update()
+    public void StartSummon()
     {
-        
+        spellRing?.GetComponent<SpellRingController>().Appear1();
     }
 }

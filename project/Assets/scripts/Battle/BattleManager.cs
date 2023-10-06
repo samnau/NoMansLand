@@ -35,9 +35,14 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         print("Molly decides to fight");
         print("Summon the staff!");
-        heroAnimator.Play("summon_staff");
+        heroAnimator.SetBool("BATTLE_START", true);
+        yield return new WaitForSeconds(.25f);
+        heroAnimator.SetBool("BATTLE_START", false);
+        //heroAnimator.Play("summon_staff");
         // **** TEMP: turning off the battle system for animation testing- lines 40-42
         //yield return new WaitForSeconds(2.5f);
+
+        // NOTE: something in the chain for the battle challenge is listening to this event, I think
         //startBattle.Invoke();
         //yield return new WaitForSeconds(.5f);
 
@@ -51,7 +56,7 @@ public class BattleManager : MonoBehaviour
         //{
         //    familiarTakeDamage.Invoke();
         //}
-            //introSequencer.TriggerIntroSequence();
+        //introSequencer.TriggerIntroSequence();
     }
 
 }

@@ -11,7 +11,7 @@ public class SpellRingController : MonoBehaviour
     void Start()
     {
         animator = this.GetComponent<Animator>();
-        StartCoroutine(TestAppear());
+        //StartCoroutine(TestAppear());
     }
 
     public void Appear1()

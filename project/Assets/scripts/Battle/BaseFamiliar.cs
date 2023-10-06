@@ -12,6 +12,7 @@ public class BaseFamiliar : BaseCreature
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
     SpriteRenderer[] allSprites;
+    Color[] defaultColors;
 
     public void ShowDamage()
     {
@@ -41,14 +42,30 @@ public class BaseFamiliar : BaseCreature
         transform.position = origin;
         sprite.color = Color.white;
     }
+    // TODO: need array of alphas to account for colors with transparency - see white sprite setter
     void ToggleSprites(bool hideSprites = true)
     {
-        float newAlpha = hideSprites ? 0f : 255f;
-        foreach (SpriteRenderer sprite in allSprites)
+        //float newAlpha = hideSprites ? 0f : 255f;
+        //foreach (SpriteRenderer sprite in allSprites)
+        //{
+        //    var newColor = sprite.color;
+        //    newColor.a = newAlpha;
+        //    if(!hideSprites)
+        //    {
+        //        defaultColors(sprite);
+        //    }
+        //    sprite.color = newColor;
+        //}
+
+        for (int i = 0; i < allSprites.Length; i++)
         {
-            var newColor = sprite.color;
-            newColor.a = newAlpha;
-            sprite.color = newColor;
+            var newColor = allSprites[i].color;
+            newColor.a = 0;
+            if (!hideSprites)
+            {
+                newColor = defaultColors[i];
+            }
+            allSprites[i].color = newColor;
         }
     }
     public void HideFamiliar()
@@ -82,6 +99,11 @@ public class BaseFamiliar : BaseCreature
     void Start()
     {
         allSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        defaultColors = new Color[allSprites.Length];
+        for (int i = 0; i < allSprites.Length; i++)
+        {
+            defaultColors[i] = allSprites[i].color;
+        }
         if (summoned)
         {
             ShowFamiliar();
