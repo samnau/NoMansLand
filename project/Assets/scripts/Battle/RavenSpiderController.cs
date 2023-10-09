@@ -5,6 +5,8 @@ using UnityEngine;
 public class RavenSpiderController : MonoBehaviour
 {
     [SerializeField] DialogManager dialogManager;
+    [SerializeField] GameEvent introStart;
+    [SerializeField] GameEvent familiarSummonStart;
 
     bool introStarted = false;
     bool introComplete = false;
@@ -16,6 +18,16 @@ public class RavenSpiderController : MonoBehaviour
             gameObject.GetComponent<Animator>().SetBool("RISE", true);
             introComplete = true;
         }
+    }
+
+    public void StartBattleIntro()
+    {
+        introStart?.Invoke();
+    }
+
+    public void StartFamiliarSummon()
+    {
+        familiarSummonStart?.Invoke();
     }
     public void StartIntro()
     {

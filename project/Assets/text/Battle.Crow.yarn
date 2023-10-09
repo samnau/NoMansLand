@@ -26,9 +26,9 @@ Unfamiliars may only be defeated by the appropriate familiar.
 But all I have is this frog!
 <<SetSpeakerName King's-Ghost>>
 Then let us hope it is the familiar we need.
-<<SetExpression idle annoyed>>
+<<SetExpression surprise annoyed>>
 <<SetSpeakerName Molly>>
-Ooookaaay...
+I don't know about this...
 
 [[Win]]
 ===

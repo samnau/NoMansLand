@@ -79,6 +79,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
     <Compile Include="Assets\scripts\Characters\GhostKingBlinker.cs" />
     <Compile Include="Assets\scripts\Inventory\Gem.cs" />
+    <Compile Include="Assets\scripts\Objects\SpellRingSoundFX.cs" />
     <Compile Include="Assets\scripts\LegIdleController.cs" />
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SkinnedVertices.cs" />
@@ -280,6 +281,7 @@
     <Compile Include="Assets\scripts\FrogFamiliarSoundFXController.cs" />
     <Compile Include="Assets\scripts\BattleKeyCombos.cs" />
     <Compile Include="Assets\scripts\DataPersistance\DataPersistanceManager.cs" />
+    <Compile Include="Assets\scripts\Objects\SpellRingController.cs" />
     <Compile Include="Assets\scripts\Input_Sequence_Manager.cs" />
     <Compile Include="Assets\scripts\RavenSoundFXController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
@@ -290,8 +292,7 @@
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\Battle\DemoFrogAttack.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Objects\SpellRingController.cs" />
-    <Compile Include="Assets\scripts\Objects\SpellRingSoundFX.cs" />
+    <Compile Include="Assets\scripts\Player\ProfileAnimationStateManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

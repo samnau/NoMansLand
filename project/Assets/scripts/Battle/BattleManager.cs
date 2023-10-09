@@ -35,6 +35,7 @@ public class BattleManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         print("Molly decides to fight");
         print("Summon the staff!");
+        // NOTE: current home for the battle scene intro kickoff
         heroAnimator.SetBool("BATTLE_START", true);
         yield return new WaitForSeconds(.25f);
         heroAnimator.SetBool("BATTLE_START", false);
