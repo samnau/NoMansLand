@@ -6,6 +6,27 @@ public class BattleHeroController : MonoBehaviour
 {
     BaseMonster baseMonster;
     BattleCombo currentCombo;
+    PositionTweener positionTweener;
+    [SerializeField] GameObject heroProfile;
+    Animator heroProfileAnimator;
+    IEnumerator TestWalkIn()
+    {
+        heroProfileAnimator.SetBool("WALK_IN", true);
+        heroProfileAnimator.SetBool("AFRAID", false);
+        SceneWalkIn();
+        yield return new WaitForSeconds(1f);
+        heroProfile?.GetComponent<Animator>().SetBool("WALK_IN", false);
+
+    }
+    public void SceneWalkIn()
+    {
+        heroProfileAnimator.SetBool("WALK_IN", true);
+        Transform transform = this.transform;
+        Vector3 endPosition = transform.position;
+        Vector3 startPosition = new Vector3(endPosition.x - 3f, endPosition.y, endPosition.z);
+        this.transform.position = startPosition;
+        positionTweener?.TriggerPositionByDuration(endPosition, 3.45f);
+    }
     public void AnnounceCombo()
     {
         //print("Defend with the combo!");
@@ -17,6 +38,9 @@ public class BattleHeroController : MonoBehaviour
     {
         baseMonster = FindObjectOfType<BaseMonster>();
         //UpdateCombo();
+        positionTweener = this.GetComponent<PositionTweener>();
+        heroProfileAnimator = heroProfile?.GetComponent<Animator>();
+        StartCoroutine(TestWalkIn());
     }
 
     public void UpdateCombo()
@@ -34,9 +58,4 @@ public class BattleHeroController : MonoBehaviour
         AnnounceCombo();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

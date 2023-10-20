@@ -7,10 +7,11 @@ using UnityEngine.UI;
 public class GlowTweener : BaseTweener
 {
     Material material;
-    Material testMat;
+    //Material testMat;
     SpriteRenderer spriteRenderer;
     Image image;
     float targetIntensity = 1f;
+    Color originalColor;
     void Start()
     {
         InitGlowComponents();
@@ -22,12 +23,15 @@ public class GlowTweener : BaseTweener
         {
             spriteRenderer = spriteRendererFound;
             material = spriteRenderer.material = new Material(spriteRenderer.material);
+            originalColor = material.color;
         }
         if (TryGetComponent<Image>(out Image imageFound))
         {
             image = imageFound;
             material = image.material = new Material(image.material);
+            originalColor = material.color;
         }
+        
     }
 
     public void TurnOffGlow()
@@ -43,9 +47,15 @@ public class GlowTweener : BaseTweener
     {
         print(material.GetFloat("_Fade"));
     }
-    public void SetGlowColor(Color targetColor)
+    public void SetGlowColor(Color targetColor, float targetIntensity = 7f)
     {
-        material.SetColor("_Color", targetColor);
+        material.SetColor("_Color", targetColor * Mathf.Pow(2, targetIntensity));
+       // material.SetColor("_EmissiveColor", targetColor * Mathf.Pow(2, 10f));
+    }
+
+    public void ResetGlowColor()
+    {
+        material.SetColor("_Color", originalColor);
     }
     IEnumerator SetGlow()
     {
@@ -63,6 +73,20 @@ public class GlowTweener : BaseTweener
             yield return null;
         }
     }
+
+    IEnumerator SetGlowByDuration(float targetGlow, float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+
+        float startGlow = material.GetFloat("_Fade");
+        while (elapsed_time < duration)
+        {
+            float currentIntensity = Mathf.Lerp(startGlow, targetGlow, EaseInOutQuad(elapsed_time / duration));
+            material.SetFloat("_Fade", currentIntensity);
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+    }
     public void TriggerGlowTween([Optional] float targetGlowIntensity, [Optional] float targetSpeed)
     {
         if (targetSpeed != 0)
@@ -73,6 +97,11 @@ public class GlowTweener : BaseTweener
         progress = 0;
 
         StartCoroutine(SetGlow());
+    }
+
+    public void TriggerGlowByDuration([Optional] float targetGlow, [Optional] float duration)
+    {
+        StartCoroutine(SetGlowByDuration(targetGlow, duration));
     }
 
     private void OnDestroy()

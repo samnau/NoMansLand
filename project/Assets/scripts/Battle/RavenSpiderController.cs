@@ -7,6 +7,7 @@ public class RavenSpiderController : MonoBehaviour
     [SerializeField] DialogManager dialogManager;
     [SerializeField] GameEvent introStart;
     [SerializeField] GameEvent familiarSummonStart;
+    PositionTweener positionTweener;
 
     bool introStarted = false;
     bool introComplete = false;

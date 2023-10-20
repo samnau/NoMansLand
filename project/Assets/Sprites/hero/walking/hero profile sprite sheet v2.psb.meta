@@ -82558,4 +82558,6 @@ ScriptedImporter:
   textureAssetName: hero profile sprite sheet v2 Texture
   prefabAssetName: hero profile sprite sheet v2 Prefab
   spriteLibAssetName: hero profile sprite sheet v2 Sprite Lib
-  secondarySpriteTextures: []
+  secondarySpriteTextures:
+  - name: _GlowTex
+    texture: {fileID: 2800000, guid: 6a4b5245904d72a409cfe195031f2883, type: 3}
