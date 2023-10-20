@@ -33,17 +33,45 @@ public class ProfileAnimationStateManager : MonoBehaviour
 
     public void TriggerBlueGlow()
     {
-        TriggerStaffGlow(Color.blue, 10f, 1f);
+        TriggerStaffGlow(Color.blue, 10f, 1f, 9f);
     }
-    void TriggerStaffGlow(Color targetColor, float targetIntensity, float duration = .5f)
+
+    public void TriggerRedGlow()
+    {
+        TriggerStaffGlow(Color.red, 10f, 1f, 9f);
+    }
+
+    public void TriggerYellowGlow()
+    {
+        TriggerStaffGlow(Color.yellow, 10f, 1f, 9f);
+    }
+
+    public void TriggerGreenGlow()
+    {
+        TriggerStaffGlow(Color.green, 10f, 1f, 9f);
+    }
+
+    public void GlowPulseUp()
+    {
+        mainGemGlow.TriggerGlowByDuration(12f, 1f);
+        staffGemsGlow.TriggerGlowByDuration(12f, 1f);
+    }
+
+    public void GlowPulseDown()
+    {
+        mainGemGlow.TriggerGlowByDuration(4f, 1f);
+        staffGemsGlow.TriggerGlowByDuration(4f, 1f);
+    }
+
+    void TriggerStaffGlow(Color targetColor, float targetIntensity, float duration = .5f, float colorIntensity = 7f)
     {
         if(!mainGemGlow || !staffGemsGlow)
         {
             return;
         }
 
-        mainGemGlow.SetGlowColor(targetColor);
-        staffGemsGlow.SetGlowColor(targetColor);
+        mainGemGlow.SetGlowColor(targetColor, colorIntensity);
+        staffGemsGlow.SetGlowColor(targetColor, colorIntensity);
 
         mainGemGlow.TriggerGlowByDuration(targetIntensity, duration);
         staffGemsGlow.TriggerGlowByDuration(targetIntensity, duration);

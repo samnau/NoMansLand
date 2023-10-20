@@ -50,7 +50,6 @@ public class GlowTweener : BaseTweener
     public void SetGlowColor(Color targetColor, float targetIntensity = 7f)
     {
         material.SetColor("_Color", targetColor * Mathf.Pow(2, targetIntensity));
-       // material.SetColor("_EmissiveColor", targetColor * Mathf.Pow(2, 10f));
     }
 
     public void ResetGlowColor()
