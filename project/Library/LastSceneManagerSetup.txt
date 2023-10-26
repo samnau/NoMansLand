@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/scenes/CastleCourtyard.unity
+- path: Assets/scenes/Battle.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

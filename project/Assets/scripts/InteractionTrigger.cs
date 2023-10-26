@@ -55,7 +55,13 @@ public class InteractionTrigger : MonoBehaviour
         }
 
         interactionIndicator?.SetActive(true);
-        dialogManager.targetText = targetText;
+        if(dialogManager)
+        {
+            dialogManager.targetText = targetText;
+        } else
+        {
+
+        }
         triggerActive = true;
     }
     

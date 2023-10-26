@@ -8,12 +8,13 @@ public class GhostKingController : MonoBehaviour
     Vector3 startPosition;
     [SerializeField] float hoverModifier = .5f;
     [SerializeField] float hoverDuration = 3f;
+    public bool activateHover = false;
     // Start is called before the first frame update
     void Start()
     {
         positionTweener = this.GetComponent<PositionTweener>();
         startPosition = transform.position;
-        IdleHover();
+        //IdleHover();
     }
 
     void IdleHover()
@@ -21,6 +22,16 @@ public class GhostKingController : MonoBehaviour
         float targetPostionY = startPosition.y -= hoverModifier;
         Vector3 targetPosition = new Vector3(startPosition.x, targetPostionY, startPosition.z);
         positionTweener.StartYoYo(targetPosition, hoverDuration);
+    }
+
+    private void Update()
+    {
+        if(activateHover)
+        {
+            print("ghost hover time");
+            IdleHover();
+            activateHover = false;
+        }
     }
 
 }

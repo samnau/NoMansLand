@@ -163,6 +163,7 @@
     <Compile Include="Assets\scripts\Battle\FrogFamiliarSoundFX.cs" />
     <Compile Include="Assets\scripts\Battle\Ring\BattleSpinner.cs" />
     <Compile Include="Assets\scripts\FireShieldSoundFXController.cs" />
+    <Compile Include="Assets\scripts\Player\ProfileAnimationStateManager.cs" />
     <Compile Include="Assets\scripts\Monster.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
@@ -292,7 +293,7 @@
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\Battle\DemoFrogAttack.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Player\ProfileAnimationStateManager.cs" />
+    <Compile Include="Assets\scripts\Characters\HeroProfileSoundFX.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
