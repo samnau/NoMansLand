@@ -12,6 +12,7 @@ public class BaseMonster : BaseCreature
     int counterComboIndex = 0;
     float comboInterval = .125f;
     int currentComboMatchCount = 0;
+    [SerializeField] GameEvent announceCombo;
     [SerializeField] GameEvent takeDamage;
     [SerializeField] GameEvent dealDamage;
     [SerializeField] GameEvent startAttack;
@@ -174,22 +175,29 @@ public class BaseMonster : BaseCreature
         sprite.color = Color.white;
 
     }
+
+    public void TriggerAnnounceCombo()
+    {
+        announceCombo.Invoke();
+    }
+
     public void StartAttack()
     {
         if(!isDead && !victory)
         {
             startAttack.Invoke();
-            StartCoroutine(MoveToFamiliar());
+            print("MONSTER ATTACKING!");
+            //StartCoroutine(MoveToFamiliar());
         }
     }
 
     public void StartNextAttackCycle ()
     {
         canCounter = false;
-        StartCoroutine(StartNextAttaack());
+        StartCoroutine(StartNextAttack());
     }
 
-    IEnumerator StartNextAttaack()
+    IEnumerator StartNextAttack()
     {
         yield return new WaitForSeconds(2f);
         StartAttack();

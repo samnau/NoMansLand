@@ -38,6 +38,11 @@ public class ColorTweener : BaseTweener
         image.color = new Color(endRed, endGreen, endBlue, targetAlpha);
     }
 
+    public void SetSpriteAlpha(float targetAlpha = 0)
+    {
+        spriteRenderer.color = new Color(endRed, endGreen, endBlue, targetAlpha);
+    }
+
     IEnumerator SetSpriteColor()
     {
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
@@ -88,6 +93,37 @@ public class ColorTweener : BaseTweener
         }
     }
 
+    IEnumerator SetSpriteColorByDuration(float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+        print("alpha time tween?");
+        Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
+        Color startColor = color;
+
+        while (elapsed_time < duration)
+        {
+            color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+    }
+
+
+    IEnumerator SetImageColorByDuration(float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+
+        Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
+        Color startColor = color;
+
+        while (elapsed_time < duration)
+        {
+            color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+    }
+
     public void TriggerAlphaSpriteTween([Optional] float targetAlpha, [Optional] float targetSpeed)
     {
         if (targetSpeed != 0)
@@ -113,4 +149,14 @@ public class ColorTweener : BaseTweener
         StartCoroutine(SetImageColor());
     }
 
+    public void TriggerSpriteAlphaByDuration([Optional] float targetAlpha, [Optional] float duration)
+    {
+        endAlpha = targetAlpha;
+        StartCoroutine(SetSpriteColorByDuration(duration));
+    }
+    public void TriggerImageAlphaByDuration([Optional] float targetAlpha, [Optional] float duration)
+    {
+        endAlpha = targetAlpha;
+        StartCoroutine(SetImageColorByDuration(duration));
+    }
 }

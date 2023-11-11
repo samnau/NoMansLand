@@ -30,15 +30,12 @@ public class BattleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(.25f);
         inputStateTracker.isUiActive = true;
-        print("A monster appears!");
-        print("Molly starts to freak out.");
         yield return new WaitForSeconds(1.5f);
-        print("Molly decides to fight");
-        print("Summon the staff!");
         // NOTE: current home for the battle scene intro kickoff
         heroAnimator.SetBool("BATTLE_START", true);
         yield return new WaitForSeconds(.25f);
         heroAnimator.SetBool("BATTLE_START", false);
+        // NOTE: this animation call below isn't needed anymore. Part of walk in intro sequence now
         //heroAnimator.Play("summon_staff");
         // **** TEMP: turning off the battle system for animation testing- lines 40-42
         //yield return new WaitForSeconds(2.5f);

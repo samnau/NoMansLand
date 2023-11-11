@@ -11,6 +11,9 @@ public class BattleComboAnnouncer : MonoBehaviour
     [SerializeField] GameObject battleCommandWrapper;
     [SerializeField] GameObject battleCommandArrow;
     Dictionary<KeyCode, float> arrowDirections = new Dictionary<KeyCode, float>();
+    float tweenSpeed = 6f;
+    GameEvent showCommand;
+
     public void AnnounceCombo()
     {
         UpdateCombo();
@@ -19,10 +22,13 @@ public class BattleComboAnnouncer : MonoBehaviour
         {
             comboText.text = comboString;
         }
+        //NOTE: everything above this might be unneeded
+        StartCoroutine(ShowBattleCommand());
     }
 
     IEnumerator ShowBattleCommand()
     {
+        print("ShowBatCommand");
         float targetRotation;
 
         if (arrowDirections.TryGetValue(currentCombo.keyCode1, out targetRotation))
@@ -33,18 +39,52 @@ public class BattleComboAnnouncer : MonoBehaviour
         {
             battleCommandArrow.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
-        yield return new WaitForSeconds(2f);
+        ToggleBattleCommand();
+        yield return new WaitForSeconds(1.5f);
         ToggleBattleCommand();
     }
 
+    void RevealBattleCommand()
+    {
+        ColorTweener[] colorTweeners = this.GetComponentsInChildren<ColorTweener>();
+        foreach (ColorTweener tweener in colorTweeners)
+        {
+            tweener.TriggerAlphaSpriteTween(1f, tweenSpeed);
+        }
+    }
+
+    void HideBattleCommand(bool instant = false)
+    {
+        ColorTweener[] colorTweeners = this.GetComponentsInChildren<ColorTweener>();
+
+        foreach (ColorTweener tweener in colorTweeners)
+        {
+            if(instant)
+            {
+                tweener.SetSpriteAlpha();
+            } else
+            {
+                tweener.TriggerAlphaSpriteTween(0, tweenSpeed);
+            }
+        }
+    }
+
+
     void ToggleBattleCommand()
     {
+        print("ToggleCpommand");
         if(battleCommandWrapper)
         {
             SpriteRenderer[] commandRenderers = battleCommandWrapper.GetComponentsInChildren<SpriteRenderer>();
-            foreach(SpriteRenderer sprite in commandRenderers)
+
+            float alphaValue = commandRenderers[0].color.a;
+
+            if(alphaValue == 0)
             {
-                sprite.enabled = !sprite.enabled;
+                RevealBattleCommand();
+            } else
+            {
+                HideBattleCommand();
             }
         }
     }
@@ -66,8 +106,7 @@ public class BattleComboAnnouncer : MonoBehaviour
         {
             currentCombo = baseMonster.defenseCombos[baseMonster.defenseCount];
         }
-        ToggleBattleCommand();
-        StartCoroutine(ShowBattleCommand());
+        HideBattleCommand(true);
     }
 
     public void UpdateCombo()

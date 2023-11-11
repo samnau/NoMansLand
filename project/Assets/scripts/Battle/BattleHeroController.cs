@@ -9,7 +9,7 @@ public class BattleHeroController : MonoBehaviour
     PositionTweener positionTweener;
     [SerializeField] GameObject heroProfile;
     Animator heroProfileAnimator;
-    IEnumerator TestWalkIn()
+    IEnumerator TriggerWalkIn()
     {
         heroProfileAnimator.SetBool("WALK_IN", true);
         heroProfileAnimator.SetBool("AFRAID", false);
@@ -40,7 +40,7 @@ public class BattleHeroController : MonoBehaviour
         //UpdateCombo();
         positionTweener = this.GetComponent<PositionTweener>();
         heroProfileAnimator = heroProfile?.GetComponent<Animator>();
-        StartCoroutine(TestWalkIn());
+        StartCoroutine(TriggerWalkIn());
     }
 
     public void UpdateCombo()
