@@ -12,11 +12,17 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip roar2;
     [SerializeField] AudioClip hum;
     [SerializeField] AudioClip clickClack;
+    [SerializeField] AudioClip stab;
 
 
     public void PlayRustle()
     {
         PlayOneShot(rustle, .2f);
+    }
+
+    public void PlayStab()
+    {
+        PlayOneShot(stab);
     }
 
     public void PlayCrash()
