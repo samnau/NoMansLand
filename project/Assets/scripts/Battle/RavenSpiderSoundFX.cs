@@ -38,6 +38,11 @@ public class RavenSpiderSoundFX : SoundFXPlayer
         PlayOneShot(legCrack1, .6f);
     }
 
+    public void PlayRoar2()
+    {
+        PlayOneShot(roar2, .6f);
+    }
+
     public void PlayCrack2()
     {
         PlayOneShot(legCrack2, .6f);

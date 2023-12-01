@@ -179,6 +179,20 @@ public class BaseMonster : BaseCreature
     public void TriggerAnnounceCombo()
     {
         announceCombo.Invoke();
+        canDefend = true;
+    }
+
+    public void TriggerDamage()
+    {
+        canDefend = false;
+        if (!canCounter)
+        {
+            //counterStart.Invoke();
+            dealDamage.Invoke();
+
+            // TEMP: disable until ready to test
+            //StartNextAttackCycle();
+        }
     }
 
     public void StartAttack()
