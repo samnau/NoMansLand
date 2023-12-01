@@ -191,7 +191,7 @@ public class BaseMonster : BaseCreature
             dealDamage.Invoke();
 
             // TEMP: disable until ready to test
-            //StartNextAttackCycle();
+            StartNextAttackCycle();
         }
     }
 
@@ -213,7 +213,9 @@ public class BaseMonster : BaseCreature
 
     IEnumerator StartNextAttack()
     {
+        gameObject.GetComponent<Animator>()?.SetBool("ATTACK1", false);
         yield return new WaitForSeconds(2f);
+        gameObject.GetComponent<Animator>()?.SetBool("ATTACK1", true);
         StartAttack();
     }
 

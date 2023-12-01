@@ -13,6 +13,7 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip hum;
     [SerializeField] AudioClip clickClack;
     [SerializeField] AudioClip stab;
+    [SerializeField] AudioClip rise;
 
 
     public void PlayRustle()
@@ -33,6 +34,11 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     {
         PlayOneShot(hum);
     }
+
+    public void PlayRise()
+    {
+        PlayOneShot(rise, .2f);
+    }
     public void PlayCrack1()
     {
         PlayOneShot(legCrack1, .6f);
@@ -40,7 +46,7 @@ public class RavenSpiderSoundFX : SoundFXPlayer
 
     public void PlayRoar2()
     {
-        PlayOneShot(roar2, .6f);
+        PlayOneShot(roar2, .5f);
     }
 
     public void PlayCrack2()

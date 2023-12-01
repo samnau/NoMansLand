@@ -9,6 +9,9 @@ public class RavenSpiderController : MonoBehaviour
     [SerializeField] GameEvent familiarSummonStart;
     [SerializeField] GameEvent startBattle;
     PositionTweener positionTweener;
+    int loopCount = 0;
+    bool hasRoared = false;
+
 
     bool introStarted = false;
     bool introComplete = false;
@@ -23,6 +26,25 @@ public class RavenSpiderController : MonoBehaviour
         }
     }
 
+    public void TriggerRoar()
+    {
+        if(!hasRoared)
+        {
+            loopCount++;
+        }
+        if(loopCount > 0 && !hasRoared)
+        {
+            gameObject.GetComponent<Animator>().SetBool("ROAR", true);
+            hasRoared = true;
+            StartBattle();
+        }
+    }
+
+    public void DisableRoar()
+    {
+        gameObject.GetComponent<Animator>().SetBool("ROAR", false);
+    }
+
     public void StartBattle()
     {
         if(battleStarted)
@@ -30,7 +52,7 @@ public class RavenSpiderController : MonoBehaviour
             return;
         }
         battleStarted = true;
-        startBattle.Invoke();
+        startBattle?.Invoke();
     }
 
     public void StartBattleIntro()
