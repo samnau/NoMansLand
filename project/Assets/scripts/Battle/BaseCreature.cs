@@ -15,16 +15,6 @@ public class BaseCreature : MonoBehaviour
     [HideInInspector] public bool isDead = false;
     [HideInInspector] public bool victory = false;
 
-    //// having these in the base is questionable
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    print($"creature {gameObject.name} is being hit");
-    //}
-
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    print($"creature {gameObject.name} is done being hit");
-    //}
     public void TriggerDeath()
     {
         ColorTweener colorTweener = this.GetComponentInChildren<ColorTweener>();

@@ -9,6 +9,7 @@ public class BaseMonster : BaseCreature
     [HideInInspector] public int counterCount = 0;
     public List<BattleCombo> counterCombos;
     List<KeyCode> pressedKeys = new List<KeyCode>();
+    List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
     int counterComboIndex = 0;
     float comboInterval = .125f;
     int currentComboMatchCount = 0;
@@ -44,10 +45,17 @@ public class BaseMonster : BaseCreature
         canDefend = false;
     }
 
+    string GetTargetAttack()
+    {
+        int targetIndex = defenseCount <= attackTriggers.Count-1 ? defenseCount : attackTriggers.Count - 1;
+
+        return attackTriggers[targetIndex];
+    }
+
     // checks the passed list of combos with an index for targeting the current combo to check
     void CheckCombo(List<BattleCombo> targetComboList, ref int targetComboIndex)
     {
-        print($"defense count:{targetComboIndex}");
+        //print($"defense count:{targetComboIndex}");
 
         if (targetComboIndex >= targetComboList.Count)
         {
@@ -83,6 +91,7 @@ public class BaseMonster : BaseCreature
         {
             targetComboIndex++;
             // defense / counter logic
+            gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
 
             if (canDefend)
             {
@@ -189,8 +198,7 @@ public class BaseMonster : BaseCreature
         {
             //counterStart.Invoke();
             dealDamage.Invoke();
-
-            // TEMP: disable until ready to test
+            print("the trigger DAMAGE METHOD WAS CALLED");
             StartNextAttackCycle();
         }
     }
@@ -200,8 +208,6 @@ public class BaseMonster : BaseCreature
         if(!isDead && !victory)
         {
             startAttack.Invoke();
-            print("MONSTER ATTACKING!");
-            //StartCoroutine(MoveToFamiliar());
         }
     }
 
@@ -213,9 +219,9 @@ public class BaseMonster : BaseCreature
 
     IEnumerator StartNextAttack()
     {
-        gameObject.GetComponent<Animator>()?.SetBool("ATTACK1", false);
-        yield return new WaitForSeconds(2f);
-        gameObject.GetComponent<Animator>()?.SetBool("ATTACK1", true);
+        gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
+        yield return new WaitForSeconds(4f);
+        gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), true);
         StartAttack();
     }
 

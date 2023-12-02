@@ -35,26 +35,6 @@ public class BattleManager : MonoBehaviour
         heroAnimator.SetBool("BATTLE_START", true);
         yield return new WaitForSeconds(.25f);
         heroAnimator.SetBool("BATTLE_START", false);
-        // NOTE: this animation call below isn't needed anymore. Part of walk in intro sequence now
-        //heroAnimator.Play("summon_staff");
-        // **** TEMP: turning off the battle system for animation testing- lines 40-42
-        //yield return new WaitForSeconds(2.5f);
-
-        // NOTE: something in the chain for the battle challenge is listening to this event, I think
-        //startBattle.Invoke();
-        //yield return new WaitForSeconds(.5f);
-
-        // **** END testing disable block
-        //var defenseCombos = monster.GetComponent<BaseMonster>().defenseCombos;
-        //BattleCombo currentCombo = defenseCombos[0];
-        //print($"Molly yells out: {currentCombo.keyCode1} + {currentCombo.keyCode2}");
-        //monster.GetComponent<BaseMonster>().canDefend = true;
-        //yield return new WaitForSeconds(2f);
-        //if(!monster.GetComponent<BaseMonster>().defenseSuccess)
-        //{
-        //    familiarTakeDamage.Invoke();
-        //}
-        //introSequencer.TriggerIntroSequence();
     }
 
 }
