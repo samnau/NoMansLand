@@ -17,11 +17,15 @@ public class BaseCreature : MonoBehaviour
 
     public void TriggerDeath()
     {
-        ColorTweener colorTweener = this.GetComponentInChildren<ColorTweener>();
+        //TEMP: revise this for new animated models
+        //ColorTweener colorTweener = this.GetComponentInChildren<ColorTweener>();
         isDead = true;
         //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         //sprite.color = Color.red;
-        colorTweener.TriggerAlphaSpriteTween(0);
+
+        //TEMP: revise this for new animated models
+        gameObject.SetActive(false);
+        //colorTweener.TriggerAlphaSpriteTween(0);
     }
 
     public void TriggerVictory()
