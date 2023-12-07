@@ -37,7 +37,7 @@ public class RavenSpiderSoundFX : SoundFXPlayer
 
     public void PlayRise()
     {
-        PlayOneShot(rise, .2f);
+        PlayOneShot(rise, .5f);
     }
     public void PlayCrack1()
     {

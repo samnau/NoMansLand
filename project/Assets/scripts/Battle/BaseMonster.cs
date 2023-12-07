@@ -13,6 +13,9 @@ public class BaseMonster : BaseCreature
     int counterComboIndex = 0;
     float comboInterval = .125f;
     int currentComboMatchCount = 0;
+
+    Animator animator;
+
     [SerializeField] GameEvent announceCombo;
     [SerializeField] GameEvent takeDamage;
     [SerializeField] GameEvent dealDamage;
@@ -21,6 +24,8 @@ public class BaseMonster : BaseCreature
     [SerializeField] GameEvent battleChallengeStart;
     [SerializeField] GameEvent counterStart;
     [SerializeField] GameEvent counterSuccess;
+    [SerializeField] GameEvent shakeCamera;
+
 
     public enum Familiars
     { frog, bear, raven, dragon }
@@ -34,6 +39,26 @@ public class BaseMonster : BaseCreature
 
     bool hasRequiredRune = false;
     [SerializeField] GameObject familiar;
+
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
+
+    public void FreezeAnimation()
+    {
+        animator.speed = 0;
+    }
+
+    public void RewindAnimation()
+    {
+        animator.speed = -.75f;
+    }
+
+    public void UnFreezeAnimation()
+    {
+        animator.speed = 1;
+    }
 
     // resets combo key presses after a short interval and disables the ability to defend
     // TODO: should disable ability to counter also 
@@ -91,8 +116,8 @@ public class BaseMonster : BaseCreature
         {
             targetComboIndex++;
             // defense / counter logic
-            gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
-
+            //gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
+            animator?.SetBool(GetTargetAttack(), false);
             if (canDefend)
             {
                 defenseSuccess.Invoke();
@@ -185,6 +210,11 @@ public class BaseMonster : BaseCreature
 
     }
 
+    public void TriggerCameraShake()
+    {
+        shakeCamera.Invoke();
+    }
+
     public void TriggerAnnounceCombo()
     {
         announceCombo.Invoke();
@@ -219,9 +249,13 @@ public class BaseMonster : BaseCreature
 
     IEnumerator StartNextAttack()
     {
-        gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
+        //gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
+        animator?.SetBool(GetTargetAttack(), false);
+
         yield return new WaitForSeconds(4f);
-        gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), true);
+        //gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), true);
+        animator?.SetBool(GetTargetAttack(), true);
+
         StartAttack();
     }
 

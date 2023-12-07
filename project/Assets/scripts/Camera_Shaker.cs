@@ -5,15 +5,15 @@ public class Camera_Shaker : MonoBehaviour
 {
     // Transform of the camera to shake. Grabs the gameObject's transform
     // if null.
-    public Transform camTransform;
+    Transform camTransform;
 
     // How long the object should shake for.
-    public float shakeDuration = 0f;
+    [SerializeField] float shakeDuration = 0f;
 
     // Amplitude of the shake. A larger value shakes the camera harder.
-    public float shakeAmount = 0.7f;
-    public float decreaseFactor = 1.0f;
-
+    [SerializeField] float shakeAmount = 0.7f;
+    [SerializeField] float decreaseFactor = 1.0f;
+    float originalDuration = 0f;
     Vector3 originalPos;
 
     void Awake()
@@ -24,9 +24,19 @@ public class Camera_Shaker : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        originalDuration = shakeDuration;
+    }
+
     void OnEnable()
     {
         originalPos = camTransform.localPosition;
+    }
+
+    public void TriggerShake()
+    {
+        this.enabled = true;
     }
 
     void Update()
@@ -39,7 +49,8 @@ public class Camera_Shaker : MonoBehaviour
         }
         else
         {
-            shakeDuration = 0f;
+            this.enabled = false;
+            shakeDuration = originalDuration;
             camTransform.localPosition = originalPos;
         }
     }
