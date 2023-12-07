@@ -11,6 +11,7 @@ public class BaseFamiliar : BaseCreature
     //bool battleChallengeSuccess = false;
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
+
     SpriteRenderer[] allSprites;
     Color[] defaultColors;
 

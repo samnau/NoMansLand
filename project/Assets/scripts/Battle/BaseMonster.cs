@@ -24,8 +24,6 @@ public class BaseMonster : BaseCreature
     [SerializeField] GameEvent battleChallengeStart;
     [SerializeField] GameEvent counterStart;
     [SerializeField] GameEvent counterSuccess;
-    [SerializeField] GameEvent shakeCamera;
-
 
     public enum Familiars
     { frog, bear, raven, dragon }
@@ -151,6 +149,7 @@ public class BaseMonster : BaseCreature
 
 
     // use collision enter to enable the ability to defend
+    // NOTE: this currently has been moved to animation event based system
     private void OnTriggerEnter2D(Collider2D collision)
     {
         bool isFamiliar = collision.name == familiar.name;
@@ -161,6 +160,8 @@ public class BaseMonster : BaseCreature
     }
 
     // use collision exit to disable the ability to defend
+    // NOTE: this currently has been moved to animation event based system
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         bool isFamiliar = collision.name == familiar.name;
@@ -210,10 +211,6 @@ public class BaseMonster : BaseCreature
 
     }
 
-    public void TriggerCameraShake()
-    {
-        shakeCamera.Invoke();
-    }
 
     public void TriggerAnnounceCombo()
     {

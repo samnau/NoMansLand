@@ -14,7 +14,12 @@ public class BaseCreature : MonoBehaviour
     [HideInInspector] public int defenseComboIndex = 0;
     [HideInInspector] public bool isDead = false;
     [HideInInspector] public bool victory = false;
+    [SerializeField] GameEvent shakeCamera;
 
+    public void TriggerCameraShake()
+    {
+        shakeCamera.Invoke();
+    }
     public void TriggerDeath()
     {
         //TEMP: revise this for new animated models
