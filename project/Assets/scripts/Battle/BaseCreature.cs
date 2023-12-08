@@ -16,6 +16,9 @@ public class BaseCreature : MonoBehaviour
     [HideInInspector] public bool victory = false;
     [SerializeField] GameEvent shakeCamera;
 
+    // NOTE: for demo only, remove later
+    [SerializeField] GameObject creatureShadow;
+
     public void TriggerCameraShake()
     {
         shakeCamera.Invoke();
@@ -28,8 +31,16 @@ public class BaseCreature : MonoBehaviour
         //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         //sprite.color = Color.red;
 
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+
+        foreach(SpriteRenderer sprite in sprites)
+        {
+            sprite.color = Color.clear;
+        }
+        // NOTE: for demo only, remove later
+        creatureShadow.SetActive(false);
         //TEMP: revise this for new animated models
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         //colorTweener.TriggerAlphaSpriteTween(0);
     }
 

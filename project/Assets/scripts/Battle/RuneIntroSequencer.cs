@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RuneIntroSequencer : MonoBehaviour
 {
+    [SerializeField] GameObject backgroundShade;
     [SerializeField]
     GameObject outerRing;
     [SerializeField]
@@ -90,6 +91,8 @@ public class RuneIntroSequencer : MonoBehaviour
     IEnumerator RuneRingIntroSequence()
     {
         yield return new WaitForSeconds(.5f);
+
+        backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
 
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
@@ -238,7 +241,11 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(runeDelay);
 
         powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
-        if(radarSweeperTargetController.failure)
+
+        backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+
+
+        if (radarSweeperTargetController.failure)
         {
             StartCoroutine(RuneFailureSequence());
         } else if (radarSweeperTargetController.success)
