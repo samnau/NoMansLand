@@ -80,7 +80,7 @@ public class BaseFamiliar : BaseCreature
     IEnumerator TriggerAttackSequence()
     {
         animator?.SetBool(GetTargetAttack(), true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         animator?.SetBool(GetTargetAttack(), false);
     }
 
