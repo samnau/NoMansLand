@@ -11,6 +11,8 @@ public class BaseFamiliar : BaseCreature
     //bool battleChallengeSuccess = false;
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
+    //List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
+    Animator animator;
 
     SpriteRenderer[] allSprites;
     Color[] defaultColors;
@@ -69,6 +71,19 @@ public class BaseFamiliar : BaseCreature
             allSprites[i].color = newColor;
         }
     }
+
+    public void TriggerAttack()
+    {
+        StartCoroutine(TriggerAttackSequence());
+    }
+
+    IEnumerator TriggerAttackSequence()
+    {
+        animator?.SetBool(GetTargetAttack(), true);
+        yield return new WaitForSeconds(1f);
+        animator?.SetBool(GetTargetAttack(), false);
+    }
+
     public void HideFamiliar()
     {
         print("hide the familiar");
@@ -101,6 +116,8 @@ public class BaseFamiliar : BaseCreature
     {
         allSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
         defaultColors = new Color[allSprites.Length];
+        animator = gameObject.GetComponent<Animator>();
+
         for (int i = 0; i < allSprites.Length; i++)
         {
             defaultColors[i] = allSprites[i].color;

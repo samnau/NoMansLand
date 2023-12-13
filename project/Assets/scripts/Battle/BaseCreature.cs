@@ -15,6 +15,10 @@ public class BaseCreature : MonoBehaviour
     [HideInInspector] public bool isDead = false;
     [HideInInspector] public bool victory = false;
     [SerializeField] GameEvent shakeCamera;
+    protected List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
+
+    [SerializeField] protected GameEvent completeAttack;
+
 
     // NOTE: for demo only, remove later
     [SerializeField] GameObject creatureShadow;
@@ -22,6 +26,13 @@ public class BaseCreature : MonoBehaviour
     public void TriggerCameraShake()
     {
         shakeCamera.Invoke();
+    }
+
+    protected string GetTargetAttack()
+    {
+        int targetIndex = defenseCount <= attackTriggers.Count - 1 ? defenseCount : attackTriggers.Count - 1;
+
+        return attackTriggers[targetIndex];
     }
     public void TriggerDeath()
     {
@@ -50,5 +61,10 @@ public class BaseCreature : MonoBehaviour
         print($"{this.name} wins!");
         //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         //sprite.color = Color.blue;
+    }
+
+    public void TriggerCompleteAttack()
+    {
+        completeAttack.Invoke();
     }
 }

@@ -9,7 +9,7 @@ public class BaseMonster : BaseCreature
     [HideInInspector] public int counterCount = 0;
     public List<BattleCombo> counterCombos;
     List<KeyCode> pressedKeys = new List<KeyCode>();
-    List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
+    //List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
     int counterComboIndex = 0;
     float comboInterval = .125f;
     int currentComboMatchCount = 0;
@@ -68,12 +68,12 @@ public class BaseMonster : BaseCreature
         canDefend = false;
     }
 
-    string GetTargetAttack()
-    {
-        int targetIndex = defenseCount <= attackTriggers.Count-1 ? defenseCount : attackTriggers.Count - 1;
+    //string GetTargetAttack()
+    //{
+    //    int targetIndex = defenseCount <= attackTriggers.Count-1 ? defenseCount : attackTriggers.Count - 1;
 
-        return attackTriggers[targetIndex];
-    }
+    //    return attackTriggers[targetIndex];
+    //}
 
     // checks the passed list of combos with an index for targeting the current combo to check
     void CheckCombo(List<BattleCombo> targetComboList, ref int targetComboIndex)
@@ -246,11 +246,9 @@ public class BaseMonster : BaseCreature
 
     IEnumerator StartNextAttack()
     {
-        //gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), false);
         animator?.SetBool(GetTargetAttack(), false);
 
         yield return new WaitForSeconds(4f);
-        //gameObject.GetComponent<Animator>()?.SetBool(GetTargetAttack(), true);
         animator?.SetBool(GetTargetAttack(), true);
 
         StartAttack();
