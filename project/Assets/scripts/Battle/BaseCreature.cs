@@ -18,11 +18,24 @@ public class BaseCreature : MonoBehaviour
     protected List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
 
     [SerializeField] protected GameEvent completeAttack;
+    [SerializeField] protected GameEvent dealDamage;
 
 
     // NOTE: for demo only, remove later
     [SerializeField] GameObject creatureShadow;
 
+    // Methods to visually show the damage state with animation triggers
+    public void ShowDamage()
+    {
+        this.GetComponent<Animator>().SetBool("DAMAGE", true);
+        StartCoroutine(HideDamage());
+    }
+
+    IEnumerator HideDamage()
+    {
+        yield return new WaitForSeconds(.35f);
+        this.GetComponent<Animator>().SetBool("DAMAGE", false);
+    }
     public void TriggerCameraShake()
     {
         shakeCamera.Invoke();
@@ -33,6 +46,11 @@ public class BaseCreature : MonoBehaviour
         int targetIndex = defenseCount <= attackTriggers.Count - 1 ? defenseCount : attackTriggers.Count - 1;
 
         return attackTriggers[targetIndex];
+    }
+
+    public void DealDamage()
+    {
+        dealDamage.Invoke();
     }
     public void TriggerDeath()
     {
@@ -50,9 +68,7 @@ public class BaseCreature : MonoBehaviour
         }
         // NOTE: for demo only, remove later
         creatureShadow.SetActive(false);
-        //TEMP: revise this for new animated models
-        //gameObject.SetActive(false);
-        //colorTweener.TriggerAlphaSpriteTween(0);
+
     }
 
     public void TriggerVictory()

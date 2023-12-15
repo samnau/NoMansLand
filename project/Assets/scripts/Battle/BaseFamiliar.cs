@@ -11,40 +11,39 @@ public class BaseFamiliar : BaseCreature
     //bool battleChallengeSuccess = false;
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
-    //List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
     Animator animator;
 
     SpriteRenderer[] allSprites;
     Color[] defaultColors;
 
-    public void ShowDamage()
-    {
-        StartCoroutine(DamageShake());
-    }
+    //public void ShowDamage()
+    //{
+    //    StartCoroutine(DamageShake());
+    //}
 
-    IEnumerator DamageShake()
-    {
-        yield return new WaitForSeconds(.25f);
+    //IEnumerator DamageShake()
+    //{
+    //    yield return new WaitForSeconds(.25f);
 
-        float shakeDelay = .05f;
-        float flucation = .5f;
-        Vector3 origin = transform.position;
-        Vector3 leftPos = new Vector3(origin.x + flucation, origin.y, origin.z);
-        Vector3 rightPos = new Vector3(origin.x - flucation, origin.y, origin.z);
-        SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-        sprite.color = Color.red;
+    //    float shakeDelay = .05f;
+    //    float flucation = .5f;
+    //    Vector3 origin = transform.position;
+    //    Vector3 leftPos = new Vector3(origin.x + flucation, origin.y, origin.z);
+    //    Vector3 rightPos = new Vector3(origin.x - flucation, origin.y, origin.z);
+    //    SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
+    //    sprite.color = Color.red;
 
-        transform.position = leftPos;
-        yield return new WaitForSeconds(shakeDelay);
-        transform.position = rightPos;
-        yield return new WaitForSeconds(shakeDelay);
-        transform.position = leftPos;
-        yield return new WaitForSeconds(shakeDelay);
-        transform.position = rightPos;
-        yield return new WaitForSeconds(shakeDelay);
-        transform.position = origin;
-        sprite.color = Color.white;
-    }
+    //    transform.position = leftPos;
+    //    yield return new WaitForSeconds(shakeDelay);
+    //    transform.position = rightPos;
+    //    yield return new WaitForSeconds(shakeDelay);
+    //    transform.position = leftPos;
+    //    yield return new WaitForSeconds(shakeDelay);
+    //    transform.position = rightPos;
+    //    yield return new WaitForSeconds(shakeDelay);
+    //    transform.position = origin;
+    //    sprite.color = Color.white;
+    //}
     // TODO: need array of alphas to account for colors with transparency - see white sprite setter
     void ToggleSprites(bool hideSprites = true)
     {
@@ -74,7 +73,13 @@ public class BaseFamiliar : BaseCreature
 
     public void TriggerAttack()
     {
-        StartCoroutine(TriggerAttackSequence());
+        animator?.SetBool(GetTargetAttack(), true);
+        //StartCoroutine(TriggerAttackSequence());
+    }
+
+    public void DisableAttack()
+    {
+        animator?.SetBool(GetTargetAttack(), false);
     }
 
     IEnumerator TriggerAttackSequence()
