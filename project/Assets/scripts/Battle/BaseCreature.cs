@@ -15,7 +15,7 @@ public class BaseCreature : MonoBehaviour
     [HideInInspector] public bool isDead = false;
     [HideInInspector] public bool victory = false;
     [SerializeField] GameEvent shakeCamera;
-    protected List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
+    protected List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK2", "ATTACK1" };
 
     [SerializeField] protected GameEvent completeAttack;
     [SerializeField] protected GameEvent dealDamage;
