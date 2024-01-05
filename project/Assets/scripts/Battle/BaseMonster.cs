@@ -57,6 +57,30 @@ public class BaseMonster : BaseCreature
         animator.speed = 1;
     }
 
+    public void TriggerAnimationPause(float pauseDuration = .25f)
+    {
+        StartCoroutine(PauseAnimation(pauseDuration));
+    }
+
+    public void TriggerSpeedChange(float targetSpeed = 1f)
+    {
+        StartCoroutine(AlterAnimationSpeed(targetSpeed));
+    }
+
+    IEnumerator PauseAnimation(float pauseDuration = .25f)
+    {
+        animator.speed = 0;
+        yield return new WaitForSeconds(pauseDuration);
+        animator.speed = 1f;
+    }
+
+    IEnumerator AlterAnimationSpeed(float targetSpeed = 1f, float duration = .75f)
+    {
+        animator.speed = targetSpeed;
+        yield return new WaitForSeconds(duration);
+        animator.speed = 1f;
+    }
+
     // resets combo key presses after a short interval and disables the ability to defend
     IEnumerator ComboIntervalReset()
     {
@@ -102,7 +126,10 @@ public class BaseMonster : BaseCreature
         {
             targetComboIndex++;
 
-            animator?.SetBool(GetTargetAttack(), false);
+            foreach(string attckTrigger in attackTriggers)
+            {
+                animator?.SetBool(attckTrigger, false);
+            }
             if (canDefend)
             {
                 defenseSuccess.Invoke();
@@ -113,61 +140,6 @@ public class BaseMonster : BaseCreature
         }
 
     }
-
-    // TEMP: to test basic collistion functionality. might become a real method with new name
-    //IEnumerator MoveToFamiliar()
-    //{
-    //    Vector3 originalPosition = transform.position;
-    //    PositionTweener positionTweener = gameObject.GetComponent<PositionTweener>();
-    //    Vector3 targetPosition = familiar.transform.position;
-    //    Vector3 currentPos = this.transform.position;
-    //    var upValue = currentPos.y + 10f;
-    //    Vector3 upPosition = new Vector3(currentPos.x, upValue, currentPos.z);
-    //    positionTweener.TriggerPosition(upPosition, 18f);
-    //    yield return new WaitForSeconds(.5f);
-    //    Vector3 overPosition = new Vector3(targetPosition.x, upValue, currentPos.z);
-    //    positionTweener.TriggerPosition(overPosition, 18f);
-    //    yield return new WaitForSeconds(.5f);
-
-    //    positionTweener.TriggerPosition(targetPosition, 18f);
-    //    yield return new WaitForSeconds(1.0f);
-    //    positionTweener.TriggerPosition(originalPosition, 18f);
-    //}
-
-    // NOTE: evaluate removal of old damage methods below
-    //public void ShowDamage()
-    //{
-    //    StartCoroutine(DamageShake());
-    //}
-
-    //IEnumerator DamageShake()
-    //{
-    //    float shakeDelay = .05f;
-    //    float flucation = .5f;
-    //    Quaternion startRotation = transform.rotation;
-    //    Quaternion damageRotation = Quaternion.Euler(0, 0, -15f);
-    //    Vector3 origin = transform.position;
-    //    Vector3 leftPos = new Vector3(origin.x + flucation, origin.y, origin.z);
-    //    Vector3 rightPos = new Vector3(origin.x - flucation, origin.y, origin.z);
-
-    //    SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-    //    sprite.color = Color.red;
-
-    //    transform.rotation = damageRotation;
-
-    //    transform.position = leftPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = rightPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = leftPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = rightPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = origin;
-    //    transform.rotation = startRotation;
-    //    sprite.color = Color.white;
-
-    //}
 
 
     public void TriggerAnnounceCombo()
