@@ -41,6 +41,7 @@ public class RuneIntroSequencer : MonoBehaviour
     public bool winTrigger = false;
     [HideInInspector]
     public bool exitAnimationStarted = false;
+    public bool inputActive = false;
 
     float defaultGlow = 7f;
     float defaultGlowSpeed = 3f;
@@ -135,6 +136,9 @@ public class RuneIntroSequencer : MonoBehaviour
         radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
 
 
+        // enable battle challenge input;
+        inputActive = true;
+
         StartCoroutine(RuneCountDown());
 
         for (float timer = radarSweeperTargetController.timeLimit; timer >= 0; timer -= Time.deltaTime)
@@ -201,6 +205,8 @@ public class RuneIntroSequencer : MonoBehaviour
     IEnumerator RuneRingExitSequence()
     {
         exitAnimationStarted = true;
+        // disabable battle challenge input;
+        inputActive = false;
 
         // start the pointer spinning as it fades out
         pointerDot.GetComponent<RotationTweener>().TriggerContinuousRotation(400f);

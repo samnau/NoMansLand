@@ -282,7 +282,7 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && !runeIntroSequencer.exitAnimationStarted)
+        if(Input.GetKeyDown(KeyCode.Space) && !runeIntroSequencer.exitAnimationStarted && runeIntroSequencer.inputActive)
         {
             if(hitActive)
             {

@@ -20,7 +20,7 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip gag2;
     [SerializeField] AudioClip gag3;
 
-    float gagVolume = .4f;
+    float gagVolume = .8f;
 
     public void PlayRustle()
     {
