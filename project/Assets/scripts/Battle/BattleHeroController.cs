@@ -18,6 +18,18 @@ public class BattleHeroController : MonoBehaviour
         heroProfile?.GetComponent<Animator>().SetBool("WALK_IN", false);
 
     }
+
+    IEnumerator TriggerFear()
+    {
+        heroProfileAnimator.SetBool("AFRAID", true);
+        yield return new WaitForSeconds(.1f);
+        heroProfileAnimator.SetBool("AFRAID", false);
+    }
+
+    public void ShowFear()
+    {
+        StartCoroutine("TriggerFear");
+    }
     public void SceneWalkIn()
     {
         heroProfileAnimator.SetBool("WALK_IN", true);

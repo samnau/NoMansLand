@@ -21,6 +21,18 @@ public class ProfileAnimationStateManager : MonoBehaviour
         animator.SetBool(targetState, !currentActiveState);
     }
 
+    public void TempTriggerAnimationState(string targetState = "IDLE")
+    {
+        StartCoroutine(TempAnimationState(targetState));
+    }
+
+    IEnumerator TempAnimationState(string targetState = "IDLE")
+    {
+        ActivateAnimationState(targetState);
+        yield return new WaitForSeconds(.1f);
+        DeactivateAnimationState(targetState);
+    }
+
     public void ActivateAnimationState(string targetState = "IDLE")
     {
         animator.SetBool(targetState, true);

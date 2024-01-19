@@ -24,6 +24,28 @@ public class AnimationStateTrigger : MonoBehaviour {
         StartCoroutine("ResetState");
     }
 
+    public void TempTriggerAnimationState(string targetState = "IDLE")
+    {
+        StartCoroutine(TempAnimationState(targetState));
+    }
+
+    IEnumerator TempAnimationState(string targetState = "IDLE")
+    {
+        ActivateAnimationState(targetState);
+        yield return new WaitForSeconds(.1f);
+        DeactivateAnimationState(targetState);
+    }
+
+    public void ActivateAnimationState(string targetState = "IDLE")
+    {
+        CurrentAnimator.SetBool(targetState, true);
+    }
+
+    public void DeactivateAnimationState(string targetState = "IDLE")
+    {
+        CurrentAnimator.SetBool(targetState, false);
+    }
+
     IEnumerator ResetState()
     {
         yield return new WaitForSeconds(1.5f);
