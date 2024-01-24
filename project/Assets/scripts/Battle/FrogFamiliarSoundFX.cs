@@ -11,6 +11,7 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     [SerializeField] AudioClip slam;
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip stretch;
+    [SerializeField] AudioClip shatter;
 
 
 
@@ -38,6 +39,12 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     {
         PlayOneShot(slam);
     }
+
+    public void PlayShatter()
+    {
+        PlayOneShot(shatter);
+    }
+
     public void PlayCrash()
     {
         PlayOneShot(crash,.6f);

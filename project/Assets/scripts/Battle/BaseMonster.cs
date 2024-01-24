@@ -156,6 +156,7 @@ public class BaseMonster : BaseCreature
             // Call the base class damage event invoker method
             DealDamage();
             StartNextAttackCycle();
+            print("monster damage triggered");
         }
     }
 
@@ -171,6 +172,7 @@ public class BaseMonster : BaseCreature
     {
         canCounter = false;
         StartCoroutine(StartNextAttack());
+        print("next attack started");
     }
 
     IEnumerator StartNextAttack()

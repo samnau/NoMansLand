@@ -16,34 +16,6 @@ public class BaseFamiliar : BaseCreature
     SpriteRenderer[] allSprites;
     Color[] defaultColors;
 
-    //public void ShowDamage()
-    //{
-    //    StartCoroutine(DamageShake());
-    //}
-
-    //IEnumerator DamageShake()
-    //{
-    //    yield return new WaitForSeconds(.25f);
-
-    //    float shakeDelay = .05f;
-    //    float flucation = .5f;
-    //    Vector3 origin = transform.position;
-    //    Vector3 leftPos = new Vector3(origin.x + flucation, origin.y, origin.z);
-    //    Vector3 rightPos = new Vector3(origin.x - flucation, origin.y, origin.z);
-    //    SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-    //    sprite.color = Color.red;
-
-    //    transform.position = leftPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = rightPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = leftPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = rightPos;
-    //    yield return new WaitForSeconds(shakeDelay);
-    //    transform.position = origin;
-    //    sprite.color = Color.white;
-    //}
     // TODO: need array of alphas to account for colors with transparency - see white sprite setter
     void ToggleSprites(bool hideSprites = true)
     {
@@ -73,8 +45,10 @@ public class BaseFamiliar : BaseCreature
 
     public void TriggerAttack()
     {
-        animator?.SetBool(GetTargetAttack(), true);
-        //StartCoroutine(TriggerAttackSequence());
+        //animator?.SetBool(GetTargetAttack(), true);
+        //print($"familiar attack trigger index:{defenseCount}");
+        //print(GetTargetAttack());
+        StartCoroutine(TriggerAttackSequence());
     }
 
     public void DisableAttack()
@@ -85,13 +59,13 @@ public class BaseFamiliar : BaseCreature
     IEnumerator TriggerAttackSequence()
     {
         animator?.SetBool(GetTargetAttack(), true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(.5f);
         animator?.SetBool(GetTargetAttack(), false);
+        IncreaseDefenseCount();
     }
 
     public void HideFamiliar()
     {
-        print("hide the familiar");
         ToggleSprites(true);
     }
 
@@ -116,7 +90,11 @@ public class BaseFamiliar : BaseCreature
         sortingGroup.sortingOrder = 0;
     }
 
-    // Start is called before the first frame update
+    public void IncreaseDefenseCount()
+    {
+        defenseCount++;
+    }
+
     void Start()
     {
         allSprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
