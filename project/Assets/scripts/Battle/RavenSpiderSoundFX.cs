@@ -19,8 +19,10 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip gag1;
     [SerializeField] AudioClip gag2;
     [SerializeField] AudioClip gag3;
+    [SerializeField] AudioClip death;
 
-    float gagVolume = .8f;
+
+    float gagVolume = .2f;
 
     public void PlayRustle()
     {
@@ -87,6 +89,11 @@ public class RavenSpiderSoundFX : SoundFXPlayer
 
     public void PlayGag3()
     {
-        PlayOneShot(gag3, .6f);
+        PlayOneShot(gag3, gagVolume);
+    }
+
+    public void PlayDeath()
+    {
+        PlayOneShot(death);
     }
 }

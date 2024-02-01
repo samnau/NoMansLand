@@ -57,17 +57,19 @@ public class BaseCreature : MonoBehaviour
         //TEMP: revise this for new animated models
         //ColorTweener colorTweener = this.GetComponentInChildren<ColorTweener>();
         isDead = true;
+        Animator animator = this.GetComponent<Animator>();
+        animator?.SetBool("DEATH", true);
         //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
         //sprite.color = Color.red;
 
-        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        //SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
 
-        foreach(SpriteRenderer sprite in sprites)
-        {
-            sprite.color = Color.clear;
-        }
+        //foreach(SpriteRenderer sprite in sprites)
+        //{
+        //    sprite.color = Color.clear;
+        //}
         // NOTE: for demo only, remove later
-        creatureShadow.SetActive(false);
+        //creatureShadow.SetActive(false);
 
     }
 

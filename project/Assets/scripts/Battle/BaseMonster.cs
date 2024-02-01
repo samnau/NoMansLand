@@ -162,7 +162,7 @@ public class BaseMonster : BaseCreature
 
     public void StartAttack()
     {
-        if(!isDead && !victory)
+        if(!isDead || !victory)
         {
             startAttack.Invoke();
         }
@@ -172,14 +172,16 @@ public class BaseMonster : BaseCreature
     {
         canCounter = false;
         StartCoroutine(StartNextAttack());
-        print("next attack started");
     }
 
     IEnumerator StartNextAttack()
     {
         animator?.SetBool(GetTargetAttack(), false);
-
-        yield return new WaitForSeconds(4f);
+        if (isDead || victory)
+        {
+            yield break;
+        }
+        yield return new WaitForSeconds(1f);
         animator?.SetBool(GetTargetAttack(), true);
 
         StartAttack();

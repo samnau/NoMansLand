@@ -12,8 +12,7 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     [SerializeField] AudioClip crash;
     [SerializeField] AudioClip stretch;
     [SerializeField] AudioClip shatter;
-
-
+    [SerializeField] AudioClip groan;
 
     List<AudioClip> croakList;
 
@@ -43,6 +42,11 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     public void PlayShatter()
     {
         PlayOneShot(shatter);
+    }
+
+    public void PlayGroan()
+    {
+        PlayOneShot(groan, .3f);
     }
 
     public void PlayCrash()
