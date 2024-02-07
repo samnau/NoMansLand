@@ -73,6 +73,15 @@ public class BaseCreature : MonoBehaviour
 
     }
 
+    public void HideCreature ()
+    {
+        SpriteRenderer[] sprites = gameObject.GetComponentsInChildren<SpriteRenderer>();
+        foreach(SpriteRenderer sprite in sprites)
+        {
+            sprite.enabled = false;
+        }
+    }
+
     public void TriggerVictory()
     {
         victory = true;

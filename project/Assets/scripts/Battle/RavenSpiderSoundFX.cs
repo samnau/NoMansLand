@@ -19,6 +19,9 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip gag1;
     [SerializeField] AudioClip gag2;
     [SerializeField] AudioClip gag3;
+    [SerializeField] AudioClip boom;
+    [SerializeField] AudioClip energyBuildup;
+    [SerializeField] AudioClip laser1;
     [SerializeField] AudioClip death;
 
 
@@ -95,5 +98,20 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     public void PlayDeath()
     {
         PlayOneShot(death);
+    }
+
+    public void PlayBoom()
+    {
+        PlayOneShot(boom, .6f);
+    }
+
+    public void PlayEnergyBuildup()
+    {
+        PlayOneShot(energyBuildup);
+    }
+
+    public void PlayLaser1()
+    {
+        PlayOneShot(laser1);
     }
 }
