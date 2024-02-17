@@ -8,6 +8,8 @@ public class RavenSpiderController : MonoBehaviour
     [SerializeField] GameEvent introStart;
     [SerializeField] GameEvent familiarSummonStart;
     [SerializeField] GameEvent startBattle;
+    [SerializeField] GameEvent showFamiliar;
+
     PositionTweener positionTweener;
     int loopCount = 0;
     bool hasRoared = false;
@@ -64,6 +66,13 @@ public class RavenSpiderController : MonoBehaviour
     {
         familiarSummonStart?.Invoke();
     }
+
+    public void StartFamiliarShow()
+    {
+        showFamiliar?.Invoke();
+    }
+
+    //NOTE: this triggers the battle intro
     public void StartIntro()
     {
         if(!introStarted)

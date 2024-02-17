@@ -43,9 +43,9 @@ public class BattleHeroController : MonoBehaviour
     {
         //print("Defend with the combo!");
         UpdateCombo();
-        print($"Molly yells out: {currentCombo.keyCode1} + {currentCombo.keyCode2}");
+        //print($"Molly yells out: {currentCombo.keyCode1} + {currentCombo.keyCode2}");
     }
-    // Start is called before the first frame update
+    // NOTE: this is where the battle intro sequence is triggered
     void Start()
     {
         baseMonster = FindObjectOfType<BaseMonster>();

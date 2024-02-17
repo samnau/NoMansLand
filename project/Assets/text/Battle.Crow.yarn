@@ -30,18 +30,34 @@ Then let us hope it is the familiar we need.
 <<SetSpeakerName Molly>>
 I don't know about this...
 
-[[Win]]
 ===
 title: Win
 tags: 
 colorID: 0
 position: 263,417
 ---
-(Meena calls out, closer now.)
-<<SetSpeaker Meena surprise frown>>
-I SAID, get back here!!
-<<SetSpeaker Molly surprise surprise>>
-Oh no, oh no, oh no.
-[[Molly.Intro3]]
+<<SetExpression surprise surprise>>
+Wait...what??
+What just happened?
+<<SetSpeakerName King's-Ghost>>
+This is the true form of the forest familiar, To'leti.
+<<SetExpression surprise annoyed>>
+<<SetSpeakerName Molly>>
+Tow-let-ee?
+But where did the monster go?
+<<SetSpeakerName King's-Ghost>>
+The unfamiliar was To'leti.
+It had been corrupted...by...
+...
+<<SetExpression idle annoyed>>
+<<SetSpeakerName Molly>>
+Corrupted?
+By what?
+<<SetSpeakerName King's-Ghost>>
+...
+...
+For some reason I cannot remember.
+<<SetSpeakerName Molly>>
+Hmm.
 ===
 

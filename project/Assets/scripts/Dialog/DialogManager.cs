@@ -8,8 +8,6 @@ using Yarn.Unity;
 
 public class DialogManager : MonoBehaviour
 {
-    // NOTE: this field may be unused 
-    //[SerializeField] Image speakerPortrait;
     [SerializeField] Text text_dialog, text_speakerName;
     GameObject dialogWrapper;
     GameObject player;
@@ -134,6 +132,7 @@ public class DialogManager : MonoBehaviour
     }
     public void BeginDialog()
     {
+        print($"targetText= {targetText}");
         dialogActive = true;
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
