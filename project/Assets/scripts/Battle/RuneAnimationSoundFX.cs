@@ -26,6 +26,10 @@ public class RuneAnimationSoundFX : SoundFXPlayer
     [SerializeField]
     AudioClip countdown3;
 
+    [SerializeField]
+    AudioClip hitSuccess;
+
+
     float orbitRingVolume = 0.1f;
 
     public void PlayRingAppears()
@@ -59,6 +63,10 @@ public class RuneAnimationSoundFX : SoundFXPlayer
     public void PlayCountDown()
     {
         StartCoroutine(PlayCountDownSequence(1f));
+    }
+    public void PlayHitSuccess()
+    {
+        PlayOneShot(hitSuccess, .2f);
     }
 
     IEnumerator PlayCountDownSequence(float interval)

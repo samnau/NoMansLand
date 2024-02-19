@@ -42,6 +42,11 @@ public class RadarSweeperTargetController : BattleChallenge
 
     bool hitInerruption = false;
     bool stopRotation = false;
+    bool hitAttempted = false;
+
+    int hitAttamptCount = 0;
+
+    [SerializeField] GameEvent cameraShake;
 
     RuneAnimationSoundFX runeAnimationSoundFX;
 
@@ -79,6 +84,7 @@ public class RadarSweeperTargetController : BattleChallenge
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        hitAttamptCount = 0;
         if (collision.gameObject.name == battleTrigger.name)
         {
             hitActive = true;
@@ -98,6 +104,7 @@ public class RadarSweeperTargetController : BattleChallenge
         if (collision.gameObject.name == battleTrigger.name)
         {
             hitActive = false;
+            hitAttempted = false;
         }
         if (collision.CompareTag("BattleTrigger"))
         {
@@ -173,7 +180,7 @@ public class RadarSweeperTargetController : BattleChallenge
             print("normal rotation coroutine end");
             StartCoroutine(SetRotation());
         }
-
+        // TODO: revisit this logic for faster switching to next rune highlight
         //if (hitCount == 1)
         //{
         //    yield return new WaitForSeconds(triggerTimeLimit / delayModifier);
@@ -195,6 +202,16 @@ public class RadarSweeperTargetController : BattleChallenge
     {
         transform.Rotate(0, 0, 45f);
         StopAllCoroutines();
+    }
+
+    void ShowHitSuccess()
+    {
+        hitAttamptCount++;
+        if(hitAttamptCount <2)
+        {
+            print("BOOM, rune hit!");
+            runeAnimationSoundFX.PlayHitSuccess();
+        }
     }
 
     void RevealOrbitRing()
@@ -269,7 +286,6 @@ public class RadarSweeperTargetController : BattleChallenge
         yield return new WaitForSeconds(timeLimit);
         if (hitCount < hitSuccessLimit)
         {
-            print("YOU FAILED...");
             failure = true;
         }
     }
@@ -291,6 +307,7 @@ public class RadarSweeperTargetController : BattleChallenge
                     hitCount++;
                     RevealOrbitRing();
                     hitInerruption = true;
+                    ShowHitSuccess();
                     //ResetHightLight();
                 }
 

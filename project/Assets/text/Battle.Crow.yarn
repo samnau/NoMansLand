@@ -39,9 +39,9 @@ position: 263,417
 <<SetExpression surprise surprise>>
 Wait...what??
 What just happened?
+<<SetExpression surprise annoyed>>
 <<SetSpeakerName King's-Ghost>>
 This is the true form of the forest familiar, To'leti.
-<<SetExpression surprise annoyed>>
 <<SetSpeakerName Molly>>
 Tow-let-ee?
 But where did the monster go?
