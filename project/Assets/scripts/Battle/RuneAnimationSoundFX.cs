@@ -66,7 +66,7 @@ public class RuneAnimationSoundFX : SoundFXPlayer
     }
     public void PlayHitSuccess()
     {
-        PlayOneShot(hitSuccess, .2f);
+        PlayOneShot(hitSuccess, .8f);
     }
 
     IEnumerator PlayCountDownSequence(float interval)
