@@ -19,18 +19,6 @@ public class BaseFamiliar : BaseCreature
     // TODO: need array of alphas to account for colors with transparency - see white sprite setter
     void ToggleSprites(bool hideSprites = true)
     {
-        //float newAlpha = hideSprites ? 0f : 255f;
-        //foreach (SpriteRenderer sprite in allSprites)
-        //{
-        //    var newColor = sprite.color;
-        //    newColor.a = newAlpha;
-        //    if(!hideSprites)
-        //    {
-        //        defaultColors(sprite);
-        //    }
-        //    sprite.color = newColor;
-        //}
-
         for (int i = 0; i < allSprites.Length; i++)
         {
             var newColor = allSprites[i].color;
