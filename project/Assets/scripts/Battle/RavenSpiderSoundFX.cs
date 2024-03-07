@@ -13,9 +13,12 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip hum;
     [SerializeField] AudioClip clickClack;
     [SerializeField] AudioClip singleClack;
+    [SerializeField] AudioClip skewer;
     [SerializeField] AudioClip stab;
     [SerializeField] AudioClip rise;
     [SerializeField] AudioClip tongueStab;
+    [SerializeField] AudioClip screamStab;
+    [SerializeField] AudioClip rockRumble;
     [SerializeField] AudioClip gag1;
     [SerializeField] AudioClip gag2;
     [SerializeField] AudioClip gag3;
@@ -32,14 +35,29 @@ public class RavenSpiderSoundFX : SoundFXPlayer
         PlayOneShot(rustle, .2f);
     }
 
+    public void PlayRockRumble()
+    {
+        PlayOneShot(rockRumble, .7f);
+    }
+
     public void PlayTongueStab()
     {
         PlayOneShot(tongueStab);
     }
 
+    public void PlayScreamStab()
+    {
+        PlayOneShot(screamStab);
+    }
+
     public void PlayStab()
     {
         PlayOneShot(stab);
+    }
+
+    public void PlaySkewer()
+    {
+        PlayOneShot(skewer, .75f);
     }
 
     public void PlayCrash()

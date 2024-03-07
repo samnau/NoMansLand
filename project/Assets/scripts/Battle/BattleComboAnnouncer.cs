@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Rendering;
 
 public class BattleComboAnnouncer : MonoBehaviour
 {
@@ -17,20 +18,12 @@ public class BattleComboAnnouncer : MonoBehaviour
     public void AnnounceCombo()
     {
         UpdateCombo();
-        string comboString = $"{currentCombo.keyCode1} + {currentCombo.keyCode2}!";
-        if(comboText)
-        {
-            comboText.text = comboString;
-        }
-        //NOTE: everything above this might be unneeded
         StartCoroutine(ShowBattleCommand());
     }
 
     IEnumerator ShowBattleCommand()
     {
-        print("ShowBatCommand");
         float targetRotation;
-
         if (arrowDirections.TryGetValue(currentCombo.keyCode1, out targetRotation))
         {
             battleCommandArrow.transform.rotation = Quaternion.Euler(0, 0, targetRotation);

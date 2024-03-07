@@ -15,7 +15,7 @@ public class BaseCreature : MonoBehaviour
     [HideInInspector] public bool isDead = false;
     [HideInInspector] public bool victory = false;
     [SerializeField] GameEvent shakeCamera;
-    protected List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK2", "ATTACK2" };
+    protected List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK2", "ATTACK3" };
 
     [SerializeField] protected GameEvent completeAttack;
     [SerializeField] protected GameEvent dealDamage;
@@ -44,7 +44,8 @@ public class BaseCreature : MonoBehaviour
     protected string GetTargetAttack()
     {
         int targetIndex = defenseCount <= attackTriggers.Count - 1 ? defenseCount : attackTriggers.Count - 1;
-
+        // NOTE: revsit string template attack targeting later
+        //return $"ATTACK{defenseCount+1}";
         return attackTriggers[targetIndex];
     }
 
