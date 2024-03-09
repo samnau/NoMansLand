@@ -102,7 +102,7 @@ public class ColorTweener : BaseTweener
 
         while (elapsed_time < duration)
         {
-            color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+            spriteRenderer.color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
             yield return null;
             elapsed_time += Time.deltaTime;
         }
@@ -112,13 +112,12 @@ public class ColorTweener : BaseTweener
     IEnumerator SetImageColorByDuration(float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
         Color startColor = color;
 
         while (elapsed_time < duration)
         {
-            color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+            image.color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
             yield return null;
             elapsed_time += Time.deltaTime;
         }

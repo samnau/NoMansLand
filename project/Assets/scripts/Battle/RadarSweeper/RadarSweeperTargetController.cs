@@ -92,8 +92,7 @@ public class RadarSweeperTargetController : BattleChallenge
 
         if (collision.CompareTag("BattleTrigger"))
         {
-            //ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
-            //targetTweener.TriggerAlphaImageTween(1f, 10);
+            ResetSuccessHightlight();
             StartCoroutine(HighlightRune(collision.gameObject));
             targetRune = collision.gameObject;
         }
@@ -204,12 +203,47 @@ public class RadarSweeperTargetController : BattleChallenge
         StopAllCoroutines();
     }
 
+    void ResetSuccessHightlight()
+    {
+        foreach (GameObject powerRune in powerRunes)
+        {
+            GameObject targetHighlight = powerRune.transform.GetChild(0).gameObject;
+            ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
+            ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
+            GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
+            colorTweener?.SetImageAlpha(0);
+            scaleTweener?.SetUniformScale(1f);
+            glowTweener?.TriggerGlowByDuration(1f, 0);
+        }
+
+    }
+
+    IEnumerator TriggerSuccessHighlight()
+    {
+        float tweenDuration = .5f;
+        GameObject targetHighlight = targetRune.transform.GetChild(0).gameObject;
+        ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
+        ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
+        GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
+        colorTweener?.TriggerImageAlphaByDuration(.6f, tweenDuration);
+        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration*2);
+        glowTweener?.SetGlowColor(Color.yellow);
+        glowTweener?.TriggerGlowByDuration(5f, tweenDuration);
+        yield return new WaitForSeconds(tweenDuration);
+        glowTweener?.TriggerGlowByDuration(1f, tweenDuration/4);
+        colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration*4);
+        scaleTweener?.TriggerUniformScaleTween(2.25f, tweenDuration * 2);
+        yield return new WaitForSeconds(tweenDuration*2);
+        scaleTweener?.SetUniformScale(1f);
+    }
+
     void ShowHitSuccess()
     {
         hitAttamptCount++;
-        if(hitAttamptCount <2)
+        StartCoroutine(TriggerSuccessHighlight());
+        
+        if (hitAttamptCount <2)
         {
-            print("BOOM, rune hit!");
             runeAnimationSoundFX.PlayHitSuccess();
         }
     }
