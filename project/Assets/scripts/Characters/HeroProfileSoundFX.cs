@@ -6,6 +6,7 @@ public class HeroProfileSoundFX : SoundFXPlayer
 {
     [SerializeField] AudioClip staffSlam;
     [SerializeField] AudioClip staffSummon;
+    [SerializeField] AudioClip rewind;
 
     public void PlayStaffSlam()
     {
@@ -17,4 +18,8 @@ public class HeroProfileSoundFX : SoundFXPlayer
         PlayOneShot(staffSummon, .6f);
     }
 
+    public void PlayRewind()
+    {
+        PlayOneShot(rewind, 1f);
+    }
 }

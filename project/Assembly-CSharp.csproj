@@ -59,6 +59,7 @@
     <Compile Include="Assets\scripts\TextImporter.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationConstraint.cs" />
     <Compile Include="Assets\scripts\Fade_controller1.cs" />
+    <Compile Include="Assets\scripts\Creatures\CrowFamiliarController.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveableEntity.cs" />
     <Compile Include="Assets\scripts\Battle\ChargeBar\ChargeBarController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepConstraint.cs" />
     <Compile Include="Assets\scripts\FamiliarActionManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+    <Compile Include="Assets\scripts\Utility\SpriteToggler.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\ITriangulatable.cs" />
     <Compile Include="Assets\scripts\Battle\BattleCombo.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -295,8 +297,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Creatures\CrowFamiliarController.cs" />
-    <Compile Include="Assets\scripts\Utility\SpriteToggler.cs" />
+    <Compile Include="Assets\scripts\Battle\AnimationFlowController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

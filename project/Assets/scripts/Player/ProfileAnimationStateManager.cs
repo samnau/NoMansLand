@@ -43,6 +43,7 @@ public class ProfileAnimationStateManager : MonoBehaviour
         animator.SetBool(targetState, false);
     }
 
+    // Magic staff gem glows
     public void TriggerBlueGlow()
     {
         TriggerStaffGlow(Color.blue, 10f, 1f, 9f);

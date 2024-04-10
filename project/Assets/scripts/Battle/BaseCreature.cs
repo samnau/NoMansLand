@@ -49,6 +49,22 @@ public class BaseCreature : MonoBehaviour
         return attackTriggers[targetIndex];
     }
 
+    public void ResetAnimationState()
+    {
+        //this.GetComponent<Animator>().SetBool("RESET", true);
+        if(this.GetComponent<Animator>().GetBool("RESET"))
+        {
+            StartCoroutine(DeactivateReset());
+        }
+        //StartCoroutine(DeactivateReset());
+    }
+
+    IEnumerator DeactivateReset()
+    {
+        yield return new WaitForSeconds(.35f);
+        this.GetComponent<Animator>().SetBool("RESET", false);
+    }
+
     public void DealDamage()
     {
         dealDamage.Invoke();
