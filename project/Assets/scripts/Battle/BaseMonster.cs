@@ -42,47 +42,7 @@ public class BaseMonster : BaseCreature
         animator = gameObject.GetComponent<Animator>();
     }
 
-    // NOTE: refactoring this block of animation methods into its own class
-    //public void FreezeAnimation()
-    //{
-    //    animator.speed = 0;
-    //}
 
-    //public void RewindAnimation()
-    //{
-    //    animator.speed = -.75f;
-    //}
-
-    //public void UnFreezeAnimation()
-    //{
-    //    animator.speed = 1;
-    //}
-
-    //public void TriggerAnimationPause(float pauseDuration = .25f)
-    //{
-    //    StartCoroutine(PauseAnimation(pauseDuration));
-    //}
-
-    //public void TriggerSpeedChange(float targetSpeed = 1f)
-    //{
-    //    StartCoroutine(AlterAnimationSpeed(targetSpeed));
-    //}
-
-    //IEnumerator PauseAnimation(float pauseDuration = .25f)
-    //{
-    //    animator.speed = 0;
-    //    yield return new WaitForSeconds(pauseDuration);
-    //    animator.speed = 1f;
-    //}
-
-    //IEnumerator AlterAnimationSpeed(float targetSpeed = 1f, float duration = .75f)
-    //{
-    //    animator.speed = targetSpeed;
-    //    yield return new WaitForSeconds(duration);
-    //    animator.speed = 1f;
-    //}
-
-    // END: animation methods
 
     // resets combo key presses after a short interval and disables the ability to defend
     IEnumerator ComboIntervalReset()
@@ -152,6 +112,12 @@ public class BaseMonster : BaseCreature
 
     public void TriggerAnnounceCombo()
     {
+        AnimationFlowController animationFlowController = this.GetComponent<AnimationFlowController>();
+        bool rewindActive = animationFlowController.rewindActive;
+        if(rewindActive)
+        {
+            return;
+        }
         announceCombo.Invoke();
         canDefend = true;
     }

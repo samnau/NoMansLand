@@ -46,7 +46,7 @@ public class RuneAnimationSoundFX : SoundFXPlayer
     }
     public void PlayRuneMiss()
     {
-        PlayOneShot(failedHit,.2f);
+        PlayOneShot(failedHit);
     }
     public void PlayRuneHit1()
     {

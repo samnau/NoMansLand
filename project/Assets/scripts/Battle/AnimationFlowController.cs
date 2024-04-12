@@ -22,7 +22,7 @@ public class AnimationFlowController : MonoBehaviour
         animator.speed = 3f;
         animator.SetFloat("SPEED", -1f);
         StartCoroutine(CounterSpellSequence());
-        // NOTES using a multiplier to reverse the animation speed works
+        // NOTE: using a multiplier to reverse the animation speed works
         // Need to convert the time control code to always use the multiplier
     }
 
@@ -120,7 +120,7 @@ public class AnimationFlowController : MonoBehaviour
         animator.SetFloat("SPEED", -.5f);
         yield return new WaitForSeconds(1.5f);
         animator.SetFloat("SPEED", -2f);
-        yield return new WaitForSeconds(1.5f);
+        //yield return new WaitForSeconds(1.5f);
         //animator.SetBool("RESET", true);
         // NOTE: test code, temporary
         //this.GetComponent<BaseMonster>()?.TriggerBattleChallenge();

@@ -41,9 +41,4 @@ public class CreatureSoundFX : SoundFXPlayer
         PlayOneShot(death);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
