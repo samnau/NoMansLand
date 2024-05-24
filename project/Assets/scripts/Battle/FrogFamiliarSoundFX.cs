@@ -13,6 +13,8 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     [SerializeField] AudioClip stretch;
     [SerializeField] AudioClip shatter;
     [SerializeField] AudioClip groan;
+    [SerializeField] AudioClip waterSpell;
+
 
     List<AudioClip> croakList;
 
@@ -57,6 +59,11 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     {
         int targetIndex = Random.Range(0, croakList.Count - 1);
         AudioClip targetCroak = croakList[targetIndex];
-        PlayOneShot(targetCroak, .5f);
+        PlayOneShot(targetCroak, .6f);
+    }
+
+    public void PlayWaterSpell()
+    {
+        PlayOneShot(waterSpell);
     }
 }

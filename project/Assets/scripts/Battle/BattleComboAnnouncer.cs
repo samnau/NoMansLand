@@ -90,6 +90,10 @@ public class BattleComboAnnouncer : MonoBehaviour
 
         baseMonster = FindObjectOfType<BaseMonster>();
         comboText = this.GetComponentInChildren<TextMeshProUGUI>();
+        if(baseMonster == null)
+        {
+            return;
+        }
         if(comboText)
         {
             comboText.text = "";
