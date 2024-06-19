@@ -11,6 +11,7 @@ public class BaseFamiliar : BaseCreature
     //bool battleChallengeSuccess = false;
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
+    [SerializeField] GameEvent familiarDeathComplete;
     Animator animator;
 
     SpriteRenderer[] allSprites;
@@ -50,6 +51,11 @@ public class BaseFamiliar : BaseCreature
         yield return new WaitForSeconds(.5f);
         animator?.SetBool(GetTargetAttack(), false);
         IncreaseDefenseCount();
+    }
+
+    public void TriggerFamiliarDeathComplete()
+    {
+        familiarDeathComplete.Invoke();
     }
 
     public void HideFamiliar()

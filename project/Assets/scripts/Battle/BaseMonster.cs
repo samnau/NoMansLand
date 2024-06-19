@@ -147,16 +147,36 @@ public class BaseMonster : BaseCreature
         canCounter = false;
         StartCoroutine(StartNextAttack());
     }
+    public void ResetAttackState()
+    {
+        animator?.SetBool(GetTargetAttack(), false);
+    }
+    public void SetAttackState(bool targetValue)
+    {
+        animator?.SetBool(GetTargetAttack(), targetValue);
+    }
 
     IEnumerator StartNextAttack()
     {
-        animator?.SetBool(GetTargetAttack(), false);
-        if (isDead || victory)
+        print($"I can attack because victory is: {victory}");
+        var familiar = GameObject.FindGameObjectWithTag("familiar");
+        var familiarDead = familiar.GetComponent<Animator>().GetBool("DEATH");
+        print($"familiar is dead?: {familiarDead}");
+        //animator?.SetBool(GetTargetAttack(), false);
+        SetAttackState(false);
+        if (isDead || victory || familiarDead)
         {
             yield break;
         }
         yield return new WaitForSeconds(3.5f);
-        animator?.SetBool(GetTargetAttack(), true);
+        familiarDead = familiar.GetComponent<Animator>().GetBool("DEATH");
+        if (isDead || victory || familiarDead)
+        {
+            print("monster, will not attack");
+            yield break;
+        }
+        //animator?.SetBool(GetTargetAttack(), true);
+        SetAttackState(true);
 
         StartAttack();
     }

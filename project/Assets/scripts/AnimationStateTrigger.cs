@@ -49,6 +49,10 @@ public class AnimationStateTrigger : MonoBehaviour {
     IEnumerator ResetState()
     {
         yield return new WaitForSeconds(1.5f);
+        if(TargetState == "")
+        {
+            yield break;
+        }
         CurrentAnimator.SetBool(TargetState, false);
     }
 

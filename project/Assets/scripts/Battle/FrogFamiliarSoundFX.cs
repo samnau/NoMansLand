@@ -7,6 +7,7 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     [SerializeField] AudioClip croak1;
     [SerializeField] AudioClip croak2;
     [SerializeField] AudioClip croak3;
+    [SerializeField] AudioClip croak4;
     [SerializeField] AudioClip jump;
     [SerializeField] AudioClip slam;
     [SerializeField] AudioClip crash;
@@ -14,6 +15,7 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
     [SerializeField] AudioClip shatter;
     [SerializeField] AudioClip groan;
     [SerializeField] AudioClip waterSpell;
+    [SerializeField] AudioClip thump;
 
 
     List<AudioClip> croakList;
@@ -27,6 +29,16 @@ public class FrogFamiliarSoundFX : SoundFXPlayer
             croakList.Add(croak2);
             croakList.Add(croak3);
         }
+    }
+
+    public void PlayDeath()
+    {
+        PlayOneShot(croak4, .2f);
+    }
+
+    public void PlayThump()
+    {
+        PlayOneShot(thump);
     }
     public void PlayStretch()
     {

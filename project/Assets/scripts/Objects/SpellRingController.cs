@@ -19,11 +19,13 @@ public class SpellRingController : MonoBehaviour
 
     public void ShowFamiliar()
     {
-        familiar.GetComponent<Animator>().SetBool("SUMMONED", true);
+        //familiar.GetComponent<Animator>().SetBool("SUMMONED", true);
+        familiar.GetComponent<AnimationStateTrigger>().TempTriggerAnimationState("SUMMONED");
     }
 
-    void Update()
+    public void HideFamiliar()
     {
-        
+        familiar?.GetComponent<BaseFamiliar>().HideFamiliar();
     }
+
 }

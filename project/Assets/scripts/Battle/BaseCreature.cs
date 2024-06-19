@@ -49,6 +49,7 @@ public class BaseCreature : MonoBehaviour
         return attackTriggers[targetIndex];
     }
 
+    // NOTE: used for time rewind animation
     public void ResetAnimationState()
     {
         //this.GetComponent<Animator>().SetBool("RESET", true);
@@ -71,20 +72,10 @@ public class BaseCreature : MonoBehaviour
     }
     public void TriggerDeath()
     {
-        //TEMP: revise this for new animated models
-        //ColorTweener colorTweener = this.GetComponentInChildren<ColorTweener>();
         isDead = true;
         Animator animator = this.GetComponent<Animator>();
         animator?.SetBool("DEATH", true);
-        //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-        //sprite.color = Color.red;
 
-        //SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
-
-        //foreach(SpriteRenderer sprite in sprites)
-        //{
-        //    sprite.color = Color.clear;
-        //}
         // NOTE: for demo only, remove later
         //creatureShadow.SetActive(false);
 
