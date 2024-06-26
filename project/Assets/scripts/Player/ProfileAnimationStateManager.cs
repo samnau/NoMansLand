@@ -9,6 +9,7 @@ public class ProfileAnimationStateManager : MonoBehaviour
 
     [SerializeField] GlowTweener mainGemGlow;
     [SerializeField] GlowTweener staffGemsGlow;
+    [SerializeField] GameEvent heroEscape;
 
     void Start()
     {
@@ -41,6 +42,11 @@ public class ProfileAnimationStateManager : MonoBehaviour
     public void DeactivateAnimationState(string targetState = "IDLE")
     {
         animator.SetBool(targetState, false);
+    }
+
+    public void TriggerEscapeEvent()
+    {
+        heroEscape.Invoke();
     }
 
     // Magic staff gem glows

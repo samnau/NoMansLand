@@ -34,9 +34,6 @@ public class BaseFamiliar : BaseCreature
 
     public void TriggerAttack()
     {
-        //animator?.SetBool(GetTargetAttack(), true);
-        //print($"familiar attack trigger index:{defenseCount}");
-        //print(GetTargetAttack());
         StartCoroutine(TriggerAttackSequence());
     }
 

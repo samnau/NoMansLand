@@ -39,11 +39,29 @@ public class BattleHeroController : MonoBehaviour
         this.transform.position = startPosition;
         positionTweener?.TriggerPositionByDuration(endPosition, 3.45f);
     }
+
+    IEnumerator StartEscape()
+    {
+        Transform transform = this.transform;
+        Vector3 startPosition = transform.position;
+        Vector3 endPosition = new Vector3(startPosition.x - 3f, startPosition.y, startPosition.z);
+        yield return new WaitForSeconds(1f);
+        
+        heroProfileAnimator.SetBool("ESCAPE", true);
+        positionTweener?.TriggerPositionByDuration(endPosition, 1.5f);
+
+        yield return new WaitForSeconds(.1f);
+
+        this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+    }
+
+    public void TriggerEscape()
+    {
+        StartCoroutine(StartEscape());
+    }
     public void AnnounceCombo()
     {
-        //print("Defend with the combo!");
         UpdateCombo();
-        //print($"Molly yells out: {currentCombo.keyCode1} + {currentCombo.keyCode2}");
     }
     // NOTE: this is where the battle intro sequence is triggered
     void Start()

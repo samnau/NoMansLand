@@ -9,12 +9,10 @@ public class GhostKingController : MonoBehaviour
     [SerializeField] float hoverModifier = .5f;
     [SerializeField] float hoverDuration = 3f;
     public bool activateHover = false;
-    // Start is called before the first frame update
     void Start()
     {
         positionTweener = this.GetComponent<PositionTweener>();
         startPosition = transform.position;
-        //IdleHover();
     }
 
     void IdleHover()
@@ -28,7 +26,6 @@ public class GhostKingController : MonoBehaviour
     {
         if(activateHover)
         {
-            print("ghost hover time");
             IdleHover();
             activateHover = false;
         }
