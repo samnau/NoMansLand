@@ -69,6 +69,8 @@ public class RavenSpiderController : MonoBehaviour
 
     public void StartFamiliarShow()
     {
+        print("familiar show started");
+
         showFamiliar?.Invoke();
     }
 

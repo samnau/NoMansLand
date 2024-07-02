@@ -15,6 +15,25 @@ public class GhostKingController : MonoBehaviour
         startPosition = transform.position;
     }
 
+    public void Retreat()
+    {
+        Transform ghostWrapper = this.transform.parent;
+        PositionTweener mainTweener = ghostWrapper.GetComponent<PositionTweener>();
+
+        //Transform parentTransform = this.transform;
+        Vector3 startPosition = ghostWrapper.position;
+        Vector3 endPosition = new Vector3(startPosition.x - 3f, startPosition.y, startPosition.z);
+        // yield return new WaitForSeconds(1f);
+
+        //heroProfileAnimator.SetBool("ESCAPE", true);
+        print($"mainTweener for ghost?: {mainTweener}");
+        mainTweener.TriggerPositionByDuration(endPosition, 2.5f);
+
+        //yield return new WaitForSeconds(.1f);
+
+        this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+    }
+
     void IdleHover()
     {
         float targetPostionY = startPosition.y -= hoverModifier;

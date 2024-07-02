@@ -16,6 +16,7 @@ public class CrowFamiliarController : MonoBehaviour
     {
         Animator haloNaimator = halo?.GetComponent<Animator>();
         haloNaimator?.SetBool("HIDE", true);
+        // Trigger the victory dialog for the forest fight
         dialogManager.targetText = "Win";
         dialogManager.BeginDialog();
     }

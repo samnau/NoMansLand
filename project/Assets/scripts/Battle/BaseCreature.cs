@@ -52,12 +52,10 @@ public class BaseCreature : MonoBehaviour
     // NOTE: used for time rewind animation
     public void ResetAnimationState()
     {
-        //this.GetComponent<Animator>().SetBool("RESET", true);
         if(this.GetComponent<Animator>().GetBool("RESET"))
         {
             StartCoroutine(DeactivateReset());
         }
-        //StartCoroutine(DeactivateReset());
     }
 
     IEnumerator DeactivateReset()
@@ -93,9 +91,6 @@ public class BaseCreature : MonoBehaviour
     public void TriggerVictory()
     {
         victory = true;
-        print($"{this.name} wins!");
-        //SpriteRenderer sprite = gameObject.GetComponentInChildren<SpriteRenderer>();
-        //sprite.color = Color.blue;
     }
 
     public void TriggerCompleteAttack()

@@ -6,6 +6,7 @@ public class SpellRingSoundFX : SoundFXPlayer
 {
     [SerializeField] AudioClip appear1;
     [SerializeField] AudioClip glide;
+    [SerializeField] AudioClip failure;
 
     public void PlayAppear1()
     {
@@ -14,5 +15,10 @@ public class SpellRingSoundFX : SoundFXPlayer
     public void PlayGlide()
     {
         PlayOneShot(glide);
+    }
+
+    public void PlayFailure()
+    {
+        PlayOneShot(failure, 0.6f);
     }
 }

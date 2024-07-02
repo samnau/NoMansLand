@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class BaseHelathManager : MonoBehaviour
 {
@@ -9,11 +10,14 @@ public class BaseHelathManager : MonoBehaviour
     public bool isDead = false;
     bool deathAnnounced = false;
     public GameEvent creatureDeath;
+    GameObject[] healthUI;
 
-    // Start is called before the first frame update
     void Start()
     {
         isDead = health > 0;
+        healthUI = GameObject.FindGameObjectsWithTag("health");
+        InitHideHealthUI();
+        //HideHealthUI();
     }
 
     public void DecreaseHealth()
@@ -22,7 +26,6 @@ public class BaseHelathManager : MonoBehaviour
         {
             health--;
             this.transform.GetChild(health).gameObject.SetActive(false);
-            print($"{this.name} took damage, health is {health}");
         }
     }
 
@@ -31,13 +34,45 @@ public class BaseHelathManager : MonoBehaviour
         return health <= 0; 
     }
 
+    public void InitHideHealthUI()
+    {
+        foreach (GameObject healthUIItem in healthUI)
+        {
+            Image[] childArray = healthUIItem.GetComponentsInChildren<Image>();
+            foreach (Image childItem in childArray)
+            {
+                childItem.enabled = false;
+            }
+        }
+    }
+
+
+    public void HideHealthUI ()
+    {
+        foreach(GameObject healthUIItem in healthUI)
+        {
+            healthUIItem.SetActive(false);
+        }
+    }
+
+    public void ShowHealthUI()
+    {
+        foreach (GameObject healthUIItem in healthUI)
+        {
+            Image[] childArray = healthUIItem.GetComponentsInChildren<Image>();
+            foreach (Image childItem in childArray)
+            {
+                childItem.enabled = true;
+            }
+        }
+    }
+
     // TODO: maybe convert to event?
     void Update()
     {
         isDead = health <= 0;
         if(isDead && !deathAnnounced)
         {
-            print($"oh no, {this.name} is dead!");
             creatureDeath.Invoke();
             deathAnnounced = true;
         }
