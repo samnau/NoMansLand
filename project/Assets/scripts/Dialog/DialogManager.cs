@@ -31,7 +31,8 @@ public class DialogManager : MonoBehaviour
 
     GameObject currentSpeaker;
     GameObject nextSpeaker;
-    //[SerializeField] List<GameObject> dialogMarks;
+
+    [SerializeField] GameEvent DialogNodeComplete;
 
     public void Awake()
     {
@@ -132,12 +133,25 @@ public class DialogManager : MonoBehaviour
     }
     public void BeginDialog()
     {
-        print($"targetText= {targetText}");
         dialogActive = true;
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
         dialogWrapperAnimator.SetBool("show", dialogActive);
         TogglePlayerMotion();
+    }
+
+    public void BeginTargetDialog(string dialogName)
+    {
+        dialogActive = true;
+        dialogueRunner.startNode = dialogName;
+        dialogueRunner.StartDialogue(dialogName);
+        dialogWrapperAnimator.SetBool("show", dialogActive);
+        TogglePlayerMotion();
+    }
+
+    public void TriggerDialogNodeComplete()
+    {
+        DialogNodeComplete.Invoke();
     }
 
     public void NextDialogLine()

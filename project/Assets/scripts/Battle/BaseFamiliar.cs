@@ -12,6 +12,8 @@ public class BaseFamiliar : BaseCreature
     // this should be an event on the Battle UI and not the familiar
     [SerializeField] GameEvent battleChallengeSuccess;
     [SerializeField] GameEvent familiarDeathComplete;
+    [SerializeField] GameEvent familiarRecallStart;
+
     Animator animator;
 
     SpriteRenderer[] allSprites;
@@ -57,6 +59,7 @@ public class BaseFamiliar : BaseCreature
 
     public void HideFamiliar()
     {
+        print("hide the familiar");
         ToggleSprites(true);
     }
 
@@ -84,6 +87,14 @@ public class BaseFamiliar : BaseCreature
     public void IncreaseDefenseCount()
     {
         defenseCount++;
+    }
+
+    public void StartVictorySequence()
+    {
+        if(victory)
+        {
+            familiarRecallStart.Invoke();
+        }
     }
 
     void Start()
