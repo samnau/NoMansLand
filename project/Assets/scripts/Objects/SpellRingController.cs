@@ -8,6 +8,7 @@ public class SpellRingController : MonoBehaviour
     [SerializeField] GameObject familiar;
     Animator animator;
     [SerializeField] GameEvent familiarUnsummonComplete;
+    [SerializeField] GameEvent familiarRecallInpProgress;
 
     void Start()
     {
@@ -28,6 +29,11 @@ public class SpellRingController : MonoBehaviour
     public void HideFamiliar()
     {
         familiar?.GetComponent<BaseFamiliar>().HideFamiliar();
+    }
+
+    public void TriggerFamiliarRecallInProgress()
+    {
+        familiarRecallInpProgress.Invoke();
     }
 
 

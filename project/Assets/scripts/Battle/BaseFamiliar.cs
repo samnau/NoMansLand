@@ -13,6 +13,7 @@ public class BaseFamiliar : BaseCreature
     [SerializeField] GameEvent battleChallengeSuccess;
     [SerializeField] GameEvent familiarDeathComplete;
     [SerializeField] GameEvent familiarRecallStart;
+    [SerializeField] GameEvent familiarRecallComplete;
 
     Animator animator;
 
@@ -59,7 +60,6 @@ public class BaseFamiliar : BaseCreature
 
     public void HideFamiliar()
     {
-        print("hide the familiar");
         ToggleSprites(true);
     }
 
@@ -94,6 +94,16 @@ public class BaseFamiliar : BaseCreature
         if(victory)
         {
             familiarRecallStart.Invoke();
+        }
+    }
+
+    public void TriggerFamiliarRecallComplete()
+    {
+        print("familiar recall complete?");
+        if (victory)
+        {
+            print("familiar recall is complete!");
+            familiarRecallComplete.Invoke();
         }
     }
 

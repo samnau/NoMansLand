@@ -19,6 +19,11 @@ public class AnimationStateTrigger : MonoBehaviour {
         {
             return;
         }
+
+        if(TargetStateName == "RECALL")
+        {
+            print("the state is recall");
+        }
         CurrentAnimator.SetBool(TargetStateName, true);
         TriggerChange = false;
         StartCoroutine("ResetState");
