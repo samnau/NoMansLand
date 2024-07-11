@@ -60,6 +60,7 @@ For some reason I cannot remember.
 <<SetSpeakerName Molly>>
 Hmm.
 ...
+<<SetExpression surprise annoyed>>
 So what do I do now?
 <<SetSpeakerName King's-Ghost>>
 Hold your staff aloft and conecntrate on your familiars.
@@ -68,3 +69,46 @@ Both of them.
 Ok.
 ===
 
+===
+title: Celebrate
+tags: 
+colorID: 0
+position: -29,280
+---
+<<SetExpression surprise smile>>
+I did it!
+<<SetExpression idle smile>>
+<<SetSpeakerName King's-Ghost>>
+\(I don't believe it...\)
+<<SetExpression idle annoyed>>
+<<SetSpeakerName Molly>>
+Well don't act too impressed.
+<<SetSpeakerName King's-Ghost>>
+Oh, no!
+No.
+That's not it.
+<<SetExpression surprise annoyed>>
+<<SetSpeakerName Molly>>
+What is it then?
+<<SetSpeakerName King's-Ghost>>
+I suddenly remembered something.
+Something...very important to me.
+<<SetExpression idle smile>>
+<<SetSpeakerName Molly>>
+Well out with it, then.
+What did you remember?
+<<SetSpeakerName King's-Ghost>>
+My apologies. Another time, perhaps?
+Let us return to the castle.
+It will not be safe to stay out here after dark.
+<<SetSpeakerName Molly>>
+Ummm..
+Okayyyy.
+If you say so.
+Mr. Mysterious.
+<<SetSpeakerName King's-Ghost>>
+\(How could I have forgotten about her?\)
+<<SetExpression idle annoyed>>
+<<SetSpeakerName Molly>>
+?
+===

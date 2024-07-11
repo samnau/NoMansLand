@@ -7,6 +7,8 @@ public class CrowFamiliarController : MonoBehaviour
     [SerializeField] GameObject halo;
     DialogManager dialogManager;
 
+    [SerializeField] GameEvent famaliarNewUnsummonComplete;
+
     private void Start()
     {
         dialogManager = FindObjectOfType<DialogManager>();
@@ -16,9 +18,14 @@ public class CrowFamiliarController : MonoBehaviour
     {
         Animator haloNaimator = halo?.GetComponent<Animator>();
         haloNaimator?.SetBool("HIDE", true);
-        // Trigger the victory dialog for the forest fight
+        // Trigger the victory dialog for the forest fight 
         dialogManager.targetText = "Win";
         dialogManager.BeginDialog();
+    }
+
+    public void TriggerRecallComplete()
+    {
+        famaliarNewUnsummonComplete.Invoke();
     }
 
 }

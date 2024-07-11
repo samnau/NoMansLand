@@ -187,6 +187,7 @@
     <Compile Include="Assets\scripts\Battle\Ring\BattleRingTrigger.cs" />
     <Compile Include="Assets\scripts\Expression_Manager.cs" />
     <Compile Include="Assets\ScenePositionManager.cs" />
+    <Compile Include="Assets\scripts\Utility\AnimationFrameSequencer.cs" />
     <Compile Include="Assets\scripts\SaveDataManager.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
     <Compile Include="Assets\scripts\SaveSystem\ISaveable.cs" />
@@ -298,7 +299,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Utility\AnimationFrameSequencer.cs" />
+    <Compile Include="Assets\scripts\Utility\GameEventTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
