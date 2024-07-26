@@ -69,17 +69,16 @@ Both of them.
 Ok.
 ===
 
-===
 title: Celebrate
 tags: 
 colorID: 0
-position: -29,280
+position: 68,259
 ---
 <<SetExpression surprise smile>>
 I did it!
 <<SetExpression idle smile>>
 <<SetSpeakerName King's-Ghost>>
-\(I don't believe it...\)
+I don't believe it...
 <<SetExpression idle annoyed>>
 <<SetSpeakerName Molly>>
 Well don't act too impressed.
@@ -101,14 +100,14 @@ What did you remember?
 My apologies. Another time, perhaps?
 Let us return to the castle.
 It will not be safe to stay out here after dark.
+<<SetExpression idle annoyed>>
 <<SetSpeakerName Molly>>
 Ummm..
 Okayyyy.
 If you say so.
 Mr. Mysterious.
 <<SetSpeakerName King's-Ghost>>
-\(How could I have forgotten about her?\)
-<<SetExpression idle annoyed>>
+How could I have forgotten about her?
 <<SetSpeakerName Molly>>
-?
+...
 ===
