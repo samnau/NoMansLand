@@ -236,6 +236,7 @@
     <Compile Include="Assets\scripts\gradient_maker.cs" />
     <Compile Include="Assets\scripts\Projectile.cs" />
     <Compile Include="Assets\scripts\PlayerDialog.cs" />
+    <Compile Include="Assets\scripts\Utility\GameEventTrigger.cs" />
     <Compile Include="Assets\scripts\PlayerMotionController.cs" />
     <Compile Include="Assets\scripts\Utility\PositionMatcher.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Orientation.cs" />
@@ -299,7 +300,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Utility\GameEventTrigger.cs" />
+    <Compile Include="Assets\scripts\Utility\SceneTransitionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -22,7 +22,8 @@ public class Fade_Controller : MonoBehaviour {
 		BeginFade (-1);
 	}
 
-	IEnumerator loadLevel (string sceneName){
+	IEnumerator loadLevel (string sceneName, float delay = 0f){
+		yield return new WaitForSeconds(delay);
 		BeginFade (1);
 		yield return new WaitForSeconds (fadeSpeed);
 		SceneManager.LoadScene (sceneName);
@@ -30,6 +31,13 @@ public class Fade_Controller : MonoBehaviour {
 	public void triggerLevelChange(string sceneName){
 		StartCoroutine (loadLevel (sceneName));
 	}
+
+	public void LevelChangeTimedTrigger(string sceneName, float delay)
+    {
+		StartCoroutine(loadLevel(sceneName, delay));
+    }
+
+
 	void OnGUI(){
 		alpha += fadeSpeed * fadeDirection * Time.deltaTime;
 		alpha = Mathf.Clamp01 (alpha);
