@@ -26,6 +26,7 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     [SerializeField] AudioClip energyBuildup;
     [SerializeField] AudioClip laser1;
     [SerializeField] AudioClip death;
+    [SerializeField] AudioClip victory;
 
 
     float gagVolume = .2f;
@@ -131,5 +132,10 @@ public class RavenSpiderSoundFX : SoundFXPlayer
     public void PlayLaser1()
     {
         PlayOneShot(laser1);
+    }
+
+    public void PlayVictory()
+    {
+        PlayOneShot(victory, .5f);
     }
 }

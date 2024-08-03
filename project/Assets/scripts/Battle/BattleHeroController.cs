@@ -33,6 +33,7 @@ public class BattleHeroController : MonoBehaviour
     public void SceneWalkIn()
     {
         heroProfileAnimator.SetBool("WALK_IN", true);
+        heroProfileAnimator.SetBool("BATTLE", true);
         Transform transform = this.transform;
         Vector3 endPosition = transform.position;
         Vector3 startPosition = new Vector3(endPosition.x - 3f, endPosition.y, endPosition.z);
