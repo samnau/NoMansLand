@@ -390,3 +390,6 @@ C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\Bin\Debug\Unity.Math
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\Bin\Debug\Unity.2D.Common.Editor.pdb
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\Bin\Debug\Unity.2D.Animation.Triangle.Runtime.pdb
 C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\Bin\Debug\Unity.InternalAPIEditorBridge.001.pdb
+C:\Users\samgn\repos\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.csproj.AssemblyReference.cache
+C:\Users\samgn\repos\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
+C:\Users\samgn\repos\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.dll

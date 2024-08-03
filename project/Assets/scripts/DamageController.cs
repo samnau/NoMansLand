@@ -16,20 +16,20 @@ public class DamageController : MonoBehaviour {
         DefenseController = targetParent.GetComponentInChildren<DefenseController>();
         TimeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        var targetGameObject = collision.gameObject;
-        battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
-        var activeAttack = battleKeyCombos.activeAttack;
-        if (collision.gameObject.tag == "attack" && activeAttack && !damageDefended)
-        {
-            Debug.Log("damage collision? "+ damageDefended);
-           damage = true;
-           targetParent.GetComponent<HealthController>().TakeDamage();
-           TimeController.UnFreezeTime();
-           DefenseController.defense = false;
-        }
-    }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    var targetGameObject = collision.gameObject;
+    //    battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
+    //    var activeAttack = battleKeyCombos.activeAttack;
+    //    if (collision.gameObject.tag == "attack" && activeAttack && !damageDefended)
+    //    {
+    //        Debug.Log("damage collision? "+ damageDefended);
+    //       damage = true;
+    //       targetParent.GetComponent<HealthController>().TakeDamage();
+    //       TimeController.UnFreezeTime();
+    //       DefenseController.defense = false;
+    //    }
+    //}
 
     private void OnTriggerExit2D(Collider2D collision)
     {

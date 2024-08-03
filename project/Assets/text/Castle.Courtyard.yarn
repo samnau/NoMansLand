@@ -1,0 +1,23 @@
+title: Gate
+tags: 
+position: -209,-186
+---
+<<SetSpeaker Molly surprise annoyed>>
+Wow. That is the biggest tree I've ever seen!
+<<SetSpeaker Molly surprise annoyed>>
+Wait...are those steps floating?
+<<SetSpeaker Molly surprise frown>>
+How is that possible?
+<<SetSpeaker Molly surprise frown>>
+Well I can't even check them out because these stone things are in the way.
+<<SetSpeaker Molly idle annoyed>>
+There's a weird keyhole-looking thing in one of them...
+===
+title: DoorLeft
+position: 0,1
+---
+<<SetSpeaker Molly surprise annoyed>>
+Wow. Something was really mad at this door.
+<<SetSpeaker Molly surprise frown>>
+Do I really want to go inside?
+===

@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 8cf27a1f7bb2f44468426f5de386ce41
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs:
+  - CrookedPath-Stop-0
+  - CrookedPath-Stop-1
+  - CrookedPath-Stop-2
+  - CrookedPath-BrokenSpire-3
+  - CrookedPath-BrokenSpire-4
+  - CrookedPath-BrokenSpire-5
+  - CrookedPath-BrokenSpire-6
+  - CrookedPath-BrokenSpire-7
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {instanceID: 0}
+  localizations: []

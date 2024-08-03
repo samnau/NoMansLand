@@ -1,12 +1,20 @@
-Molly.BrokenPool
-
-Molly: This definitely was not in the park before!
-
-
-if(monsterTriggered){
-<<triggerRoar>>
-Molly: Holy crap!
-<<switchExpression Molly shocked>>
-Molly: What is that??
-<<runCastle>>
-}
+title: Frog
+---
+<<SetSpeaker Molly surprise smile>>
+Well hello little froggy.
+<<SetSpeaker Molly idle smirk>>
+Are you having a bad day too?
+<<SetSpeaker Molly idle smile>>
+You're pretty cute.
+<<SetSpeaker Molly idle smile>>
+Should I take you with me?
+===
+title: BrokenSpire
+---
+<<SetSpeaker Molly idle smile>>
+This pool is pretty, but...
+<<SetSpeaker Molly idle annoyed>>
+...everything is so worn down.
+<<SetSpeaker Molly surprise annoyed>>
+I wish somone would tell me where I am.
+===

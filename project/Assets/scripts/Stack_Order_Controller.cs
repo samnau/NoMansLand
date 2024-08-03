@@ -14,8 +14,4 @@ public class Stack_Order_Controller : MonoBehaviour {
 	void Start () {
 		StackSetter ();
 	}
-	// Update is called once per frame
-	void Update () {
-		//StackSetter();
-	}
 }

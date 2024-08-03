@@ -6,14 +6,14 @@ public class PlayerPermananceController : MonoBehaviour
 {
     private void Awake()
     {
-        GameObject[] PlayerObjects = GameObject.FindGameObjectsWithTag("Player");
+        //GameObject[] PlayerObjects = GameObject.FindGameObjectsWithTag("Player");
 
-        if (PlayerObjects.Length > 1)
-        {
-            Destroy(this.gameObject);
-        }
+        //if (PlayerObjects.Length > 1)
+        //{
+         //   Destroy(this.gameObject);
+        //}
 
-        DontDestroyOnLoad(this.gameObject);
+       // DontDestroyOnLoad(this.gameObject);
     }
 
     private void Update()

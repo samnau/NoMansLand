@@ -1,0 +1,25 @@
+title: Gate
+tags: 
+position: 317,315
+---
+<<SetSpeaker Molly surprise surprise>>
+Wow. That is the biggest tree I've ever seen!
+<<SetSpeaker Molly surprise annoyed>>
+Wait...are those steps floating?
+<<SetSpeaker Meena surprise frown>>
+How is that possible?
+<<SetSpeaker Molly surprise frown>>
+Well I can't even check them out because these stone things are in the way.
+<<SetSpeaker Molly idle frown>>
+There's a weird keyhole-looking thing in one of them...
+===
+title: LeftDoor
+tags: 
+---
+
+===
+title: RightDoor
+tags: 
+---
+
+===

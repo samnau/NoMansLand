@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SceneSwitch : MonoBehaviour {
 	public string sceneName;
@@ -11,7 +12,8 @@ public class SceneSwitch : MonoBehaviour {
 		GetComponent<Animator>().SetBool("fadeIn",true);
 	}
 	private void LoadNextScene() {
-		Application.LoadLevelAdditive(sceneName);
+		//Application.LoadLevelAdditive(sceneName);
+		SceneManager.LoadScene(sceneName);
 	}
 	void OnTriggerEnter2D( Collider2D other ){
 //		if(other.CompareTag("hero")) {

@@ -20,36 +20,36 @@ public class DefenseController : MonoBehaviour {
         FightController = GetComponentInParent<FightController>();
         TimeController = GameObject.FindGameObjectWithTag("familiar").GetComponent<TimeController>();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
 
-        var targetGameObject = collision.gameObject;
-        BattleCombos = targetGameObject.GetComponent<BattleCombos>();
-        battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
-        var activeAttack = battleKeyCombos.activeAttack;
-        if (targetGameObject.tag == "attack" && activeAttack && collisionCount == 0)
-        {
-            TimeController.SlowTime();
-            collisionCount++;
-            defenseKeyCombo = battleKeyCombos.defenseCombo;
-            counterAttackKeyCombo = battleKeyCombos.counterAttackCombo;
-            FightController.defenseKeyCombo = defenseKeyCombo;
-            FightController.counterAttackKeyCombo = counterAttackKeyCombo;
+    //    var targetGameObject = collision.gameObject;
+    //    BattleCombos = targetGameObject.GetComponent<BattleCombos>();
+    //    battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
+    //    var activeAttack = battleKeyCombos.activeAttack;
+    //    if (targetGameObject.tag == "attack" && activeAttack && collisionCount == 0)
+    //    {
+    //        TimeController.SlowTime();
+    //        collisionCount++;
+    //        defenseKeyCombo = battleKeyCombos.defenseCombo;
+    //        counterAttackKeyCombo = battleKeyCombos.counterAttackCombo;
+    //        FightController.defenseKeyCombo = defenseKeyCombo;
+    //        FightController.counterAttackKeyCombo = counterAttackKeyCombo;
             
-            Debug.Log("defend now");
-            defense = true;
-        }
-    }
+    //        Debug.Log("defend now");
+    //        defense = true;
+    //    }
+    //}
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "attack")
-        {
-            var targetGameObject = collision.gameObject;
-            battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
-            //battleKeyCombos.activeAttack = true;
-            Debug.Log("attack exited");
-            defense = false;
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "attack")
+    //    {
+    //        var targetGameObject = collision.gameObject;
+    //        battleKeyCombos = targetGameObject.GetComponent<BattleKeyCombos>();
+    //        //battleKeyCombos.activeAttack = true;
+    //        Debug.Log("attack exited");
+    //        defense = false;
+    //    }
+    //}
 }

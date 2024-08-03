@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: f5acdda02ddb37742bf5153c65b0ec34
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: 
+  stringIDs:
+  - Molly.Thanks-Thanks-0
+  - Molly.Thanks-Thanks-1
+  - Molly.Thanks-Thanks-2
+  - Molly.Thanks-Thanks-3
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {instanceID: 0}
+  localizations: []

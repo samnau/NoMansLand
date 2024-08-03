@@ -7,17 +7,21 @@ public class InputStateTracker : MonoBehaviour {
 	string currentKeyPressed;
 	string lastKeyPressed;
 	string lastKeyReleased;
+	bool directionCanChange = true;
 	public string direction = "down";
 	public bool isWalking = false;
 	public bool isRunning = false;
+	public bool isUiActive = false;
+	public bool isBattleActive = false;
 	string[] directionValues = {"left", "right", "up", "down" };
 
-	void printUserInput (string inputValue){
+	public enum StartDirections
+	{ up, down, left, right }
 
-		if (Input.anyKeyDown) {
-			print("input string: " + inputValue);
-		}
+	public StartDirections startDirection;
 
+    void printUserInput (string inputValue){
+		print($"input string: {inputValue}");
 	}
 
 	private void logAnyKey (string inputValue)
@@ -31,45 +35,66 @@ public class InputStateTracker : MonoBehaviour {
     {
 		return directionValues.Any(direction => Input.GetKey(direction));
 	}
+	bool directionKeyReleased()
+	{
+		return directionValues.Any(direction => Input.GetKeyUp(direction));
+	}
 	private void setCurrentKeyPressed(){
 		foreach(string value in directionValues){
 			if(Input.GetKey (value)){
-				printUserInput("current key held " + value);
 				currentKeyPressed = value;
-				direction = value;
+				if(directionCanChange)
+                {
+					direction = value;
+				}
 			}
 		}
 	}
 
 	private void setCurrentKeyDown(){
+
 		foreach(string value in directionValues){
-			if(Input.GetKeyDown (value)){
-				printUserInput("current key down " + value);
+			if(Input.GetKeyDown (value) && directionCanChange){
+				directionCanChange = false;
 				lastKeyPressed = value;
 			}
 		}
 	}
 
 	void setCurrentReleased(){
-		foreach(string value in directionValues){
+
+		foreach (string value in directionValues){
 			if(Input.GetKeyUp (value)){
-				printUserInput("current key released " + value);
-				lastKeyReleased = value;
+			lastKeyReleased = value;
 			}
 		}
 	}
 
+	void CheckLastKeyReleased()
+    {
+		if(lastKeyPressed == lastKeyReleased && lastKeyPressed != null)
+        {
+			lastKeyPressed = lastKeyReleased = null;
+			directionCanChange = true;
+		}
+    }
+
 	void inputStateTracker(){
+		CheckLastKeyReleased();
 		isWalking = directionKeyPressed();
-		isRunning = Input.GetKey(KeyCode.LeftShift) && isWalking;
+		isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
+		if(isUiActive || isBattleActive)
+        {
+			return;
+        }
 		if (Input.anyKey){
 			setCurrentKeyPressed();
-		}else{
-			setCurrentReleased();
 		}
 		if(Input.anyKeyDown){
 			setCurrentKeyDown();
 		}
+
+		setCurrentReleased();
 	}
 	// Update is called once per frame
 	void Update () {
