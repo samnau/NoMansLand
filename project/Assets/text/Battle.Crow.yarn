@@ -110,4 +110,5 @@ Mr. Mysterious.
 How could I have forgotten about her?
 <<SetSpeakerName Molly>>
 ...
+<<TriggerEndScene>>
 ===

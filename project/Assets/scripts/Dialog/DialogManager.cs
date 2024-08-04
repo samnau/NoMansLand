@@ -26,6 +26,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] Text SpeakerText;
     string defaultName = "Molly";
 
+    [SerializeField] GameEvent SceneEnd;
 
     [SerializeField] List<GameObject> dialogSpeakers;
 
@@ -45,6 +46,11 @@ public class DialogManager : MonoBehaviour
         dialogueRunner.AddCommandHandler(
          "SetSpeakerName",
           SetSpeakerName
+        );
+
+        dialogueRunner.AddCommandHandler(
+         "TriggerEndScene",
+          TriggerEndScene
         );
 
     }
@@ -120,10 +126,10 @@ public class DialogManager : MonoBehaviour
     }
 
     // NOTE: currently unused
-    void AdvanceDialog()
-    {
-        dialogueUI.MarkLineComplete();
-    }
+    //void AdvanceDialog()
+    //{
+    //    dialogueUI.MarkLineComplete();
+    //}
 
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
@@ -178,6 +184,11 @@ public class DialogManager : MonoBehaviour
             StartCoroutine("sceneTransition");
         }
         TogglePlayerMotion();
+    }
+
+    void TriggerEndScene(string[] parameters)
+    {
+        SceneEnd?.Invoke();
     }
 
     private void Update()
