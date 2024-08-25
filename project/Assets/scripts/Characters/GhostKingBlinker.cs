@@ -43,6 +43,20 @@ public class GhostKingBlinker : MonoBehaviour
         SetEyeScale(originalScale);
     }
 
+    public void TriggerSurprisedEyes()
+    {
+        StartCoroutine(ShowSurpisedEyes());
+    }
+
+    IEnumerator ShowSurpisedEyes()
+    {
+        Vector3 originalScale = leftEye.transform.localScale;
+        Vector3 surpriseScale = new Vector3(1f, 1.3f, 1f);
+        SetEyeScale(surpriseScale);
+        yield return new WaitForSeconds(.25f);
+        SetEyeScale(originalScale);
+    }
+
     IEnumerator BlinkCycle()
     {
         StartCoroutine(TriggerBlink());
