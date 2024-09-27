@@ -270,6 +270,7 @@
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser2.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveLoadSystem.cs" />
     <Compile Include="Assets\scripts\GameEvents\GameEvent.cs" />
+    <Compile Include="Assets\scripts\Utility\SceneTransitionManager.cs" />
     <Compile Include="Assets\scripts\PlayerData.cs" />
     <Compile Include="Assets\scripts\Battle\RuneAnimationSoundFX.cs" />
     <Compile Include="Assets\scripts\Battle\RavenSpiderController.cs" />
@@ -300,7 +301,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Utility\SceneTransitionManager.cs" />
+    <Compile Include="Assets\scripts\Battle\Ring\BattleTargetController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

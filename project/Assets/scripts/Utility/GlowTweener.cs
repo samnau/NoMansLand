@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class GlowTweener : BaseTweener
 {
     Material material;
-    //Material testMat;
     SpriteRenderer spriteRenderer;
     Image image;
     float targetIntensity = 1f;

@@ -41,6 +41,7 @@ public class RuneIntroSequencer : MonoBehaviour
     public bool winTrigger = false;
     [HideInInspector]
     public bool exitAnimationStarted = false;
+    [HideInInspector]
     public bool inputActive = false;
 
     float defaultGlow = 7f;
@@ -69,6 +70,7 @@ public class RuneIntroSequencer : MonoBehaviour
         StartCoroutine(RuneRingIntroSequence());
     }
 
+    // REFACTOR: this method shouldn't be part of the intro sequence code
     float SetPointerTriggerStartRotation()
     {
         var randomModfier = Random.Range(0, 10);
@@ -124,22 +126,28 @@ public class RuneIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(GlowFadeIn(pointerArm));
 
-
-        runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
-
-        pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(SetPointerTriggerStartRotation());
-        pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
+        // DEBUGGING: disabling lines around time limit and target highlight settings for testing
+        // ENABLE AFTER TESTING COMPLETE
+        // NOTE: this is what kicks off the minor rune countdown sequence
+        //runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence();
+        float targetRotation = pointerTarget.GetComponent<RadarSweeperTargetController>().SetPointerTriggerStartRotation();
+        pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(targetRotation);
+        //NOTE: This starts the random rune highlight
+       // pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
 
         pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
 
-
-        radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
+        // NOTE: this is the method that starts the radar sweeper target controller countdown
+        //radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
 
 
         // enable battle challenge input;
         inputActive = true;
 
         StartCoroutine(RuneCountDown());
+
+        // NOTE: Access point for turning off time limit for testing
+        yield break;
 
         for (float timer = radarSweeperTargetController.timeLimit; timer >= 0; timer -= Time.deltaTime)
         {
@@ -260,7 +268,7 @@ public class RuneIntroSequencer : MonoBehaviour
         }
 
         // TEMP: just for working on the reset code for the ring
-        debugReset = true;
+        //debugReset = true;
     }
 
     IEnumerator RuneSuccessSequence()
