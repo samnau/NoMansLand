@@ -57,21 +57,50 @@ public class BattleSpinner : BattleChallenge
     {
         rotationModifier = rotationModifier * -1f;
     }
-    bool SuccessLimitReached()
+    public bool SuccessLimitReached()
     {
         return successCount >= successLimit;
+    }
+
+    void ResetSuccessHightlight()
+    {
+        GameObject targetHighlight = triggerWrapper.GetComponentInChildren<ScaleTweener>().gameObject;
+        ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
+        ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
+        GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
+        colorTweener?.SetImageAlpha(0);
+        scaleTweener?.SetUniformScale(1f);
+        glowTweener?.TriggerGlowByDuration(1f, 0);
+
+    }
+
+    IEnumerator TriggerSuccessHighlight()
+    {
+        float tweenDuration = .5f;
+        GameObject targetHighlight = triggerWrapper.GetComponentInChildren<ScaleTweener>().gameObject;
+            //targetRune.transform.GetChild(0).gameObject;
+        ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
+        ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
+        GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
+        colorTweener?.TriggerImageAlphaByDuration(.6f, tweenDuration);
+        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration * 2);
+        glowTweener?.SetGlowColor(Color.yellow);
+        glowTweener?.TriggerGlowByDuration(5f, tweenDuration);
+        yield return new WaitForSeconds(tweenDuration);
+        glowTweener?.TriggerGlowByDuration(1f, tweenDuration / 4);
+        colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration * 4);
+        scaleTweener?.TriggerUniformScaleTween(2.25f, tweenDuration * 2);
+        yield return new WaitForSeconds(tweenDuration * 2);
+        scaleTweener?.SetUniformScale(1f);
     }
 
     void RotateTriggerWrapper()
     {
         float targetRotation = Random.Range(60f, 270f);
         rotationTweener?.TriggerRotation(targetRotation);
-        triggerWrapper?.transform.Rotate(0 , 0, targetRotation);
         float targetRuneRotation = battleTrigger.transform.rotation.z + (targetRotation * -1f);
         RotationTweener runeRotator = battleTrigger.GetComponent<RotationTweener>();
-
-        //battleTrigger.transform.Rotate(0, 0, targetRuneRotation);
-        //runeRotator?.TriggerRotation(targetRuneRotation);
+        triggerWrapper?.GetComponent<RotationTweener>().TriggerRotation(targetRuneRotation);
     }
 
     void RevealOrbitRing()
@@ -136,11 +165,14 @@ public class BattleSpinner : BattleChallenge
             RotateTriggerWrapper();
             ReverseRotation();
             RevealOrbitRing();
+            StartCoroutine(TriggerSuccessHighlight());
             rotationSpeed += 75f;
+            runeAnimationSoundFX.PlayHitSuccess();
 
             if (SuccessLimitReached())
             {
-                rotationActive = false;
+                //rotationActive = false;
+                rotationSpeed += 175f;
                 //battleTrigger.SetActive(false);
                 print("you win!!");
             }

@@ -205,6 +205,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepContext.cs" />
     <Compile Include="Assets\scripts\MusicController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_GlobalControl.cs" />
+    <Compile Include="Assets\scripts\Battle\Ring\BattleTargetController.cs" />
     <Compile Include="Assets\scripts\BlockedAttackController.cs" />
     <Compile Include="Assets\scripts\Battle\BaseFamiliar.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonPoint.cs" />
@@ -301,7 +302,6 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\Ring\BattleTargetController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

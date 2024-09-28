@@ -13,7 +13,7 @@ public class BattleRingTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var isBattleTrigger = collision.CompareTag("BattleTrigger");
-        if (isBattleTrigger)
+        if (isBattleTrigger && !battleSpiner.SuccessLimitReached())
         {
             battleSpiner.triggerValid = true;
             StartCoroutine(HighlightRune(collision.gameObject));
@@ -23,7 +23,7 @@ public class BattleRingTrigger : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         var isBattleTrigger = collision.CompareTag("BattleTrigger");
-        if (isBattleTrigger)
+        if (isBattleTrigger && !battleSpiner.SuccessLimitReached())
         {
             battleSpiner.triggerValid = false;
             StartCoroutine(UnHighlightRune(collision.gameObject));
