@@ -47,7 +47,7 @@ public class BattleSpinner : BattleChallenge
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
 
         // DEBUGGING: disabling the time limit for testing
-        //StartCoroutine(Timeout());
+        StartCoroutine(Timeout());
     }
     bool IsKeyValid()
     {
@@ -78,7 +78,6 @@ public class BattleSpinner : BattleChallenge
     {
         float tweenDuration = .5f;
         GameObject targetHighlight = triggerWrapper.GetComponentInChildren<ScaleTweener>().gameObject;
-            //targetRune.transform.GetChild(0).gameObject;
         ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
         ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
         GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
@@ -89,9 +88,9 @@ public class BattleSpinner : BattleChallenge
         yield return new WaitForSeconds(tweenDuration);
         glowTweener?.TriggerGlowByDuration(1f, tweenDuration / 4);
         colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration * 4);
-        scaleTweener?.TriggerUniformScaleTween(2.25f, tweenDuration * 2);
-        yield return new WaitForSeconds(tweenDuration * 2);
-        scaleTweener?.SetUniformScale(1f);
+        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration * 2);
+        yield return new WaitForSeconds(tweenDuration * 1.2f);
+        ResetSuccessHightlight();
     }
 
     void RotateTriggerWrapper()
@@ -128,6 +127,7 @@ public class BattleSpinner : BattleChallenge
         else if (targetIndex == 2)
         {
             runeAnimationSoundFX.PlayRuneHit3();
+            // NOTE: use this in hte new sequencer to trigger the win condition
             //runeIntroSequencer.winTrigger = true;
         }
     }
@@ -157,10 +157,9 @@ public class BattleSpinner : BattleChallenge
 
     void CheckForValidTrigger()
     {
-        print($"trigger valid: {triggerValid}");
-        if (triggerValid)
+        print($"triggervalid: {triggerValid}");
+        if (triggerValid && !SuccessLimitReached())
         {
-            print($"success: {successCount}");
             successCount++;
             RotateTriggerWrapper();
             ReverseRotation();
@@ -171,22 +170,13 @@ public class BattleSpinner : BattleChallenge
 
             if (SuccessLimitReached())
             {
-                //rotationActive = false;
                 rotationSpeed += 175f;
-                //battleTrigger.SetActive(false);
-                print("you win!!");
+                success = true;
             }
-            else
-            {
-                //RotateTriggerWrapper();
-                //ReverseRotation();
-                //RevealOrbitRing();
-                //rotationSpeed += 75f;
-            }
+
         }
         else
         {
-            //rotationSpeed = defaultRotationSpeed;
             if(successCount > 0)
             {
                 HideOrbitRing(successCount-1);
@@ -210,16 +200,12 @@ public class BattleSpinner : BattleChallenge
 
     void Update()
     {
-        if(!success && !failure)
+        SetRotation();
+        if (IsKeyValid() && !success && !failure)
         {
-            SetRotation();
-            if (IsKeyValid())
-            {
-                print("valid trigger key?");
+            print("valid trigger key?");
 
-                CheckForValidTrigger();
-            }
+            CheckForValidTrigger();
         }
-
     }
 }

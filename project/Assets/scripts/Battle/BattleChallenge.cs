@@ -18,9 +18,5 @@ public class BattleChallenge : MonoBehaviour
             print("time's up!");
             failure = true;
         }
-        else
-        {
-            print("you win!");
-        }
     }
 }
