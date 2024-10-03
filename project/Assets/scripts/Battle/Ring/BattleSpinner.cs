@@ -6,7 +6,7 @@ public class BattleSpinner : BattleChallenge
 {
     Transform targetTransform;
     float rotationModifier = 1.0f;
-    public bool rotationActive = true;
+    public bool rotationActive = false;
     public float rotationSpeed = 400f;
     float defaultRotationSpeed;
     int successCount = 0;
@@ -28,12 +28,13 @@ public class BattleSpinner : BattleChallenge
     void Start()
     {
         targetTransform = gameObject.transform;
+
+        //REFACTOR: this could accidentially find the wrong battle trigger
         battleTrigger = GameObject.FindGameObjectWithTag("BattleTrigger");
         //triggerWrapper =  battleTrigger.transform.parent.gameObject;
         rotationTweener = triggerWrapper.GetComponent<RotationTweener>();
         defaultRotationSpeed = rotationSpeed;
 
-        print(GameObject.FindGameObjectsWithTag("BattleIndicator").Length);
         orbitRings = GameObject.FindGameObjectsWithTag("BattleIndicator");
         orbitDots = new GameObject[3];
         orbitScales = new float[3];
@@ -198,13 +199,29 @@ public class BattleSpinner : BattleChallenge
         transform.Rotate(0, 0, targetRotation);
     }
 
+    public void EnableRotation()
+    {
+        rotationActive = true;
+    }
+
+    public void DisableRotation()
+    {
+        rotationActive = false;
+    }
+
+    public void ToggleRotation()
+    {
+        rotationActive = !rotationActive;
+    }
+
     void Update()
     {
-        SetRotation();
+        if(rotationActive)
+        {
+            SetRotation();
+        }
         if (IsKeyValid() && !success && !failure)
         {
-            print("valid trigger key?");
-
             CheckForValidTrigger();
         }
     }

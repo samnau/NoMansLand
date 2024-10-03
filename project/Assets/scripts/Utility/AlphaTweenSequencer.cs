@@ -21,9 +21,10 @@ public class AlphaTweenSequencer : MonoBehaviour
 
     }
 
-    public void ReverseTweenSequence()
+    // REFACTOR THE TIME LIMIT TO BE PASSED TO THIS COMPONENT SO IT'S NOT BOUND TO ONE CHALLENGE TYPE
+    public void ReverseTweenSequence(float timeLimit = 0f)
     {
-        float timeLimit = radarSweeperTargetController.timeLimit;
+        //float timeLimit = radarSweeperTargetController.timeLimit;
         float delay = timeLimit / targetTweeners.Length;
         for(int index = targetTweeners.Length-1; index > -1; index--)
         {
