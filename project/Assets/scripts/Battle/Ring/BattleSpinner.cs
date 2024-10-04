@@ -168,13 +168,12 @@ public class BattleSpinner : BattleChallenge
             StartCoroutine(TriggerSuccessHighlight());
             rotationSpeed += 75f;
             runeAnimationSoundFX.PlayHitSuccess();
-
             if (SuccessLimitReached())
             {
                 rotationSpeed += 175f;
                 success = true;
+                print("you win!");
             }
-
         }
         else
         {
@@ -188,6 +187,8 @@ public class BattleSpinner : BattleChallenge
                 HideOrbitRing(successCount);
             }
         }
+
+
     }
     public void SetRotation()
     {

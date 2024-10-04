@@ -55,6 +55,8 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     GameObject triggerRune;
 
+    BattleSpinner[] testMe;
+
     bool debugReset = false;
 
     void Start()
@@ -65,7 +67,9 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerDot = pointerArm.transform.parent.gameObject;
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
         inputStateTracker = FindObjectOfType<InputStateTracker>();
-        battleSpinner = pointerTarget.GetComponent<BattleSpinner>();
+        battleSpinner = pointerTarget.transform.parent.GetComponentInChildren<BattleSpinner>();
+        testMe = GameObject.FindObjectsOfType<BattleSpinner>();
+        print($"battle spinner {testMe[0].gameObject.name}");
         foreach (GlowTweener targetChild in pointerTarget.GetComponentsInChildren<GlowTweener>())
         {
             if(targetChild.transform.gameObject.tag == "BattleTrigger")
@@ -93,6 +97,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
     void ResetRuneRing()
     {
         exitAnimationStarted = false;
+        //NOTE: come back to this later when finalizing the exit animation
         pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
         pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
         battleSpinner.failure = false;
@@ -149,7 +154,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
         //NOTE: This starts the random rune highlight
         // pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
 
-        pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
+        //pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
 
         // NOTE: this is the method that starts the radar sweeper target controller countdown
         // COMEBACK: will need to evaluate the battle spinner equivalent
@@ -219,7 +224,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     IEnumerator RuneCountDown()
     {
-        yield return new WaitForSeconds(pointerTarget.GetComponent<BattleSpinner>().timeLimit - 2.5f);
+        yield return new WaitForSeconds(battleSpinner.timeLimit - 2.5f);
         if (!exitAnimationStarted)
         {
             runeAnimationSoundFX.PlayCountDown();
@@ -259,20 +264,13 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.25f);
 
-        //float runeSpeed = 3.5f;
-        //float runeDelay = .1f;
-        //powerRune1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
-        //ield return new WaitForSeconds(runeDelay);
-
-        //powerRune4.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
-        //yield return new WaitForSeconds(runeDelay);
-
-        //powerRune3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
-        //yield return new WaitForSeconds(runeDelay);
-
-        //powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
+        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+
+        print($"rune challenge success? {battleSpinner.success}");
+        print($"rune challenge failure? {battleSpinner.failure}");
 
 
         if (battleSpinner.failure)
