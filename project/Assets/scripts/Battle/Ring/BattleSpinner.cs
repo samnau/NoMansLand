@@ -82,15 +82,15 @@ public class BattleSpinner : BattleChallenge
         ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
         ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
         GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
-        colorTweener?.TriggerImageAlphaByDuration(.6f, tweenDuration);
-        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration * 2);
+        colorTweener?.TriggerImageAlphaByDuration(1f, tweenDuration);
+        scaleTweener?.TriggerUniformScaleTween(1.5f, tweenDuration * 2);
         glowTweener?.SetGlowColor(Color.yellow);
         glowTweener?.TriggerGlowByDuration(5f, tweenDuration);
-        yield return new WaitForSeconds(tweenDuration);
-        glowTweener?.TriggerGlowByDuration(1f, tweenDuration / 4);
-        colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration * 4);
-        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration * 2);
-        yield return new WaitForSeconds(tweenDuration * 1.2f);
+        yield return new WaitForSeconds(tweenDuration*1);
+        //glowTweener?.TriggerGlowByDuration(1f, tweenDuration / 4);
+        //colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration * 4);
+        //scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration * 2);
+        //yield return new WaitForSeconds(tweenDuration * 1.2f);
         ResetSuccessHightlight();
     }
 

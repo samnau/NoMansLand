@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleRingTrigger : MonoBehaviour
 {
     BattleSpinner battleSpinner;
+    public bool inputActive = false;
 
     void Start()
     {
@@ -12,6 +13,10 @@ public class BattleRingTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(!inputActive)
+        {
+            return;
+        }
         var isBattleTrigger = collision.CompareTag("BattleTrigger");
         if (isBattleTrigger && !battleSpinner.SuccessLimitReached())
         {
@@ -22,6 +27,11 @@ public class BattleRingTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!inputActive)
+        {
+            return;
+        }
+
         var isBattleTrigger = collision.CompareTag("BattleTrigger");
         if (isBattleTrigger && !battleSpinner.SuccessLimitReached())
         {

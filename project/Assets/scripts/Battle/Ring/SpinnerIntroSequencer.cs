@@ -55,8 +55,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     GameObject triggerRune;
 
-    BattleSpinner[] testMe;
-
     bool debugReset = false;
 
     void Start()
@@ -68,8 +66,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
         inputStateTracker = FindObjectOfType<InputStateTracker>();
         battleSpinner = pointerTarget.transform.parent.GetComponentInChildren<BattleSpinner>();
-        testMe = GameObject.FindObjectsOfType<BattleSpinner>();
-        print($"battle spinner {testMe[0].gameObject.name}");
         foreach (GlowTweener targetChild in pointerTarget.GetComponentsInChildren<GlowTweener>())
         {
             if(targetChild.transform.gameObject.tag == "BattleTrigger")
@@ -118,8 +114,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
-        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+
 
         // TODO: tie this boolean into an event instead
         yield return new WaitForSeconds(.25f);
@@ -140,6 +135,8 @@ public class SpinnerIntroSequencer : MonoBehaviour
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
+        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+        triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
         yield return new WaitForSeconds(2.5f);
@@ -163,6 +160,8 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
         // enable battle challenge input;
         inputActive = true;
+        pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
+
 
         StartCoroutine(RuneCountDown());
 
@@ -187,22 +186,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
 
     }
-
-    //IEnumerator RevealRunes()
-    //{
-    //    //float runeSpeed = 6f;
-    //    float runeDelay = .2f;
-    //    //powerRune1.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-    //    yield return new WaitForSeconds(runeDelay);
-
-    //    //powerRune4.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-    //    yield return new WaitForSeconds(runeDelay);
-
-    //    //powerRune3.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-    //    yield return new WaitForSeconds(runeDelay);
-
-    //    //powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-    //}
 
     IEnumerator GlowFadeIn(GameObject targetObject)
     {
