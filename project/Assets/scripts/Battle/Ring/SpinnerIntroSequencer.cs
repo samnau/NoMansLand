@@ -47,6 +47,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     float defaultGlow = 7f;
     float defaultGlowSpeed = 3f;
+    float defaultTargetRuneRotation;
 
     InputStateTracker inputStateTracker;
 
@@ -59,13 +60,18 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     void Start()
     {
+        //NOTE: imitate the tag based logic in BattleSpinner to identify these dots and rings
         orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
         orbitDot2 = orbitRing2.transform.Find("orbit ring 2 dot").gameObject;
         orbitDot3 = orbitRing3.transform.Find("orbit ring 3 dot").gameObject;
         pointerDot = pointerArm.transform.parent.gameObject;
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
+        //NOTE: this is used to disable the player
         inputStateTracker = FindObjectOfType<InputStateTracker>();
         battleSpinner = pointerTarget.transform.parent.GetComponentInChildren<BattleSpinner>();
+
+        defaultTargetRuneRotation = pointerTarget.transform.rotation.z;
+
         foreach (GlowTweener targetChild in pointerTarget.GetComponentsInChildren<GlowTweener>())
         {
             if(targetChild.transform.gameObject.tag == "BattleTrigger")
@@ -186,7 +192,8 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
 
     }
-
+    
+    //NOTE: candidate for the refactor
     IEnumerator GlowFadeIn(GameObject targetObject)
     {
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
@@ -196,6 +203,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
         targetGlow.TriggerGlowTween(7f, 4f);
     }
 
+    //NOTE: candidate for the refactor
     IEnumerator GlowFadeOut(GameObject targetObject)
     {
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
@@ -218,7 +226,10 @@ public class SpinnerIntroSequencer : MonoBehaviour
         exitAnimationStarted = true;
         // disabable battle challenge input;
         inputActive = false;
+        pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
 
+
+        pointerTarget.GetComponent<RotationTweener>().TriggerRotation(45f, 1.5f);
         // start the pointer spinning as it fades out
         pointerDot.GetComponent<RotationTweener>().TriggerContinuousRotation(400f);
         yield return new WaitForSeconds(.5f);
@@ -241,14 +252,15 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerArm.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
 
+        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        triggerRune?.GetComponent<ColorTweener>().TriggerImageAlphaByDuration(0f, .7f);
+
         yield return new WaitForSeconds(.125f);
 
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.25f);
 
-        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
-        triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
 

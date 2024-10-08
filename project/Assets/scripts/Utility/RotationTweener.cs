@@ -83,7 +83,6 @@ public class RotationTweener : BaseTweener
         }
         endRotation = targetRotation;
         progress = 0;
-        //StartCoroutine(SetRotation());
         StartCoroutine(SetRotationEaseIn(speed));
     }
     private void Start()
