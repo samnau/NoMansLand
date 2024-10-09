@@ -96,9 +96,8 @@ public class ColorTweener : BaseTweener
     IEnumerator SetSpriteColorByDuration(float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-        print("alpha time tween?");
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
-        Color startColor = color;
+        Color startColor = image.color;
 
         while (elapsed_time < duration)
         {
@@ -113,7 +112,7 @@ public class ColorTweener : BaseTweener
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
-        Color startColor = color;
+        Color startColor = image.color;
 
         while (elapsed_time < duration)
         {

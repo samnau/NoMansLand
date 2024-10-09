@@ -70,7 +70,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
         inputStateTracker = FindObjectOfType<InputStateTracker>();
         battleSpinner = pointerTarget.transform.parent.GetComponentInChildren<BattleSpinner>();
 
-        defaultTargetRuneRotation = pointerTarget.transform.rotation.z;
+        defaultTargetRuneRotation = pointerDot.transform.rotation.z;
 
         foreach (GlowTweener targetChild in pointerTarget.GetComponentsInChildren<GlowTweener>())
         {
@@ -231,10 +231,14 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
         pointerTarget.GetComponent<RotationTweener>().TriggerRotation(45f, 1.5f);
         // start the pointer spinning as it fades out
+        battleSpinner.ToggleRotation();
         pointerDot.GetComponent<RotationTweener>().TriggerContinuousRotation(400f);
+        pointerArm.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
+
         yield return new WaitForSeconds(.5f);
         //radarSweeperTargetController.StopRotation();
-        battleSpinner.ToggleRotation();
+        //battleSpinner.ToggleRotation();
 
         midRing.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
         yield return new WaitForSeconds(.25f);
@@ -246,11 +250,8 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
         runeWrapperBorder.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
         yield return new WaitForSeconds(.25f);
-        runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        runeWrapperBorder.GetComponent<ColorTweener>().TriggerImageAlphaByDuration(0f,0.25f);
         yield return new WaitForSeconds(.25f);
-
-        pointerArm.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
 
         pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         triggerRune?.GetComponent<ColorTweener>().TriggerImageAlphaByDuration(0f, .7f);
