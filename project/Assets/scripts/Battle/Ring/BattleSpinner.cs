@@ -47,8 +47,6 @@ public class BattleSpinner : BattleChallenge
 
         runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
 
-        // DEBUGGING: disabling the time limit for testing
-        StartCoroutine(Timeout());
     }
     bool IsKeyValid()
     {
@@ -87,19 +85,15 @@ public class BattleSpinner : BattleChallenge
         glowTweener?.SetGlowColor(Color.yellow);
         glowTweener?.TriggerGlowByDuration(5f, tweenDuration);
         yield return new WaitForSeconds(tweenDuration*1);
-        //glowTweener?.TriggerGlowByDuration(1f, tweenDuration / 4);
-        //colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration * 4);
-        //scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration * 2);
-        //yield return new WaitForSeconds(tweenDuration * 1.2f);
         ResetSuccessHightlight();
     }
 
     void RotateTriggerWrapper()
     {
+        // COMEBACK: find a way to ensure that the next rotation amount is not close to the last one
         float targetRotation = Random.Range(60f, 270f);
         rotationTweener?.TriggerRotation(targetRotation);
         float targetRuneRotation = battleTrigger.transform.rotation.z + (targetRotation * -1f);
-        RotationTweener runeRotator = battleTrigger.GetComponent<RotationTweener>();
         triggerWrapper?.GetComponent<RotationTweener>().TriggerRotation(targetRuneRotation);
     }
 
@@ -117,6 +111,7 @@ public class BattleSpinner : BattleChallenge
         targetDot.GetComponent<GlowTweener>().TriggerGlowTween(7f);
         targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
 
+        // REFACTOR: this is repeated code in all challenges
         if (targetIndex == 0)
         {
             runeAnimationSoundFX.PlayRuneHit1();
@@ -128,7 +123,7 @@ public class BattleSpinner : BattleChallenge
         else if (targetIndex == 2)
         {
             runeAnimationSoundFX.PlayRuneHit3();
-            // NOTE: use this in hte new sequencer to trigger the win condition
+            // NOTE: use this in the new sequencer to trigger the win condition
             //runeIntroSequencer.winTrigger = true;
         }
     }
@@ -158,7 +153,6 @@ public class BattleSpinner : BattleChallenge
 
     void CheckForValidTrigger()
     {
-        print($"triggervalid: {triggerValid}");
         if (triggerValid && !SuccessLimitReached())
         {
             successCount++;
@@ -172,7 +166,6 @@ public class BattleSpinner : BattleChallenge
             {
                 rotationSpeed += 175f;
                 success = true;
-                print("you win!");
             }
         }
         else

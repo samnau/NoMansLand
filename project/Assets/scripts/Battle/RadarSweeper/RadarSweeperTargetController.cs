@@ -77,13 +77,11 @@ public class RadarSweeperTargetController : BattleChallenge
     // NOTE: this method only is used to set the rotation after the first rotaction of the target is finished
     void SetTargetRotation()
     {
-        print("setting target rotation");
         var randomModfier = Random.Range(0, 10);
         rotationMultiplier = Random.Range(1, 4) * 1f;
         rotationModfier = randomModfier < 5 ? -1f : 1f;
 
         targetRotaton = rotationBase * rotationMultiplier * rotationModfier;
-        print($"target rotation is: {targetRotaton}");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -230,20 +228,20 @@ public class RadarSweeperTargetController : BattleChallenge
 
     IEnumerator TriggerSuccessHighlight()
     {
-        float tweenDuration = .5f;
+        float tweenDuration = .25f;
         GameObject targetHighlight = targetRune.transform.GetChild(0).gameObject;
         ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
         ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
         GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
         colorTweener?.TriggerImageAlphaByDuration(.6f, tweenDuration);
-        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration*2);
+        scaleTweener?.TriggerUniformScaleTween(2f, tweenDuration);
         glowTweener?.SetGlowColor(Color.yellow);
         glowTweener?.TriggerGlowByDuration(5f, tweenDuration);
         yield return new WaitForSeconds(tweenDuration);
-        glowTweener?.TriggerGlowByDuration(1f, tweenDuration/4);
-        colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration*4);
-        scaleTweener?.TriggerUniformScaleTween(2.25f, tweenDuration * 2);
-        yield return new WaitForSeconds(tweenDuration*2);
+        glowTweener?.TriggerGlowByDuration(0f, tweenDuration/4);
+        colorTweener?.TriggerImageAlphaByDuration(0, tweenDuration*2);
+        scaleTweener?.TriggerUniformScaleTween(2.25f, tweenDuration*2);
+        yield return new WaitForSeconds(tweenDuration);
         scaleTweener?.SetUniformScale(1f);
     }
 
@@ -337,7 +335,6 @@ public class RadarSweeperTargetController : BattleChallenge
     public void ResetHitCount()
     {
         hitCount = 0;
-        print($"hitcount: {hitCount}");
     }
 
     void Update()

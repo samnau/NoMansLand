@@ -40,7 +40,6 @@ public class BattleRingTrigger : MonoBehaviour
         if (isBattleTrigger && !battleSpinner.SuccessLimitReached())
         {
             battleSpinner.triggerValid = false;
-            //StartCoroutine(UnHighlightRune(collision.gameObject));
         }
     }
 
@@ -57,7 +56,6 @@ public class BattleRingTrigger : MonoBehaviour
     {
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
-        //targetTweener.TriggerAlphaImageTween(1f, 20f);
         targetTweener.TriggerImageAlphaByDuration(1f, .1f);
         yield return new WaitForSeconds(.15f);
         targetTweener.TriggerImageAlphaByDuration(.5f, .1f);

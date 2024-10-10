@@ -85,8 +85,6 @@ public class RuneIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
         pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
         radarSweeperTargetController.failure = false;
-        //pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        //pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
         // target controller hit count needs to be reset, somewhere
         //TriggerIntroSequence();

@@ -87,15 +87,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
         StartCoroutine(RuneRingIntroSequence());
     }
 
-    // REFACTOR: this method shouldn't be part of the intro sequence code
-    float SetPointerTriggerStartRotation()
-    {
-        var randomModfier = Random.Range(0, 10);
-        float rotationMultiplier = Random.Range(1, 4) * 1f;
-        float rotationModfier = randomModfier < 5 ? -1f : 1f;
-        return 90f * rotationMultiplier * rotationModfier;
-    }
-
     void ResetRuneRing()
     {
         exitAnimationStarted = false;
@@ -103,24 +94,14 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
         pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
         battleSpinner.failure = false;
-        //pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        //pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
         // target controller hit count needs to be reset, somewhere
-        //TriggerIntroSequence();
     }
     IEnumerator RuneRingIntroSequence()
     {
         yield return new WaitForSeconds(.5f);
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-
-        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
-
-
 
         // TODO: tie this boolean into an event instead
         yield return new WaitForSeconds(.25f);
@@ -137,9 +118,13 @@ public class SpinnerIntroSequencer : MonoBehaviour
         outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
-        //StartCoroutine(RevealRunes());
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
+
+        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
+
 
         pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
@@ -147,17 +132,10 @@ public class SpinnerIntroSequencer : MonoBehaviour
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(GlowFadeIn(pointerArm));
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow*2, defaultGlowSpeed);
 
-        // DEBUGGING: disabling lines around time limit and target highlight settings for testing
-        // ENABLE AFTER TESTING COMPLETE
         // NOTE: this is what kicks off the minor rune countdown sequence
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(battleSpinner.timeLimit);
-        //float targetRotation = pointerTarget.GetComponent<RadarSweeperTargetController>().SetPointerTriggerStartRotation();
-        //pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(0f);
-        //NOTE: This starts the random rune highlight
-        // pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
-
-        //pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
 
         // NOTE: this is the method that starts the radar sweeper target controller countdown
         // COMEBACK: will need to evaluate the battle spinner equivalent
@@ -168,11 +146,8 @@ public class SpinnerIntroSequencer : MonoBehaviour
         inputActive = true;
         pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
 
-
         StartCoroutine(RuneCountDown());
-
-        // NOTE: Access point for turning off time limit for testing
-        //yield break;
+        battleSpinner.StartCoroutine(battleSpinner.Timeout());
 
         for (float timer = battleSpinner.timeLimit; timer >= 0; timer -= Time.deltaTime)
         {
@@ -237,8 +212,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
 
         yield return new WaitForSeconds(.5f);
-        //radarSweeperTargetController.StopRotation();
-        //battleSpinner.ToggleRotation();
 
         midRing.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
         yield return new WaitForSeconds(.25f);
@@ -265,10 +238,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
 
-        print($"rune challenge success? {battleSpinner.success}");
-        print($"rune challenge failure? {battleSpinner.failure}");
-
-
         if (battleSpinner.failure)
         {
             StartCoroutine(RuneFailureSequence());
@@ -278,8 +247,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
             StartCoroutine(RuneSuccessSequence());
         }
 
-        // TEMP: just for working on the reset code for the ring
-        //debugReset = true;
     }
 
     IEnumerator RuneSuccessSequence()
@@ -292,7 +259,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     IEnumerator RuneFailureSequence()
     {
-        print("spell failure");
         runeAnimationSoundFX.PlaySpellFailure();
         yield return new WaitForSeconds(.25f);
 
