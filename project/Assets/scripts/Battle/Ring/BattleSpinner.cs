@@ -18,6 +18,7 @@ public class BattleSpinner : BattleChallenge
     GameObject battleTrigger;
     [SerializeField] GameObject triggerWrapper;
     RotationTweener rotationTweener;
+    SpinnerIntroSequencer spinnerIntroSequencer;
 
     GameObject[] orbitRings;
     GameObject[] orbitDots;
@@ -28,25 +29,36 @@ public class BattleSpinner : BattleChallenge
     void Start()
     {
         targetTransform = gameObject.transform;
-
-        //REFACTOR: this could accidentially find the wrong battle trigger
-        battleTrigger = GameObject.FindGameObjectWithTag("BattleTrigger");
-        //triggerWrapper =  battleTrigger.transform.parent.gameObject;
         rotationTweener = triggerWrapper.GetComponent<RotationTweener>();
+        spinnerIntroSequencer = gameObject.GetComponentInParent<SpinnerIntroSequencer>();
+
         defaultRotationSpeed = rotationSpeed;
 
-        orbitRings = GameObject.FindGameObjectsWithTag("BattleIndicator");
         orbitDots = new GameObject[3];
         orbitScales = new float[3];
+
+        List<GameObject> tempOrbitRingsList = new List<GameObject>();
+
+        for (int i = 0; i < spinnerIntroSequencer.transform.childCount; i++)
+        {
+            if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleIndicator"))
+            {
+                tempOrbitRingsList?.Add(spinnerIntroSequencer.transform.GetChild(i).gameObject);
+            }
+            if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
+            {
+                battleTrigger = spinnerIntroSequencer.transform.GetChild(i).gameObject;
+            }
+        }
+        orbitRings = tempOrbitRingsList.ToArray();
+
         for (int i = 0; i <= orbitRings.Length-1; i++)
         {
-            print(orbitRings[i].transform.GetChild(0).gameObject);
             orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
             orbitScales[i] = orbitRings[i].transform.localScale.y;
         }
 
-        runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
-
+        runeAnimationSoundFX = gameObject.GetComponentInParent<RuneAnimationSoundFX>();
     }
     bool IsKeyValid()
     {
@@ -124,7 +136,7 @@ public class BattleSpinner : BattleChallenge
         {
             runeAnimationSoundFX.PlayRuneHit3();
             // NOTE: use this in the new sequencer to trigger the win condition
-            //runeIntroSequencer.winTrigger = true;
+            spinnerIntroSequencer.winTrigger = true;
         }
     }
 
@@ -148,7 +160,23 @@ public class BattleSpinner : BattleChallenge
         targetRingColor.TriggerAlphaImageTween(0, 3f);
         targetRingScaler.TriggerScale(targetScale, 3f);
         targetDotColor.TriggerAlphaImageTween(0, 3f);
+    }
 
+    IEnumerator ResetOrbitRings()
+    {
+        yield return new WaitForSeconds(2f);
+        int targetIndex = 0;
+        foreach (GameObject orbitRing in orbitRings)
+        {
+            HideOrbitRing(targetIndex);
+            targetIndex++;
+        }
+        success = false;
+    }
+
+    public void TriggerOrbitRingReset()
+    {
+        StartCoroutine(ResetOrbitRings());
     }
 
     void CheckForValidTrigger()

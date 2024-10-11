@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Runtime.InteropServices;
 using UnityEngine;
+using System.Collections.Generic;
 using System.Linq;
 
 public class RadarSweeperTargetController : BattleChallenge
@@ -14,19 +15,6 @@ public class RadarSweeperTargetController : BattleChallenge
     public bool hitActive = false;
     public int hitSuccessLimit = 4;
     public float triggerTimeLimit = 2f;
-    [SerializeField]
-    GameObject orbitRing1;
-    [SerializeField]
-    GameObject orbitRing2;
-    [SerializeField]
-    GameObject orbitRing3;
-    GameObject orbitDot1;
-    GameObject orbitDot2;
-    GameObject orbitDot3;
-
-    float orbitRing1Scale;
-    float orbitRing2Scale;
-    float orbitRing3Scale;
 
 
     GameObject[] orbitRings;
@@ -54,22 +42,36 @@ public class RadarSweeperTargetController : BattleChallenge
 
     void Start()
     {
-        orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
-        orbitDot2 = orbitRing2.transform.Find("orbit ring 2 dot").gameObject;
-        orbitDot3 = orbitRing3.transform.Find("orbit ring 3 dot").gameObject;
+        runeIntroSequencer = gameObject.GetComponentInParent<RuneIntroSequencer>();
 
-        orbitRings = new GameObject[] { orbitRing1, orbitRing2, orbitRing3 };
-        orbitDots = new GameObject[] { orbitDot1, orbitDot2, orbitDot3 };
+        List<GameObject> tempOrbitRingsList = new List<GameObject>();
+        List<GameObject> tempPowerRuneList = new List<GameObject>();
 
-        powerRunes = GameObject.FindGameObjectsWithTag("BattleTrigger");
+        orbitDots = new GameObject[3];
+        orbitScales = new float[3];
 
-        orbitRing1Scale = orbitRing1.transform.localScale.y;
-        orbitRing2Scale = orbitRing2.transform.localScale.y;
-        orbitRing3Scale = orbitRing3.transform.localScale.y;
+        for (int i = 0; i < runeIntroSequencer.transform.childCount; i++)
+        {
+            if (runeIntroSequencer.transform.GetChild(i).CompareTag("BattleIndicator"))
+            {
+                tempOrbitRingsList?.Add(runeIntroSequencer.transform.GetChild(i).gameObject);
+            }
+            if (runeIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
+            {
+                tempPowerRuneList?.Add(runeIntroSequencer.transform.GetChild(i).gameObject);
+            }
+        }
+        orbitRings = tempOrbitRingsList.ToArray();
 
-        orbitScales = new float[] { orbitRing1Scale, orbitRing2Scale, orbitRing3Scale };
-        runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
-        runeIntroSequencer = FindObjectOfType<RuneIntroSequencer>();
+        for (int i = 0; i <= orbitRings.Length - 1; i++)
+        {
+            orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
+            orbitScales[i] = orbitRings[i].transform.localScale.y;
+        }
+
+        powerRunes = tempPowerRuneList.ToArray();
+
+        runeAnimationSoundFX = gameObject.GetComponentInParent<RuneAnimationSoundFX>();
 
         SetTargetRotation();
     }
@@ -109,8 +111,6 @@ public class RadarSweeperTargetController : BattleChallenge
         if (collision.CompareTag("BattleTrigger"))
         {
             StartCoroutine(UnHighlightRune(collision.gameObject));
-//            ColorTweener targetTweener = collision.gameObject.GetComponent<ColorTweener>();
-//            targetTweener.TriggerAlphaImageTween(0.5f, 10);
         }
     }
 
@@ -119,14 +119,10 @@ public class RadarSweeperTargetController : BattleChallenge
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
 
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
-        //targetGlow.TurnOffGlow();
-        //targetGlow.SetGlowColor(Color.white);
 
         targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 15f);
         yield return new WaitForSeconds(.1f);
-        //targetTweener.SetImageAlpha(.5f);
         targetTweener.TriggerAlphaImageTween(0.5f, 10f);
-        //ResetHightLight();
     }
 
     void ResetHightLight()

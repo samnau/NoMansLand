@@ -32,6 +32,11 @@ public class UtilityScaleTweener : BaseTweener
         }
     }
 
+    public void SetUniformScale(float targetScaleFloat)
+    {
+        transform.localScale = new Vector3(targetScaleFloat, targetScaleFloat, targetScaleFloat);
+    }
+
     public void TriggerScale([Optional] float targetScale, [Optional] float targetSpeed)
     {
         if (targetSpeed != 0)

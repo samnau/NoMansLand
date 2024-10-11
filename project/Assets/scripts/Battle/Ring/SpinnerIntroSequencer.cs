@@ -99,6 +99,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
     }
     IEnumerator RuneRingIntroSequence()
     {
+        print("rune ring intro!");
         yield return new WaitForSeconds(.5f);
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
@@ -254,7 +255,10 @@ public class SpinnerIntroSequencer : MonoBehaviour
         runeAnimationSoundFX.PlaySpellSuccess();
         battleChallengeSuccess.Invoke();
         ResetRuneRing();
+        battleSpinner.TriggerOrbitRingReset();
         yield return null;
+        //yield return new WaitForSeconds(7f);
+        //RuneRingIntroSequence();
     }
 
     IEnumerator RuneFailureSequence()
