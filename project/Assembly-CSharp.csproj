@@ -126,6 +126,7 @@
     <Compile Include="Assets\scripts\Characters\GhostKingController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\scripts\Battle\AnimationFlowController.cs" />
+    <Compile Include="Assets\scripts\Battle\Ring\SpinnerIntroSequencer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweep.cs" />
     <Compile Include="Assets\scripts\KeyCodeValidator.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepPointComparator.cs" />
@@ -302,7 +303,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\Ring\SpinnerIntroSequencer.cs" />
+    <Compile Include="Assets\scripts\Battle\BattleIntroSequencer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

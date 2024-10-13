@@ -14,14 +14,6 @@ public class RuneIntroSequencer : MonoBehaviour
     [SerializeField]
     GameObject runeWrapperBorder;
     [SerializeField]
-    GameObject powerRune1;
-    [SerializeField]
-    GameObject powerRune2;
-    [SerializeField]
-    GameObject powerRune3;
-    [SerializeField]
-    GameObject powerRune4;
-    [SerializeField]
     GameObject pointerArm;
     GameObject pointerDot;
     [SerializeField]
@@ -142,7 +134,7 @@ public class RuneIntroSequencer : MonoBehaviour
         outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
-        StartCoroutine(RevealRunes());
+        StartCoroutine(AlphaTweenRunes());
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
@@ -191,21 +183,16 @@ public class RuneIntroSequencer : MonoBehaviour
 
         
     }
-    //REFACTOR: look for a way to use rune array
-    IEnumerator RevealRunes()
+    IEnumerator AlphaTweenRunes(float targetAlpha = 0.5f, float runeSpeed = 6f, float runeDelay = .2f )
     {
-        float runeSpeed = 6f;
-        float runeDelay = .2f;
-        powerRune1.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-        yield return new WaitForSeconds(runeDelay);
+        int targetIndex = 0;
 
-        powerRune4.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-        yield return new WaitForSeconds(runeDelay);
-
-        powerRune3.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
-        yield return new WaitForSeconds(runeDelay);
-
-        powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f, runeSpeed);
+        foreach (GameObject powerRune in powerRunes)
+        {
+            powerRune.GetComponent<ColorTweener>().TriggerAlphaImageTween(targetAlpha, runeSpeed);
+            yield return new WaitForSeconds(runeDelay);
+            targetIndex++;
+        }
     }
 
     IEnumerator GlowFadeIn(GameObject targetObject)
@@ -267,19 +254,7 @@ public class RuneIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.25f);
 
-        //REFACTOR: use new array loop code for these repeated rune animations
-        float runeSpeed = 3.5f;
-        float runeDelay = .1f;
-        powerRune1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f,runeSpeed);
-        yield return new WaitForSeconds(runeDelay);
-
-        powerRune4.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
-        yield return new WaitForSeconds(runeDelay);
-
-        powerRune3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
-        yield return new WaitForSeconds(runeDelay);
-
-        powerRune2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, runeSpeed);
+        StartCoroutine(AlphaTweenRunes(0f, 3.5f, .1f));
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
 

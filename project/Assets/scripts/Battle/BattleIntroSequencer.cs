@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpinnerIntroSequencer : MonoBehaviour
+public class BattleIntroSequencer : MonoBehaviour
 {
     [SerializeField] GameObject backgroundShade;
     [SerializeField]
@@ -14,22 +14,12 @@ public class SpinnerIntroSequencer : MonoBehaviour
     [SerializeField]
     GameObject runeWrapperBorder;
     [SerializeField]
-    GameObject orbitRing1;
-    [SerializeField]
-    GameObject orbitRing2;
-    [SerializeField]
-    GameObject orbitRing3;
-    GameObject orbitDot1;
-    GameObject orbitDot2;
-    GameObject orbitDot3;
-    [SerializeField]
     GameObject pointerArm;
     GameObject pointerDot;
     [SerializeField]
     GameObject pointerTarget;
     RuneAnimationSoundFX runeAnimationSoundFX;
     RadarSweeperTargetController radarSweeperTargetController;
-    BattleSpinner battleSpinner;
     [HideInInspector]
     public bool winTrigger = false;
     [HideInInspector]
@@ -39,39 +29,52 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     float defaultGlow = 7f;
     float defaultGlowSpeed = 3f;
-    float defaultTargetRuneRotation;
 
     InputStateTracker inputStateTracker;
 
     [SerializeField] GameEvent battleChallengeSuccess;
     [SerializeField] GameEvent battleChallengeFailure;
 
-    GameObject triggerRune;
+    GameObject[] orbitRings;
+    GameObject[] orbitDots;
+    GameObject[] powerRunes;
+    float[] orbitScales;
 
     bool debugReset = false;
 
     void Start()
     {
-        //NOTE: imitate the tag based logic in BattleSpinner to identify these dots and rings
-        orbitDot1 = orbitRing1.transform.Find("orbit ring 1 dot").gameObject;
-        orbitDot2 = orbitRing2.transform.Find("orbit ring 2 dot").gameObject;
-        orbitDot3 = orbitRing3.transform.Find("orbit ring 3 dot").gameObject;
-        pointerDot = pointerArm.transform.parent.gameObject;
-        runeAnimationSoundFX = FindObjectOfType<RuneAnimationSoundFX>();
-        //NOTE: this is used to disable the player
-        inputStateTracker = FindObjectOfType<InputStateTracker>();
-        battleSpinner = pointerTarget.transform.parent.GetComponentInChildren<BattleSpinner>();
+        List<GameObject> tempOrbitRingsList = new List<GameObject>();
+        List<GameObject> tempPowerRuneList = new List<GameObject>();
 
-        defaultTargetRuneRotation = pointerDot.transform.rotation.z;
+        orbitDots = new GameObject[3];
+        orbitScales = new float[3];
 
-        foreach (GlowTweener targetChild in pointerTarget.GetComponentsInChildren<GlowTweener>())
+        for (int i = 0; i < transform.childCount; i++)
         {
-            if(targetChild.transform.gameObject.tag == "BattleTrigger")
+            if (transform.GetChild(i).CompareTag("BattleIndicator"))
             {
-                triggerRune = targetChild.transform.gameObject;
+                tempOrbitRingsList?.Add(transform.GetChild(i).gameObject);
+            }
+            if (transform.GetChild(i).CompareTag("BattleTrigger"))
+            {
+                tempPowerRuneList?.Add(transform.GetChild(i).gameObject);
             }
         }
-        //radarSweeperTargetController = FindObjectOfType<RadarSweeperTargetController>();
+        orbitRings = tempOrbitRingsList.ToArray();
+
+        powerRunes = tempPowerRuneList.ToArray();
+
+        for (int i = 0; i <= orbitRings.Length - 1; i++)
+        {
+            orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
+            orbitScales[i] = orbitRings[i].transform.localScale.y;
+        }
+
+        pointerDot = pointerArm.transform.parent.gameObject;
+        runeAnimationSoundFX = transform.GetComponent<RuneAnimationSoundFX>();
+        inputStateTracker = FindObjectOfType<InputStateTracker>();
+        radarSweeperTargetController = GetComponentInChildren<RadarSweeperTargetController>();
     }
 
     public void TriggerIntroSequence()
@@ -79,22 +82,42 @@ public class SpinnerIntroSequencer : MonoBehaviour
         StartCoroutine(RuneRingIntroSequence());
     }
 
+    // REFACTOR: this method shouldn't be part of the intro sequence code
+    float SetPointerTriggerStartRotation()
+    {
+        var randomModfier = Random.Range(0, 10);
+        float rotationMultiplier = Random.Range(1, 4) * 1f;
+        float rotationModfier = randomModfier < 5 ? -1f : 1f;
+        return 90f * rotationMultiplier * rotationModfier;
+    }
+
     void ResetRuneRing()
     {
         exitAnimationStarted = false;
-        //NOTE: come back to this later when finalizing the exit animation
         pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
         pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
-        battleSpinner.failure = false;
+        radarSweeperTargetController.failure = false;
+
+        int targetIndex = 0;
+        foreach (GameObject orbitRing in orbitRings)
+        {
+            orbitRing.GetComponent<UtilityScaleTweener>()?.SetUniformScale(orbitScales[targetIndex]);
+            targetIndex++;
+        }
 
         // target controller hit count needs to be reset, somewhere
+        //TriggerIntroSequence();
     }
     IEnumerator RuneRingIntroSequence()
     {
-        print("rune ring intro!");
         yield return new WaitForSeconds(.5f);
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+
+        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
+        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
         // TODO: tie this boolean into an event instead
         yield return new WaitForSeconds(.25f);
@@ -111,39 +134,39 @@ public class SpinnerIntroSequencer : MonoBehaviour
         outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
+        StartCoroutine(AlphaTweenRunes());
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
         yield return new WaitForSeconds(.25f);
 
-        pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
-
-
-        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
         yield return new WaitForSeconds(2.5f);
         StartCoroutine(GlowFadeIn(pointerArm));
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow*2, defaultGlowSpeed);
 
         // NOTE: this is what kicks off the minor rune countdown sequence
-        runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(battleSpinner.timeLimit);
+        runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(radarSweeperTargetController.timeLimit);
+        float targetRotation = pointerTarget.GetComponent<RadarSweeperTargetController>().SetPointerTriggerStartRotation();
+        pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(targetRotation);
+        //NOTE: This starts the random rune highlight
+        pointerTarget.GetComponent<RadarSweeperTargetController>().StartRotation();
+
+        pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
 
         // NOTE: this is the method that starts the radar sweeper target controller countdown
-        // COMEBACK: will need to evaluate the battle spinner equivalent
-        //radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
+        radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
 
 
         // enable battle challenge input;
         inputActive = true;
-        pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
 
         StartCoroutine(RuneCountDown());
-        battleSpinner.StartCoroutine(battleSpinner.Timeout());
 
-        for (float timer = battleSpinner.timeLimit; timer >= 0; timer -= Time.deltaTime)
+        // NOTE: Access point for turning off time limit for testing
+        //yield break;
+
+        for (float timer = radarSweeperTargetController.timeLimit; timer >= 0; timer -= Time.deltaTime)
         {
+            // NOTE: this is he shortcut to the end of the animation when player has won
             if (winTrigger)
             {
                 winTrigger = false;
@@ -160,8 +183,18 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
 
     }
-    
-    //NOTE: candidate for the refactor
+    IEnumerator AlphaTweenRunes(float targetAlpha = 0.5f, float runeSpeed = 6f, float runeDelay = .2f)
+    {
+        int targetIndex = 0;
+
+        foreach (GameObject powerRune in powerRunes)
+        {
+            powerRune.GetComponent<ColorTweener>().TriggerAlphaImageTween(targetAlpha, runeSpeed);
+            yield return new WaitForSeconds(runeDelay);
+            targetIndex++;
+        }
+    }
+
     IEnumerator GlowFadeIn(GameObject targetObject)
     {
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
@@ -171,7 +204,6 @@ public class SpinnerIntroSequencer : MonoBehaviour
         targetGlow.TriggerGlowTween(7f, 4f);
     }
 
-    //NOTE: candidate for the refactor
     IEnumerator GlowFadeOut(GameObject targetObject)
     {
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
@@ -183,7 +215,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
     IEnumerator RuneCountDown()
     {
-        yield return new WaitForSeconds(battleSpinner.timeLimit - 2.5f);
+        yield return new WaitForSeconds(radarSweeperTargetController.timeLimit - 2.5f);
         if (!exitAnimationStarted)
         {
             runeAnimationSoundFX.PlayCountDown();
@@ -194,17 +226,11 @@ public class SpinnerIntroSequencer : MonoBehaviour
         exitAnimationStarted = true;
         // disabable battle challenge input;
         inputActive = false;
-        pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
 
-
-        pointerTarget.GetComponent<RotationTweener>().TriggerRotation(45f, 1.5f);
         // start the pointer spinning as it fades out
-        battleSpinner.ToggleRotation();
         pointerDot.GetComponent<RotationTweener>().TriggerContinuousRotation(400f);
-        pointerArm.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
-
         yield return new WaitForSeconds(.5f);
+        radarSweeperTargetController.StopRotation();
 
         midRing.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
         yield return new WaitForSeconds(.25f);
@@ -216,11 +242,11 @@ public class SpinnerIntroSequencer : MonoBehaviour
 
         runeWrapperBorder.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
         yield return new WaitForSeconds(.25f);
-        runeWrapperBorder.GetComponent<ColorTweener>().TriggerImageAlphaByDuration(0f,0.25f);
+        runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.25f);
 
-        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
-        triggerRune?.GetComponent<ColorTweener>().TriggerImageAlphaByDuration(0f, .7f);
+        pointerArm.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(0, defaultGlowSpeed);
 
         yield return new WaitForSeconds(.125f);
 
@@ -228,18 +254,22 @@ public class SpinnerIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
         yield return new WaitForSeconds(.25f);
 
+        StartCoroutine(AlphaTweenRunes(0f, 3.5f, .1f));
 
         backgroundShade.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
 
-        if (battleSpinner.failure)
+
+        if (radarSweeperTargetController.failure)
         {
             StartCoroutine(RuneFailureSequence());
         }
-        else if (battleSpinner.success)
+        else if (radarSweeperTargetController.success)
         {
             StartCoroutine(RuneSuccessSequence());
         }
 
+        // TEMP: just for working on the reset code for the ring
+        //debugReset = true;
     }
 
     IEnumerator RuneSuccessSequence()
@@ -247,10 +277,7 @@ public class SpinnerIntroSequencer : MonoBehaviour
         runeAnimationSoundFX.PlaySpellSuccess();
         battleChallengeSuccess.Invoke();
         ResetRuneRing();
-        battleSpinner.TriggerOrbitRingReset();
         yield return null;
-        //yield return new WaitForSeconds(7f);
-        //RuneRingIntroSequence();
     }
 
     IEnumerator RuneFailureSequence()
@@ -258,30 +285,20 @@ public class SpinnerIntroSequencer : MonoBehaviour
         runeAnimationSoundFX.PlaySpellFailure();
         yield return new WaitForSeconds(.25f);
 
-        orbitDot1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
-        orbitRing1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
-        yield return new WaitForSeconds(.125f);
+        int targetIndex = 0;
 
-        orbitDot1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        orbitRing1.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        yield return new WaitForSeconds(.125f);
-
-        orbitDot2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
-        orbitRing2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
-        yield return new WaitForSeconds(.125f);
-        orbitDot2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        orbitRing2.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        yield return new WaitForSeconds(.125f);
-
-        orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
-        orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
-        yield return new WaitForSeconds(.125f);
-
-        orbitDot3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
-        orbitRing3.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+        foreach (GameObject orbitRing in orbitRings)
+        {
+            orbitRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+            orbitDots[targetIndex].GetComponent<ColorTweener>().TriggerAlphaImageTween(0f, defaultGlowSpeed);
+            yield return new WaitForSeconds(.125f);
+            orbitRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+            orbitDots[targetIndex].GetComponent<ColorTweener>().TriggerAlphaImageTween(0);
+            targetIndex++;
+        }
 
         battleChallengeFailure.Invoke();
-
+        yield return new WaitForSeconds(1f);
         ResetRuneRing();
     }
 
