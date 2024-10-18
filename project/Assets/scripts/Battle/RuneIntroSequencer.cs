@@ -19,6 +19,8 @@ public class RuneIntroSequencer : MonoBehaviour
     [SerializeField]
     GameObject pointerTarget;
     RuneAnimationSoundFX runeAnimationSoundFX;
+
+    // unique
     RadarSweeperTargetController radarSweeperTargetController;
     [HideInInspector]
     public bool winTrigger = false;
@@ -37,6 +39,8 @@ public class RuneIntroSequencer : MonoBehaviour
 
     GameObject[] orbitRings;
     GameObject[] orbitDots;
+
+    //unique
     GameObject[] powerRunes;
     float[] orbitScales;
 
@@ -108,6 +112,7 @@ public class RuneIntroSequencer : MonoBehaviour
         // target controller hit count needs to be reset, somewhere
         //TriggerIntroSequence();
     }
+
     IEnumerator RuneRingIntroSequence()
     {
         yield return new WaitForSeconds(.5f);
