@@ -9,7 +9,6 @@ public class BattleSpinner : BattleChallenge
     public bool rotationActive = false;
     public float rotationSpeed = 400f;
     float defaultRotationSpeed;
-    int successCount = 0;
     public int successLimit = 3;
     [HideInInspector]
     public bool triggerValid = false;
@@ -70,7 +69,7 @@ public class BattleSpinner : BattleChallenge
     }
     public bool SuccessLimitReached()
     {
-        return successCount >= successLimit;
+        return hitCount >= successLimit;
     }
 
     void ResetSuccessHightlight()
@@ -111,7 +110,7 @@ public class BattleSpinner : BattleChallenge
 
     void RevealOrbitRing()
     {
-        int targetIndex = successCount - 1;
+        int targetIndex = hitCount - 1;
         GameObject targetRing = orbitRings[targetIndex];
         GameObject targetDot = orbitDots[targetIndex];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
@@ -183,7 +182,7 @@ public class BattleSpinner : BattleChallenge
     {
         if (triggerValid && !SuccessLimitReached())
         {
-            successCount++;
+            hitCount++;
             RotateTriggerWrapper();
             ReverseRotation();
             RevealOrbitRing();
@@ -198,14 +197,14 @@ public class BattleSpinner : BattleChallenge
         }
         else
         {
-            if(successCount > 0)
+            if(hitCount > 0)
             {
-                HideOrbitRing(successCount-1);
+                HideOrbitRing(hitCount-1);
                 rotationSpeed -= 75f;
-                successCount -= 1;
+                hitCount -= 1;
             } else
             {
-                HideOrbitRing(successCount);
+                HideOrbitRing(hitCount);
             }
         }
 

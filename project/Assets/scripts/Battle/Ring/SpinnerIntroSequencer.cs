@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class SpinnerIntroSequencer : BattleIntroSequencer
 {
-    // unique
     BattleSpinner battleSpinner;
-
-    //unique
     GameObject triggerRune;
 
     void Start()
@@ -34,17 +31,7 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
     {
         base.BattleChallengeReset();
         battleSpinner.failure = false;
-    }
-
-    void ResetRuneRing()
-    {
-        exitAnimationStarted = false;
-        //NOTE: come back to this later when finalizing the exit animation
-        pointerDot.GetComponent<RotationTweener>().StopAllCoroutines();
-        pointerDot.transform.rotation = Quaternion.Euler(0, 0, -45f);
-        battleSpinner.failure = false;
-
-        // target controller hit count needs to be reset, somewhere
+        battleSpinner.hitCount = 0;
     }
 
     protected override IEnumerator IntroSequence()
@@ -64,20 +51,11 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
         StartCoroutine(IntroFinalSequence());
     }
 
-
-    IEnumerator RuneCountDown()
-    {
-        yield return new WaitForSeconds(timeLimit - 2.5f);
-        if (!exitAnimationStarted)
-        {
-            runeAnimationSoundFX.PlayCountDown();
-        }
-    }
     protected override IEnumerator ExitSequence()
     {
+        PointerExitSequence();
         pointerTarget.GetComponent<RotationTweener>().TriggerRotation(45f, 1.5f);
         battleSpinner.ToggleRotation();
-        PointerExitSequence();
         pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
         StartCoroutine(ExitPartsSequence());
         yield return new WaitForSeconds(2f);

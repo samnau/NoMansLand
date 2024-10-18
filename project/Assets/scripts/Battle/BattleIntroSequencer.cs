@@ -44,6 +44,20 @@ public class BattleIntroSequencer : MonoBehaviour
 
     protected bool debugReset = false;
 
+    protected void FindPOwerRunes()
+    {
+        List<GameObject> tempPowerRuneList = new List<GameObject>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            if (transform.GetChild(i).CompareTag("BattleTrigger"))
+            {
+                tempPowerRuneList?.Add(transform.GetChild(i).gameObject);
+            }
+        }
+
+        powerRunes = tempPowerRuneList.ToArray();
+    }
     protected void FindBattleIndicators()
     {
         List<GameObject> tempOrbitRingsList = new List<GameObject>();
@@ -69,15 +83,6 @@ public class BattleIntroSequencer : MonoBehaviour
 
     }
 
-
-    // REFACTOR: this method shouldn't be part of the intro sequence code
-    //float SetPointerTriggerStartRotation()
-    //{
-    //    var randomModfier = Random.Range(0, 10);
-    //    float rotationMultiplier = Random.Range(1, 4) * 1f;
-    //    float rotationModfier = randomModfier < 5 ? -1f : 1f;
-    //    return 90f * rotationMultiplier * rotationModfier;
-    //}
     virtual protected void BattleChallengeReset()
     {
         BattleChallengeCleanup();

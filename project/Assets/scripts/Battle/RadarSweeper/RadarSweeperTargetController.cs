@@ -11,7 +11,7 @@ public class RadarSweeperTargetController : BattleChallenge
     float rotationBase = 90f;
     float targetRotaton;
     public GameObject battleTrigger;
-    [HideInInspector] public int hitCount = 0;
+    //[HideInInspector] public int hitCount = 0;
     public bool hitActive = false;
     public int hitSuccessLimit = 4;
     public float triggerTimeLimit = 2f;
