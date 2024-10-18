@@ -169,6 +169,7 @@ public class BattleIntroSequencer : MonoBehaviour
     }
     protected virtual IEnumerator IntroSequence()
     {
+        print("Intro implementation missing");
         yield return null;
     }
 
@@ -199,7 +200,7 @@ public class BattleIntroSequencer : MonoBehaviour
         runeWrapperBorder.GetComponent<ColorTweener>().TriggerImageAlphaByDuration(0f, 0.25f);
         yield return new WaitForSeconds(.25f);
 
-        pointerTarget?.GetComponent<ColorTweener>().TriggerAlphaImageTween(0f);
+        pointerTarget?.GetComponent<ColorTweener>()?.TriggerAlphaImageTween(0f);
     }
 
     protected IEnumerator ExitFinalSequence(bool success = false, bool failure = false)
@@ -224,14 +225,15 @@ public class BattleIntroSequencer : MonoBehaviour
 
     protected virtual IEnumerator ExitSequence()
     {
-        print("I am the exit sequence template");
+        print("Exit implementation missing");
         yield return null;
     }
     
 
     //unique to radar wheel but can be defined here
-    IEnumerator AlphaTweenRunes(float targetAlpha = 0.5f, float runeSpeed = 6f, float runeDelay = .2f)
+    protected IEnumerator AlphaTweenRunes(float targetAlpha = 0.5f, float runeSpeed = 6f, float runeDelay = .2f, float startDelay = 0f)
     {
+        yield return new WaitForSeconds(startDelay);
         int targetIndex = 0;
 
         foreach (GameObject powerRune in powerRunes)
