@@ -19,11 +19,11 @@ public class BattleSpinner : BattleChallenge
     RotationTweener rotationTweener;
     SpinnerIntroSequencer spinnerIntroSequencer;
 
-    GameObject[] orbitRings;
-    GameObject[] orbitDots;
-    float[] orbitScales;
+    //GameObject[] orbitRings;
+    //GameObject[] orbitDots;
+    //float[] orbitScales;
 
-    RuneAnimationSoundFX runeAnimationSoundFX;
+    //RuneAnimationSoundFX runeAnimationSoundFX;
 
     void Start()
     {
@@ -33,29 +33,39 @@ public class BattleSpinner : BattleChallenge
 
         defaultRotationSpeed = rotationSpeed;
 
-        orbitDots = new GameObject[3];
-        orbitScales = new float[3];
+        //orbitDots = new GameObject[3];
+        //orbitScales = new float[3];
 
-        List<GameObject> tempOrbitRingsList = new List<GameObject>();
+        //List<GameObject> tempOrbitRingsList = new List<GameObject>();
 
         for (int i = 0; i < spinnerIntroSequencer.transform.childCount; i++)
         {
-            if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleIndicator"))
-            {
-                tempOrbitRingsList?.Add(spinnerIntroSequencer.transform.GetChild(i).gameObject);
-            }
             if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
             {
                 battleTrigger = spinnerIntroSequencer.transform.GetChild(i).gameObject;
             }
         }
-        orbitRings = tempOrbitRingsList.ToArray();
 
-        for (int i = 0; i <= orbitRings.Length-1; i++)
-        {
-            orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
-            orbitScales[i] = orbitRings[i].transform.localScale.y;
-        }
+        FindBattleIndicators();
+
+        //for (int i = 0; i < spinnerIntroSequencer.transform.childCount; i++)
+        //{
+        //    if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleIndicator"))
+        //    {
+        //        tempOrbitRingsList?.Add(spinnerIntroSequencer.transform.GetChild(i).gameObject);
+        //    }
+        //    if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
+        //    {
+        //        battleTrigger = spinnerIntroSequencer.transform.GetChild(i).gameObject;
+        //    }
+        //}
+        //orbitRings = tempOrbitRingsList.ToArray();
+
+        //for (int i = 0; i <= orbitRings.Length-1; i++)
+        //{
+        //    orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
+        //    orbitScales[i] = orbitRings[i].transform.localScale.y;
+        //}
 
         runeAnimationSoundFX = gameObject.GetComponentInParent<RuneAnimationSoundFX>();
     }
@@ -107,76 +117,87 @@ public class BattleSpinner : BattleChallenge
         float targetRuneRotation = battleTrigger.transform.rotation.z + (targetRotation * -1f);
         triggerWrapper?.GetComponent<RotationTweener>().TriggerRotation(targetRuneRotation);
     }
-
-    void RevealOrbitRing()
+    protected override void RevealOrbitRing()
     {
-        int targetIndex = hitCount - 1;
-        GameObject targetRing = orbitRings[targetIndex];
-        GameObject targetDot = orbitDots[targetIndex];
-        ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
-        UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
-        ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
-        targetRingColor.TriggerAlphaImageTween(1f, 3f);
-        targetRingScaler.TriggerScale(1f, 3f);
-        targetDotColor.TriggerAlphaImageTween(1f, 3f);
-        targetDot.GetComponent<GlowTweener>().TriggerGlowTween(7f);
-        targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
-
-        // REFACTOR: this is repeated code in all challenges
-        if (targetIndex == 0)
+        base.RevealOrbitRing();
+        int targetIndex = hitCount > 0 ? hitCount - 1 : 0;
+        if (targetIndex == 2)
         {
-            runeAnimationSoundFX.PlayRuneHit1();
-        }
-        else if (targetIndex == 1)
-        {
-            runeAnimationSoundFX.PlayRuneHit2();
-        }
-        else if (targetIndex == 2)
-        {
-            runeAnimationSoundFX.PlayRuneHit3();
-            // NOTE: use this in the new sequencer to trigger the win condition
             spinnerIntroSequencer.winTrigger = true;
         }
     }
+    //void RevealOrbitRing()
+    //{
+    //    int targetIndex = hitCount > 0 ? hitCount - 1 : 0;
+    //    print($"hit count is: {hitCount}");
+    //    GameObject targetRing = orbitRings[targetIndex];
+    //    GameObject targetDot = orbitDots[targetIndex];
+    //    ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
+    //    UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
+    //    ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
+    //    targetRingColor.TriggerAlphaImageTween(1f, 3f);
+    //    targetRingScaler.TriggerScale(1f, 3f);
+    //    targetDotColor.TriggerAlphaImageTween(1f, 3f);
+    //    targetDot.GetComponent<GlowTweener>().TriggerGlowTween(7f);
+    //    targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
 
-    void HideOrbitRing(int targetIndex)
-    {
-        //int targetIndex = hitCount - 1;
-        if (!success)
-        {
-            runeAnimationSoundFX.PlayRuneMiss();
-        }
-        GameObject targetRing = orbitRings[targetIndex];
-        GameObject targetDot = orbitDots[targetIndex];
-        ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
-        UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
-        ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
-        float targetScale = orbitScales[targetIndex];
+    //    // REFACTOR: this is repeated code in all challenges
+    //    if (targetIndex == 0)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneHit1();
+    //    }
+    //    else if (targetIndex == 1)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneHit2();
+    //    }
+    //    else if (targetIndex == 2)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneHit3();
+    //        // NOTE: use this in the new sequencer to trigger the win condition
+    //        spinnerIntroSequencer.winTrigger = true;
+    //    }
 
-        targetDot.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
-        targetRing.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
+        
+    //}
 
-        targetRingColor.TriggerAlphaImageTween(0, 3f);
-        targetRingScaler.TriggerScale(targetScale, 3f);
-        targetDotColor.TriggerAlphaImageTween(0, 3f);
-    }
+    //void HideOrbitRing(int targetIndex)
+    //{
+    //    //int targetIndex = hitCount - 1;
+    //    if (!success)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneMiss();
+    //    }
+    //    GameObject targetRing = orbitRings[targetIndex];
+    //    GameObject targetDot = orbitDots[targetIndex];
+    //    ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
+    //    UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
+    //    ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
+    //    float targetScale = orbitScales[targetIndex];
 
-    IEnumerator ResetOrbitRings()
-    {
-        yield return new WaitForSeconds(2f);
-        int targetIndex = 0;
-        foreach (GameObject orbitRing in orbitRings)
-        {
-            HideOrbitRing(targetIndex);
-            targetIndex++;
-        }
-        success = false;
-    }
+    //    targetDot.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
+    //    targetRing.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
 
-    public void TriggerOrbitRingReset()
-    {
-        StartCoroutine(ResetOrbitRings());
-    }
+    //    targetRingColor.TriggerAlphaImageTween(0, 3f);
+    //    targetRingScaler.TriggerScale(targetScale, 3f);
+    //    targetDotColor.TriggerAlphaImageTween(0, 3f);
+    //}
+
+    //IEnumerator ResetOrbitRings()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    int targetIndex = 0;
+    //    foreach (GameObject orbitRing in orbitRings)
+    //    {
+    //        HideOrbitRing(targetIndex);
+    //        targetIndex++;
+    //    }
+    //    success = false;
+    //}
+
+    //public void TriggerOrbitRingReset()
+    //{
+    //    StartCoroutine(ResetOrbitRings());
+    //}
 
     void CheckForValidTrigger()
     {

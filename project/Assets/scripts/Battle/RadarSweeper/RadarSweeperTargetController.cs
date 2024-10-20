@@ -11,16 +11,15 @@ public class RadarSweeperTargetController : BattleChallenge
     float rotationBase = 90f;
     float targetRotaton;
     public GameObject battleTrigger;
-    //[HideInInspector] public int hitCount = 0;
     public bool hitActive = false;
     public int hitSuccessLimit = 4;
     public float triggerTimeLimit = 2f;
 
 
-    GameObject[] orbitRings;
-    GameObject[] orbitDots;
+    //GameObject[] orbitRings;
+    //GameObject[] orbitDots;
     GameObject[] powerRunes;
-    float[] orbitScales;
+    //float[] orbitScales;
 
     GameObject targetRune;
 
@@ -36,7 +35,7 @@ public class RadarSweeperTargetController : BattleChallenge
 
     [SerializeField] GameEvent cameraShake;
 
-    RuneAnimationSoundFX runeAnimationSoundFX;
+    //RuneAnimationSoundFX runeAnimationSoundFX;
 
     RuneIntroSequencer runeIntroSequencer;
 
@@ -44,30 +43,40 @@ public class RadarSweeperTargetController : BattleChallenge
     {
         runeIntroSequencer = gameObject.GetComponentInParent<RuneIntroSequencer>();
 
-        List<GameObject> tempOrbitRingsList = new List<GameObject>();
+        //List<GameObject> tempOrbitRingsList = new List<GameObject>();
         List<GameObject> tempPowerRuneList = new List<GameObject>();
 
-        orbitDots = new GameObject[3];
-        orbitScales = new float[3];
+        //orbitDots = new GameObject[3];
+        //orbitScales = new float[3];
+
+        //for (int i = 0; i < runeIntroSequencer.transform.childCount; i++)
+        //{
+        //    if (runeIntroSequencer.transform.GetChild(i).CompareTag("BattleIndicator"))
+        //    {
+        //        tempOrbitRingsList?.Add(runeIntroSequencer.transform.GetChild(i).gameObject);
+        //    }
+        //    if (runeIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
+        //    {
+        //        tempPowerRuneList?.Add(runeIntroSequencer.transform.GetChild(i).gameObject);
+        //    }
+        //}
+        //orbitRings = tempOrbitRingsList.ToArray();
+
+        //for (int i = 0; i <= orbitRings.Length - 1; i++)
+        //{
+        //    orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
+        //    orbitScales[i] = orbitRings[i].transform.localScale.y;
+        //}
 
         for (int i = 0; i < runeIntroSequencer.transform.childCount; i++)
         {
-            if (runeIntroSequencer.transform.GetChild(i).CompareTag("BattleIndicator"))
-            {
-                tempOrbitRingsList?.Add(runeIntroSequencer.transform.GetChild(i).gameObject);
-            }
             if (runeIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
             {
                 tempPowerRuneList?.Add(runeIntroSequencer.transform.GetChild(i).gameObject);
             }
         }
-        orbitRings = tempOrbitRingsList.ToArray();
 
-        for (int i = 0; i <= orbitRings.Length - 1; i++)
-        {
-            orbitDots[i] = orbitRings[i]?.transform?.GetChild(0)?.gameObject;
-            orbitScales[i] = orbitRings[i].transform.localScale.y;
-        }
+        FindBattleIndicators();
 
         powerRunes = tempPowerRuneList.ToArray();
 
@@ -251,73 +260,81 @@ public class RadarSweeperTargetController : BattleChallenge
             runeAnimationSoundFX.PlayHitSuccess();
         }
     }
-
-    void RevealOrbitRing()
+    protected override void RevealOrbitRing()
     {
-        int targetIndex = hitCount - 1;
-        GameObject targetRing = orbitRings[targetIndex];
-        GameObject targetDot = orbitDots[targetIndex];
-        ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
-        UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
-        ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
-        targetRingColor.TriggerAlphaImageTween(1f, 3f);
-        targetRingScaler.TriggerScale(1f, 3f);
-        targetDotColor.TriggerAlphaImageTween(1f, 3f);
-        targetDot.GetComponent<GlowTweener>().TriggerGlowTween(7f);
-        targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
-
-        if(targetIndex == 0)
+        base.RevealOrbitRing();
+        int targetIndex = hitCount > 0 ? hitCount - 1 : 0;
+        if (targetIndex == 2)
         {
-            runeAnimationSoundFX.PlayRuneHit1();
-        } else if (targetIndex == 1)
-        {
-            runeAnimationSoundFX.PlayRuneHit2();
-        } else if (targetIndex == 2)
-        {
-            runeAnimationSoundFX.PlayRuneHit3();
             runeIntroSequencer.winTrigger = true;
         }
     }
+    //void RevealOrbitRing()
+    //{
+    //    int targetIndex = hitCount - 1;
+    //    GameObject targetRing = orbitRings[targetIndex];
+    //    GameObject targetDot = orbitDots[targetIndex];
+    //    ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
+    //    UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
+    //    ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
+    //    targetRingColor.TriggerAlphaImageTween(1f, 3f);
+    //    targetRingScaler.TriggerScale(1f, 3f);
+    //    targetDotColor.TriggerAlphaImageTween(1f, 3f);
+    //    targetDot.GetComponent<GlowTweener>().TriggerGlowTween(7f);
+    //    targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
 
-    void HideOrbitRing(int targetIndex)
-    {
-        //int targetIndex = hitCount - 1;
-        if(!success)
-        {
-            runeAnimationSoundFX.PlayRuneMiss();
-        }
-        GameObject targetRing = orbitRings[targetIndex];
-        GameObject targetDot = orbitDots[targetIndex];
-        ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
-        UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
-        ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
-        float targetScale = orbitScales[targetIndex];
+    //    if(targetIndex == 0)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneHit1();
+    //    } else if (targetIndex == 1)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneHit2();
+    //    } else if (targetIndex == 2)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneHit3();
+    //        runeIntroSequencer.winTrigger = true;
+    //    }
+    //}
 
-        targetDot.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
-        targetRing.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
+    //void HideOrbitRing(int targetIndex)
+    //{
+    //    //int targetIndex = hitCount - 1;
+    //    if(!success)
+    //    {
+    //        runeAnimationSoundFX.PlayRuneMiss();
+    //    }
+    //    GameObject targetRing = orbitRings[targetIndex];
+    //    GameObject targetDot = orbitDots[targetIndex];
+    //    ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();
+    //    UtilityScaleTweener targetRingScaler = targetRing.GetComponent<UtilityScaleTweener>();
+    //    ColorTweener targetDotColor = targetDot.GetComponent<ColorTweener>();
+    //    float targetScale = orbitScales[targetIndex];
 
-        targetRingColor.TriggerAlphaImageTween(0, 3f);
-        targetRingScaler.TriggerScale(targetScale, 3f);
-        targetDotColor.TriggerAlphaImageTween(0, 3f);
+    //    targetDot.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
+    //    targetRing.GetComponent<GlowTweener>().TriggerGlowTween(0, 4f);
 
-    }
+    //    targetRingColor.TriggerAlphaImageTween(0, 3f);
+    //    targetRingScaler.TriggerScale(targetScale, 3f);
+    //    targetDotColor.TriggerAlphaImageTween(0, 3f);
 
-    IEnumerator ResetOrbitRings()
-    {
-        yield return new WaitForSeconds(2f);
-        int targetIndex = 0;
-        foreach(GameObject orbitRing in orbitRings)
-        {
-            HideOrbitRing(targetIndex);
-            targetIndex++;
-        }
-        success = false;
-    }
+    //}
 
-    public void TriggerOrbitRingReset()
-    {
-        StartCoroutine(ResetOrbitRings());
-    }
+    //IEnumerator ResetOrbitRings()
+    //{
+    //    yield return new WaitForSeconds(2f);
+    //    int targetIndex = 0;
+    //    foreach(GameObject orbitRing in orbitRings)
+    //    {
+    //        HideOrbitRing(targetIndex);
+    //        targetIndex++;
+    //    }
+    //    success = false;
+    //}
+
+    //public void TriggerOrbitRingReset()
+    //{
+    //    StartCoroutine(ResetOrbitRings());
+    //}
 
     public IEnumerator TriggerFailure()
     {
