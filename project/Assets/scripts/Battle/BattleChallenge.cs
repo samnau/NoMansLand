@@ -10,6 +10,7 @@ public class BattleChallenge : MonoBehaviour
     public bool failure = false;
     public float timeLimit = 10f;
     [HideInInspector] public int hitCount = 0;
+    public int hitSuccessLimit = 4;
 
     protected GameObject[] orbitRings;
     protected GameObject[] orbitDots;
@@ -24,6 +25,14 @@ public class BattleChallenge : MonoBehaviour
         if (!success)
         {
             print("time's up!");
+            failure = true;
+        }
+    }
+    public IEnumerator TriggerTimeLimit()
+    {
+        yield return new WaitForSeconds(timeLimit);
+        if (hitCount < hitSuccessLimit)
+        {
             failure = true;
         }
     }
@@ -43,7 +52,6 @@ public class BattleChallenge : MonoBehaviour
         targetRing.GetComponent<GlowTweener>().TriggerGlowTween(7f);
         var targetSequencer = FindParentWithTag(this.gameObject, "BattleChallenge");
 
-        // REFACTOR: this is repeated code in all challenges
         if (targetIndex == 0)
         {
             runeAnimationSoundFX.PlayRuneHit1();
@@ -117,5 +125,27 @@ public class BattleChallenge : MonoBehaviour
             orbitScales[i] = orbitRings[i].transform.localScale.y;
         }
 
+    }
+
+    virtual protected IEnumerator UnHighlightRune(GameObject targetObject)
+    {
+        GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
+
+        ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
+
+        targetObject.GetComponent<GlowTweener>().TriggerGlowTween(0f, 15f);
+        yield return new WaitForSeconds(.1f);
+        targetTweener.TriggerAlphaImageTween(0.5f, 10f);
+    }
+
+    virtual protected IEnumerator HighlightRune(GameObject targetObject)
+    {
+        //ResetHightLight();
+        GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
+        ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
+        targetTweener.TriggerAlphaImageTween(1f, 10f);
+        yield return new WaitForSeconds(.1f);
+        targetGlow.SetGlowColor(Color.blue);
+        targetGlow.TriggerGlowTween(12f, 15f);
     }
 }

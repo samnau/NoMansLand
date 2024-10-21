@@ -105,6 +105,8 @@ public class ColorTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+
+        spriteRenderer.color = targetColor;
     }
 
 
@@ -120,6 +122,7 @@ public class ColorTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+        image.color = targetColor;
     }
 
     public void TriggerAlphaSpriteTween([Optional] float targetAlpha, [Optional] float targetSpeed)

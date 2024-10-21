@@ -84,6 +84,7 @@ public class GlowTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+        material.SetFloat("_Fade", targetGlow);
     }
     public void TriggerGlowTween([Optional] float targetGlowIntensity, [Optional] float targetSpeed)
     {

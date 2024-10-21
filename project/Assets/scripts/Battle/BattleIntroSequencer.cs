@@ -37,7 +37,7 @@ public class BattleIntroSequencer : MonoBehaviour
 
     protected GameObject[] orbitRings;
     protected GameObject[] orbitDots;
-    protected GameObject[] powerRunes;
+    public GameObject[] powerRunes;
     protected float[] orbitScales;
 
     protected float timeLimit = 10f;
@@ -109,7 +109,6 @@ public class BattleIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
-        //pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
     }
 
     protected IEnumerator ChallengePartSequence()
@@ -132,8 +131,9 @@ public class BattleIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.25f);
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
-        yield return new WaitForSeconds(2.5f);
         StartCoroutine(GlowFadeIn(pointerArm));
+
+        yield return new WaitForSeconds(2.5f);
 
         // NOTE: this is what kicks off the minor rune countdown sequence
         runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
@@ -244,17 +244,15 @@ public class BattleIntroSequencer : MonoBehaviour
         }
     }
 
-    // good to abstract
     protected IEnumerator GlowFadeIn(GameObject targetObject)
     {
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();
         targetTweener.TriggerAlphaImageTween(1f, 10f);
         yield return new WaitForSeconds(.1f);
-        targetGlow.TriggerGlowTween(7f, 4f);
+        targetGlow.TriggerGlowByDuration(7f, .5f);
     }
 
-    // good to abstract
     protected IEnumerator GlowFadeOut(GameObject targetObject)
     {
         ColorTweener targetTweener = targetObject.GetComponent<ColorTweener>();

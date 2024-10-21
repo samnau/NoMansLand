@@ -43,7 +43,7 @@ public class RuneIntroSequencer : BattleIntroSequencer
         pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
 
         // NOTE: this is the method that starts the radar sweeper target controller countdown
-        radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerFailure());
+        radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerTimeLimit());
         StartCoroutine(CountDown());
         StartCoroutine(IntroFinalSequence());
     }

@@ -11,9 +11,9 @@ public class BattleTargetController : BattleChallenge
     float rotationBase = 90f;
     float targetRotaton;
     public GameObject battleTrigger;
-    [HideInInspector] public int hitCount = 0;
+    //[HideInInspector] public int hitCount = 0;
     public bool hitActive = false;
-    public int hitSuccessLimit = 4;
+    //public int hitSuccessLimit = 4;
 
     public float triggerTimeLimit = 2f;
     // Orbit rings will be shared
@@ -32,10 +32,10 @@ public class BattleTargetController : BattleChallenge
     float orbitRing3Scale;
 
 
-    GameObject[] orbitRings;
-    GameObject[] orbitDots;
+    //GameObject[] orbitRings;
+    //GameObject[] orbitDots;
     GameObject[] powerRunes;
-    float[] orbitScales;
+    //float[] orbitScales;
 
     GameObject targetRune;
 
@@ -51,7 +51,7 @@ public class BattleTargetController : BattleChallenge
 
     [SerializeField] GameEvent cameraShake;
 
-    RuneAnimationSoundFX runeAnimationSoundFX;
+    //RuneAnimationSoundFX runeAnimationSoundFX;
 
     RuneIntroSequencer runeIntroSequencer;
 
