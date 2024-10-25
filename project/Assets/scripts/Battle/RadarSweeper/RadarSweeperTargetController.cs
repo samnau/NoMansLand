@@ -118,7 +118,7 @@ public class RadarSweeperTargetController : BattleChallenge
             {
                 UnHighlightRune(targetRune);
                 //ResetHightLight();
-                print("hit interrupt event");
+                //print("hit interrupt event");
                 hitInerruption = false;
                 StartCoroutine(SetRotation());
                 SetTargetRotation();
@@ -130,7 +130,7 @@ public class RadarSweeperTargetController : BattleChallenge
         }
         if(!hitInerruption)
         {
-            print("normal rotation coroutine end");
+            //print("normal rotation coroutine end");
             StartCoroutine(SetRotation());
         }
         // TODO: revisit this logic for faster switching to next rune highlight

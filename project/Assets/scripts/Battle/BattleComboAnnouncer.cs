@@ -65,7 +65,6 @@ public class BattleComboAnnouncer : MonoBehaviour
 
     void ToggleBattleCommand()
     {
-        print("ToggleCpommand");
         if(battleCommandWrapper)
         {
             SpriteRenderer[] commandRenderers = battleCommandWrapper.GetComponentsInChildren<SpriteRenderer>();

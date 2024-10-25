@@ -163,7 +163,7 @@ public class BattleIntroSequencer : MonoBehaviour
         }
     }
 
-    protected void TriggerIntroSequence()
+    public void TriggerIntroSequence()
     {
         StartCoroutine(IntroSequence());
     }

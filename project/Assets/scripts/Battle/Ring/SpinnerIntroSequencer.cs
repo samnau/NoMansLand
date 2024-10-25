@@ -31,7 +31,11 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
     {
         base.BattleChallengeReset();
         battleSpinner.failure = false;
+        battleSpinner.success = false;
         battleSpinner.hitCount = 0;
+        battleSpinner.DisableRotation();
+        battleSpinner.inputActive = false;
+        battleSpinner.ResetRotationSpeed();
     }
 
     protected override IEnumerator IntroSequence()
@@ -48,7 +52,9 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
         // enable battle challenge input;
         inputActive = true;
         pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
+        battleSpinner.GetComponent<BattleSpinner>().inputActive = inputActive;
         StartCoroutine(IntroFinalSequence());
+        print($"input is active: {battleSpinner.GetComponent<BattleSpinner>().inputActive}");
     }
 
     protected override IEnumerator ExitSequence()

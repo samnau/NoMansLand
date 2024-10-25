@@ -60,6 +60,11 @@ public class RotationTweener : BaseTweener
         yield return new WaitForFixedUpdate();
         StartCoroutine(RotateContinuous());
     }
+
+    public void EnableContinuousRotation()
+    {
+        continuousSpinActive = true;
+    }
    
     public void TriggerContinuousRotation([Optional]float targetSpeed)
     {
@@ -85,11 +90,21 @@ public class RotationTweener : BaseTweener
         progress = 0;
         StartCoroutine(SetRotationEaseIn(speed));
     }
-    private void Start()
+
+    void CheckForContinuousSpin()
     {
         if (continuousSpinActive)
         {
             TriggerContinuousRotation();
         }
+    }
+
+    void OnEnable()
+    {
+        CheckForContinuousSpin();
+    }
+    private void Start()
+    {
+        CheckForContinuousSpin();
     }
 }

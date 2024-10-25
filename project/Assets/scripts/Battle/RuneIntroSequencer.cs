@@ -21,6 +21,7 @@ public class RuneIntroSequencer : BattleIntroSequencer
     {
         base.BattleChallengeReset();
         radarSweeperTargetController.failure = false;
+        radarSweeperTargetController.success = false;
         radarSweeperTargetController.hitCount = 0;
     }
 

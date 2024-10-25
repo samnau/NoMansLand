@@ -39,7 +39,7 @@ public class BattleChallenge : MonoBehaviour
     protected virtual void RevealOrbitRing()
     {
         int targetIndex = hitCount > 0 ? hitCount - 1 : 0;
-        print($"hit count is: {hitCount}");
+        //print($"hit count is: {hitCount}");
         GameObject targetRing = orbitRings[targetIndex];
         GameObject targetDot = orbitDots[targetIndex];
         ColorTweener targetRingColor = targetRing.GetComponent<ColorTweener>();

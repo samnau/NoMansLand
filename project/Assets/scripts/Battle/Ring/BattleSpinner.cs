@@ -18,6 +18,7 @@ public class BattleSpinner : BattleChallenge
     [SerializeField] GameObject triggerWrapper;
     RotationTweener rotationTweener;
     SpinnerIntroSequencer spinnerIntroSequencer;
+    public bool inputActive = false;
 
     void Start()
     {
@@ -27,17 +28,18 @@ public class BattleSpinner : BattleChallenge
 
         defaultRotationSpeed = rotationSpeed;
 
-        for (int i = 0; i < spinnerIntroSequencer.transform.childCount; i++)
+        for (int i = 0; i < triggerWrapper.transform.childCount; i++)
         {
-            if (spinnerIntroSequencer.transform.GetChild(i).CompareTag("BattleTrigger"))
+            if (triggerWrapper.transform.GetChild(i).CompareTag("BattleTrigger"))
             {
-                battleTrigger = spinnerIntroSequencer.transform.GetChild(i).gameObject;
+                battleTrigger = triggerWrapper.transform.GetChild(i).gameObject;
             }
         }
 
         FindBattleIndicators();
 
         runeAnimationSoundFX = gameObject.GetComponentInParent<RuneAnimationSoundFX>();
+        defaultRotationSpeed = rotationSpeed;
     }
     bool IsKeyValid()
     {
@@ -87,6 +89,7 @@ public class BattleSpinner : BattleChallenge
         float targetRuneRotation = battleTrigger.transform.rotation.z + (targetRotation * -1f);
         triggerWrapper?.GetComponent<RotationTweener>().TriggerRotation(targetRuneRotation);
     }
+
     protected override void RevealOrbitRing()
     {
         base.RevealOrbitRing();
@@ -99,7 +102,11 @@ public class BattleSpinner : BattleChallenge
 
     void CheckForValidTrigger()
     {
-        if (triggerValid && !SuccessLimitReached())
+        if(!inputActive)
+        {
+            return;
+        }
+        if (triggerValid && !SuccessLimitReached() && inputActive)
         {
             hitCount++;
             RotateTriggerWrapper();
@@ -127,8 +134,13 @@ public class BattleSpinner : BattleChallenge
             }
         }
 
-
     }
+
+    public void ResetRotationSpeed()
+    {
+        rotationSpeed = defaultRotationSpeed;
+    }
+
     public void SetRotation()
     {
         if (!rotationActive)
