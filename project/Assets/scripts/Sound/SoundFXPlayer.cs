@@ -7,6 +7,12 @@ public class SoundFXPlayer : MonoBehaviour
 {
     public AudioSource SoundSource;
     public bool isEnabled = true;
+    float currentVolume;
+
+    void Start()
+    {
+        currentVolume = SoundSource.volume;
+    }
 
     public void PlayOneShot(AudioClip TargetSound, float targetVolume = 1f)
     {
@@ -47,5 +53,16 @@ public class SoundFXPlayer : MonoBehaviour
     public void SetVolume(float targetVolume)
     {
         SoundSource.volume = targetVolume;
+    }
+
+    public void UnMuteSounds()
+    {
+        SoundSource.volume = currentVolume;
+    }
+
+    public void MuteSounds()
+    {
+        currentVolume = SoundSource.volume;
+        SoundSource.volume = 0;
     }
 }

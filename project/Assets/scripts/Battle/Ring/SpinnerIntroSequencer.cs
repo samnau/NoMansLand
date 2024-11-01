@@ -43,7 +43,7 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
         yield return new WaitForSeconds(.5f);
         PointerIntroSequence();
         StartCoroutine(ChallengePartSequence());
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow * .25f, defaultGlowSpeed);
+        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow * .5f, defaultGlowSpeed);
         yield return new WaitForSeconds(1f);
         triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         yield return new WaitForSeconds(3.25f);

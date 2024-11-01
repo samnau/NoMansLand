@@ -8,6 +8,7 @@ public class BattleChallenge : MonoBehaviour
     public bool success = false;
     [HideInInspector]
     public bool failure = false;
+    [HideInInspector]
     public float timeLimit = 10f;
     [HideInInspector] public int hitCount = 0;
     public int hitSuccessLimit = 4;

@@ -91,6 +91,21 @@ public class RotationTweener : BaseTweener
         StartCoroutine(SetRotationEaseIn(speed));
     }
 
+    //IEnumerator SetImageColorByDuration(float targetRotation, float duration)
+    //{
+    //    float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+    //    Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
+    //    Color startColor = image.color;
+
+    //    while (elapsed_time < duration)
+    //    {
+    //        image.color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+    //        yield return null;
+    //        elapsed_time += Time.deltaTime;
+    //    }
+    //    image.color = targetColor;
+    //}
+
     void CheckForContinuousSpin()
     {
         if (continuousSpinActive)

@@ -25,7 +25,7 @@ public class BattleRingTrigger : BattleChallenge
         {
             battleSpinner.triggerValid = true;
             StartCoroutine(HighlightRune(collision.gameObject));
-            spinnerSoundFX?.PlayHitSuccess(.1f);
+            spinnerSoundFX?.PlayHitSuccess(.2f);
         }
     }
 
