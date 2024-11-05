@@ -29,6 +29,7 @@ public class BattleChallenge : MonoBehaviour
             failure = true;
         }
     }
+    //REFACTOR: this function is a duplicate - only used by radar target controller
     public IEnumerator TriggerTimeLimit()
     {
         yield return new WaitForSeconds(timeLimit);

@@ -111,14 +111,13 @@ public class BattleIntroSequencer : MonoBehaviour
         pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
     }
 
-    protected IEnumerator ChallengePartSequence()
+    protected virtual IEnumerator ChallengePartSequence()
     {
         yield return new WaitForSeconds(.25f);
         inputStateTracker.isUiActive = true;
         yield return new WaitForSeconds(.5f);
 
         runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        runeAnimationSoundFX.PlayRingAppears();
 
         yield return new WaitForSeconds(.125f);
         runeWrapperBorder.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
@@ -128,6 +127,8 @@ public class BattleIntroSequencer : MonoBehaviour
         yield return new WaitForSeconds(.25f);
 
         midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        runeAnimationSoundFX.PlayRingAppears();
+
         yield return new WaitForSeconds(.25f);
 
         runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
