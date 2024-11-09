@@ -85,6 +85,7 @@
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SkinnedVertices.cs" />
     <Compile Include="Assets\scripts\HeroMotionController.cs" />
+    <Compile Include="Assets\scripts\Battle\BattleTutorialManager.cs" />
     <Compile Include="Assets\scripts\CounterAttackController.cs" />
     <Compile Include="Assets\scripts\PerspectiveScaleController.cs" />
     <Compile Include="Assets\scripts\EyeBlinkController.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Assets\scripts\RavenAnimationController.cs" />
     <Compile Include="Assets\scripts\DataPersistance\FileDataHandler.cs" />
     <Compile Include="Assets\scripts\DiscHover.cs" />
+    <Compile Include="Assets\scripts\Battle\PowerCharge\PowerCharger.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\PointSet.cs" />
     <Compile Include="Assets\scripts\Hero_Stack_Order_Controller.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\FixedBitArray3.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Assets\scripts\MonsterHealthManager.cs" />
     <Compile Include="Assets\scripts\Battle\CreatureSoundFX.cs" />
     <Compile Include="Assets\scripts\Fade_Controller.cs" />
+    <Compile Include="Assets\scripts\Battle\PowerTutorialSequencer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\scripts\FireShieldAnimationSequencer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
@@ -142,6 +145,7 @@
     <Compile Include="Assets\scripts\Battle\BattleChallenge.cs" />
     <Compile Include="Assets\scripts\SoundFXController.cs" />
     <Compile Include="Assets\scripts\DataPersistance\IDataPersistance.cs" />
+    <Compile Include="Assets\scripts\Battle\TutorialAnimationSequencer.cs" />
     <Compile Include="Assets\scripts\RavenStabTrigger.cs" />
     <Compile Include="Assets\scripts\Battle\BaseHelathManager.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepConstraint.cs" />
@@ -202,6 +206,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\P2T.cs" />
     <Compile Include="Assets\scripts\RavenAttackController.cs" />
     <Compile Include="Assets\PlayerPermananceController.cs" />
+    <Compile Include="Assets\scripts\Battle\RadarTutorialSequencer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\scripts\Battle\RavenSpiderSoundFX.cs" />
     <Compile Include="Assets\scripts\Cloud_Motion_Controller.cs" />
@@ -247,6 +252,7 @@
     <Compile Include="Assets\scripts\Key_Validator.cs" />
     <Compile Include="Assets\scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
+    <Compile Include="Assets\scripts\Battle\PowerCharge\PowerIntroSequencer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonUtil.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDStoreData.cs" />
@@ -305,8 +311,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\PowerCharge\PowerIntroSequencer.cs" />
-    <Compile Include="Assets\scripts\Battle\PowerCharge\PowerCharger.cs" />
+    <Compile Include="Assets\scripts\Battle\SpinnerTutorialSequencer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

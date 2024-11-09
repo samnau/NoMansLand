@@ -23,7 +23,6 @@ public class BattleChallengeManager : MonoBehaviour
 
     public void EnableTargetChallenge()
     {
-        print($"the challenge will be: {challengeObjects[challengeIndex]?.name}");
         foreach(GameObject challengeObject in challengeObjects)
         {
             challengeObject.SetActive(false);
