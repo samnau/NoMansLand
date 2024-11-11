@@ -40,13 +40,14 @@ public class TutorialAnimationSequencer : MonoBehaviour
 
     protected float GetTargetTweenScale(GameObject target)
     {
-        float currentScale = target.transform.localScale.z;
+        float currentScale = target.transform.localScale.x;
         return currentScale * .9f;
     }
 
     public void ShowTutorial()
     {
-        foreach(ColorTweener colorTweener in colorTweeners)
+
+        foreach (ColorTweener colorTweener in colorTweeners)
         {
             colorTweener.TriggerSpriteAlphaByDuration(1f, .5f);
         }
@@ -59,12 +60,18 @@ public class TutorialAnimationSequencer : MonoBehaviour
         print("start sequence method not implemented");
     }
 
-    protected virtual void StopTutorial()
+    public virtual void StopTutorial()
     {
-        foreach(UtilityScaleTweener utilityScaleTweener in utilityScaleTweeners)
+        foreach (UtilityScaleTweener utilityScaleTweener in utilityScaleTweeners)
         {
             utilityScaleTweener.scaleLooping = false;
         }
+
+        foreach (ColorTweener colorTweener in colorTweeners)
+        {
+            colorTweener.TriggerSpriteAlphaByDuration(0f, .25f);
+        }
+
         tutorialCompleted = true;
     }
 

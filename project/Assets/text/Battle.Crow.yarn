@@ -112,3 +112,9 @@ How could I have forgotten about her?
 ...
 <<TriggerEndScene>>
 ===
+title: Tutorial
+position: 5,91
+---
+...
+<<TriggerEndTutorial>>
+===

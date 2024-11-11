@@ -69,7 +69,7 @@ public class UtilityScaleTweener : BaseTweener
     IEnumerator ScaleLooper(float targetScale, float duration, float loopDelay = .5f)
     {
 
-        float startScale = transform.localScale.z;
+        float startScale = transform.localScale.x;
         endScale = targetScale;
         TriggerScaleByDuration(endScale, duration);
         yield return new WaitForSeconds(duration);

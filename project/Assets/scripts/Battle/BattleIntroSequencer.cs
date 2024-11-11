@@ -34,11 +34,15 @@ public class BattleIntroSequencer : MonoBehaviour
 
     [SerializeField] protected GameEvent battleChallengeSuccess;
     [SerializeField] protected GameEvent battleChallengeFailure;
+    [SerializeField] protected GameEvent startTutorial;
 
     protected GameObject[] orbitRings;
     protected GameObject[] orbitDots;
     public GameObject[] powerRunes;
     protected float[] orbitScales;
+
+    [SerializeField]
+    protected TutorialAnimationSequencer tutorialAnimationSequencer;
 
     protected float timeLimit = 10f;
 
@@ -100,6 +104,11 @@ public class BattleIntroSequencer : MonoBehaviour
             orbitRing.GetComponent<UtilityScaleTweener>()?.SetUniformScale(orbitScales[targetIndex]);
             targetIndex++;
         }
+    }
+
+    protected void StartTutorial()
+    {
+        startTutorial.Invoke();
     }
 
     protected void PointerIntroSequence()
@@ -171,6 +180,16 @@ public class BattleIntroSequencer : MonoBehaviour
     protected virtual IEnumerator IntroSequence()
     {
         print("Intro implementation missing");
+        yield return null;
+    }
+
+    public void CheckForTutorial()
+    {
+        StartCoroutine(EnableTutorialSequence());
+    }
+    protected virtual IEnumerator EnableTutorialSequence()
+    {
+        print("tutorial implementation missing");
         yield return null;
     }
 

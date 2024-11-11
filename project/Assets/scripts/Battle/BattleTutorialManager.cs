@@ -29,20 +29,32 @@ public class BattleTutorialManager : MonoBehaviour
     void TriggerDialogSystem()
     {
         ToggleDialogText();
-        dialogAnimator.SetBool("show", true);
+        //dialogAnimator.SetBool("show", true);
     }
     public void EnableTargetTutorial()
     {
+        ToggleDialogText();
         foreach (GameObject tutorialObject in tutorials)
         {
             tutorialObject.SetActive(false);
         }
+        // this might not be used
         bool tutorialCompleted = GetTargetTutorialCompletedState();
 
         if(!tutorialCompleted)
         {
+            animationSequencers[tutorialIndex].gameObject.SetActive(true);
             animationSequencers[tutorialIndex].ShowTutorial();
         }
+    }
+
+    public void HideTutorial()
+    {
+        var currentTutorial = animationSequencers[tutorialIndex];
+        currentTutorial.StopTutorial();
+
+        IncreaseTutorialIndex();
+        ToggleDialogText();
     }
 
     void ToggleDialogText()

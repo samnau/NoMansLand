@@ -7,9 +7,9 @@ public class PowerTutorialSequencer : TutorialAnimationSequencer
 
     protected override void StartTutorial()
     {
-        spaceBar.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetSpaceBarScale, .125f, 2f);
+        spaceBar.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetSpaceBarScale, .125f, .25f);
 
-        exclaimationPoint.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetExclaimationPointScale, .25f);
+        exclaimationPoint.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetExclaimationPointScale, .2f);
 
     }
 }

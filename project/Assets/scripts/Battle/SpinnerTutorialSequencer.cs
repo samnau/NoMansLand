@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class SpinnerTutorialSequencer : TutorialAnimationSequencer
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void StartTutorial()
     {
-        
+        spaceBar.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetSpaceBarScale, .25f, .5f);
+
+        exclaimationPoint.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetExclaimationPointScale, .2f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

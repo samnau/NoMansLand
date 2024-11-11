@@ -17,6 +17,12 @@ public class ColorTweener : BaseTweener
     {
         InitImageComponents();
     }
+
+    private void OnEnable()
+    {
+        InitImageComponents();
+    }
+
     void InitImageComponents()
     {
         if (TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRendererFound))
@@ -97,7 +103,7 @@ public class ColorTweener : BaseTweener
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
-        Color startColor = image.color;
+        Color startColor = spriteRenderer.color;
 
         while (elapsed_time < duration)
         {

@@ -27,6 +27,7 @@ public class DialogManager : MonoBehaviour
     string defaultName = "Molly";
 
     [SerializeField] GameEvent SceneEnd;
+    [SerializeField] GameEvent TutorialEnd;
 
     [SerializeField] List<GameObject> dialogSpeakers;
 
@@ -46,6 +47,11 @@ public class DialogManager : MonoBehaviour
         dialogueRunner.AddCommandHandler(
          "SetSpeakerName",
           SetSpeakerName
+        );
+
+        dialogueRunner.AddCommandHandler(
+         "TriggerEndTutorial",
+          TriggerEndTutorial
         );
 
         dialogueRunner.AddCommandHandler(
@@ -148,6 +154,7 @@ public class DialogManager : MonoBehaviour
 
     public void BeginTargetDialog(string dialogName)
     {
+        print($"begin target dialog {dialogName}");
         dialogActive = true;
         dialogueRunner.startNode = dialogName;
         dialogueRunner.StartDialogue(dialogName);
@@ -189,6 +196,11 @@ public class DialogManager : MonoBehaviour
     void TriggerEndScene(string[] parameters)
     {
         SceneEnd?.Invoke();
+    }
+
+    void TriggerEndTutorial(string[] parameters)
+    {
+        TutorialEnd?.Invoke();
     }
 
     private void Update()

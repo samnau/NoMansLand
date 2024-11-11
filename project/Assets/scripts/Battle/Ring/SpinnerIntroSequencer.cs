@@ -46,15 +46,34 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
         pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow * .5f, defaultGlowSpeed);
         yield return new WaitForSeconds(1f);
         triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
-        yield return new WaitForSeconds(3.25f);
-        StartCoroutine(CountDown());
-        battleSpinner.StartCoroutine(battleSpinner.Timeout());
-        // enable battle challenge input;
-        inputActive = true;
-        pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
-        battleSpinner.GetComponent<BattleSpinner>().inputActive = inputActive;
-        StartCoroutine(IntroFinalSequence());
-        print($"input is active: {battleSpinner.GetComponent<BattleSpinner>().inputActive}");
+        CheckForTutorial();
+        //yield return new WaitForSeconds(3.25f);
+        //StartCoroutine(CountDown());
+        //battleSpinner.StartCoroutine(battleSpinner.Timeout());
+        //// enable battle challenge input;
+        //inputActive = true;
+        //pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
+        //battleSpinner.GetComponent<BattleSpinner>().inputActive = inputActive;
+        //StartCoroutine(IntroFinalSequence());
+    }
+
+    protected override IEnumerator EnableTutorialSequence()
+    {
+        if (tutorialAnimationSequencer.tutorialCompleted)
+        {
+            yield return new WaitForSeconds(.5f);
+            StartCoroutine(CountDown());
+            battleSpinner.StartCoroutine(battleSpinner.Timeout());
+            // enable battle challenge input;
+            inputActive = true;
+            pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
+            battleSpinner.GetComponent<BattleSpinner>().inputActive = inputActive;
+            StartCoroutine(IntroFinalSequence());
+        }
+        else
+        {
+            StartTutorial();
+        }
     }
 
     protected override IEnumerator ExitSequence()

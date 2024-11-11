@@ -6,7 +6,8 @@ public class PowerIntroSequencer : BattleIntroSequencer
 {
     GameObject triggerRune;
     PowerCharger powerCharger;
-    // Start is called before the first frame update
+    //NOTE: should be able to type the powerCharger and others like it to generic battle challenge type for abstraction
+
     void Start()
     {
         FindBattleIndicators();
@@ -56,7 +57,7 @@ public class PowerIntroSequencer : BattleIntroSequencer
         yield return new WaitForSeconds(2.5f);
 
         // NOTE: this is what kicks off the minor rune countdown sequence
-        runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
+        //runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
     }
 
     protected override IEnumerator IntroSequence()
@@ -74,29 +75,65 @@ public class PowerIntroSequencer : BattleIntroSequencer
         triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(.5f);
         pointerDot.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
 
-        yield return new WaitForSeconds(2.75f);
-        StartCoroutine(GlowFadeIn(pointerArm));
-        pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
+        //yield return new WaitForSeconds(2.75f);
+        //StartCoroutine(GlowFadeIn(pointerArm));
+        //pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
-        yield return new WaitForSeconds(.5f);
+        //yield return new WaitForSeconds(.5f);
 
-        powerCharger.StartCoroutine(powerCharger.RotateTriggerWrapper());
-        powerCharger.SetPointerColors();
+        //powerCharger.StartCoroutine(powerCharger.RotateTriggerWrapper());
+        //powerCharger.SetPointerColors();
 
+        //StartCoroutine(EnableTutorialSequence());
+        CheckForTutorial();
 
-        StartCoroutine(CountDown());
-        powerCharger.StartCoroutine(powerCharger.Timeout());
+        //StartCoroutine(CountDown());
+        //powerCharger.StartCoroutine(powerCharger.Timeout());
 
-        pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
+        //pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        //pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
         // enable battle challenge input;
-        inputActive = true;
-        powerCharger.inputActive = inputActive;
-        powerCharger.challengeActive = true;
-        triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
-        triggerRune?.GetComponent<GlowTweener>().TriggerGlowByDuration(2f, .5f);
+        //inputActive = true;
+        //powerCharger.inputActive = inputActive;
+        //powerCharger.challengeActive = true;
+        //triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        //triggerRune?.GetComponent<GlowTweener>().TriggerGlowByDuration(2f, .5f);
 
-        StartCoroutine(IntroFinalSequence());
+        //StartCoroutine(IntroFinalSequence());
+    }
+
+    protected override IEnumerator EnableTutorialSequence()
+    {
+        if(tutorialAnimationSequencer.tutorialCompleted)
+        {
+            yield return new WaitForSeconds(.5f);
+            StartCoroutine(GlowFadeIn(pointerArm));
+            pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
+
+            yield return new WaitForSeconds(.5f);
+            powerCharger.StartCoroutine(powerCharger.RotateTriggerWrapper());
+            powerCharger.SetPointerColors();
+
+            runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
+            //StartCoroutine(CountDown());
+            powerCharger.StartCoroutine(powerCharger.Timeout());
+
+            pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+            pointerDot.GetComponent<RotationTweener>().TriggerRotation(0f, 1f);
+
+            // enable battle challenge input;
+            inputActive = true;
+            powerCharger.inputActive = inputActive;
+            powerCharger.challengeActive = true;
+            triggerRune?.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+            triggerRune?.GetComponent<GlowTweener>().TriggerGlowByDuration(2f, .5f);
+
+            StartCoroutine(IntroFinalSequence());
+            yield return null;
+        } else
+        {
+            StartTutorial();
+        }
     }
 
     protected override IEnumerator ExitSequence()
