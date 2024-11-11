@@ -38,6 +38,33 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
         battleSpinner.ResetRotationSpeed();
     }
 
+    protected override IEnumerator ChallengePartSequence()
+    {
+        yield return new WaitForSeconds(.25f);
+        inputStateTracker.isUiActive = true;
+        yield return new WaitForSeconds(.5f);
+
+        runeWrapperBorder.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        runeAnimationSoundFX.PlayRingAppears();
+
+        yield return new WaitForSeconds(.125f);
+        runeWrapperBorder.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
+        yield return new WaitForSeconds(.125f);
+
+        outerRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        yield return new WaitForSeconds(.25f);
+
+        midRing.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+        yield return new WaitForSeconds(.25f);
+
+        runeWrapper.GetComponent<AlphaTweenSequencer>().TweenSequence();
+        //StartCoroutine(GlowFadeIn(pointerArm));
+
+        yield return new WaitForSeconds(2.5f);
+
+        // NOTE: this is what kicks off the minor rune countdown sequence
+        //runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
+    }
     protected override IEnumerator IntroSequence()
     {
         yield return new WaitForSeconds(.5f);
@@ -66,6 +93,7 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
             battleSpinner.StartCoroutine(battleSpinner.Timeout());
             // enable battle challenge input;
             inputActive = true;
+            runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
             pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
             battleSpinner.GetComponent<BattleSpinner>().inputActive = inputActive;
             StartCoroutine(IntroFinalSequence());

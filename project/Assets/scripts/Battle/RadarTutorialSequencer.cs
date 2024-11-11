@@ -25,11 +25,11 @@ public class RadarTutorialSequencer : TutorialAnimationSequencer
     IEnumerator TutorialSequence()
     {
         leftArrow.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetLeftArrowScale, .25f);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.75f);
         rightArrow.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetRightArrowScale, .25f);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.75f);
         spaceBar.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetSpaceBarScale, .25f);
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.75f);
         exclaimationPoint.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetExclaimationPointScale, .25f);
 
     }

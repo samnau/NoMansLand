@@ -6,7 +6,7 @@ public class SpinnerTutorialSequencer : TutorialAnimationSequencer
 {
     protected override void StartTutorial()
     {
-        spaceBar.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetSpaceBarScale, .25f, .5f);
+        spaceBar.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetSpaceBarScale, .125f, .75f);
 
         exclaimationPoint.GetComponent<UtilityScaleTweener>().TriggerScaleLooper(targetExclaimationPointScale, .2f);
     }

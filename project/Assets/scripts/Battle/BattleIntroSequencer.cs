@@ -185,7 +185,10 @@ public class BattleIntroSequencer : MonoBehaviour
 
     public void CheckForTutorial()
     {
-        StartCoroutine(EnableTutorialSequence());
+        if(this.gameObject.activeSelf)
+        {
+            StartCoroutine(EnableTutorialSequence());
+        }
     }
     protected virtual IEnumerator EnableTutorialSequence()
     {

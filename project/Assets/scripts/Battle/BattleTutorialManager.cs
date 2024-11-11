@@ -38,14 +38,10 @@ public class BattleTutorialManager : MonoBehaviour
         {
             tutorialObject.SetActive(false);
         }
-        // this might not be used
-        bool tutorialCompleted = GetTargetTutorialCompletedState();
 
-        if(!tutorialCompleted)
-        {
-            animationSequencers[tutorialIndex].gameObject.SetActive(true);
-            animationSequencers[tutorialIndex].ShowTutorial();
-        }
+        animationSequencers[tutorialIndex].gameObject.SetActive(true);
+        animationSequencers[tutorialIndex].ShowTutorial();
+
     }
 
     public void HideTutorial()
@@ -63,25 +59,12 @@ public class BattleTutorialManager : MonoBehaviour
         dialogText.color = targetColor;
     }
 
-    public bool GetTargetTutorialCompletedState()
-    {
-        return animationSequencers[tutorialIndex].tutorialCompleted;
-    }
-
-    public void ShowCurrentTutorial()
-    {
-        GameObject targetTutorial = tutorials[tutorialIndex];
-        // placeholder: targetTutorial.playIntro
-    }
-
     public void IncreaseTutorialIndex()
     {
-        tutorialIndex++;
+        if(tutorialIndex < tutorials.Length - 1)
+        {
+            tutorialIndex++;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
