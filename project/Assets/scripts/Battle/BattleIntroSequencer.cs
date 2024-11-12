@@ -27,6 +27,8 @@ public class BattleIntroSequencer : MonoBehaviour
     [HideInInspector]
     public bool inputActive = false;
 
+    protected bool tutorialInactive = false;
+
     protected float defaultGlow = 7f;
     protected float defaultGlowSpeed = 3f;
 

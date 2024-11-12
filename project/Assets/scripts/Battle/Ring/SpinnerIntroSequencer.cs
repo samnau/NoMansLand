@@ -86,9 +86,11 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
 
     protected override IEnumerator EnableTutorialSequence()
     {
+        float targetDelay = tutorialInactive ? 3.25f : .5f;
+
         if (tutorialAnimationSequencer.tutorialCompleted)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(targetDelay);
             StartCoroutine(CountDown());
             battleSpinner.StartCoroutine(battleSpinner.Timeout());
             // enable battle challenge input;
@@ -97,6 +99,7 @@ public class SpinnerIntroSequencer : BattleIntroSequencer
             pointerDot.GetComponent<BattleRingTrigger>().inputActive = inputActive;
             battleSpinner.GetComponent<BattleSpinner>().inputActive = inputActive;
             StartCoroutine(IntroFinalSequence());
+            tutorialInactive = true;
         }
         else
         {

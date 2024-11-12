@@ -80,9 +80,11 @@ public class RuneIntroSequencer : BattleIntroSequencer
 
     protected override IEnumerator EnableTutorialSequence()
     {
+        float targetDelay = tutorialInactive ? 3.25f : .5f;
+
         if (tutorialAnimationSequencer.tutorialCompleted)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(targetDelay);
 
             float targetRotation = pointerTarget.GetComponent<RadarSweeperTargetController>().SetPointerTriggerStartRotation();
             pointerTarget.GetComponent<RotationTweener>().SimpleSetRotation(targetRotation);
@@ -91,11 +93,13 @@ public class RuneIntroSequencer : BattleIntroSequencer
 
             pointerDot.GetComponent<RadarSweeperController>().canSweep = true;
             runeWrapper.GetComponent<AlphaTweenSequencer>().ReverseTweenSequence(timeLimit);
-
+            pointerArm.GetComponent<ColorTweener>().TriggerAlphaImageTween(1f);
+            StartCoroutine(GlowFadeIn(pointerArm));
             // NOTE: this is the method that starts the radar sweeper target controller countdown
             radarSweeperTargetController.StartCoroutine(radarSweeperTargetController.TriggerTimeLimit());
             StartCoroutine(CountDown());
             StartCoroutine(IntroFinalSequence());
+            tutorialInactive = true;
         }
         else
         {

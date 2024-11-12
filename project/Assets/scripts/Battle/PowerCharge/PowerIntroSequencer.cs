@@ -104,9 +104,10 @@ public class PowerIntroSequencer : BattleIntroSequencer
 
     protected override IEnumerator EnableTutorialSequence()
     {
+        float targetDelay = tutorialInactive ? 2.75f : .5f;
         if(tutorialAnimationSequencer.tutorialCompleted)
         {
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(targetDelay);
             StartCoroutine(GlowFadeIn(pointerArm));
             pointerDot.GetComponent<GlowTweener>().TriggerGlowTween(defaultGlow, defaultGlowSpeed);
 
@@ -129,7 +130,7 @@ public class PowerIntroSequencer : BattleIntroSequencer
             triggerRune?.GetComponent<GlowTweener>().TriggerGlowByDuration(2f, .5f);
 
             StartCoroutine(IntroFinalSequence());
-            yield return null;
+            tutorialInactive = true;
         } else
         {
             StartTutorial();
