@@ -69,6 +69,7 @@
     <Compile Include="Assets\scripts\DefenseController.cs" />
     <Compile Include="Assets\scripts\sceneSwitcher.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\scripts\Battle\SpinnerTutorialSequencer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\FixedArray3.cs" />
     <Compile Include="Assets\scripts\StoryGameObjectManager.cs" />
     <Compile Include="Assets\scripts\EyeBlinkControllerProfile.cs" />
@@ -179,6 +180,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\scripts\MotionController2.cs" />
+    <Compile Include="Assets\scripts\UI\SceneButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\scripts\SceneSwitch.cs" />
     <Compile Include="Assets\scripts\BattleCombos.cs" />
@@ -311,7 +313,7 @@
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Battle\SpinnerTutorialSequencer.cs" />
+    <Compile Include="Assets\scripts\UI\ApplicationQuitter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
