@@ -10,6 +10,7 @@ You're pretty cute.
 Should I take you with me?
 ===
 title: BrokenSpire
+position: -276,-171
 ---
 <<SetSpeaker Molly idle smile>>
 This pool is pretty, but...
@@ -18,3 +19,67 @@ This pool is pretty, but...
 <<SetSpeaker Molly surprise annoyed>>
 I wish somone would tell me where I am.
 ===
+title: Demo
+position: 115,-198
+---
+
+<<SetSpeaker Molly idle smile>>
+Ok, so here's my day so far.
+<<SetExpression idle annoyed>>
+Meena chased me home after school today.
+<<SetExpression surprise frown>>
+While fleeing for my life, I fell through a magic hole in the sidewalk.
+<<SetExpression surprise annoyed>>
+I landed in some kind of park, I think?
+<<SetSpeaker Molly idle annoyed>>
+I looked around for a while and found a spooky, empty castle.
+I found a dead guy, who I guess used to be a king and he gave me a magic stick?
+<<SetSpeaker Molly idle smile>>
+And now I can summon magical animals.
+<<SetSpeaker Molly idle smirk>>
+Well, one magical animal. 
+A frog.
+I hope it's more impressive than it looks.
+<<SetExpression surprise smile>>
+So technically, I'm a wizard now?
+<<SetSpeaker Molly idle smile>>
+Make sense?
+<<SetSpeaker Molly idle smirk>>
+Yeah, I don’t get it either.
+<<SetExpression surprise frown>>
+I just want to go home!
+<<SetSpeaker Molly idle frown>>
+But apparently, that's not an option.
+So I'm stuck here looking for answers...
+...with only a ghost with memory issues to talk to.
+<<SetSpeakerName King's-Ghost>>
+I beg your pardon!
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle smirk>>
+Hey, I'm not the one who can't even remember his own name.
+No offense.
+<<SetSpeakerName King's-Ghost>>
+Hmph.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle smirk>>
+We've got to think of something better to call you than "King's Ghost".
+<<SetSpeakerName King's-Ghost>>
+That may be so, but let us please focus on the task at hand!
+<<SetSpeakerName Molly>>
+Geez, you talk funny.
+<<SetSpeaker Molly idle annoyed>>
+Fine.
+<<SetSpeaker Molly idle smile>>
+Let's look around for these "unfamiliar" things then.
+===
+title: FrogDemo
+position: -269,202
+---
+<<SetSpeaker Molly idle smile>>
+Hello again, little froggy.
+How exactly are you going to scare away the big monsters, huh?
+<<SetSpeaker Molly idle annoyed>>
+I may be doomed.
+===
+
+

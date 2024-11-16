@@ -171,6 +171,7 @@ public class DialogManager : MonoBehaviour
     {
         dialogueUI.MarkLineComplete();
     }
+    // REFACTOR: This is progress demo code that could be abstracted into something more useful
     IEnumerator sceneTransition()
     {
         var sceneCover = GameObject.Find("SceneCover");
