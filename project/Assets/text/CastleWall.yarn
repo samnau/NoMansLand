@@ -1,4 +1,5 @@
 title: Wall
+position: -323,-56
 ---
 <<SetSpeaker Molly surprise annoyed>>
 This wall goes on forever!
@@ -8,10 +9,31 @@ And not a door in sight.
 That gem looks pretty cool, though.
 ===
 title: Bike
+position: -153,302
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Um, what?
 Why is this here?
 And why is it buried in the grass?
 I don't understand...
+===
+title: WallDemo
+position: 0,0
+---
+<<SetSpeaker Molly surprise annoyed>>
+Ya' know...
+<<SetExpression surprise frown>>
+I could just hide in the castle and NOT look for scary monster things.
+<<SetSpeakerName King's-Ghost>>
+Dear child, I know that all of this feels a bit overwhelming.
+If there were any other way, I would not ask this daunting task of you...
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle annoyed>>
+Sigh.
+I know, I know.
+<<SetExpression surprise frown>>
+Get it together, Molly!
+<<SetExpression idle annoyed>>
+You can do this.
+Can't be much harder than Mrs. Johnson's math class, right?
 ===
