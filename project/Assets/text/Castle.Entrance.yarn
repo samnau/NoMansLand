@@ -1,4 +1,5 @@
 title: TreeGate
+position: -393,87
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Wow. That is the biggest tree I've ever seen!
@@ -13,6 +14,7 @@ And how can I get past these stone things?
 There's a weird keyhole-looking thing in one of them...
 ===
 title: LeftEntranceDoor
+position: 21,195
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Something was really mad at this door.
@@ -25,6 +27,7 @@ Okay. Here I go then...
 <<PlayInteractionSound>>
 ===
 title: RightEntranceDoor
+position: -110,360
 ---
 <<SetSpeaker Molly surprise frown>>
 This door has seen better days....
@@ -33,6 +36,7 @@ This door has seen better days....
 ...aaaaand it's locked.
 ===
 title: TreeSecret
+position: -431,342
 ---
 <<SetSpeaker Molly surprise smirk>>
 Hey, what's this back here?

@@ -10,18 +10,38 @@ public class GameEventTrigger : MonoBehaviour
     GameEvent defaultEvent;
     [SerializeField]
     float eventTriggerDelay = 0f;
+    [SerializeField]
+    bool isOneTimeEvent = false;
+    [SerializeField]
+    OneTimeEvent oneTimeEventState;
+    bool currentEventFired = false;
 
     private void Start()
     {
+        if(isOneTimeEvent && oneTimeEventState.eventFired)
+        {
+            print("one time event?");
+            return;
+        }
         if(triggerEventOnStart && defaultEvent)
         {
             //TriggerGameEvent(defaultEvent);
             TriggerTimedGameEvent();
+            SetOneTimeEventState();
+        }
+    }
+
+    void SetOneTimeEventState()
+    {
+        if (oneTimeEventState != null)
+        {
+            oneTimeEventState.eventFired = true;
         }
     }
     public void TriggerGameEvent (GameEvent targetEvent)
     {
         targetEvent?.Invoke();
+        SetOneTimeEventState();
     }
 
     IEnumerator TriggerGameEventAfterDelay()
