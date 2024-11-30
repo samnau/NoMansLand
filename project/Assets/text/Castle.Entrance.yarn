@@ -12,6 +12,12 @@ How is that possible?
 And how can I get past these stone things?
 <<SetSpeaker Molly surprise annoyed>>
 There's a weird keyhole-looking thing in one of them...
+<<SetSpeakerName King's-Ghost>>
+My apologies. I have misplaced the key somewhere.
+100 years ago.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle frown>>
+You really are the worst, sometimes.
 ===
 title: LeftEntranceDoor
 position: 21,195
@@ -43,4 +49,24 @@ Hey, what's this back here?
 <<SetSpeaker Molly idle annoyed>>
 <<PlayInteractionSound>>
 Aw, man. It's locked!
+===
+title: Demo
+position: -175,-170
+---
+<<SetSpeaker Molly surprise smile>>
+Good job!
+You beat the first unfamiliar.
+<<SetSpeaker Molly surprise annoyed>>
+That thing was pretty scary.
+<<SetSpeakerName King's-Ghost>>
+The hour is late, young lady. You will need rest for tomorrow's search.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle annoyed>>
+Yeah, yeah, yeah.
+<<SetSpeaker Molly idle smirk>>
+I'm sure it will be a snap to fall asleep in this inviting place.
+<<SetSpeaker Molly idle smile>>
+Well in the meantime, here is a bonus scene for you to explore.
+<<SetSpeaker Molly surprise smile>>
+Until next time!
 ===

@@ -13,12 +13,19 @@ public class InputStateTracker : MonoBehaviour {
 	public bool isRunning = false;
 	public bool isUiActive = false;
 	public bool isBattleActive = false;
-	string[] directionValues = {"left", "right", "up", "down" };
+	[HideInInspector]
+	public string[] directionValues = {"left", "right", "up", "down" };
+	HeroShadowController heroShadowController;
 
 	public enum StartDirections
 	{ up, down, left, right }
 
 	public StartDirections startDirection;
+
+    private void Start()
+    {
+		heroShadowController = FindObjectOfType<HeroShadowController>();
+    }
 
     void printUserInput (string inputValue){
 		print($"input string: {inputValue}");
@@ -46,6 +53,7 @@ public class InputStateTracker : MonoBehaviour {
 				if(directionCanChange)
                 {
 					direction = value;
+					heroShadowController.TransformShadow();
 				}
 			}
 		}
@@ -57,6 +65,7 @@ public class InputStateTracker : MonoBehaviour {
 			if(Input.GetKeyDown (value) && directionCanChange){
 				directionCanChange = false;
 				lastKeyPressed = value;
+				heroShadowController.TransformShadow();
 			}
 		}
 	}
@@ -65,7 +74,8 @@ public class InputStateTracker : MonoBehaviour {
 
 		foreach (string value in directionValues){
 			if(Input.GetKeyUp (value)){
-			lastKeyReleased = value;
+				lastKeyReleased = value;
+				heroShadowController.TransformShadow();
 			}
 		}
 	}
@@ -76,13 +86,15 @@ public class InputStateTracker : MonoBehaviour {
         {
 			lastKeyPressed = lastKeyReleased = null;
 			directionCanChange = true;
+			heroShadowController.TransformShadow();
 		}
-    }
+	}
 
 	void inputStateTracker(){
 		CheckLastKeyReleased();
 		isWalking = directionKeyPressed();
-		isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
+		//COMEBACK: disable running for demo
+		//isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
 		if(isUiActive || isBattleActive)
         {
 			return;
@@ -93,7 +105,6 @@ public class InputStateTracker : MonoBehaviour {
 		if(Input.anyKeyDown){
 			setCurrentKeyDown();
 		}
-
 		setCurrentReleased();
 	}
 	// Update is called once per frame

@@ -56,7 +56,7 @@ public class PositionTweener : BaseTweener
     IEnumerator SetPositionByDuration(Vector3 targetPosition, float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-
+        print(targetPosition);
         Vector3 startPostion = transform.position;
         while (elapsed_time < duration)
         {
@@ -64,6 +64,22 @@ public class PositionTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+        transform.localPosition = targetPosition;
+    }
+
+    IEnumerator SetLocalPositionByDuration(Vector3 targetPosition, float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+        print(targetPosition);
+        Vector3 startPostion = transform.localPosition;
+        while (elapsed_time < duration)
+        {
+            transform.localPosition = Vector3.Lerp(startPostion, targetPosition, EaseInOutQuad(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+
+        transform.localPosition = targetPosition;
     }
 
     //public static IEnumerator ChangeObjectPos(Transform transform, float y_target, float duration)
@@ -106,6 +122,11 @@ public class PositionTweener : BaseTweener
         endPosition = targetPosition;
         progress = 0;
         StartCoroutine(SetPosition());
+    }
+
+    public void TriggerLocalPositionByDuration([Optional] Vector3 targetPosition, [Optional] float duration)
+    {
+        StartCoroutine(SetLocalPositionByDuration(targetPosition, duration));
     }
 
     public void TriggerPositionByDuration([Optional] Vector3 targetPosition, [Optional] float duration)
