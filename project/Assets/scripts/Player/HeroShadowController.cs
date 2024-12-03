@@ -34,18 +34,6 @@ public class HeroShadowController : MonoBehaviour
             }
         }
 
-        if(shadowPositions.Count > 0)
-        {
-            print(shadowPositions);
-            foreach(KeyValuePair<string, Tuple<float, float>> shadowItem in shadowPositions )
-            {
-                print($"key {shadowItem.Key} is {shadowItem.Value}");
-            }
-        } else
-        {
-            print("failed shadow init");
-        }
-
         shadowPositions["leftidle"] = SetValues(-0.5f, 0);
         shadowPositions["leftwalk"] = SetValues(-0.35f, 0);
         shadowPositions["rightidle"] = SetValues(0.5f, 0);
@@ -68,7 +56,6 @@ public class HeroShadowController : MonoBehaviour
 
     public void TransformShadow()
     {
-        StartCoroutine(TriggerLimit());
         string currentDirection = inputStateTracker.direction;
         string directionState = inputStateTracker.isWalking ? "walk" : "idle";
         string directionKeyName = $"{currentDirection}{directionState}";

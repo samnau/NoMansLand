@@ -142,6 +142,7 @@
     <Compile Include="Assets\scripts\Battle\PowerTutorialSequencer.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\scripts\FireShieldAnimationSequencer.cs" />
+    <Compile Include="Assets\scripts\UI\BaseButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\scripts\Inventory\ItemData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
@@ -177,6 +178,7 @@
     <Compile Include="Assets\scripts\Battle\FrogFamiliarSoundFX.cs" />
     <Compile Include="Assets\scripts\Battle\Ring\BattleSpinner.cs" />
     <Compile Include="Assets\scripts\FireShieldSoundFXController.cs" />
+    <Compile Include="Assets\scripts\Player\HeroShadowController.cs" />
     <Compile Include="Assets\scripts\Player\ProfileAnimationStateManager.cs" />
     <Compile Include="Assets\scripts\Monster.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
@@ -240,6 +242,7 @@
     <Compile Include="Assets\scripts\AnimationStateTrigger.cs" />
     <Compile Include="Assets\scripts\Inventory\Inventory.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonSet.cs" />
+    <Compile Include="Assets\scripts\UI\MainMenuController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_HiddenBone.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\scripts\ExampleScript.cs" />
@@ -315,9 +318,12 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
-    <Compile Include="Assets\2D_Magic_Attack\Scripts\Button.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Player\HeroShadowController.cs" />
+    <Compile Include="Assets\2D_Magic_Attack\Scripts\MagicDemoButton.cs" />
+    <Compile Include="Assets\scripts\UI\QuitButton.cs" />
+    <Compile Include="Assets\scripts\UI\SettingsButton.cs" />
+    <Compile Include="Assets\scripts\UI\BonusButton.cs" />
+    <Compile Include="Assets\scripts\UI\StartButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
