@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SettingsButton : MonoBehaviour
+public class SettingsButton : BaseButton
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    GameEvent showSettings;
+
+    protected override void ButtonInit()
     {
-        
+        base.ButtonInit();
+        button.onClick.AddListener(TriggerShowSettings);
     }
 
-    // Update is called once per frame
-    void Update()
+    void TriggerShowSettings()
     {
-        
+        print("show the serttings screen!");
+        showSettings?.Invoke();
     }
 }

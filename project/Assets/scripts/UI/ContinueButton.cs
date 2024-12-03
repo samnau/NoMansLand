@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuitButton : BaseButton
+public class ContinueButton : SceneButton
 {
 
     protected override void ButtonInit()
     {
+        isHidden = true;
         base.ButtonInit();
-        button.onClick.AddListener(() => Application.Quit());
     }
 
 }

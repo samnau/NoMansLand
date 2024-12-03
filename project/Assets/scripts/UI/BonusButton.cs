@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonusButton : MonoBehaviour
+public class BonusButton : SceneButton
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void ButtonInit()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        isDisabled = true;
+        base.ButtonInit();
+        targetScene = "CastleCourtyard";
+        button.onClick.AddListener(() => ChangeScene(targetScene));
     }
 }

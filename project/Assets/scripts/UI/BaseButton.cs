@@ -5,18 +5,28 @@ using UnityEngine.UI;
 
 public class BaseButton : MonoBehaviour
 {
-    Button button;
+    protected Button button;
     [SerializeField]
-    bool isDisabled = false;
+    protected bool isDisabled = false;
     [SerializeField]
-    bool isHidden = false;
+    protected bool isHidden = false;
+    [SerializeField]
+    protected bool selected = false;
     // Start is called before the first frame update
     void Start()
     {
+        ButtonInit();
+    }
+
+    protected virtual void ButtonInit()
+    {
         button = GetComponent<Button>();
         button.interactable = !isDisabled;
-        button.enabled = !isHidden;
-        print("base button");
+        gameObject.SetActive(!isHidden);
+        if (selected)
+        {
+            button.Select();
+        }
     }
 
 }

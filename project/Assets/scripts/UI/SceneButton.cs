@@ -7,9 +7,15 @@ public class SceneButton : BaseButton
 {
     protected Fade_Controller fadeController;
     [SerializeField]
-    string targetScene = "Forest1";
+    protected string targetScene = "Forest1";
     void Start()
     {
+        ButtonInit();
+    }
+
+    protected override void ButtonInit()
+    {
+        base.ButtonInit();
         fadeController = FindObjectOfType<Fade_Controller>();
     }
 
