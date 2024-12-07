@@ -204,6 +204,7 @@
     <Compile Include="Assets\ScenePositionManager.cs" />
     <Compile Include="Assets\scripts\Utility\AnimationFrameSequencer.cs" />
     <Compile Include="Assets\scripts\SaveDataManager.cs" />
+    <Compile Include="Assets\scripts\ScriptableObjects\LastVisitedScene.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
     <Compile Include="Assets\scripts\SaveSystem\ISaveable.cs" />
     <Compile Include="Assets\scripts\Battle\BattleChallengeManager.cs" />
@@ -244,6 +245,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
     <Compile Include="Assets\scripts\AnimationStateTrigger.cs" />
     <Compile Include="Assets\scripts\Inventory\Inventory.cs" />
+    <Compile Include="Assets\scripts\UI\ContinueButton.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonSet.cs" />
     <Compile Include="Assets\scripts\UI\MainMenuController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_HiddenBone.cs" />
@@ -324,7 +326,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\UI\ContinueButton.cs" />
+    <Compile Include="Assets\scripts\ScriptableObjects\GameState.cs" />
+    <Compile Include="Assets\scripts\UI\MenuButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

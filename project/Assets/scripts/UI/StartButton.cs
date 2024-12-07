@@ -15,6 +15,7 @@ public class StartButton : SceneButton
         }
 
         List<OneTimeEvent> oneTimeEvents = new List<OneTimeEvent>();
+        //TODO: add code that enables the continue button. will have to be stored in object or elsewhere.
 
 
         for(int i = 0; i < objectsToReset.Length; i++)
@@ -39,6 +40,11 @@ public class StartButton : SceneButton
         {
             scenePosition.currentDirection = "up";
             scenePosition.lastDirection = "down";
+        }
+
+        if(gameStateData != null)
+        {
+            gameStateData.gameInProgress = true;
         }
     }
 

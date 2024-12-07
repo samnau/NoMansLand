@@ -11,6 +11,7 @@ public class Fade_Controller : MonoBehaviour {
 	private float fadeDirection = -1.0f;
 	readonly string sceneName;
 	public ScenePosition scenePosition;
+	//TODO: add code that sets last visited scene in the new scriptable object when scene change is triggered
 	// Use this for initialization
 	void OnEnable() {
 		SceneManager.sceneLoaded += OnSceneLoaded;

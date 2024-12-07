@@ -115,6 +115,20 @@ public class ColorTweener : BaseTweener
         spriteRenderer.color = targetColor;
     }
 
+    IEnumerator SetTargetColorByDuration(Color targetColor, float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+        //Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
+        Color startColor = image.color;
+
+        while (elapsed_time < duration)
+        {
+            image.color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+        image.color = targetColor;
+    }
 
     IEnumerator SetImageColorByDuration(float duration)
     {
@@ -165,5 +179,10 @@ public class ColorTweener : BaseTweener
     {
         endAlpha = targetAlpha;
         StartCoroutine(SetImageColorByDuration(duration));
+    }
+
+    public void TriggerImageColorByDuration(Color targetColor, float duration)
+    {
+        StartCoroutine(SetTargetColorByDuration(targetColor, duration));
     }
 }
