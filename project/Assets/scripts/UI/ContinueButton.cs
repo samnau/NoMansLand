@@ -10,10 +10,9 @@ public class ContinueButton : SceneButton
         base.ButtonInit();
         button.onClick.AddListener(() => LoadLastVisitedScene());
     }
-    // notes: add method that compares the default scene with the last visited scene. probably also need a bool flag for if start button was clicked.
-    // maybe bonus button does not set last scene
     void LoadLastVisitedScene()
     {
+        print("continue click");
         if(lastSceneData == null)
         {
             print("no scene data loaded");

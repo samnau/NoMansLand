@@ -14,10 +14,29 @@ public class BaseButton : MonoBehaviour
     protected bool selected = false;
     [SerializeField]
     protected bool requireConfirmation = false;
+
+    protected bool initialized = false;
     // Start is called before the first frame update
     void Start()
     {
         ButtonInit();
+    }
+
+    private void OnEnable()
+    {
+        if (initialized)
+        {
+            return;
+        }
+        ButtonInit();
+        button.onClick.RemoveAllListeners();
+
+    }
+
+    private void OnDisable()
+    {
+        initialized = false;
+        button.onClick.RemoveAllListeners();
     }
 
     protected virtual void ButtonInit()
@@ -29,6 +48,7 @@ public class BaseButton : MonoBehaviour
         {
             button.Select();
         }
+        initialized = true;
     }
 
 }

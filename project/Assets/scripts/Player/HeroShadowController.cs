@@ -59,7 +59,6 @@ public class HeroShadowController : MonoBehaviour
         string currentDirection = inputStateTracker.direction;
         string directionState = inputStateTracker.isWalking ? "walk" : "idle";
         string directionKeyName = $"{currentDirection}{directionState}";
-        print(directionKeyName);
         float zPos = 0;
         Tuple<float, float> newPositionItems = shadowPositions[directionKeyName];
         Vector3 newPosition = new Vector3(newPositionItems.Item1, newPositionItems.Item2, zPos);

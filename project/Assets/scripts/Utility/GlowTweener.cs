@@ -9,8 +9,12 @@ public class GlowTweener : BaseTweener
     Material material;
     SpriteRenderer spriteRenderer;
     Image image;
+    [SerializeField]
     float targetIntensity = 1f;
     Color originalColor;
+
+    [SerializeField]
+    bool autoStartGlowTween = false;
     void Start()
     {
         InitGlowComponents();
@@ -30,7 +34,12 @@ public class GlowTweener : BaseTweener
             material = image.material = new Material(image.material);
             originalColor = material.color;
         }
-        
+
+        if (autoStartGlowTween)
+        {
+            TriggerGlowByDuration(targetIntensity, speed);
+        }
+
     }
 
     public void TurnOffGlow()

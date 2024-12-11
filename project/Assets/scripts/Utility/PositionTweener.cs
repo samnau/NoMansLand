@@ -70,7 +70,6 @@ public class PositionTweener : BaseTweener
     IEnumerator SetLocalPositionByDuration(Vector3 targetPosition, float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-        print(targetPosition);
         Vector3 startPostion = transform.localPosition;
         while (elapsed_time < duration)
         {

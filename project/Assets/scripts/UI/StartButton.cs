@@ -7,6 +7,25 @@ public class StartButton : SceneButton
     [SerializeField]
     ScriptableObject[] objectsToReset;
     ScenePosition scenePosition;
+    [SerializeField]
+    GameEvent confirmationRequired;
+
+    protected override void ButtonInit()
+    {
+        base.ButtonInit();
+        button.onClick.AddListener(StartClickHandler);
+    }
+
+    void StartClickHandler()
+    {
+        if (confirmationRequired && gameStateData != null && gameStateData.gameInProgress)
+        {
+            confirmationRequired.Invoke();
+            return;
+        }
+        ResetGameState();
+        ChangeScene("BrokenPool");
+    }
     public void ResetGameState()
     {
         if(objectsToReset.Length == 0)
@@ -45,6 +64,7 @@ public class StartButton : SceneButton
         if(gameStateData != null)
         {
             gameStateData.gameInProgress = true;
+            gameStateData.gameComplete = false;
         }
     }
 

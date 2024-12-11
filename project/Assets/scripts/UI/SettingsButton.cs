@@ -15,7 +15,6 @@ public class SettingsButton : BaseButton
 
     void TriggerShowSettings()
     {
-        print("show the serttings screen!");
         showSettings?.Invoke();
     }
 }

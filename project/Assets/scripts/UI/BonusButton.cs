@@ -6,7 +6,7 @@ public class BonusButton : SceneButton
 {
     protected override void ButtonInit()
     {
-        isDisabled = true;
+        isDisabled = !gameStateData.gameComplete;
         base.ButtonInit();
         targetScene = "CastleCourtyard";
         button.onClick.AddListener(() => ChangeScene(targetScene));
