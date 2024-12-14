@@ -90,6 +90,16 @@ public class InputStateTracker : MonoBehaviour {
 		}
 	}
 
+	public void DisableMovement()
+    {
+		isUiActive = true;
+    }
+
+	public void EnableMovement()
+    {
+		isUiActive = false;
+    }
+
 	void inputStateTracker(){
 		CheckLastKeyReleased();
 		isWalking = directionKeyPressed();

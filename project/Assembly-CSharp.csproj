@@ -80,6 +80,7 @@
     <Compile Include="Assets\scripts\UI\StartButton.cs" />
     <Compile Include="Assets\scripts\Sound\SoundFXPlayer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
+    <Compile Include="Assets\scripts\ScriptableObjects\GameState.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
     <Compile Include="Assets\scripts\Characters\GhostKingBlinker.cs" />
@@ -143,6 +144,7 @@
     <Compile Include="Assets\scripts\Battle\CreatureSoundFX.cs" />
     <Compile Include="Assets\scripts\Fade_Controller.cs" />
     <Compile Include="Assets\scripts\Battle\PowerTutorialSequencer.cs" />
+    <Compile Include="Assets\scripts\UI\MenuButton.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
     <Compile Include="Assets\scripts\FireShieldAnimationSequencer.cs" />
     <Compile Include="Assets\scripts\UI\BaseButton.cs" />
@@ -326,8 +328,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\ScriptableObjects\GameState.cs" />
-    <Compile Include="Assets\scripts\UI\MenuButton.cs" />
+    <Compile Include="Assets\scripts\UI\PauseMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

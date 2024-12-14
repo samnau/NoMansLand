@@ -4,12 +4,13 @@ using System.Linq;
 using UnityEngine;
 
 public class MusicController : MonoBehaviour {
+    AudioSource defaultAudio;
 
     private void Awake()
     {
         GameObject[] musicPlayers = GameObject.FindGameObjectsWithTag("Music");
         MusicController[] musicControllers = FindObjectsOfType<MusicController>();
-        AudioSource audioSource = this.GetComponent<AudioSource>();
+        AudioSource audioSource = defaultAudio = this.GetComponent<AudioSource>();
         AudioClip clip = audioSource.clip;
         bool clipMatch = false;
         print(musicControllers.Length);
@@ -58,5 +59,10 @@ public class MusicController : MonoBehaviour {
         audioSource.clip = targetClip;
         audioSource.volume = 1f;
         audioSource.Play();
+    }
+
+    public void SetVolumne(float targetVolume = .5f)
+    {
+        defaultAudio.volume = targetVolume;
     }
 }
