@@ -23,11 +23,12 @@ public class SceneButton : BaseButton
     protected override void ButtonInit()
     {
         base.ButtonInit();
-        fadeController = FindObjectOfType<Fade_Controller>();
+        SceneButtonInit();
     }
 
     public void ChangeScene(string targetScene)
     {
+        print(fadeController);
         fadeController?.triggerLevelChange(targetScene);
         if (lastSceneData == null)
         {
@@ -35,6 +36,11 @@ public class SceneButton : BaseButton
             return;
         }
         lastSceneData.lastScene = targetScene;
+    }
+
+    protected virtual void SceneButtonInit()
+    {
+        fadeController = FindObjectOfType<Fade_Controller>();
     }
 
 }

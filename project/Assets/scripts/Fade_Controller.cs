@@ -40,7 +40,10 @@ public class Fade_Controller : MonoBehaviour {
 			print("no scene data loaded");
 			return;
 		}
-		lastSceneData.lastScene = sceneName;
+		if(sceneName != "BattleDemoMenu")
+        {
+			lastSceneData.lastScene = sceneName;
+		}
 	}
 
 	public void LevelChangeTimedTrigger(string sceneName, float delay)

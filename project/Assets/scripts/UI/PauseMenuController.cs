@@ -10,14 +10,22 @@ public class PauseMenuController : MainMenuController
     GameEvent openPauseMenu;
     [SerializeField]
     GameEvent closePauseMenu;
+    Canvas mainCanvas;
+    int defaultCanvasSortOrder;
+    int activeCanvasSortOrder = 400;
 
     protected override void InitMenu()
     {
         base.InitMenu();
+        mainCanvas = GetComponentInParent<Canvas>();
+        defaultCanvasSortOrder = mainCanvas.sortingOrder;
+        EnableDisableAllButtons(false);
     }
 
     public void TogglePausePanel()
     {
+        StartCoroutine(ToggleTimeScale());
+
         confirmationUI?.SetActive(false);
         settingsUI?.SetActive(true);
         pauseMenuUI?.SetActive(true);
@@ -25,10 +33,28 @@ public class PauseMenuController : MainMenuController
         StartCoroutine(ToggleMenuPanelSequence(pauseOffPosition, pauseOnPosition));
         if(menuPanelActive)
         {
+            mainCanvas.sortingOrder = defaultCanvasSortOrder;
+            EnableDisableAllButtons(false);
             closePauseMenu.Invoke();
         } else
         {
+            EnableDisableAllButtons(true);
+            mainCanvas.sortingOrder = activeCanvasSortOrder;
             openPauseMenu?.Invoke();
+        }
+    }
+
+    IEnumerator ToggleTimeScale()
+    {
+        if(menuPanelActive)
+        {
+            Time.timeScale = 1f;
+        }
+        var targetTimeScale = menuPanelActive ? 1f : 0f;
+        yield return new WaitForSeconds(.5f);
+        if(!menuPanelActive)
+        {
+            Time.timeScale = 0f;
         }
     }
 

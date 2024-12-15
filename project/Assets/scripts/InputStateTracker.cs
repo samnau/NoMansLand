@@ -97,6 +97,11 @@ public class InputStateTracker : MonoBehaviour {
 
 	public void EnableMovement()
     {
+		if(isBattleActive)
+        {
+			return;
+        }
+		print("enable movement");
 		isUiActive = false;
     }
 

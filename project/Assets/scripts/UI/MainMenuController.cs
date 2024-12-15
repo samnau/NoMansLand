@@ -34,6 +34,8 @@ public class MainMenuController : MonoBehaviour
     Color offColor;
     Color onColor;
 
+    Button[] menuButtons;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +58,9 @@ public class MainMenuController : MonoBehaviour
         pauseMenuUI?.SetActive(false);
         settingsUI?.SetActive(true);
 
-        foreach (Button button in gameObject.GetComponentsInChildren<Button>())
+        menuButtons = gameObject.GetComponentsInChildren<Button>();
+
+        foreach (Button button in menuButtons)
         {
             if (button.GetComponent<StartButton>() != null)
             {
@@ -100,6 +104,14 @@ public class MainMenuController : MonoBehaviour
         }
 
         startButton.Select();
+    }
+
+    protected void EnableDisableAllButtons(bool enabled = true)
+    {
+        foreach (Button button in menuButtons)
+        {
+            button.enabled = enabled;
+        }
     }
 
     public void ToggleSettingsPanel()

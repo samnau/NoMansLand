@@ -10,7 +10,7 @@ public class PowerCharger : BattleChallenge
     float startRotation;
     float currentRotation = 0f;
     float minRotation = 0f;
-    float maxRotation = 450f;
+    //float maxRotation = 450f;
     float chargeIncrement = 1f;
     public bool inputActive = false;
     public bool challengeActive = false;
