@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PauseMenuController : MainMenuController
 {
@@ -14,12 +15,21 @@ public class PauseMenuController : MainMenuController
     int defaultCanvasSortOrder;
     int activeCanvasSortOrder = 400;
 
+    string defaultTutorialLayer;
+    string hiddenTutorialLayer = "Cover";
+
+    BattleTutorialManager tutorialManager;
+    SortingGroup tutorialGroup;
+
     protected override void InitMenu()
     {
         base.InitMenu();
         mainCanvas = GetComponentInParent<Canvas>();
         defaultCanvasSortOrder = mainCanvas.sortingOrder;
         EnableDisableAllButtons(false);
+        tutorialManager = mainCanvas.GetComponentInChildren<BattleTutorialManager>();
+        tutorialGroup = tutorialManager?.gameObject.GetComponent<SortingGroup>();
+        defaultTutorialLayer = tutorialGroup?.sortingLayerName;
     }
 
     public void TogglePausePanel()
@@ -34,12 +44,14 @@ public class PauseMenuController : MainMenuController
         if(menuPanelActive)
         {
             mainCanvas.sortingOrder = defaultCanvasSortOrder;
+            tutorialGroup.sortingLayerName = defaultTutorialLayer;
             EnableDisableAllButtons(false);
             closePauseMenu.Invoke();
         } else
         {
             EnableDisableAllButtons(true);
             mainCanvas.sortingOrder = activeCanvasSortOrder;
+            tutorialGroup.sortingLayerName = hiddenTutorialLayer;
             openPauseMenu?.Invoke();
         }
     }

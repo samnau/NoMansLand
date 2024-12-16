@@ -65,4 +65,9 @@ public class SoundFXPlayer : MonoBehaviour
         currentVolume = SoundSource.volume;
         SoundSource.volume = 0;
     }
+
+    public void StopPlayback()
+    {
+        SoundSource.Stop();
+    }
 }

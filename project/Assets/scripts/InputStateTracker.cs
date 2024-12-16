@@ -17,6 +17,9 @@ public class InputStateTracker : MonoBehaviour {
 	public string[] directionValues = {"left", "right", "up", "down" };
 	HeroShadowController heroShadowController;
 
+	[SerializeField]
+	GameEvent directionKeyWasReleased;
+
 	public enum StartDirections
 	{ up, down, left, right }
 
@@ -27,9 +30,9 @@ public class InputStateTracker : MonoBehaviour {
 		heroShadowController = FindObjectOfType<HeroShadowController>();
     }
 
-    void printUserInput (string inputValue){
-		print($"input string: {inputValue}");
-	}
+ //   void printUserInput (string inputValue){
+	//	print($"input string: {inputValue}");
+	//}
 
 	private void logAnyKey (string inputValue)
     {
@@ -76,6 +79,11 @@ public class InputStateTracker : MonoBehaviour {
 			if(Input.GetKeyUp (value)){
 				lastKeyReleased = value;
 				heroShadowController.TransformShadow();
+				//REFACTOR: into something less rigid 
+				if(!isBattleActive)
+                {
+					directionKeyWasReleased?.Invoke();
+				}
 			}
 		}
 	}
