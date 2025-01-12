@@ -19,6 +19,8 @@ public class MainMenuController : MonoBehaviour
     protected GameObject settingsUI;
     [SerializeField]
     protected GameObject pauseMenuUI;
+    [SerializeField]
+    GameState gameState;
 
     Button startButton;
 
@@ -130,6 +132,14 @@ public class MainMenuController : MonoBehaviour
         pauseMenuUI?.SetActive(false);
         titleText.text = "Are you sure?";
         StartCoroutine(ToggleMenuPanelSequence(offPosition, confirmationOnPosition));
+    }
+
+    public void EnableBonusButton()
+    {
+        if(gameState != null)
+        {
+            gameState.gameComplete = true;
+        }
     }
 
 }

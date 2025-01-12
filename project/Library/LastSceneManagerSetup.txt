@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/scenes/Forest1.unity
+- path: Assets/scenes/WinScreen.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
