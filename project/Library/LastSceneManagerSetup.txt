@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/scenes/WinScreen.unity
+- path: Assets/scenes/StudioScreen.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
