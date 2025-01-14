@@ -24,6 +24,8 @@ public class MainMenuController : MonoBehaviour
 
     Button startButton;
 
+    protected bool canTogglePause = true;
+
     protected bool menuPanelActive = false;
     protected ColorTweener panelColorTweener;
     protected PositionTweener menuPanelPositionTweener;
@@ -73,6 +75,7 @@ public class MainMenuController : MonoBehaviour
 
     public IEnumerator ToggleMenuPanelSequence(Vector3 offPos, Vector3 onPos)
     {
+        canTogglePause = !canTogglePause;
         float duration = 0.5f;
         var targetPos = menuPanelActive ? offPos : onPos;
         var targetColor = menuPanelActive ? offColor : onColor;
@@ -90,7 +93,7 @@ public class MainMenuController : MonoBehaviour
             panelBG.transform.localPosition = panelBGOffPos;
         }
         menuPanelActive = !menuPanelActive;
-
+        canTogglePause = !canTogglePause;
     }
 
     public void ToggleMenuPanel()

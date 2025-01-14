@@ -179,7 +179,8 @@ public class DialogManager : MonoBehaviour
         coverAnimator.Play("show");
         yield return new WaitForSeconds(1.5f);
         GameObject.Find("MusicPlayer").SetActive(false);
-        SceneManager.LoadScene("TitleCard");
+//        SceneManager.LoadScene("TitleCard");
+        SceneManager.LoadScene("BattleDemoMenu");
     }
     public void EndDialog()
     {
