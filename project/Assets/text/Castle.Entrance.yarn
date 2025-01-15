@@ -72,3 +72,19 @@ Well in the meantime, here is a bonus scene for you to explore.
 <<SetSpeaker Molly surprise smile>>
 Until next time!
 ===
+title: RightDoorDemo
+tags: 
+position: 56.00000047683716,-170.99999237060547
+---
+<<SetSpeaker Molly surprise frown>>
+This door has seen better days....
+<<SetSpeaker Molly idle annoyed>>
+<<PlayInteractionSound>>
+...aaaaand it's locked.
+If only someone hadn't lost every single key in this place.
+Or at least could remember where he left them.
+<<SetSpeakerName King's-Ghost>>
+You truly are quite a churlish young lady, sometimes.
+<<SetSpeakerName Molly>>
+Sorry. It's just frustrating. You know?
+===

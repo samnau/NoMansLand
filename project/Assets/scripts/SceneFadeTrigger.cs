@@ -10,8 +10,6 @@ public class SceneFadeTrigger : MonoBehaviour {
 	[SerializeField] Directions direction;
 	ScenePosition scenePosition;
 
-	// Use this for initialization
-
 	void OnTriggerEnter2D( Collider2D other ){
 		if(other.CompareTag("Player")) {
 		scenePosition.currentDirection = scenePosition.startDirection[direction.ToString()];
