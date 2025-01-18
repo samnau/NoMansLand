@@ -62,15 +62,31 @@ public class TutorialAnimationSequencer : MonoBehaviour
 
     public virtual void StopTutorial()
     {
-        foreach (UtilityScaleTweener utilityScaleTweener in utilityScaleTweeners)
+        if(utilityScaleTweeners != null)
         {
-            utilityScaleTweener.scaleLooping = false;
+            foreach (UtilityScaleTweener utilityScaleTweener in utilityScaleTweeners)
+            {
+                utilityScaleTweener.scaleLooping = false;
+            }
+        }
+        else
+        {
+            Debug.LogError("tutorial: no scale tweeners found.");
         }
 
-        foreach (ColorTweener colorTweener in colorTweeners)
+        if (colorTweeners != null)
         {
-            colorTweener.TriggerSpriteAlphaByDuration(0f, .25f);
+            foreach (ColorTweener colorTweener in colorTweeners)
+            {
+                colorTweener.TriggerSpriteAlphaByDuration(0f, .25f);
+            }
         }
+        else
+        {
+            Debug.LogError("tutorial: no color tweeners found.");
+        }
+
+
 
         tutorialCompleted = true;
     }

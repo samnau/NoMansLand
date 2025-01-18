@@ -36,6 +36,7 @@ public class HeroShadowController : MonoBehaviour
 
         shadowPositions["leftidle"] = SetValues(-0.5f, 0);
         shadowPositions["leftwalk"] = SetValues(-0.35f, 0);
+        shadowPositions["battleidle"] = SetValues(-0.35f, 0.2f);
         shadowPositions["rightidle"] = SetValues(0.5f, 0);
         shadowPositions["rightwalk"] = SetValues(0.35f, 0);
         shadowPositions["downidle"] = SetValues(-0.2f, 0);
@@ -45,6 +46,7 @@ public class HeroShadowController : MonoBehaviour
 
         shadowScales["leftidle"] = SetValues(2.2f, 0.9f);
         shadowScales["leftwalk"] = SetValues(3.2f, 0.8f);
+        shadowScales["battleidle"] = SetValues(3.2f, 1.1f);
         shadowScales["rightidle"] = SetValues(2.2f, 0.9f);
         shadowScales["rightwalk"] = SetValues(3.2f, 0.8f);
         shadowScales["downidle"] = SetValues(2.2f, 0.9f);
@@ -53,7 +55,8 @@ public class HeroShadowController : MonoBehaviour
         shadowScales["upwalk"] = SetValues(2.2f, 1.2f);
 
     }
-
+    // REFACTOR: migrate this into a simplified function that calls the shared shadow transform method
+    // leave as is for the demo
     public void TransformShadow()
     {
         string currentDirection = inputStateTracker.direction;
@@ -67,6 +70,31 @@ public class HeroShadowController : MonoBehaviour
         Tuple<float, float> newScaleItems = shadowScales[directionKeyName];
         Vector3 newScale = new Vector3(newScaleItems.Item1, newScaleItems.Item2, zScale);
         scaleTweener?.TriggerIrregularScaleByDuration(newScale, speed);
+    }
+
+    void TriggerShadowTransform(string directionKeyName)
+    {
+        float zPos = 0;
+        Tuple<float, float> newPositionItems = shadowPositions[directionKeyName];
+        Vector3 newPosition = new Vector3(newPositionItems.Item1, newPositionItems.Item2, zPos);
+        positionTweener?.TriggerLocalPositionByDuration(newPosition, speed);
+        float zScale = transform.localScale.z;
+        Tuple<float, float> newScaleItems = shadowScales[directionKeyName];
+        Vector3 newScale = new Vector3(newScaleItems.Item1, newScaleItems.Item2, zScale);
+        scaleTweener?.TriggerIrregularScaleByDuration(newScale, speed);
+    }
+
+    public void TargetedTransformShadow(string directionKeyName)
+    {
+        TriggerShadowTransform(directionKeyName);
+    }
+
+    public void TransformShadowByInput()
+    {
+        string currentDirection = inputStateTracker.direction;
+        string directionState = inputStateTracker.isWalking ? "walk" : "idle";
+        string directionKeyName = $"{currentDirection}{directionState}";
+        TriggerShadowTransform(directionKeyName);
     }
 
     Tuple<float, float> SetValues(float xVal, float yVal)

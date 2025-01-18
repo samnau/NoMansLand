@@ -174,13 +174,14 @@ public class DialogManager : MonoBehaviour
     // REFACTOR: This is progress demo code that could be abstracted into something more useful
     IEnumerator sceneTransition()
     {
-        var sceneCover = GameObject.Find("SceneCover");
-        var coverAnimator = sceneCover.GetComponent<Animator>();
-        coverAnimator.Play("show");
-        yield return new WaitForSeconds(1.5f);
+        //var sceneCover = GameObject.Find("SceneCover");
+        //var coverAnimator = sceneCover.GetComponent<Animator>();
+        //coverAnimator?.Play("show");
+        //yield return new WaitForSeconds(1.5f);
         GameObject.Find("MusicPlayer").SetActive(false);
 //        SceneManager.LoadScene("TitleCard");
         SceneManager.LoadScene("BattleDemoMenu");
+        yield return null;
     }
     public void EndDialog()
     {
@@ -190,7 +191,9 @@ public class DialogManager : MonoBehaviour
         //demo code only - REMOVE LATER
         if (targetText == "LeftEntranceDoor")
         {
-            StartCoroutine("sceneTransition");
+            GameObject.Find("MusicPlayer").SetActive(false);
+            SceneManager.LoadScene("BattleDemoMenu");
+            //StartCoroutine("sceneTransition");
         }
         TogglePlayerMotion();
     }

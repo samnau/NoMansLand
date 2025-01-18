@@ -16,9 +16,11 @@ public class SoundFXPlayer : MonoBehaviour
 
     public void PlayOneShot(AudioClip TargetSound, float targetVolume = 1f)
     {
+        bool isComponentEnabled = this.enabled;
         SetVolume(targetVolume);
-        if(!isEnabled)
+        if(!isEnabled || !isComponentEnabled)
         {
+            Debug.Log("the audio source is disabled");
             return;
         }
         SoundSource.PlayOneShot(TargetSound);

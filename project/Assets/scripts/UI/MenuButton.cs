@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class MenuButton : SceneButton
 {
-    //protected override void ButtonInit()
+
+    //private void OnEnable()
     //{
-    //    base.ButtonInit();
-    //    fadeController = FindObjectOfType<Fade_Controller>();
-    //    targetScene = "BattleDemoMenu";
-    //    print("menu btn init");
-
-    //    button.onClick.AddListener(() => ChangeScene(targetScene));
+    //    ButtonInit();
     //}
-
-    private void OnEnable()
-    {
-        ButtonInit();
-    }
 
     protected override void SceneButtonInit()
     {

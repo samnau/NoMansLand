@@ -6,7 +6,7 @@ using UnityEngine;
 public class MusicController : MonoBehaviour {
     AudioSource defaultAudio;
 
-    private void Awake()
+    private void Start()
     {
         GameObject[] musicPlayers = GameObject.FindGameObjectsWithTag("Music");
         MusicController[] musicControllers = FindObjectsOfType<MusicController>();
