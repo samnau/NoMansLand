@@ -18,12 +18,19 @@ public class StartButton : SceneButton
 
     void StartClickHandler()
     {
-        if (confirmationRequired && gameStateData != null && gameStateData.gameInProgress)
+        //if (confirmationRequired && gameStateData != null && gameStateData.gameInProgress)
+        //{
+        //    confirmationRequired.Invoke();
+        //    return;
+        //}
+        if (confirmationRequired && gameStateManager != null && gameStateManager.gameInProgress)
         {
             confirmationRequired.Invoke();
             return;
         }
         ResetGameState();
+
+        //NOTE: this will change in the future as the game demo is more complete
         ChangeScene("BrokenPool");
     }
     public void ResetGameState()
@@ -36,8 +43,7 @@ public class StartButton : SceneButton
         List<OneTimeEvent> oneTimeEvents = new List<OneTimeEvent>();
         //TODO: add code that enables the continue button. will have to be stored in object or elsewhere.
 
-
-        for(int i = 0; i < objectsToReset.Length; i++)
+        for (int i = 0; i < objectsToReset.Length; i++)
         {
             if(objectsToReset[i].GetType() == typeof(OneTimeEvent))
             {
@@ -61,10 +67,13 @@ public class StartButton : SceneButton
             scenePosition.lastDirection = "down";
         }
 
-        if(gameStateData != null)
+        if (gameStateManager != null)
         {
-            gameStateData.gameInProgress = true;
-            gameStateData.gameComplete = false;
+            gameStateManager.gameInProgress = true;
+            gameStateManager.gameComplete = false;
+            gameStateManager.brokenPoolDialogPlayed = false;
+            gameStateManager.courtyardDialogPlayed = false;
+            dataPersistanceManager?.SaveGame();
         }
     }
 

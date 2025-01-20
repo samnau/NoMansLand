@@ -15,6 +15,9 @@ public class BaseButton : MonoBehaviour
     [SerializeField]
     protected bool requireConfirmation = false;
 
+    protected GameStateManager gameStateManager;
+    protected DataPersistanceManager dataPersistanceManager;
+
     protected bool initialized = false;
     // Start is called before the first frame update
     void Start()
@@ -41,6 +44,9 @@ public class BaseButton : MonoBehaviour
 
     protected virtual void ButtonInit()
     {
+        gameStateManager = FindObjectOfType<GameStateManager>();
+        dataPersistanceManager = FindObjectOfType<DataPersistanceManager>();
+
         button = GetComponent<Button>();
         button.interactable = !isDisabled;
         gameObject.SetActive(!isHidden);

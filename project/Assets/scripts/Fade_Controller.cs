@@ -15,6 +15,8 @@ public class Fade_Controller : MonoBehaviour {
 	[SerializeField]
 	protected LastVisitedScene lastSceneData;
 
+	GameStateManager gameStateManager;
+
 	//TODO: add code that sets last visited scene in the new scriptable object when scene change is triggered
 	// Use this for initialization
 	void OnEnable() {
@@ -24,7 +26,7 @@ public class Fade_Controller : MonoBehaviour {
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-		BeginFade (-1);
+		BeginFade(-1);
 	}
 
 	IEnumerator loadLevel (string sceneName, float delay = 0f){
@@ -42,6 +44,16 @@ public class Fade_Controller : MonoBehaviour {
 		}
 		if(sceneName != "BattleDemoMenu")
         {
+			if (gameStateManager != null)
+			{
+				// Set the target scene and save it to the save data
+				gameStateManager.targetSceneName = sceneName;
+				FindObjectOfType<DataPersistanceManager>()?.SaveGame();
+			}
+			else
+			{
+				Debug.Log("No game data found");
+			}
 			lastSceneData.lastScene = sceneName;
 		}
 	}
@@ -68,6 +80,7 @@ public class Fade_Controller : MonoBehaviour {
 //	}
 
 	void Start(){
+		gameStateManager = FindObjectOfType<GameStateManager>();
 		BeginFade (-1);
 	}
 }

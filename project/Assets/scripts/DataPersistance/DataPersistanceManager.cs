@@ -27,7 +27,6 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void Start()
     {
-        print(Application.persistentDataPath);
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistanceObjects = FindAllDataPersistanceObjects();
         LoadGame();
@@ -64,12 +63,17 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        //NOTE: added due to error from menu start button - investigate further
+        if(dataPersistanceObjects == null || dataPersistanceObjects.Count == 0)
+        {
+            print("no save file found");
+            return;
+        }
         // passes data to save sripts
         // saves data to a file handler
         foreach (IDataPersistance dataPersistanceObject in dataPersistanceObjects)
         {
-            dataPersistanceObject.SaveData(ref gameData);
-            print($"Saved days passed {gameData.dayCount}");
+            dataPersistanceObject?.SaveData(ref gameData);
         }
         dataHandler.Save(gameData);
     }

@@ -12,13 +12,12 @@ public class ContinueButton : SceneButton
     }
     void LoadLastVisitedScene()
     {
-        print("continue click");
-        if(lastSceneData == null)
+        if (gameStateManager == null)
         {
-            print("no scene data loaded");
+            print("no save data loaded");
             return;
         }
-        string sceneName = lastSceneData?.lastScene;
+        string sceneName = gameStateManager?.targetSceneName;
         ChangeScene(sceneName);
     }
 

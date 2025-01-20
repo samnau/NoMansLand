@@ -56,7 +56,8 @@ public class PositionTweener : BaseTweener
     IEnumerator SetPositionByDuration(Vector3 targetPosition, float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-        print(targetPosition);
+        // NOTE: for debugging position setting
+        //print(targetPosition);
         Vector3 startPostion = transform.position;
         while (elapsed_time < duration)
         {

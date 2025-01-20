@@ -28,7 +28,6 @@ public class SceneButton : BaseButton
 
     public void ChangeScene(string targetScene)
     {
-        print(fadeController);
         fadeController?.triggerLevelChange(targetScene);
         if (lastSceneData == null)
         {

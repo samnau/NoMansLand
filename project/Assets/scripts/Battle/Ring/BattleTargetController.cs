@@ -129,6 +129,7 @@ public class BattleTargetController : BattleChallenge
         }
     }
 
+    //TODO: researcch this warning
     IEnumerator UnHighlightRune(GameObject targetObject)
     {
         GlowTweener targetGlow = targetObject.GetComponent<GlowTweener>();
