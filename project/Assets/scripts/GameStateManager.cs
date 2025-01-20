@@ -31,6 +31,11 @@ public class GameStateManager : MonoBehaviour, IDataPersistance
         data.courtyardDialogPlayed = this.courtyardDialogPlayed;
     }
 
+    public void SetGameComplete()
+    {
+        this.gameComplete = true;
+    }
+
     void IncreaseDayCount()
     {
         dayCount++;
