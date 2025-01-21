@@ -29,6 +29,7 @@ public class DataPersistanceManager : MonoBehaviour
     {
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistanceObjects = FindAllDataPersistanceObjects();
+        print($"number of data objects: {this.dataPersistanceObjects.Count()}");
         LoadGame();
     }
     List<IDataPersistance> FindAllDataPersistanceObjects()
@@ -45,15 +46,19 @@ public class DataPersistanceManager : MonoBehaviour
     public void LoadGame()
     {
         // TODO: Load saved data
-        this.gameData = dataHandler.Load();
+        this.gameData = dataHandler?.Load();
         if(this.gameData == null)
         {
             print("NO Data found. Starting with defaults");
             NewGame();
         }
-
+        if (this.dataPersistanceObjects == null || this.dataPersistanceObjects.Count == 0)
+        {
+            print("no save file found");
+            return;
+        }
         // TODO push loaded data to the system
-        foreach(IDataPersistance dataPersistanceObject in dataPersistanceObjects)
+        foreach (IDataPersistance dataPersistanceObject in dataPersistanceObjects)
         {
             dataPersistanceObject.LoadData(gameData);
         }
@@ -64,7 +69,7 @@ public class DataPersistanceManager : MonoBehaviour
     public void SaveGame()
     {
         //NOTE: added due to error from menu start button - investigate further
-        if(dataPersistanceObjects == null || dataPersistanceObjects.Count == 0)
+        if(this.dataPersistanceObjects == null || this.dataPersistanceObjects.Count == 0)
         {
             print("no save file found");
             return;

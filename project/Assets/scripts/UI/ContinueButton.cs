@@ -12,12 +12,13 @@ public class ContinueButton : SceneButton
     }
     void LoadLastVisitedScene()
     {
-        if (gameStateManager == null)
+        if (prefManager == null)
         {
             print("no save data loaded");
             return;
         }
-        string sceneName = gameStateManager?.targetSceneName;
+        string sceneName = prefManager?.GetCurrentScene();
+
         ChangeScene(sceneName);
     }
 

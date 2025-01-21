@@ -18,12 +18,7 @@ public class StartButton : SceneButton
 
     void StartClickHandler()
     {
-        //if (confirmationRequired && gameStateData != null && gameStateData.gameInProgress)
-        //{
-        //    confirmationRequired.Invoke();
-        //    return;
-        //}
-        if (confirmationRequired && gameStateManager != null && gameStateManager.gameInProgress)
+        if (confirmationRequired && prefManager != null && prefManager.GetInProgressState() == 1)
         {
             confirmationRequired.Invoke();
             return;
@@ -40,6 +35,7 @@ public class StartButton : SceneButton
             return;
         }
 
+        //NOTE: this one time event code will be refactored when I create the save system
         List<OneTimeEvent> oneTimeEvents = new List<OneTimeEvent>();
         //TODO: add code that enables the continue button. will have to be stored in object or elsewhere.
 
@@ -67,13 +63,12 @@ public class StartButton : SceneButton
             scenePosition.lastDirection = "down";
         }
 
-        if (gameStateManager != null)
+        if(prefManager != null)
         {
-            gameStateManager.gameInProgress = true;
-            gameStateManager.gameComplete = false;
-            gameStateManager.brokenPoolDialogPlayed = false;
-            gameStateManager.courtyardDialogPlayed = false;
-            dataPersistanceManager?.SaveGame();
+            prefManager.SetBrokenPoolState(0);
+            prefManager.SetCastleCourtyardState(0);
+            prefManager.SetBonusState(0);
+            prefManager.SetGameInProgress(1);
         }
     }
 

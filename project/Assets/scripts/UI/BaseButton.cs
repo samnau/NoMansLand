@@ -17,9 +17,9 @@ public class BaseButton : MonoBehaviour
 
     protected GameStateManager gameStateManager;
     protected DataPersistanceManager dataPersistanceManager;
+    protected PlayerPrefManager prefManager;
 
     protected bool initialized = false;
-    // Start is called before the first frame update
     void Start()
     {
         ButtonInit();
@@ -46,6 +46,7 @@ public class BaseButton : MonoBehaviour
     {
         gameStateManager = FindObjectOfType<GameStateManager>();
         dataPersistanceManager = FindObjectOfType<DataPersistanceManager>();
+        prefManager = FindObjectOfType<PlayerPrefManager>();
 
         button = GetComponent<Button>();
         button.interactable = !isDisabled;

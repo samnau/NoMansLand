@@ -24,5 +24,11 @@ public class GameData
         this.playerPosition = Vector2.zero;
         this.playerInventory = new Dictionary<string, bool>();
         this.previousDirection = "up";
-    }
+        this.gameInProgress = false;
+        this.gameComplete = false;
+        this.firstBossBeaten = false;
+        this.brokenPoolDialogPlayed = false;
+        this.courtyardDialogPlayed = false;
+        this.firstBossDialogPlayed = false;
+}
 }

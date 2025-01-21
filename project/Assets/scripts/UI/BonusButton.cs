@@ -6,10 +6,10 @@ public class BonusButton : SceneButton
 {
     protected override void ButtonInit()
     {
-        //isDisabled = !gameStateData.gameComplete;
-        if(gameStateManager != null)
+        prefManager = FindObjectOfType<PlayerPrefManager>();
+        if (prefManager != null)
         {
-            isDisabled = !gameStateManager.gameComplete;
+            isDisabled = prefManager.GetBonusState() != 1;
         } else
         {
             isDisabled = true;

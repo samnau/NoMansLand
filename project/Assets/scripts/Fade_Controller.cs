@@ -16,6 +16,7 @@ public class Fade_Controller : MonoBehaviour {
 	protected LastVisitedScene lastSceneData;
 
 	GameStateManager gameStateManager;
+	PlayerPrefManager prefManager;
 
 	//TODO: add code that sets last visited scene in the new scriptable object when scene change is triggered
 	// Use this for initialization
@@ -36,26 +37,38 @@ public class Fade_Controller : MonoBehaviour {
 		SceneManager.LoadScene (sceneName);
 	}
 	public void triggerLevelChange(string sceneName){
+		if(prefManager != null)
+        {
+			if (sceneName != "BattleDemoMenu")
+            {
+				prefManager.SetCurrentScene(sceneName);
+            } else
+            {
+				Debug.Log("no scene update requried");
+            }
+
+		}
+
 		StartCoroutine(loadLevel (sceneName));
 		if (lastSceneData == null)
 		{
 			print("no scene data loaded");
 			return;
 		}
-		if(sceneName != "BattleDemoMenu")
-        {
-			if (gameStateManager != null)
-			{
-				// Set the target scene and save it to the save data
-				gameStateManager.targetSceneName = sceneName;
-				FindObjectOfType<DataPersistanceManager>()?.SaveGame();
-			}
-			else
-			{
-				Debug.Log("No game data found");
-			}
-			lastSceneData.lastScene = sceneName;
-		}
+		//if(sceneName != "BattleDemoMenu")
+  //      {
+		//	if (gameStateManager != null)
+		//	{
+		//		// Set the target scene and save it to the save data
+		//		gameStateManager.targetSceneName = sceneName;
+		//		FindObjectOfType<DataPersistanceManager>()?.SaveGame();
+		//	}
+		//	else
+		//	{
+		//		Debug.Log("No game data found");
+		//	}
+		//	lastSceneData.lastScene = sceneName;
+		//}
 	}
 
 	public void LevelChangeTimedTrigger(string sceneName, float delay)
@@ -81,6 +94,7 @@ public class Fade_Controller : MonoBehaviour {
 
 	void Start(){
 		gameStateManager = FindObjectOfType<GameStateManager>();
+		prefManager = FindObjectOfType<PlayerPrefManager>();
 		BeginFade (-1);
 	}
 }
