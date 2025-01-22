@@ -6,7 +6,10 @@ public class ContinueButton : SceneButton
 {
     protected override void ButtonInit()
     {
-        isHidden = gameStateData != null && !gameStateData.gameInProgress;
+        prefManager = FindObjectOfType<PlayerPrefManager>();
+        isHidden = prefManager.GetInProgressState() == 0;
+
+        //isHidden = gameStateData != null && !gameStateData.gameInProgress;
         base.ButtonInit();
         button.onClick.AddListener(() => LoadLastVisitedScene());
     }

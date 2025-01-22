@@ -113,6 +113,7 @@
     <Compile Include="Assets\scripts\InteractionTrigger.cs" />
     <Compile Include="Assets\CollisionTest.cs" />
     <Compile Include="Assets\scripts\RavenAnimationController.cs" />
+    <Compile Include="Assets\scripts\SaveSystem\PlayerPrefManager.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\MagicDemoButton.cs" />
     <Compile Include="Assets\scripts\DataPersistance\FileDataHandler.cs" />
     <Compile Include="Assets\scripts\DiscHover.cs" />
@@ -296,7 +297,7 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\SaveSystem\PlayerPrefManager.cs" />
+    <Compile Include="Assets\scripts\UI\DataResetButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
