@@ -62,7 +62,9 @@ public class DialogManager : MonoBehaviour
     }
     void Start()
     {
-        dialogueUI = FindObjectOfType<DialogueUI>();
+        //dialogueUI = FindObjectOfType<DialogueUI>();
+        dialogueUI = GetComponent<DialogueUI>();
+        print(targetDialog);
         dialogueRunner.Add(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
@@ -145,6 +147,7 @@ public class DialogManager : MonoBehaviour
     }
     public void BeginDialog()
     {
+        print("being dialog");
         dialogActive = true;
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
