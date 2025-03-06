@@ -1,38 +1,24 @@
 title: Molly.Intro1
 tags: 
-colorID: 0
-position: 237,134
+position: 237,133
 ---
 <<SetSpeaker Molly surprise frown>>
 I think...
 <<SetSpeaker Molly surprise annoyed>>
 I think I lost her...
 <<SetSpeaker Meena surprise frown>>
+<<SetSpeakerName Meena>>
 There you are, you little freak!
-<<SetSpeaker Molly surprise surprise>>
+<<SetSpeakerName Molly>>
+<<SetExpression surprise surprise>>
 Guess not!
 <<SetSpeaker Molly surprise frown>>
 Gotta run!
 Hide!
 I need to disappear!
 <<SetSpeaker Meena surprise frown>>
+<<SetSpeakerName Meena>>
 Get back here!
-
-<<SetSpeaker Molly surprise smirk>>
-Man, time flies when you're at the library!
-<<SetSpeaker Molly idle smile>>
-(A frog hops onto the sidewalk)
-<<SetSpeaker Molly surprise smile>>
-Oh, hello there, little froggy.
-<<SetSpeaker Molly idle frown>>
-Are you having a bad day too?
-<<SetSpeaker Molly idle smirk>>
-Or are you just looking for a friend?
-(A voice calls out from behind Molly)
-<<SetSpeaker Meena surprise frown>>
-There you are, you little freak!
-<<SetSpeaker Molly surprise surprise>>
-Oh, no, Meena!!
 
 [[Molly.Intro2]]
 ===
@@ -61,10 +47,26 @@ If only I could just disappear!
 ===
 title: Molly.Intro4
 tags: 
-colorID: 0
 position: 700,245
 ---
 Unnnngh.
 What just happened?
 Am I still in the park?
+
+
+<<SetSpeaker Molly surprise smirk>>
+Man, time flies when you're at the library!
+<<SetSpeaker Molly idle smile>>
+(A frog hops onto the sidewalk)
+<<SetSpeaker Molly surprise smile>>
+Oh, hello there, little froggy.
+<<SetSpeaker Molly idle frown>>
+Are you having a bad day too?
+<<SetSpeaker Molly idle smirk>>
+Or are you just looking for a friend?
+(A voice calls out from behind Molly)
+<<SetSpeaker Meena surprise frown>>
+There you are, you little freak!
+<<SetSpeaker Molly surprise surprise>>
+Oh, no, Meena!!
 ===

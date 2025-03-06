@@ -165,7 +165,7 @@ public class HeroMotionController : MonoBehaviour
     void Update()
     {
         isUiActive = inputStateTracker.isUiActive;
-        if(!isUiActive)
+        if(!isUiActive && downAnimator != null && upAnimator != null)
         {
             setAnimationStates();
             updateMovement();

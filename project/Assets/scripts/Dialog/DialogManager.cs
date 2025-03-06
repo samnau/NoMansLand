@@ -64,7 +64,6 @@ public class DialogManager : MonoBehaviour
     {
         //dialogueUI = FindObjectOfType<DialogueUI>();
         dialogueUI = GetComponent<DialogueUI>();
-        print(targetDialog);
         dialogueRunner.Add(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
@@ -86,7 +85,6 @@ public class DialogManager : MonoBehaviour
     public void SetSpeakerName(string[] parameters)
     {
         string name = parameters[0];
-        Debug.Log(name);
         if (name == null)
         {
             SpeakerText.text = defaultName;
@@ -97,6 +95,7 @@ public class DialogManager : MonoBehaviour
             name = name.Replace("-", " ");
         }
         SpeakerText.text = name;
+        print("set speaker name called");
         SwapSpeakerPortraits();
     }
 
