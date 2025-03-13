@@ -26,6 +26,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] Text SpeakerText;
     string defaultName = "Molly";
 
+    [SerializeField] bool isCutScene = false;
     [SerializeField] GameEvent SceneEnd;
     [SerializeField] GameEvent TutorialEnd;
 
@@ -95,7 +96,6 @@ public class DialogManager : MonoBehaviour
             name = name.Replace("-", " ");
         }
         SpeakerText.text = name;
-        print("set speaker name called");
         SwapSpeakerPortraits();
     }
 
@@ -131,12 +131,6 @@ public class DialogManager : MonoBehaviour
     {
         interactionPlayer = targetSoundPlayer;
     }
-
-    // NOTE: currently unused
-    //void AdvanceDialog()
-    //{
-    //    dialogueUI.MarkLineComplete();
-    //}
 
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
@@ -212,7 +206,7 @@ public class DialogManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogActive)
+        if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
         {
             NextDialogLine();
         }
