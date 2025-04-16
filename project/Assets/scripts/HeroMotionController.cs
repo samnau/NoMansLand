@@ -100,14 +100,16 @@ public class HeroMotionController : MonoBehaviour
     void SetFacingDirection()
     {
         var currentDirection = inputStateTracker.direction;
-        var newRotation = 0f;
+        //var newRotation = 0f;
         string startDirection = inputStateTracker.startDirection.ToString();
         //print(inputStateTracker.startDirection.ToString());
 
-        if (startDirection == "right")
-        {
-            newRotation = 180f;
-        }
+        //if (startDirection == "right")
+        //{
+        //    newRotation = 180f;
+        //}
+
+        var newRotation = startDirection == "right" ? 180f : 0f;
 
         if (startDirection == "left" || startDirection == "right")
         {

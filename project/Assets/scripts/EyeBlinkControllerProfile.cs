@@ -43,12 +43,13 @@ public class EyeBlinkControllerProfile : MonoBehaviour
 
     public void closeEyes()
     {
-        targetAnimator.SetBool("blink", true);
+        targetAnimator.SetBool("close", true);
     }
 
     public void openEyes()
     {
-        targetAnimator.SetBool("blink", false);
+        print("open the eyes");
+        targetAnimator.SetBool("close", false);
     }
 
     float setBlinkInterval()

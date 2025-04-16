@@ -10,9 +10,10 @@ public class SceneFadeTrigger : MonoBehaviour {
 	enum Directions { up, down, left, right };
 	[SerializeField] Directions direction;
 	ScenePosition scenePosition;
+	public bool disableTrigger = false;
 
 	void OnTriggerEnter2D( Collider2D other ){
-		if(other.CompareTag("Player")) {
+		if(other.CompareTag("Player") && !disableTrigger) {
 			TriggerSceneChange();
 		}
 	}
