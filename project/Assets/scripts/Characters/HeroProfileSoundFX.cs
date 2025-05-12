@@ -7,6 +7,7 @@ public class HeroProfileSoundFX : SoundFXPlayer
     [SerializeField] AudioClip staffSlam;
     [SerializeField] AudioClip staffSummon;
     [SerializeField] AudioClip rewind;
+    [SerializeField] AudioClip fallCrash;
 
     public void PlayStaffSlam()
     {
@@ -21,5 +22,15 @@ public class HeroProfileSoundFX : SoundFXPlayer
     public void PlayRewind()
     {
         PlayOneShot(rewind, 1f);
+    }
+
+    public void PlayFallCrash()
+    {
+        if (fallCrash == null)
+        {
+            print("No sound assigned");
+            return;
+        }
+        PlayOneShot(fallCrash);
     }
 }
