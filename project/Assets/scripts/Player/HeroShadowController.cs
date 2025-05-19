@@ -84,6 +84,80 @@ public class HeroShadowController : MonoBehaviour
         scaleTweener?.TriggerIrregularScaleByDuration(newScale, speed);
     }
 
+    void ManualShadowTween(Vector3 pos, Vector3 scale, float duration = 0.5f)
+    {
+        positionTweener.TriggerLocalPositionByDuration(pos, duration);
+        scaleTweener.TriggerIrregularScaleByDuration(scale, duration);
+    }
+
+    Vector3 CreateTweenVector(float xVal, float yVal, float zVal = 0f)
+    {
+        return new Vector3(xVal, yVal, zVal);
+    }
+
+    Vector3 CreateScaleVector(float xVal, float yVal)
+    {
+        return CreateTweenVector(xVal, yVal, transform.localScale.z);
+    }
+
+    public void TriggerFallSequence()
+    {
+        StartCoroutine(FallSequenceShadow());
+    }
+
+    IEnumerator FallSequenceShadow()
+    {
+        Vector3 startPos = CreateTweenVector(-.49f, .13f);
+        var startScale = CreateScaleVector(0f, 0f);
+        
+        Vector3 landPos = CreateTweenVector(-.49f, .13f);
+        var landScale = CreateScaleVector(3f, 1f);
+
+        var fallPos = CreateTweenVector(1.4f, .13f);
+        var fallScale = CreateScaleVector(6f, 1.75f);
+
+        var kneelPos = CreateTweenVector(0.5f, .13f);
+        var kneelScale = CreateScaleVector(3f, 1.5f);
+
+        var standPos = CreateTweenVector(1.1f, .13f);
+        var standScale = CreateScaleVector(2.2f, 1.2f);
+
+        var backstepPos = CreateTweenVector(-.3f, .13f);
+        // no change in scale
+
+        var stumblePos = CreateTweenVector(0f, .13f);
+        // no change in scale
+
+        var forwardStepPos = CreateTweenVector(0.46f, .13f);
+        var forwardStepScale = CreateScaleVector(1.987597f, 1.008615f);
+        transform.localPosition = startPos;
+        transform.localScale = startScale;
+
+        float landTiming = .55f;
+        //positionTweener.TriggerLocalPositionByDuration(landPos, landTiming);
+        //scaleTweener.TriggerIrregularScaleByDuration(landScale, landTiming);
+        ManualShadowTween(landPos, landScale, landTiming);
+        yield return new WaitForSeconds(.5f);
+
+        float fallTiming = .333333333f;
+        ManualShadowTween(fallPos, fallScale, fallTiming);
+        yield return new WaitForSeconds(fallTiming);
+        yield return new WaitForSeconds(2.75f);
+        float kneelTiming = .25f;
+        ManualShadowTween(kneelPos, kneelScale, kneelTiming);
+        yield return new WaitForSeconds(.75f);
+
+        ManualShadowTween(standPos, standScale, .5f);
+        yield return new WaitForSeconds(1.4f);
+
+        ManualShadowTween(backstepPos, standScale, .75f);
+        yield return new WaitForSeconds(.75f);
+
+        ManualShadowTween(forwardStepPos, forwardStepScale, .4f);
+
+        yield return null;
+    }
+
     public void TargetedTransformShadow(string directionKeyName)
     {
         TriggerShadowTransform(directionKeyName);
