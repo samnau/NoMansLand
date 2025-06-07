@@ -8,6 +8,9 @@ public class HeroProfileSoundFX : SoundFXPlayer
     [SerializeField] AudioClip staffSummon;
     [SerializeField] AudioClip rewind;
     [SerializeField] AudioClip fallCrash;
+    [SerializeField] AudioClip longOw;
+    [SerializeField] AudioClip hurtImpact;
+    [SerializeField] AudioClip fallingScream;
 
     public void PlayStaffSlam()
     {
@@ -31,6 +34,36 @@ public class HeroProfileSoundFX : SoundFXPlayer
             print("No sound assigned");
             return;
         }
-        PlayOneShot(fallCrash);
+        PlayOneShot(fallCrash, .8f);
+    }
+
+    public void PlayLongOw()
+    {
+        if (longOw == null)
+        {
+            print("No sound assigned");
+            return;
+        }
+        PlayOneShot(longOw, .2f);
+    }
+
+    public void PlayHurtImpact()
+    {
+        if (hurtImpact == null)
+        {
+            print("No sound assigned");
+            return;
+        }
+        PlayOneShot(hurtImpact, .3f);
+    }
+
+    public void PlayFallingScream()
+    {
+        if (fallingScream == null)
+        {
+            print("No sound assigned");
+            return;
+        }
+        PlayOneShot(fallingScream);
     }
 }
