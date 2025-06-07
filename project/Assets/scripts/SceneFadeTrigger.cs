@@ -12,24 +12,34 @@ public class SceneFadeTrigger : MonoBehaviour {
 	ScenePosition scenePosition;
 	public bool disableTrigger = false;
 
-	void OnTriggerEnter2D( Collider2D other ){
-		if(other.CompareTag("Player") && !disableTrigger) {
+	void OnTriggerEnter2D(Collider2D other) {
+		if (other.CompareTag("Player") && !disableTrigger) {
 			TriggerSceneChange();
 		}
 	}
 
 	void TriggerSceneChange()
-    {
+	{
 		scenePosition.currentDirection = scenePosition.startDirection[direction.ToString()];
 		scenePosition.lastDirection = direction.ToString();
 		if (targetSceneName != null)
-        {
+		{
 			fadeController.triggerLevelChange(targetSceneName);
 		} else
-        {
+		{
 			Debug.Log("no target scene set");
-        }
+		}
 	}
+
+	public void DisableTrigger()
+	{
+		disableTrigger = true;
+	}
+
+	public void EnableTrigger()
+    {
+		disableTrigger = false;
+    }
 
 	void Start () {
 		fadeController = GameObject.FindObjectOfType<Fade_Controller>();

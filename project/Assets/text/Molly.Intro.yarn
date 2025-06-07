@@ -24,15 +24,20 @@ Get back here!
 ===
 title: Molly.Intro2
 tags: 
-colorID: 0
 position: 263,415
 ---
-(Meena calls out, closer now.)
-<<SetSpeaker Meena surprise frown>>
-I SAID, get back here!!
-<<SetSpeaker Molly surprise surprise>>
-Oh no, oh no, oh no.
-[[Molly.Intro3]]
+<<SetSpeaker Molly idle frown>>
+Owwww....
+<<SetSpeaker Molly idle annoyed>>
+What just happened?
+Did I trip?
+No, wait, did I...
+...fall?
+Where am I?
+<<SetSpeaker Molly idle frown>>
+Is this the park? I've never seen this part.
+<<SetSpeaker Molly surprise frown>>
+I don't understand.
 ===
 title: Molly.Intro3
 tags: 
@@ -69,4 +74,9 @@ Or are you just looking for a friend?
 There you are, you little freak!
 <<SetSpeaker Molly surprise surprise>>
 Oh, no, Meena!!
+===
+title: Fall
+tags: 
+---
+
 ===

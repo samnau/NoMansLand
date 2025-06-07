@@ -7,7 +7,8 @@ Because this definitely isn't edible.
 It just screams, "posion".
 ===
 title: Rock
-position: -190,170
+tags: 
+position: -314,193
 ---
 This is where is all started...
 <<SetSpeaker Molly surprise frown>>
@@ -16,4 +17,22 @@ When I landed here, this rock almost killed me!
 But I'm on to you now, rock!
 <<SetSpeaker Molly idle smirk>>
 You won't get me next time.
+===
+title: Intro
+tags: 
+position: -311.99998664855957,-44
+---
+<<SetSpeaker Molly idle frown>>
+Owwww....
+<<SetSpeaker Molly idle annoyed>>
+What just happened?
+Did I trip?
+No, wait, did I...
+<<SetSpeaker Molly surprise annoyed>>
+...fall?
+Where am I?
+<<SetSpeaker Molly surprise frown>>
+Is this the park? I've never seen this part.
+<<SetSpeaker Molly surprise annoyed>>
+I don't understand.
 ===
