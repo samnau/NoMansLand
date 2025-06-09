@@ -44,7 +44,7 @@ public class HeroProfileSoundFX : SoundFXPlayer
             print("No sound assigned");
             return;
         }
-        PlayOneShot(longOw, .2f);
+        PlayOneShot(longOw, .1f);
     }
 
     public void PlayHurtImpact()
@@ -54,7 +54,7 @@ public class HeroProfileSoundFX : SoundFXPlayer
             print("No sound assigned");
             return;
         }
-        PlayOneShot(hurtImpact, .3f);
+        PlayOneShot(hurtImpact, .2f);
     }
 
     public void PlayFallingScream()
@@ -64,6 +64,6 @@ public class HeroProfileSoundFX : SoundFXPlayer
             print("No sound assigned");
             return;
         }
-        PlayOneShot(fallingScream);
+        PlayOneShot(fallingScream, .8f);
     }
 }

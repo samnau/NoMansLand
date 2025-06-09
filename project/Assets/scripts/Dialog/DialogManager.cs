@@ -137,10 +137,19 @@ public class DialogManager : MonoBehaviour
     {
         inputTracker.enabled = !dialogActive;
         motionController.enabled = !dialogActive;
+
+        // adding in code for when the input tracker has disabled itself
+        // REFACTOR: needs simplicity and less function overlap
+        if(dialogActive)
+        {
+            inputTracker.DisableMovement();
+        } else
+        {
+            inputTracker.EnableMovement();
+        }
     }
     public void BeginDialog()
     {
-        print("being dialog");
         dialogActive = true;
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
