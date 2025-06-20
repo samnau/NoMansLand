@@ -18,14 +18,14 @@ public class DayTracker : MonoBehaviour, IGlobalDataPersistence
 
     public void LoadData(GlobalGameData data)
     {
-        dayCount = int.Parse(data.gameState["dayCount"]);
-        print(data.gameState["dayCount"]);
+        dayCount = data.worldState.dayCount;
+        //print(data.gameState["dayCount"]);
         print($"saved settings have fx volume: {data.gameSettings.fxVolume}");
     }
 
     public void SaveData(ref GlobalGameData data)
     {
-        data.gameState["dayCount"] = this.dayCount.ToString();
+        //data.gameState["dayCount"] = this.dayCount.ToString();
         data.worldState.dayCount = this.dayCount;
     }
 }

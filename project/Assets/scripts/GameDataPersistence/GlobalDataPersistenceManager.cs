@@ -44,7 +44,7 @@ public class GlobalDataPersistenceManager : MonoBehaviour
 
     public void LoadGame()
     {
-        // todo: load data with file handler
+        // NOTE: load data with file handler
         this.globalGameData = dataHandler.Load();
         // if no data, init the game data with defaults
         if(this.globalGameData == null)
@@ -53,19 +53,17 @@ public class GlobalDataPersistenceManager : MonoBehaviour
             NewGame();
         }
 
-        // todo: push loaded data to all code that needs it
+        // NOTE: push loaded data to all code that needs it
         foreach(IGlobalDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {
             dataPersistenceObj.LoadData(globalGameData);
         }
-        print($"Game Loaded - day count: {globalGameData.gameState["dayCount"]}");
-
     }
 
     public void SaveGame()
     {
-        // todo: pass data to scripts so they can update it
-        // todo: save data to file using data handler
+        // NOTE: pass data to scripts so they can update it
+        // NOTE: save data to file using data handler
 
         foreach (IGlobalDataPersistence dataPersistenceObj in dataPersistenceObjects)
         {

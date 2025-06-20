@@ -8,18 +8,18 @@ public class GlobalGameData
 {
     // This file is the Schema for your save data structure
     // Use it as the source of truth for all game data
-    public int dayCount;
-    public int deathCount;
+    //public int dayCount;
+    //public int deathCount;
 
-    public SerializableDictionary<string, string> gameState;
-    public class GameStateDefault
-    {
-        public bool gameComplete { get; set; }
-        public bool gameInProgress { get; set; }
-        public string currentScene { get; set; }
-        public string lastDirection { get; set; }
-        public int dayCount { get; set; }
-    }
+    //public SerializableDictionary<string, string> gameState;
+    //public class GameStateDefault
+    //{
+    //    public bool gameComplete { get; set; }
+    //    public bool gameInProgress { get; set; }
+    //    public string currentScene { get; set; }
+    //    public string lastDirection { get; set; }
+    //    public int dayCount { get; set; }
+    //}
 
     [System.Serializable]
     public class WorldState
@@ -39,67 +39,62 @@ public class GlobalGameData
         public string controller;
     }
 
+    [System.Serializable]
     public class OneTimeEvents
     {
-        public string castleCourtyard { get; set; }
-        public string castleThroneRoom { get; set; }
+        public bool castleCourtyard;
+        public bool castleThroneRoom;
     }
 
+    [System.Serializable]
     public class InventoryItem
     {
-        public string id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public bool active { get; set; }
-        public bool collected { get; set; }
-        public string imageId { get; set; }
+        public string id;
+        public string name;
+        public string description;
+        public bool active;
+        public bool collected;
+        public string imageId;
     }
 
+    [System.Serializable]
     public class Familiar : InventoryItem
     {
-        public string weakness { get; set; }
+        public string weakness;
     }
 
+    [System.Serializable]
+    public class Inventory
+    {
+        public List<InventoryItem> items;
+        public List<Familiar> familiars;
+    }
+
+    [System.Serializable]
     public class EnvironmentState
     {
-        public bool castleWalls { get; set; }
-        public bool castleFloatingStairs { get; set; }
-        public bool castleCourtYardRightDoor { get; set; }
-        public bool forestBridge { get; set; }
+        public bool castleWalls;
+        public bool castleFloatingStairs;
+        public bool castleCourtYardRightDoor;
+        public bool forestBridge;
     }
 
     // TODO: working list of real image assets listed by a key string
+    // NOTE: maybe only house the image dictionary within the inventory manager code?
     // public Dictionary<string, Image> itemImageLibrary
 
-    public GameStateDefault gameStateDefault;
+    // public GameStateDefault gameStateDefault;
     public GameSettings gameSettings;
     public WorldState worldState;
+    public EnvironmentState environment;
+    public OneTimeEvents oneTimeEvents;
+    public Inventory inventory;
+    public List<InventoryItem> test;
 
-    // NOTE: example code for iterating over properties of a class
-    // https://stackoverflow.com/questions/8151888/c-sharp-iterate-through-class-properties
-    // TODO: adapt this to populate SerializableDictionary
-    //Record record = new Record();
-
-    //PropertyInfo[] properties = typeof(Record).GetProperties();
-    //foreach (PropertyInfo property in properties)
-    //{
-    //    property.SetValue(record, value);
-    //}
     
     // Values in the constructor below will be the default values for any new instance of the save data
     public GlobalGameData()
     {
-        dayCount = 0;
-        deathCount = 0;
-        gameStateDefault = new GameStateDefault
-        { 
-            gameInProgress = false, 
-            gameComplete = false,
-            currentScene = "",
-            lastDirection = "right",
-            dayCount = 0
-        };
-
         worldState = new WorldState
         {
             gameInProgress = false,
@@ -116,16 +111,46 @@ public class GlobalGameData
             controller = "keyboard"
         };
 
-        gameState = new SerializableDictionary<string, string>();
-
-        //TODO: find a way to abstract this for multiple types
-        PropertyInfo[] gameStateProps = typeof(GameStateDefault).GetProperties();
-        foreach (PropertyInfo property in gameStateProps)
+        oneTimeEvents = new OneTimeEvents
         {
-            string propertyName = property.Name;
-            string propertyValue = property.GetValue(gameStateDefault).ToString();
-            gameState.Add(propertyName, propertyValue);
-            Debug.Log($"property: {propertyName} {property.GetValue(gameStateDefault)}");
-        }
+            castleCourtyard = false,
+            castleThroneRoom = false
+        };
+
+        test = new List<InventoryItem>();
+
+        //test.Add(new InventoryItem
+        //{
+        //    id = "castleStairsGateKey",
+        //    name = "Castle Stairs Gate Key",
+        //    description = "A key that unlocks the gate to the floating stairs in the castle.",
+        //    active = false,
+        //    collected = false
+        //});
+
+        inventory = new Inventory
+        {
+            items = new List<InventoryItem>(),
+            familiars = new List<Familiar>()
+        };
+
+        inventory.items.Add(new InventoryItem
+        {
+            id = "castleStairsGateKey",
+            name = "Castle Stairs Gate Key",
+            description = "A key that unlocks the gate to the floating stairs in the castle.",
+            active = false,
+            collected = false
+        });
+
+        inventory.familiars.Add(new Familiar
+        {
+            id = "defaultFamiliar",
+            name = "Froggy",
+            description = "A small frog you found by a pool in the forest. Magical apparently. Not sure how.",
+            active = false,
+            collected = false,
+            weakness = "none"
+        });
     }
 }
