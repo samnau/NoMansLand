@@ -20,7 +20,7 @@ public class DayTracker : MonoBehaviour, IGlobalDataPersistence
     {
         dayCount = data.worldState.dayCount;
         //print(data.gameState["dayCount"]);
-        print($"saved settings have fx volume: {data.gameSettings.fxVolume}");
+        print($"saved settings have inventory, collected: {data.inventory.items[1].collected}");
     }
 
     public void SaveData(ref GlobalGameData data)

@@ -8,18 +8,7 @@ public class GlobalGameData
 {
     // This file is the Schema for your save data structure
     // Use it as the source of truth for all game data
-    //public int dayCount;
-    //public int deathCount;
-
-    //public SerializableDictionary<string, string> gameState;
-    //public class GameStateDefault
-    //{
-    //    public bool gameComplete { get; set; }
-    //    public bool gameInProgress { get; set; }
-    //    public string currentScene { get; set; }
-    //    public string lastDirection { get; set; }
-    //    public int dayCount { get; set; }
-    //}
+    // NOTE: this file does not handle the save/load operations
 
     [System.Serializable]
     public class WorldState
@@ -54,7 +43,6 @@ public class GlobalGameData
         public string description;
         public bool active;
         public bool collected;
-        public string imageId;
     }
 
     [System.Serializable]
@@ -89,8 +77,6 @@ public class GlobalGameData
     public EnvironmentState environment;
     public OneTimeEvents oneTimeEvents;
     public Inventory inventory;
-    public List<InventoryItem> test;
-
     
     // Values in the constructor below will be the default values for any new instance of the save data
     public GlobalGameData()
@@ -117,40 +103,81 @@ public class GlobalGameData
             castleThroneRoom = false
         };
 
-        test = new List<InventoryItem>();
-
-        //test.Add(new InventoryItem
-        //{
-        //    id = "castleStairsGateKey",
-        //    name = "Castle Stairs Gate Key",
-        //    description = "A key that unlocks the gate to the floating stairs in the castle.",
-        //    active = false,
-        //    collected = false
-        //});
-
         inventory = new Inventory
         {
-            items = new List<InventoryItem>(),
-            familiars = new List<Familiar>()
+            items = new List<InventoryItem> {
+                new InventoryItem
+                {
+                    id = "castleStairsGateKey",
+                    name = "Castle Stairs Gate Key",
+                    description = "A key that unlocks the gate to the floating stairs in the castle.",
+                    active = false,
+                    collected = false
+                },
+                new InventoryItem
+                {
+                    id = "castleWallGem1",
+                    name = "Mysterious Green Gem",
+                    description = "A green gem found in the forest",
+                    active = false,
+                    collected = false
+                },
+                new InventoryItem
+                {
+                    id = "castleWallGem2",
+                    name = "Mysterious Blue Gem",
+                    description = "A blue gem found in the forest",
+                    active =  false,
+                    collected = false
+                },
+                new InventoryItem
+                {
+                    id = "bikeReflector",
+                    name = "Bike Reflector",
+                    description = "Just a regular red bike reflector",
+                    active =  false,
+                    collected = false
+                },
+                new InventoryItem
+                {
+                    id = "magicKey",
+                    name = "My key",
+                    description = "Just a fancy looking key I've always had. I guess it's a lot more than that?",
+                    active =  true,
+                    collected = false
+                }
+           },
+            familiars = new List<Familiar>
+            {
+                new Familiar
+                {
+                    id = "defaultFamiliar",
+                    name = "Froggy",
+                    description = "A small frog you found by a pool in the forest. Magical apparently. Not sure how.",
+                    active =  false,
+                    collected =false,
+                    weakness = "none"
+                },
+                new Familiar
+                {
+                    id = "forestFamiliar",
+                    name = "To'leti",
+                    description = "A crow. Or is it a raven? I can never tell the difference. Maybe it has wind powers?",
+                    active =  false,
+                    collected = false,
+                    weakness = "defaultFamiliar",
+                },
+                new Familiar
+                {
+                    id = "caveFamiliar",
+                    name = "Artrios",
+                    description = "A bear. Pretty big. I think it can do earth magic.",
+                    active =  false,
+                    collected = false,
+                    weakness = "forestFamiliar",
+                }
+            }
         };
 
-        inventory.items.Add(new InventoryItem
-        {
-            id = "castleStairsGateKey",
-            name = "Castle Stairs Gate Key",
-            description = "A key that unlocks the gate to the floating stairs in the castle.",
-            active = false,
-            collected = false
-        });
-
-        inventory.familiars.Add(new Familiar
-        {
-            id = "defaultFamiliar",
-            name = "Froggy",
-            description = "A small frog you found by a pool in the forest. Magical apparently. Not sure how.",
-            active = false,
-            collected = false,
-            weakness = "none"
-        });
     }
 }
