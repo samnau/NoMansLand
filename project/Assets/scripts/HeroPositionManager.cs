@@ -4,13 +4,24 @@ using System.Linq;
 using System;
 using UnityEngine;
 
-public class HeroPositionManager : MonoBehaviour, ISaveable
+public class HeroPositionManager : MonoBehaviour, IGlobalDataPersistence
 {
     Fade_Controller fadeController;
     ScenePosition scenePosition;
     PositionMarker[] positionMarkers;
     public Vector3 position;
     public string direction;
+
+    string lastDirection = "up";
+    string currentDirection = "down";
+    Dictionary<string, string> startDirection =
+    new Dictionary<string, string>{
+            { "left", "right" },
+            { "right", "left" },
+            { "up", "down" },
+            { "down", "up" },
+        };
+
     void Start()
     {
         fadeController = GameObject.FindObjectOfType<Fade_Controller>();
@@ -18,6 +29,7 @@ public class HeroPositionManager : MonoBehaviour, ISaveable
         {
             return;
         }
+        // TODO: work on converting all of this scene position based code to save data based code
         scenePosition = fadeController?.scenePosition;
         string currentDirection = scenePosition?.currentDirection;
         string inputDirection = currentDirection == "up" || currentDirection == "down" ? scenePosition.lastDirection : currentDirection;
@@ -31,25 +43,41 @@ public class HeroPositionManager : MonoBehaviour, ISaveable
             inputStateTracker.direction = inputDirection;
         }
     }
-    public object SaveState()
+    //public object SaveState()
+    //{
+    //    return new SaveData()
+    //    {
+    //        position = this.position,
+    //        direction = this.direction
+    //    };
+    //}
+
+    //public void LoadState(object state)
+    //{
+    //    var saveData = (SaveData)state;
+    //    position = saveData.position;
+    //    direction = saveData.direction;
+    //}
+    //[Serializable]
+    //private struct SaveData
+    //{
+    //    public Vector3 position;
+    //    public string direction;
+    //}
+
+    public void LoadData(GlobalGameData data)
     {
-        return new SaveData()
-        {
-            position = this.position,
-            direction = this.direction
-        };
+        // this is wrong because the loaded direction needs to be opposite of the last direction
+        // also doesn't need to always be from save data
+        // this shouldn't be setting direction. that should only happen in fade triggers
+        currentDirection = data.worldState.lastDirection;
+        //print(data.gameState["dayCount"]);
+        print($"loading last direction from save for hero: {data.worldState.lastDirection}");
     }
 
-    public void LoadState(object state)
+    public void SaveData(ref GlobalGameData data)
     {
-        var saveData = (SaveData)state;
-        position = saveData.position;
-        direction = saveData.direction;
-    }
-    [Serializable]
-    private struct SaveData
-    {
-        public Vector3 position;
-        public string direction;
+        //data.gameState["dayCount"] = this.dayCount.ToString();
+        data.worldState.lastDirection = this.currentDirection;
     }
 }

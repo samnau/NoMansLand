@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class GlobalDataPersistenceManager : MonoBehaviour
 {
@@ -21,20 +22,48 @@ public class GlobalDataPersistenceManager : MonoBehaviour
     List<IGlobalDataPersistence> dataPersistenceObjects;
     public static GlobalDataPersistenceManager instance { get; private set;  }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
+    }
+
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        LoadGame();
+        print("game data loaded with scene load");
+    }
+
+    public void OnSceneUnloaded(Scene scene)
+    {
+        SaveGame();
+    }
+
     private void Awake()
     {
         if(instance != null)
         {
-            Debug.LogError("More than one persistence manager found");
+            Debug.LogWarning("More than one persistence manager found. Destroying the old one.");
+            Destroy(this.gameObject);
+            return;
         }
         instance = this;
+        this.dataHandler = new GlobalFileDataHandler(Application.persistentDataPath, fileName);
+        DontDestroyOnLoad(this.gameObject);
+
     }
 
     private void Start()
     {
-        this.dataHandler = new GlobalFileDataHandler(Application.persistentDataPath, fileName);
-        this.dataPersistenceObjects = FindAllDataPersistenceObjects();
-        LoadGame();
+        //this.dataPersistenceObjects = FindAllDataPersistenceObjects();
+        //LoadGame();
     }
 
     public void NewGame()

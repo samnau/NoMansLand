@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class SceneFadeTrigger : MonoBehaviour {
+public class SceneFadeTrigger : MonoBehaviour, IGlobalDataPersistence {
 
 	[SerializeField]
 	string targetSceneName;
@@ -11,6 +11,8 @@ public class SceneFadeTrigger : MonoBehaviour {
 	[SerializeField] Directions direction;
 	ScenePosition scenePosition;
 	public bool disableTrigger = false;
+
+	GlobalGameData loadedData;
 
 	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag("Player") && !disableTrigger) {
@@ -22,6 +24,8 @@ public class SceneFadeTrigger : MonoBehaviour {
 	{
 		scenePosition.currentDirection = scenePosition.startDirection[direction.ToString()];
 		scenePosition.lastDirection = direction.ToString();
+		// This file should not try to trigger data saves, only implment what happens. The manager will do the saving
+		//SaveData(ref loadedData);
 		if (targetSceneName != null)
 		{
 			fadeController.triggerLevelChange(targetSceneName);
@@ -42,7 +46,18 @@ public class SceneFadeTrigger : MonoBehaviour {
     }
 
 	void Start () {
-		fadeController = GameObject.FindObjectOfType<Fade_Controller>();
+		fadeController = FindObjectOfType<Fade_Controller>();
+		// COMEBACK: scene position code may be obsolte after the player prefs system was added.
 		scenePosition = fadeController.scenePosition;
+	}
+
+	public void LoadData(GlobalGameData data)
+	{
+		//NOTE: no data loading needed here - method required by inferface
+	}
+
+	public void SaveData(ref GlobalGameData data)
+	{
+		data.worldState.lastDirection = this.direction.ToString();
 	}
 }

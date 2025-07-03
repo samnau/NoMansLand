@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Fade_Controller : MonoBehaviour {
+public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 
 	public Texture2D Overlay;
 	public float fadeSpeed = 0.8f;
@@ -10,6 +10,7 @@ public class Fade_Controller : MonoBehaviour {
 	float alpha = 1.0f;
 	private float fadeDirection = -1.0f;
 	readonly string sceneName;
+	string targetSceneName;
 	public ScenePosition scenePosition;
 
 	[SerializeField]
@@ -34,6 +35,7 @@ public class Fade_Controller : MonoBehaviour {
 		yield return new WaitForSeconds(delay);
 		BeginFade (1);
 		yield return new WaitForSeconds (fadeSpeed);
+		targetSceneName = sceneName;
 		SceneManager.LoadScene (sceneName);
 	}
 	public void triggerLevelChange(string sceneName){
@@ -93,8 +95,20 @@ public class Fade_Controller : MonoBehaviour {
 //	}
 
 	void Start(){
+		//TODO: remove these old system references
 		gameStateManager = FindObjectOfType<GameStateManager>();
 		prefManager = FindObjectOfType<PlayerPrefManager>();
 		BeginFade (-1);
+	}
+
+	public void LoadData(GlobalGameData data)
+	{
+		//NOTE: no data loading needed here
+	}
+
+	public void SaveData(ref GlobalGameData data)
+	{
+		string currentSceneName = SceneManager.GetActiveScene().name;
+		data.worldState.currentScene = currentSceneName;
 	}
 }
