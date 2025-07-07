@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StartButton : SceneButton
+public class StartButton : SceneButton, IGlobalDataPersistence
 {
     [SerializeField]
     ScriptableObject[] objectsToReset;
     ScenePosition scenePosition;
     [SerializeField]
     GameEvent confirmationRequired;
+    bool gameInProgress = false;
 
     protected override void ButtonInit()
     {
@@ -18,15 +19,31 @@ public class StartButton : SceneButton
 
     void StartClickHandler()
     {
-        if (confirmationRequired && prefManager != null && prefManager.GetInProgressState() == 1)
+        //if (confirmationRequired && prefManager != null && prefManager.GetInProgressState() == 1)
+        //{
+        //    confirmationRequired.Invoke();
+        //    return;
+        //}
+
+        if (confirmationRequired && gameInProgress)
         {
             confirmationRequired.Invoke();
             return;
         }
         ResetGameState();
 
-        //NOTE: this will change in the future as the game demo is more complete
-        ChangeScene("BrokenPool");
+        //Load the intro scene
+        ChangeScene("Intro");
+    }
+
+    public void LoadData(GlobalGameData data)
+    {
+        gameInProgress = data.worldState.gameInProgress;
+    }
+
+    public void SaveData(ref GlobalGameData data)
+    {
+        data.worldState.gameInProgress = gameInProgress;
     }
     public void ResetGameState()
     {
@@ -34,6 +51,8 @@ public class StartButton : SceneButton
         {
             return;
         }
+
+        gameInProgress = true;
 
         //NOTE: this one time event code will be refactored when I create the save system
         List<OneTimeEvent> oneTimeEvents = new List<OneTimeEvent>();

@@ -109,6 +109,10 @@ public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 	public void SaveData(ref GlobalGameData data)
 	{
 		string currentSceneName = SceneManager.GetActiveScene().name;
-		data.worldState.currentScene = currentSceneName;
+		bool isMenuScene = currentSceneName.ToLower().Contains("menu");
+		if(!isMenuScene)
+        {
+			data.worldState.currentScene = currentSceneName;
+		}
 	}
 }
