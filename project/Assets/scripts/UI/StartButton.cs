@@ -10,6 +10,8 @@ public class StartButton : SceneButton, IGlobalDataPersistence
     [SerializeField]
     GameEvent confirmationRequired;
     bool gameInProgress = false;
+    MusicController musicController;
+
 
     protected override void ButtonInit()
     {
@@ -31,6 +33,11 @@ public class StartButton : SceneButton, IGlobalDataPersistence
             return;
         }
         ResetGameState();
+        if (musicController != null)
+        {
+            print("fading music out");
+            musicController.FadeOutMusic();
+        }
 
         //Load the intro scene
         ChangeScene("Intro");
@@ -39,6 +46,7 @@ public class StartButton : SceneButton, IGlobalDataPersistence
     public void LoadData(GlobalGameData data)
     {
         gameInProgress = data.worldState.gameInProgress;
+        musicController = FindObjectOfType<MusicController>();
     }
 
     public void SaveData(ref GlobalGameData data)
@@ -76,12 +84,13 @@ public class StartButton : SceneButton, IGlobalDataPersistence
             oneTimeEvent.eventFired = false;
         }
 
+        // NOTE: replace
         if(scenePosition != null)
         {
-            scenePosition.currentDirection = "up";
-            scenePosition.lastDirection = "down";
+            //scenePosition.currentDirection = "up";
+            //scenePosition.lastDirection = "down";
         }
-
+        // NOTE: replace
         if(prefManager != null)
         {
             prefManager.SetBrokenPoolState(0);

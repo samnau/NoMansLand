@@ -58,14 +58,14 @@ public class EyeController : MonoBehaviour
     }
     void TriggerSurprise()
     {
-        Debug.Log(leftEyeBrowAnimator);
+        //Debug.Log(leftEyeBrowAnimator);
         leftEyeBrowAnimator.SetBool("surprise", true);
         rightEyeBrowAnimator.SetBool("surprise", true);
     }
 
     void TriggerAnger()
     {
-        Debug.Log(leftEyeBrowAnimator);
+        //Debug.Log(leftEyeBrowAnimator);
         leftEyeBrowAnimator.SetBool("angryL", true);
         rightEyeBrowAnimator.SetBool("angryR", true);
     }

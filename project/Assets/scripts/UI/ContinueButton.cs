@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ContinueButton : SceneButton, IGlobalDataPersistence
 {
+    MusicController musicController;
     protected override void ButtonInit()
     {
         prefManager = FindObjectOfType<PlayerPrefManager>();
@@ -19,6 +20,7 @@ public class ContinueButton : SceneButton, IGlobalDataPersistence
     }
     void LoadLastVisitedScene()
     {
+        // COMEBACK: eliminate all prefManagr code
         if (prefManager == null)
         {
             print("no save data loaded");
@@ -33,8 +35,6 @@ public class ContinueButton : SceneButton, IGlobalDataPersistence
     {
         targetScene = data.worldState.currentScene;
         isHidden = !data.worldState.gameInProgress;
-        print($"continue button loaded scene name: {targetScene}");
-        print($"continue button in progress state: {isHidden}");
         ButtonInit();
     }
 

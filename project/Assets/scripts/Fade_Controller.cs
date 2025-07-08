@@ -110,9 +110,10 @@ public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 	{
 		string currentSceneName = SceneManager.GetActiveScene().name;
 		bool isMenuScene = currentSceneName.ToLower().Contains("menu");
-		if(!isMenuScene)
+		bool isIntroScene = currentSceneName.ToLower().Contains("forestintro");
+		if (!isMenuScene)
         {
-			data.worldState.currentScene = currentSceneName;
+			data.worldState.currentScene = isIntroScene ? "Forest1" : currentSceneName;
 		}
 	}
 }
