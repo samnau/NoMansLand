@@ -33,6 +33,7 @@ public class GlobalGameData
     {
         public bool castleCourtyard;
         public bool castleThroneRoom;
+        public bool test;
     }
 
     [System.Serializable]
@@ -100,7 +101,8 @@ public class GlobalGameData
         oneTimeEvents = new OneTimeEvents
         {
             castleCourtyard = false,
-            castleThroneRoom = false
+            castleThroneRoom = false,
+            test = false
         };
 
         inventory = new Inventory

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ContinueButton : SceneButton, IGlobalDataPersistence
 {
-    MusicController musicController;
+
     protected override void ButtonInit()
     {
-        prefManager = FindObjectOfType<PlayerPrefManager>();
+        //prefManager = FindObjectOfType<PlayerPrefManager>();
         //isHidden = prefManager.GetInProgressState() == 0;
         if(!initialized)
         {
@@ -21,11 +21,11 @@ public class ContinueButton : SceneButton, IGlobalDataPersistence
     void LoadLastVisitedScene()
     {
         // COMEBACK: eliminate all prefManagr code
-        if (prefManager == null)
-        {
-            print("no save data loaded");
-            return;
-        }
+        //if (prefManager == null)
+        //{
+        //    print("no save data loaded");
+        //    return;
+        //}
         //string sceneName = prefManager?.GetCurrentScene();
 
         ChangeScene(targetScene);

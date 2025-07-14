@@ -38,9 +38,4 @@ public class ScenePositionManager : MonoBehaviour
         //print($"direction: {targetDirection}");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

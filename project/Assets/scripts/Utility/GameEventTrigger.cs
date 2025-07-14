@@ -1,8 +1,10 @@
+using System;
+using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEventTrigger : MonoBehaviour
+public class GameEventTrigger : MonoBehaviour, IGlobalDataPersistence
 {
     [SerializeField]
     bool triggerEventOnStart = false;
@@ -14,55 +16,50 @@ public class GameEventTrigger : MonoBehaviour
     bool isOneTimeEvent = false;
     [SerializeField]
     OneTimeEvent oneTimeEventState;
-    bool currentEventFired = false;
+    bool oneTimeEventFired = false;
 
-    // TEMP
+    enum OneTimeEvents {
+        test,
+        castleCourtyard,
+        castleThroneRoom
+    };
     [SerializeField]
-    bool isBrokenPoolEvent = false;
-    [SerializeField]
-    bool isCastleCourtyardEvent = false;
-
-    PlayerPrefManager prefManager;
-
-    bool brokenPoolDialogPlayed = false;
-    bool courtyardDialogPlayed = false;
+    OneTimeEvents oneTimeEventName;
 
     private void Start()
     {
-        //TODO: find a way to abstract this to less one-off bool flag checks
-        prefManager = FindObjectOfType<PlayerPrefManager>();
-        SetDialogState();
 
-        if (isOneTimeEvent && brokenPoolDialogPlayed && !isCastleCourtyardEvent)
+        if(isOneTimeEvent && oneTimeEventFired)
         {
-            print("one time event has been fired");
+            print("one time event has been fired already");
             return;
         }
         if (triggerEventOnStart && defaultEvent)
         {
+            print("trigger event on start");
             TriggerTimedGameEvent();
         }
     }
 
-    void SetDialogState()
+    public void TestOneTimeEvent()
     {
-        brokenPoolDialogPlayed = prefManager.GetBrokenPoolState() == 1;
+        print($"one time event fired from test function");
     }
 
     void SetOneTimeEventState()
     {
-        if (oneTimeEventState != null)
-        {
-            oneTimeEventState.eventFired = true;
 
+        if (isOneTimeEvent && !oneTimeEventFired)
+        {
+            oneTimeEventFired = true;
+            print($"flag one time event as true for {GetOneTimeEventName()}");
         }
 
+    }
 
-        //TODO: abstract this
-        if (!brokenPoolDialogPlayed && isBrokenPoolEvent)
-        {
-            prefManager.SetBrokenPoolState(1);
-        }
+    string GetOneTimeEventName()
+    {
+        return oneTimeEventName.ToString();
     }
     public void TriggerGameEvent (GameEvent targetEvent)
     {
@@ -80,6 +77,18 @@ public class GameEventTrigger : MonoBehaviour
     public void TriggerTimedGameEvent()
     {
         StartCoroutine(TriggerGameEventAfterDelay());
+    }
+
+    public void LoadData(GlobalGameData data)
+    {
+        FieldInfo fieldInfo = data.oneTimeEvents.GetType().GetField(GetOneTimeEventName());
+        oneTimeEventFired = (bool)fieldInfo.GetValue(data.oneTimeEvents);
+    }
+
+    public void SaveData(ref GlobalGameData data)
+    {
+        FieldInfo fieldInfo = data.oneTimeEvents.GetType().GetField(GetOneTimeEventName());
+        fieldInfo.SetValue(data.oneTimeEvents, oneTimeEventFired);
     }
 
 }
