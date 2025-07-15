@@ -31,7 +31,7 @@ public class GameEventTrigger : MonoBehaviour, IGlobalDataPersistence
 
         if(isOneTimeEvent && oneTimeEventFired)
         {
-            print("one time event has been fired already");
+            Debug.LogWarning("one time event has been fired already");
             return;
         }
         if (triggerEventOnStart && defaultEvent)
@@ -41,6 +41,7 @@ public class GameEventTrigger : MonoBehaviour, IGlobalDataPersistence
         }
     }
 
+    //TODO: remove this after final testing
     public void TestOneTimeEvent()
     {
         print($"one time event fired from test function");
@@ -52,7 +53,7 @@ public class GameEventTrigger : MonoBehaviour, IGlobalDataPersistence
         if (isOneTimeEvent && !oneTimeEventFired)
         {
             oneTimeEventFired = true;
-            print($"flag one time event as true for {GetOneTimeEventName()}");
+            Debug.Log($"flag one time event as true for {GetOneTimeEventName()}");
         }
 
     }
@@ -88,7 +89,10 @@ public class GameEventTrigger : MonoBehaviour, IGlobalDataPersistence
     public void SaveData(ref GlobalGameData data)
     {
         FieldInfo fieldInfo = data.oneTimeEvents.GetType().GetField(GetOneTimeEventName());
-        fieldInfo.SetValue(data.oneTimeEvents, oneTimeEventFired);
+        if(isOneTimeEvent)
+        {
+            fieldInfo.SetValue(data.oneTimeEvents, oneTimeEventFired);
+        }
     }
 
 }
