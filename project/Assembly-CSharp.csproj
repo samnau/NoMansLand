@@ -60,7 +60,6 @@
     <Compile Include="Assets\scripts\GameDataPersistence\GlobalDataPersistenceManager.cs" />
     <Compile Include="Assets\scripts\TextImporter.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationConstraint.cs" />
-    <Compile Include="Assets\scripts\Fade_controller1.cs" />
     <Compile Include="Assets\scripts\Creatures\CrowFamiliarController.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveableEntity.cs" />
     <Compile Include="Assets\scripts\Battle\ChargeBar\ChargeBarController.cs" />
@@ -272,6 +271,7 @@
     <Compile Include="Assets\scripts\GameStateManager.cs" />
     <Compile Include="Assets\scripts\Utility\CameraShakeTrigger.cs" />
     <Compile Include="Assets\scripts\EnemyDamageController.cs" />
+    <Compile Include="Assets\scripts\GameDataPersistence\SerializableTypes\SerializableDictionary.cs" />
     <Compile Include="Assets\scripts\ScriptableObjects\OneShotDialog.cs" />
     <Compile Include="Assets\scripts\SCENE_FADE_CONTROLLER.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
@@ -303,7 +303,6 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\GameDataPersistence\SerializableTypes\SerializableDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

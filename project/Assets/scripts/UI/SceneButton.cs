@@ -29,12 +29,6 @@ public class SceneButton : BaseButton
     public void ChangeScene(string targetScene)
     {
         fadeController?.triggerLevelChange(targetScene);
-        if (lastSceneData == null)
-        {
-            print("no scene data loaded");
-            return;
-        }
-        lastSceneData.lastScene = targetScene;
     }
 
     protected virtual void SceneButtonInit()

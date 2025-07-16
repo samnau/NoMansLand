@@ -11,6 +11,16 @@ public class GlobalGameData
     // NOTE: this file does not handle the save/load operations
 
     [System.Serializable]
+    public class EnvironmentState
+    {
+        public bool castleWalls;
+        public bool castleFloatingStairs;
+        public bool castleCourtYardRightDoor;
+        public bool forestBridge;
+        public bool forestBoss;
+    }
+
+    [System.Serializable]
     public class WorldState
     {
         public bool gameComplete;
@@ -18,6 +28,7 @@ public class GlobalGameData
         public string currentScene;
         public string lastDirection;
         public int dayCount;
+        public EnvironmentState environment;
     }
 
     [System.Serializable]
@@ -59,14 +70,7 @@ public class GlobalGameData
         public List<Familiar> familiars;
     }
 
-    [System.Serializable]
-    public class EnvironmentState
-    {
-        public bool castleWalls;
-        public bool castleFloatingStairs;
-        public bool castleCourtYardRightDoor;
-        public bool forestBridge;
-    }
+
 
     // TODO: working list of real image assets listed by a key string
     // NOTE: maybe only house the image dictionary within the inventory manager code?
@@ -88,7 +92,15 @@ public class GlobalGameData
             gameComplete = false,
             currentScene = "",
             lastDirection = "right",
-            dayCount = 0
+            dayCount = 0,
+            environment = new EnvironmentState
+            {
+                castleWalls = false,
+                castleFloatingStairs = false,
+                castleCourtYardRightDoor = false,
+                forestBridge = false,
+                forestBoss = false
+            }
         };
 
         gameSettings = new GameSettings

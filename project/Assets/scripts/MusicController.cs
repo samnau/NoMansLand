@@ -13,14 +13,13 @@ public class MusicController : MonoBehaviour {
         AudioSource audioSource = defaultAudio = this.GetComponent<AudioSource>();
         AudioClip clip = audioSource.clip;
         bool clipMatch = false;
-        print(musicControllers.Length);
 
         if(musicControllers.Length > 1)
         {
             clipMatch = musicControllers[0].GetComponent<AudioSource>().clip.name == musicControllers[1].GetComponent<AudioSource>().clip.name;
             if(clipMatch)
             {
-                print("clips match! destroy the old one!");
+                //print("clips match! destroy the old one!");
 
                 Destroy(this.gameObject);
             } else

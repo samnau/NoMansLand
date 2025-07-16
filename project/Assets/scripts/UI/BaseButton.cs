@@ -15,10 +15,6 @@ public class BaseButton : MonoBehaviour
     [SerializeField]
     protected bool requireConfirmation = false;
 
-    protected GameStateManager gameStateManager;
-    protected DataPersistanceManager dataPersistanceManager;
-    protected PlayerPrefManager prefManager;
-
     protected bool initialized = false;
     void Start()
     {
@@ -44,9 +40,6 @@ public class BaseButton : MonoBehaviour
 
     protected virtual void ButtonInit()
     {
-        gameStateManager = FindObjectOfType<GameStateManager>();
-        dataPersistanceManager = FindObjectOfType<DataPersistanceManager>();
-        prefManager = FindObjectOfType<PlayerPrefManager>();
 
         button = GetComponent<Button>();
         button.interactable = !isDisabled;

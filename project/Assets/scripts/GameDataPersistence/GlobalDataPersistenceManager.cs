@@ -38,7 +38,6 @@ public class GlobalDataPersistenceManager : MonoBehaviour
     {
         this.dataPersistenceObjects = FindAllDataPersistenceObjects();
         LoadGame();
-        print("game data loaded with scene load");
     }
 
     public void OnSceneUnloaded(Scene scene)

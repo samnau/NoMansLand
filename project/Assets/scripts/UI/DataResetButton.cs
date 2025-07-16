@@ -15,10 +15,10 @@ public class DataResetButton : BaseButton
     {
         PlayerPrefs.DeleteAll();
 
-        prefManager.SetBrokenPoolState(0);
-        prefManager.SetCastleCourtyardState(0);
-        prefManager.SetBonusState(0);
-        prefManager.SetGameInProgress(0);
+        //prefManager.SetBrokenPoolState(0);
+        //prefManager.SetCastleCourtyardState(0);
+        //prefManager.SetBonusState(0);
+        //prefManager.SetGameInProgress(0);
         PlayerPrefs.Save();
     }
 
