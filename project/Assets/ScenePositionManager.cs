@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScenePositionManager : MonoBehaviour
 {
+    //NOTE: I can't find anywhere this is used in the scenes
     string[] directionValues = { "left", "right", "up", "down" };
     enum Directions
     { up, down, left, right }

@@ -12,6 +12,11 @@ public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 	readonly string sceneName;
 	string targetSceneName;
 	public ScenePosition scenePosition;
+	public string lastDirection;
+
+	// DOCS: this file mainly just accepts a scene name and triggers a scene transition. It does not track player direction values.
+	// this file also tracks last direction so that a singular direction value can be saved
+	// the scene fade triggers pass their direction to the fade controller to set the last direction
 
 	void OnEnable() {
 		SceneManager.sceneLoaded += OnSceneLoaded;
@@ -58,7 +63,7 @@ public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 
 	public void LoadData(GlobalGameData data)
 	{
-		//NOTE: no data loading needed here
+		lastDirection = data.worldState.lastDirection;
 	}
 
 	public void SaveData(ref GlobalGameData data)
@@ -66,6 +71,7 @@ public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 		string currentSceneName = SceneManager.GetActiveScene().name;
 		bool isMenuScene = currentSceneName.ToLower().Contains("menu");
 		bool isIntroScene = currentSceneName.ToLower().Contains("forestintro");
+		data.worldState.lastDirection = lastDirection;
 		if (!isMenuScene)
         {
 			data.worldState.currentScene = isIntroScene ? "Forest1" : currentSceneName;
