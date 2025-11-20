@@ -26,6 +26,9 @@ public class DialogManager : MonoBehaviour
     [SerializeField] Text SpeakerText;
     string defaultName = "Molly";
 
+    [SerializeField] bool isCutScene = false;
+    [SerializeField] GameEvent SceneEnd;
+    [SerializeField] GameEvent TutorialEnd;
 
     [SerializeField] List<GameObject> dialogSpeakers;
 
@@ -47,10 +50,21 @@ public class DialogManager : MonoBehaviour
           SetSpeakerName
         );
 
+        dialogueRunner.AddCommandHandler(
+         "TriggerEndTutorial",
+          TriggerEndTutorial
+        );
+
+        dialogueRunner.AddCommandHandler(
+         "TriggerEndScene",
+          TriggerEndScene
+        );
+
     }
     void Start()
     {
-        dialogueUI = FindObjectOfType<DialogueUI>();
+        //dialogueUI = FindObjectOfType<DialogueUI>();
+        dialogueUI = GetComponent<DialogueUI>();
         dialogueRunner.Add(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
@@ -72,7 +86,6 @@ public class DialogManager : MonoBehaviour
     public void SetSpeakerName(string[] parameters)
     {
         string name = parameters[0];
-        Debug.Log(name);
         if (name == null)
         {
             SpeakerText.text = defaultName;
@@ -119,17 +132,21 @@ public class DialogManager : MonoBehaviour
         interactionPlayer = targetSoundPlayer;
     }
 
-    // NOTE: currently unused
-    void AdvanceDialog()
-    {
-        dialogueUI.MarkLineComplete();
-    }
-
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
     {
         inputTracker.enabled = !dialogActive;
         motionController.enabled = !dialogActive;
+
+        // adding in code for when the input tracker has disabled itself
+        // REFACTOR: needs simplicity and less function overlap
+        if(dialogActive)
+        {
+            inputTracker.DisableMovement();
+        } else
+        {
+            inputTracker.EnableMovement();
+        }
     }
     public void BeginDialog()
     {
@@ -142,6 +159,7 @@ public class DialogManager : MonoBehaviour
 
     public void BeginTargetDialog(string dialogName)
     {
+        print($"begin target dialog {dialogName}");
         dialogActive = true;
         dialogueRunner.startNode = dialogName;
         dialogueRunner.StartDialogue(dialogName);
@@ -158,14 +176,17 @@ public class DialogManager : MonoBehaviour
     {
         dialogueUI.MarkLineComplete();
     }
+    // REFACTOR: This is progress demo code that could be abstracted into something more useful
     IEnumerator sceneTransition()
     {
-        var sceneCover = GameObject.Find("SceneCover");
-        var coverAnimator = sceneCover.GetComponent<Animator>();
-        coverAnimator.Play("show");
-        yield return new WaitForSeconds(1.5f);
+        //var sceneCover = GameObject.Find("SceneCover");
+        //var coverAnimator = sceneCover.GetComponent<Animator>();
+        //coverAnimator?.Play("show");
+        //yield return new WaitForSeconds(1.5f);
         GameObject.Find("MusicPlayer").SetActive(false);
-        SceneManager.LoadScene("TitleCard");
+//        SceneManager.LoadScene("TitleCard");
+        SceneManager.LoadScene("BattleDemoMenu");
+        yield return null;
     }
     public void EndDialog()
     {
@@ -175,14 +196,26 @@ public class DialogManager : MonoBehaviour
         //demo code only - REMOVE LATER
         if (targetText == "LeftEntranceDoor")
         {
-            StartCoroutine("sceneTransition");
+            GameObject.Find("MusicPlayer").SetActive(false);
+            SceneManager.LoadScene("BattleDemoMenu");
+            //StartCoroutine("sceneTransition");
         }
         TogglePlayerMotion();
     }
 
+    void TriggerEndScene(string[] parameters)
+    {
+        SceneEnd?.Invoke();
+    }
+
+    void TriggerEndTutorial(string[] parameters)
+    {
+        TutorialEnd?.Invoke();
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogActive)
+        if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
         {
             NextDialogLine();
         }

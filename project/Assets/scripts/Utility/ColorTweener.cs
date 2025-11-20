@@ -17,6 +17,12 @@ public class ColorTweener : BaseTweener
     {
         InitImageComponents();
     }
+
+    private void OnEnable()
+    {
+        InitImageComponents();
+    }
+
     void InitImageComponents()
     {
         if (TryGetComponent<SpriteRenderer>(out SpriteRenderer spriteRendererFound))
@@ -96,9 +102,8 @@ public class ColorTweener : BaseTweener
     IEnumerator SetSpriteColorByDuration(float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-        print("alpha time tween?");
         Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
-        Color startColor = color;
+        Color startColor = spriteRenderer.color;
 
         while (elapsed_time < duration)
         {
@@ -106,14 +111,15 @@ public class ColorTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+
+        spriteRenderer.color = targetColor;
     }
 
-
-    IEnumerator SetImageColorByDuration(float duration)
+    IEnumerator SetTargetColorByDuration(Color targetColor, float duration)
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
-        Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
-        Color startColor = color;
+        //Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
+        Color startColor = image.color;
 
         while (elapsed_time < duration)
         {
@@ -121,6 +127,22 @@ public class ColorTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+        image.color = targetColor;
+    }
+
+    IEnumerator SetImageColorByDuration(float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
+        Color targetColor = new Color(endRed, endGreen, endBlue, endAlpha);
+        Color startColor = image.color;
+
+        while (elapsed_time < duration)
+        {
+            image.color = Color.Lerp(startColor, targetColor, EaseInOutQuad(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+        image.color = targetColor;
     }
 
     public void TriggerAlphaSpriteTween([Optional] float targetAlpha, [Optional] float targetSpeed)
@@ -157,5 +179,10 @@ public class ColorTweener : BaseTweener
     {
         endAlpha = targetAlpha;
         StartCoroutine(SetImageColorByDuration(duration));
+    }
+
+    public void TriggerImageColorByDuration(Color targetColor, float duration)
+    {
+        StartCoroutine(SetTargetColorByDuration(targetColor, duration));
     }
 }

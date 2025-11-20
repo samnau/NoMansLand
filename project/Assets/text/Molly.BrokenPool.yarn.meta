@@ -8,13 +8,57 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: 
-  stringIDs: []
-  compilationStatus: 0
-  isSuccesfullyCompiled: 0
+  baseLanguageID: en-US
+  stringIDs:
+  - Molly.BrokenPool-Frog-0
+  - Molly.BrokenPool-Frog-1
+  - Molly.BrokenPool-Frog-2
+  - Molly.BrokenPool-Frog-3
+  - Molly.BrokenPool-BrokenSpire-4
+  - Molly.BrokenPool-BrokenSpire-5
+  - Molly.BrokenPool-BrokenSpire-6
+  - Molly.BrokenPool-Demo-7
+  - Molly.BrokenPool-Demo-8
+  - Molly.BrokenPool-Demo-9
+  - Molly.BrokenPool-Demo-10
+  - Molly.BrokenPool-Demo-11
+  - Molly.BrokenPool-Demo-12
+  - Molly.BrokenPool-Demo-13
+  - Molly.BrokenPool-Demo-14
+  - Molly.BrokenPool-Demo-15
+  - Molly.BrokenPool-Demo-16
+  - Molly.BrokenPool-Demo-17
+  - Molly.BrokenPool-Demo-18
+  - Molly.BrokenPool-Demo-19
+  - Molly.BrokenPool-Demo-20
+  - Molly.BrokenPool-Demo-21
+  - Molly.BrokenPool-Demo-22
+  - Molly.BrokenPool-Demo-23
+  - Molly.BrokenPool-Demo-24
+  - Molly.BrokenPool-Demo-25
+  - Molly.BrokenPool-Demo-26
+  - Molly.BrokenPool-Demo-27
+  - Molly.BrokenPool-Demo-28
+  - Molly.BrokenPool-Demo-29
+  - Molly.BrokenPool-Demo-30
+  - Molly.BrokenPool-Demo-31
+  - Molly.BrokenPool-Demo-32
+  - Molly.BrokenPool-Demo-33
+  - Molly.BrokenPool-Demo-34
+  - Molly.BrokenPool-Demo-35
+  - Molly.BrokenPool-Demo-36
+  - Molly.BrokenPool-FrogDemo-37
+  - Molly.BrokenPool-FrogDemo-38
+  - Molly.BrokenPool-FrogDemo-39
+  - Molly.BrokenPool-FrogDemo-40
+  - Molly.BrokenPool-FrogDemo-41
+  - Molly.BrokenPool-FrogDemo-42
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
   compilationErrorMessage: 'Error on line 1 at position 6:token recognition error
     at: ''.''
 
 '
-  baseLanguage: {instanceID: 0}
+  baseLanguage: {fileID: 7128917941130120860, guid: aacaf8d302758c84199138d0b0ec2c46,
+    type: 3}
   localizations: []

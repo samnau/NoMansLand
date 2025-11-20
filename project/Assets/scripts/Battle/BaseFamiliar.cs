@@ -99,10 +99,8 @@ public class BaseFamiliar : BaseCreature
 
     public void TriggerFamiliarRecallComplete()
     {
-        print("familiar recall complete?");
         if (victory)
         {
-            print("familiar recall is complete!");
             familiarRecallComplete.Invoke();
         }
     }

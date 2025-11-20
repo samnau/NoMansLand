@@ -20,6 +20,7 @@ public class AnimationStateTrigger : MonoBehaviour {
             return;
         }
 
+        // why is this here?
         if(TargetStateName == "RECALL")
         {
             print("the state is recall");

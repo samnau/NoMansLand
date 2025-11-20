@@ -1,4 +1,5 @@
 title: TreeGate
+position: -393,87
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Wow. That is the biggest tree I've ever seen!
@@ -11,8 +12,15 @@ How is that possible?
 And how can I get past these stone things?
 <<SetSpeaker Molly surprise annoyed>>
 There's a weird keyhole-looking thing in one of them...
+<<SetSpeakerName King's-Ghost>>
+My apologies. I have misplaced the key somewhere.
+100 years ago.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle frown>>
+You really are the worst, sometimes.
 ===
 title: LeftEntranceDoor
+position: 21,195
 ---
 <<SetSpeaker Molly surprise annoyed>>
 Something was really mad at this door.
@@ -25,6 +33,8 @@ Okay. Here I go then...
 <<PlayInteractionSound>>
 ===
 title: RightEntranceDoor
+tags: 
+position: -170.99999237060547,433
 ---
 <<SetSpeaker Molly surprise frown>>
 This door has seen better days....
@@ -33,10 +43,48 @@ This door has seen better days....
 ...aaaaand it's locked.
 ===
 title: TreeSecret
+position: -431,342
 ---
 <<SetSpeaker Molly surprise smirk>>
 Hey, what's this back here?
 <<SetSpeaker Molly idle annoyed>>
 <<PlayInteractionSound>>
 Aw, man. It's locked!
+===
+title: Demo
+tags: 
+position: -175,-170
+---
+<<SetSpeaker Molly surprise smile>>
+Good job!
+You beat the first unfamiliar.
+<<SetSpeaker Molly surprise annoyed>>
+That thing was pretty scary.
+<<SetSpeakerName King's-Ghost>>
+The hour is late, young lady. You will need rest for tomorrow's search.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle annoyed>>
+Yeah, yeah, yeah.
+<<SetSpeaker Molly idle smirk>>
+I'm sure it will be a snap to fall asleep in this creepy place.
+<<SetSpeaker Molly idle smile>>
+Well in the meantime, here is a bonus scene for you to explore.
+<<SetSpeaker Molly surprise smile>>
+Until next time!
+===
+title: RightDoorDemo
+tags: 
+position: 56.00000047683716,-170.99999237060547
+---
+<<SetSpeaker Molly surprise frown>>
+This door has seen better days....
+<<SetSpeaker Molly idle annoyed>>
+<<PlayInteractionSound>>
+...aaaaand it's locked.
+If only someone hadn't lost every single key in this place.
+Or at least could remember where he left them.
+<<SetSpeakerName King's-Ghost>>
+You truly are quite a churlish young lady, sometimes.
+<<SetSpeakerName Molly>>
+Sorry. It's just frustrating. You know?
 ===

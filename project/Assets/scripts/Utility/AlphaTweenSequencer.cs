@@ -6,6 +6,7 @@ public class AlphaTweenSequencer : MonoBehaviour
 {
     ColorTweener[] targetTweeners;
     RadarSweeperTargetController radarSweeperTargetController;
+    [SerializeField] Color targetGlowColor = Color.blue;
     void Start()
     {
         targetTweeners = gameObject.GetComponentsInChildren<ColorTweener>();
@@ -20,9 +21,10 @@ public class AlphaTweenSequencer : MonoBehaviour
 
     }
 
-    public void ReverseTweenSequence()
+    // REFACTOR THE TIME LIMIT TO BE PASSED TO THIS COMPONENT SO IT'S NOT BOUND TO ONE CHALLENGE TYPE
+    public void ReverseTweenSequence(float timeLimit = 0f)
     {
-        float timeLimit = radarSweeperTargetController.timeLimit;
+        //float timeLimit = radarSweeperTargetController.timeLimit;
         float delay = timeLimit / targetTweeners.Length;
         for(int index = targetTweeners.Length-1; index > -1; index--)
         {
@@ -42,7 +44,8 @@ public class AlphaTweenSequencer : MonoBehaviour
         tweenTarget.TriggerAlphaImageTween(targetAlpha, 1.5f);
         if(targetAlpha == 1f)
         {
-            targetGlow.SetGlowColor(Color.blue);
+            //targetGlow.SetGlowColor(Color.blue);
+            targetGlow.SetGlowColor(targetGlowColor);
             yield return new WaitForSeconds(.1f);
             targetGlow.TriggerGlowTween(20f, 4f);
             yield return new WaitForSeconds(.2f);

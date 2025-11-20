@@ -7,11 +7,14 @@ using UnityEngine.UI;
 public class GlowTweener : BaseTweener
 {
     Material material;
-    //Material testMat;
     SpriteRenderer spriteRenderer;
     Image image;
+    [SerializeField]
     float targetIntensity = 1f;
     Color originalColor;
+
+    [SerializeField]
+    bool autoStartGlowTween = false;
     void Start()
     {
         InitGlowComponents();
@@ -31,7 +34,12 @@ public class GlowTweener : BaseTweener
             material = image.material = new Material(image.material);
             originalColor = material.color;
         }
-        
+
+        if (autoStartGlowTween)
+        {
+            TriggerGlowByDuration(targetIntensity, speed);
+        }
+
     }
 
     public void TurnOffGlow()
@@ -85,6 +93,7 @@ public class GlowTweener : BaseTweener
             yield return null;
             elapsed_time += Time.deltaTime;
         }
+        material.SetFloat("_Fade", targetGlow);
     }
     public void TriggerGlowTween([Optional] float targetGlowIntensity, [Optional] float targetSpeed)
     {

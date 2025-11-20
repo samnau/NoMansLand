@@ -8,15 +8,11 @@ public class PlayerData : MonoBehaviour
     [HideInInspector] public string sceneName = "";
     [HideInInspector] public int days = 0;
     [HideInInspector] public string sceneDirection = "";
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [HideInInspector] public bool gameInProgress = false;
+    [HideInInspector] public bool gameComplete = false;
+    [HideInInspector] public bool firstBossBeaten = false;
+    [HideInInspector] public bool brokenPoolDialogPlayed = false;
+    [HideInInspector] public bool courtyardDialogPlayed = false;
+    [HideInInspector] public bool firstBossDialogPlayed = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

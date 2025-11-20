@@ -6,14 +6,33 @@ Glad I'm not hungry.
 Because this definitely isn't edible.
 It just screams, "posion".
 ===
-title: BrokenSpire
+title: Rock
+tags: 
+position: -314,193
 ---
-<<SetSpeaker Molly surprise annoyed>>
-Something was really mad at this door.
+This is where is all started...
 <<SetSpeaker Molly surprise frown>>
-Do I really want to go inside?
-...
-......
+When I landed here, this rock almost killed me!
+<<SetSpeaker Molly idle annoyed>>
+But I'm on to you now, rock!
+<<SetSpeaker Molly idle smirk>>
+You won't get me next time.
+===
+title: Intro
+tags: 
+position: -311.99998664855957,-44
+---
+<<SetSpeaker Molly idle frown>>
+Owwww....
+<<SetSpeaker Molly idle annoyed>>
+What just happened?
+Did I trip?
+No, wait, did I...
 <<SetSpeaker Molly surprise annoyed>>
-Okay. Here I go then...
+...fall?
+Where am I?
+<<SetSpeaker Molly surprise frown>>
+Is this the park? I've never seen this part.
+<<SetSpeaker Molly surprise annoyed>>
+I don't understand.
 ===

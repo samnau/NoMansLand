@@ -42,7 +42,7 @@ public class Dialog_Manager : MonoBehaviour
         dialogueUI = FindObjectOfType<DialogueUI>();
         dialogueRunner.Add(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
-        dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
+        dialogWrapperAnimator = dialogWrapper?.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         inputTracker = player.GetComponent<InputStateTracker>();
         motionController = player.GetComponent<HeroMotionController>();
@@ -105,7 +105,7 @@ public class Dialog_Manager : MonoBehaviour
         dialogActive = true;
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
-        dialogWrapperAnimator.SetBool("show", dialogActive);
+        dialogWrapperAnimator?.SetBool("show", dialogActive);
         TogglePlayerMotion();
         StartCoroutine(TestSpeakerSwap());
     }
@@ -126,7 +126,7 @@ public class Dialog_Manager : MonoBehaviour
     public void EndDialog()
     {
         dialogActive = false;
-        dialogWrapperAnimator.SetBool("show", dialogActive);
+        dialogWrapperAnimator?.SetBool("show", dialogActive);
         dialogueRunner.ResetDialogue();
         //demo code only - REMOVE LATER
         if(targetText == "LeftEntranceDoor")

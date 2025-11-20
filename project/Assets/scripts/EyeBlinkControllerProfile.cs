@@ -30,6 +30,28 @@ public class EyeBlinkControllerProfile : MonoBehaviour
         }
     }
 
+    public void stopBlinkCycle()
+    {
+        blinkActive = false;
+    }
+
+    public void resumeBlinkCycle()
+    {
+        blinkActive = true;
+        StartCoroutine("triggerBlink");
+    }
+
+    public void closeEyes()
+    {
+        targetAnimator.SetBool("close", true);
+    }
+
+    public void openEyes()
+    {
+        print("open the eyes");
+        targetAnimator.SetBool("close", false);
+    }
+
     float setBlinkInterval()
     {
         return Random.Range(blinkMin, blinkMax);

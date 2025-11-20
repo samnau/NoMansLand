@@ -7,12 +7,20 @@ public class SoundFXPlayer : MonoBehaviour
 {
     public AudioSource SoundSource;
     public bool isEnabled = true;
+    float currentVolume;
+
+    void Start()
+    {
+        currentVolume = SoundSource.volume;
+    }
 
     public void PlayOneShot(AudioClip TargetSound, float targetVolume = 1f)
     {
+        bool isComponentEnabled = this.enabled;
         SetVolume(targetVolume);
-        if(!isEnabled)
+        if(!isEnabled || !isComponentEnabled)
         {
+            Debug.Log("the audio source is disabled");
             return;
         }
         SoundSource.PlayOneShot(TargetSound);
@@ -47,5 +55,21 @@ public class SoundFXPlayer : MonoBehaviour
     public void SetVolume(float targetVolume)
     {
         SoundSource.volume = targetVolume;
+    }
+
+    public void UnMuteSounds()
+    {
+        SoundSource.volume = currentVolume;
+    }
+
+    public void MuteSounds()
+    {
+        currentVolume = SoundSource.volume;
+        SoundSource.volume = 0;
+    }
+
+    public void StopPlayback()
+    {
+        SoundSource.Stop();
     }
 }

@@ -9,6 +9,12 @@ public class GameData
     public string currentScene;
     public string previousDirection;
     public Vector2 playerPosition;
+    public bool gameInProgress;
+    public bool gameComplete;
+    public bool firstBossBeaten;
+    public bool brokenPoolDialogPlayed;
+    public bool courtyardDialogPlayed;
+    public bool firstBossDialogPlayed;
     public Dictionary<string, bool> playerInventory;
 
     public GameData()
@@ -18,5 +24,11 @@ public class GameData
         this.playerPosition = Vector2.zero;
         this.playerInventory = new Dictionary<string, bool>();
         this.previousDirection = "up";
-    }
+        this.gameInProgress = false;
+        this.gameComplete = false;
+        this.firstBossBeaten = false;
+        this.brokenPoolDialogPlayed = false;
+        this.courtyardDialogPlayed = false;
+        this.firstBossDialogPlayed = false;
+}
 }

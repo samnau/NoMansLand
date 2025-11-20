@@ -4,20 +4,23 @@ using System.Linq;
 using UnityEngine;
 
 public class MusicController : MonoBehaviour {
+    AudioSource defaultAudio;
 
-    private void Awake()
+    private void Start()
     {
         GameObject[] musicPlayers = GameObject.FindGameObjectsWithTag("Music");
         MusicController[] musicControllers = FindObjectsOfType<MusicController>();
-        AudioSource audioSource = this.GetComponent<AudioSource>();
+        AudioSource audioSource = defaultAudio = this.GetComponent<AudioSource>();
         AudioClip clip = audioSource.clip;
         bool clipMatch = false;
 
         if(musicControllers.Length > 1)
         {
-            clipMatch = musicControllers[0].GetComponent<AudioSource>().clip == musicControllers[1].GetComponent<AudioSource>().clip;
+            clipMatch = musicControllers[0].GetComponent<AudioSource>().clip.name == musicControllers[1].GetComponent<AudioSource>().clip.name;
             if(clipMatch)
             {
+                //print("clips match! destroy the old one!");
+
                 Destroy(this.gameObject);
             } else
             {
@@ -55,5 +58,10 @@ public class MusicController : MonoBehaviour {
         audioSource.clip = targetClip;
         audioSource.volume = 1f;
         audioSource.Play();
+    }
+
+    public void SetVolumne(float targetVolume = .5f)
+    {
+        defaultAudio.volume = targetVolume;
     }
 }

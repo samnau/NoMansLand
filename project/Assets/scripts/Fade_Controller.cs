@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Fade_Controller : MonoBehaviour {
+public class Fade_Controller : MonoBehaviour, IGlobalDataPersistence {
 
 	public Texture2D Overlay;
 	public float fadeSpeed = 0.8f;
@@ -10,8 +10,14 @@ public class Fade_Controller : MonoBehaviour {
 	float alpha = 1.0f;
 	private float fadeDirection = -1.0f;
 	readonly string sceneName;
+	string targetSceneName;
 	public ScenePosition scenePosition;
-	// Use this for initialization
+	public string lastDirection;
+
+	// DOCS: this file mainly just accepts a scene name and triggers a scene transition. It does not track player direction values.
+	// this file also tracks last direction so that a singular direction value can be saved
+	// the scene fade triggers pass their direction to the fade controller to set the last direction
+
 	void OnEnable() {
 		SceneManager.sceneLoaded += OnSceneLoaded;
 	}
@@ -19,17 +25,26 @@ public class Fade_Controller : MonoBehaviour {
 		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
-		BeginFade (-1);
+		BeginFade(-1);
 	}
 
-	IEnumerator loadLevel (string sceneName){
+	IEnumerator loadLevel (string sceneName, float delay = 0f){
+		yield return new WaitForSeconds(delay);
 		BeginFade (1);
 		yield return new WaitForSeconds (fadeSpeed);
+		targetSceneName = sceneName;
 		SceneManager.LoadScene (sceneName);
 	}
 	public void triggerLevelChange(string sceneName){
-		StartCoroutine (loadLevel (sceneName));
+		StartCoroutine(loadLevel (sceneName));
 	}
+
+	public void LevelChangeTimedTrigger(string sceneName, float delay)
+    {
+		StartCoroutine(loadLevel(sceneName, delay));
+    }
+
+
 	void OnGUI(){
 		alpha += fadeSpeed * fadeDirection * Time.deltaTime;
 		alpha = Mathf.Clamp01 (alpha);
@@ -41,11 +56,25 @@ public class Fade_Controller : MonoBehaviour {
 		fadeDirection = direction;
 		return (fadeSpeed);
 	}
-//	void OnLevelWasLoaded(){
-//		BeginFade (-1);
-//	}
 
 	void Start(){
 		BeginFade (-1);
+	}
+
+	public void LoadData(GlobalGameData data)
+	{
+		lastDirection = data.worldState.lastDirection;
+	}
+
+	public void SaveData(ref GlobalGameData data)
+	{
+		string currentSceneName = SceneManager.GetActiveScene().name;
+		bool isMenuScene = currentSceneName.ToLower().Contains("menu");
+		bool isIntroScene = currentSceneName.ToLower().Contains("forestintro");
+		data.worldState.lastDirection = lastDirection;
+		if (!isMenuScene)
+        {
+			data.worldState.currentScene = isIntroScene ? "Forest1" : currentSceneName;
+		}
 	}
 }

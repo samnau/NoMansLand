@@ -6,75 +6,142 @@ public class BattleSpinner : BattleChallenge
 {
     Transform targetTransform;
     float rotationModifier = 1.0f;
-    public bool rotationActive = true;
+    public bool rotationActive = false;
     public float rotationSpeed = 400f;
     float defaultRotationSpeed;
-    int successCount = 0;
     public int successLimit = 3;
     [HideInInspector]
     public bool triggerValid = false;
     [SerializeField]
-    KeyCode triggerKey = KeyCode.D;
+    KeyCode triggerKey = KeyCode.Space;
     GameObject battleTrigger;
-    GameObject triggerWrapper;
+    [SerializeField] GameObject triggerWrapper;
     RotationTweener rotationTweener;
+    SpinnerIntroSequencer spinnerIntroSequencer;
+    public bool inputActive = false;
 
     void Start()
     {
         targetTransform = gameObject.transform;
-        battleTrigger = GameObject.FindGameObjectWithTag("BattleTrigger");
-        triggerWrapper =  battleTrigger.transform.parent.gameObject;
         rotationTweener = triggerWrapper.GetComponent<RotationTweener>();
+        spinnerIntroSequencer = gameObject.GetComponentInParent<SpinnerIntroSequencer>();
+
         defaultRotationSpeed = rotationSpeed;
-        StartCoroutine(Timeout());
+
+        for (int i = 0; i < triggerWrapper.transform.childCount; i++)
+        {
+            if (triggerWrapper.transform.GetChild(i).CompareTag("BattleTrigger"))
+            {
+                battleTrigger = triggerWrapper.transform.GetChild(i).gameObject;
+            }
+        }
+
+        FindBattleIndicators();
+
+        runeAnimationSoundFX = gameObject.GetComponentInParent<RuneAnimationSoundFX>();
+        defaultRotationSpeed = rotationSpeed;
     }
     bool IsKeyValid()
     {
-        return Input.GetKeyDown(KeyCode.D);
+        return Input.GetKeyDown(triggerKey);
     }
     public void ReverseRotation()
     {
         rotationModifier = rotationModifier * -1f;
     }
-    bool SuccessLimitReached()
+    public bool SuccessLimitReached()
     {
-        return successCount >= successLimit;
+        return hitCount >= successLimit;
+    }
+
+    void ResetSuccessHightlight()
+    {
+        GameObject targetHighlight = triggerWrapper.GetComponentInChildren<ScaleTweener>().gameObject;
+        ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
+        ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
+        GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
+        colorTweener?.SetImageAlpha(0);
+        scaleTweener?.SetUniformScale(1f);
+        glowTweener?.TriggerGlowByDuration(1f, 0);
+
+    }
+
+    IEnumerator TriggerSuccessHighlight()
+    {
+        float tweenDuration = .5f;
+        GameObject targetHighlight = triggerWrapper.GetComponentInChildren<ScaleTweener>().gameObject;
+        ScaleTweener scaleTweener = targetHighlight.GetComponent<ScaleTweener>();
+        ColorTweener colorTweener = targetHighlight.GetComponent<ColorTweener>();
+        GlowTweener glowTweener = targetHighlight.GetComponent<GlowTweener>();
+        colorTweener?.TriggerImageAlphaByDuration(1f, tweenDuration);
+        scaleTweener?.TriggerUniformScaleTween(1.5f, tweenDuration * 2);
+        glowTweener?.SetGlowColor(Color.yellow);
+        glowTweener?.TriggerGlowByDuration(5f, tweenDuration);
+        yield return new WaitForSeconds(tweenDuration*1);
+        ResetSuccessHightlight();
     }
 
     void RotateTriggerWrapper()
     {
+        // COMEBACK: find a way to ensure that the next rotation amount is not close to the last one
         float targetRotation = Random.Range(60f, 270f);
-        rotationTweener.TriggerRotation(targetRotation);
-//        triggerWrapper.transform.Rotate(0 , 0, targetRotation);
+        rotationTweener?.TriggerRotation(targetRotation);
+        float targetRuneRotation = battleTrigger.transform.rotation.z + (targetRotation * -1f);
+        triggerWrapper?.GetComponent<RotationTweener>().TriggerRotation(targetRuneRotation);
     }
+
+    protected override void RevealOrbitRing()
+    {
+        base.RevealOrbitRing();
+        int targetIndex = hitCount > 0 ? hitCount - 1 : 0;
+        if (targetIndex == 2)
+        {
+            spinnerIntroSequencer.winTrigger = true;
+        }
+    }
+
     void CheckForValidTrigger()
     {
-        if (triggerValid)
+        if(!inputActive)
         {
-            print($"success: {successCount}");
-
+            return;
+        }
+        if (triggerValid && !SuccessLimitReached() && inputActive)
+        {
+            hitCount++;
+            RotateTriggerWrapper();
+            ReverseRotation();
+            RevealOrbitRing();
+            StartCoroutine(TriggerSuccessHighlight());
+            rotationSpeed += 75f;
+            runeAnimationSoundFX.PlayHitSuccess();
             if (SuccessLimitReached())
             {
-                rotationActive = false;
-                battleTrigger.SetActive(false);
-                print("you win!!");
-            }
-            else
-            {
-                successCount++;
-                RotateTriggerWrapper();
-                ReverseRotation();
-                rotationSpeed += 75f;
+                rotationSpeed += 175f;
+                success = true;
             }
         }
         else
         {
-            rotationSpeed = defaultRotationSpeed;
-            successCount = 0;
-            print($"key fail!");
+            if(hitCount > 0)
+            {
+                HideOrbitRing(hitCount-1);
+                rotationSpeed -= 75f;
+                hitCount -= 1;
+            } else
+            {
+                HideOrbitRing(hitCount);
+            }
         }
+
     }
-    void SetRotation()
+
+    public void ResetRotationSpeed()
+    {
+        rotationSpeed = defaultRotationSpeed;
+    }
+
+    public void SetRotation()
     {
         if (!rotationActive)
         {
@@ -84,16 +151,30 @@ public class BattleSpinner : BattleChallenge
         transform.Rotate(0, 0, targetRotation);
     }
 
+    public void EnableRotation()
+    {
+        rotationActive = true;
+    }
+
+    public void DisableRotation()
+    {
+        rotationActive = false;
+    }
+
+    public void ToggleRotation()
+    {
+        rotationActive = !rotationActive;
+    }
+
     void Update()
     {
-        if(!success && !failure)
+        if(rotationActive)
         {
             SetRotation();
-            if (IsKeyValid())
-            {
-                CheckForValidTrigger();
-            }
         }
-
+        if (IsKeyValid() && !success && !failure)
+        {
+            CheckForValidTrigger();
+        }
     }
 }

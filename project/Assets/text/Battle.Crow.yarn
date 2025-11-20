@@ -33,7 +33,6 @@ I don't know about this...
 ===
 title: Win
 tags: 
-colorID: 0
 position: 263,417
 ---
 <<SetExpression surprise surprise>>
@@ -63,7 +62,7 @@ Hmm.
 <<SetExpression surprise annoyed>>
 So what do I do now?
 <<SetSpeakerName King's-Ghost>>
-Hold your staff aloft and conecntrate on your familiars.
+Hold your staff aloft and concentrate on your familiars.
 Both of them.
 <<SetSpeakerName Molly>>
 Ok.
@@ -71,8 +70,7 @@ Ok.
 
 title: Celebrate
 tags: 
-colorID: 0
-position: 68,259
+position: 19.000000953674316,300
 ---
 <<SetExpression surprise smile>>
 I did it!
@@ -110,4 +108,12 @@ Mr. Mysterious.
 How could I have forgotten about her?
 <<SetSpeakerName Molly>>
 ...
+<<TriggerEndScene>>
+===
+title: Tutorial
+tags: 
+position: -75.99999713897705,61
+---
+...
+<<TriggerEndTutorial>>
 ===

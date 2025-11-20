@@ -8,6 +8,7 @@ public class BattleComboAnnouncer : MonoBehaviour
 {
     BaseMonster baseMonster;
     BattleCombo currentCombo;
+    // REFACTOR: is there even a text element here anymore?
     TextMeshProUGUI comboText;
     [SerializeField] GameObject battleCommandWrapper;
     [SerializeField] GameObject battleCommandArrow;
@@ -65,7 +66,6 @@ public class BattleComboAnnouncer : MonoBehaviour
 
     void ToggleBattleCommand()
     {
-        print("ToggleCpommand");
         if(battleCommandWrapper)
         {
             SpriteRenderer[] commandRenderers = battleCommandWrapper.GetComponentsInChildren<SpriteRenderer>();

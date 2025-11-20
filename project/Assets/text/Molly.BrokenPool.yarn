@@ -10,6 +10,8 @@ You're pretty cute.
 Should I take you with me?
 ===
 title: BrokenSpire
+tags: 
+position: -276,-171
 ---
 <<SetSpeaker Molly idle smile>>
 This pool is pretty, but...
@@ -17,4 +19,102 @@ This pool is pretty, but...
 ...everything is so worn down.
 <<SetSpeaker Molly surprise annoyed>>
 I wish somone would tell me where I am.
+<<SetSpeakerName King's-Ghost>>
+This was one of my favorite spots in the kingdom.
+When I was alive, that is.
+I would sit and think, surrounded by the forest.
+The peace and tranqulity was exceptional.
+I have a strong feeling I met someone important in this very spot.
+<<SetSpeaker Molly idle smile>>
+<<SetSpeakerName Molly>>
+Interesting...
+<<SetSpeaker Molly idle smirk>>
+...but not very helpful.
+I'm guessing you have no idea who that was?
+<<SetSpeakerName King's-Ghost>>
+You would be correct.
+<<SetSpeaker Molly idle annoyed>>
+<<SetSpeakerName Molly>>
+Hmmm...
 ===
+title: Demo
+tags: 
+position: 115,-198
+---
+<<if $demo_played is null>>
+<<SetSpeaker Molly idle smile>>
+Ok, so here's my day so far.
+<<SetExpression idle annoyed>>
+Meena chased me home after school today.
+<<SetExpression surprise surprise>>
+I had to flee for my life!
+<<SetExpression surprise frown>>
+I was going so fast, I didn’t see the magic hole in the sidewalk.
+<<SetSpeaker Molly idle smirk>>
+Dumb mistake, right?
+<<SetExpression surprise annoyed>>
+Well, I fell in and landed in some kind of park, I think?
+<<SetSpeaker Molly idle annoyed>>
+Inside I found a dead guy, who I guess used to be a king or something?
+<<SetExpression surprise annoyed>>
+At first, I thought he was scary, but then he gave me a magic stick.
+<<SetSpeaker Molly idle smile>>
+And now I can summon magical animals.
+<<SetSpeaker Molly idle smirk>>
+Well, one magical animal. 
+A frog.
+I hope he's stronger than he looks.
+<<SetExpression surprise smile>>
+So technically, I'm a wizard now?
+<<SetExpression surprise annoyed>>
+Or is it a witch?
+I dunno.
+<<SetSpeaker Molly idle smile>>
+Make sense?
+<<SetSpeaker Molly idle smirk>>
+Yeah, I don’t get it either.
+<<SetExpression surprise frown>>
+I just want to go home!
+<<SetSpeaker Molly idle frown>>
+But apparently, that's not an option.
+So I'm stuck here looking for answers...
+...with only a memory-challlenged ghost to talk to.
+<<SetSpeakerName King's-Ghost>>
+I beg your pardon!
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle annoyed>>
+Hey, I'm not the one here who can't remember my own name.
+<<SetSpeaker Molly idle smirk>>
+No offense.
+<<SetSpeakerName King's-Ghost>>
+Hmph.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle smirk>>
+We've got to think of something better to call you than "King's Ghost".
+<<SetSpeakerName King's-Ghost>>
+That may be so, but let us please focus on the task at hand!
+<<SetSpeakerName Molly>>
+Geez, you talk funny.
+<<SetSpeaker Molly idle annoyed>>
+Fine.
+<<set $demo_played to 1>>
+<<SetSpeaker Molly idle smile>>
+Let's look around for these "unfamiliar" things then.
+I hear some strange noises coming from the east...
+<<endif>>
+===
+title: FrogDemo
+position: -269,202
+---
+<<SetSpeaker Molly idle smile>>
+Hello again, little froggy.
+Tell me again?
+How exactly are you going to scare away the big monsters, huh?
+<<SetSpeaker Molly idle smirk>>
+Not very talkative, are you?
+...
+<<SetSpeaker Molly idle annoyed>>
+I may be doomed.
+===
+
+

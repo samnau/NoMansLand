@@ -10,7 +10,7 @@ public class BaseMonster : BaseCreature
     public List<BattleCombo> counterCombos;
     List<KeyCode> pressedKeys = new List<KeyCode>();
     //List<string> attackTriggers = new List<string> { "ATTACK1", "ATTACK1", "ATTACK1" };
-    int counterComboIndex = 0;
+    //int counterComboIndex = 0;
     float comboInterval = .125f;
     int currentComboMatchCount = 0;
 

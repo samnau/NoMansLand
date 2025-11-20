@@ -27,9 +27,9 @@ public class DataPersistanceManager : MonoBehaviour
 
     private void Start()
     {
-        print(Application.persistentDataPath);
         this.dataHandler = new FileDataHandler(Application.persistentDataPath, fileName);
         this.dataPersistanceObjects = FindAllDataPersistanceObjects();
+        print($"number of data objects: {this.dataPersistanceObjects.Count()}");
         LoadGame();
     }
     List<IDataPersistance> FindAllDataPersistanceObjects()
@@ -46,15 +46,19 @@ public class DataPersistanceManager : MonoBehaviour
     public void LoadGame()
     {
         // TODO: Load saved data
-        this.gameData = dataHandler.Load();
+        this.gameData = dataHandler?.Load();
         if(this.gameData == null)
         {
             print("NO Data found. Starting with defaults");
             NewGame();
         }
-
+        if (this.dataPersistanceObjects == null || this.dataPersistanceObjects.Count == 0)
+        {
+            print("no save file found");
+            return;
+        }
         // TODO push loaded data to the system
-        foreach(IDataPersistance dataPersistanceObject in dataPersistanceObjects)
+        foreach (IDataPersistance dataPersistanceObject in dataPersistanceObjects)
         {
             dataPersistanceObject.LoadData(gameData);
         }
@@ -64,12 +68,17 @@ public class DataPersistanceManager : MonoBehaviour
 
     public void SaveGame()
     {
+        //NOTE: added due to error from menu start button - investigate further
+        if(this.dataPersistanceObjects == null || this.dataPersistanceObjects.Count == 0)
+        {
+            print("no save file found");
+            return;
+        }
         // passes data to save sripts
         // saves data to a file handler
         foreach (IDataPersistance dataPersistanceObject in dataPersistanceObjects)
         {
-            dataPersistanceObject.SaveData(ref gameData);
-            print($"Saved days passed {gameData.dayCount}");
+            dataPersistanceObject?.SaveData(ref gameData);
         }
         dataHandler.Save(gameData);
     }

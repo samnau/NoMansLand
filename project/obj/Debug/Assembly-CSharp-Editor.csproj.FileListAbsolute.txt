@@ -393,3 +393,5 @@ C:\Users\samgn\Desktop\GameDev\UnfamiliarLands\project\Temp\Bin\Debug\Unity.Inte
 C:\Users\samgn\repos\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.csproj.AssemblyReference.cache
 C:\Users\samgn\repos\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
 C:\Users\samgn\repos\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.dll
+C:\Users\Owner\OneDrive\Documents\GitHub\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.csproj.AssemblyReference.cache
+C:\Users\Owner\OneDrive\Documents\GitHub\NoMansLand\project\obj\Debug\Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache

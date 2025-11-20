@@ -11,7 +11,7 @@ public class EyeController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("eye start?");
+        //Debug.Log("eye start?");
         leftEyeBrowAnimator = leftEyeBrow.GetComponent<Animator>();
         rightEyeBrowAnimator = rightEyeBrow.GetComponent<Animator>();
     //    StartCoroutine("SurpriseDemo");
@@ -58,14 +58,14 @@ public class EyeController : MonoBehaviour
     }
     void TriggerSurprise()
     {
-        Debug.Log(leftEyeBrowAnimator);
+        //Debug.Log(leftEyeBrowAnimator);
         leftEyeBrowAnimator.SetBool("surprise", true);
         rightEyeBrowAnimator.SetBool("surprise", true);
     }
 
     void TriggerAnger()
     {
-        Debug.Log(leftEyeBrowAnimator);
+        //Debug.Log(leftEyeBrowAnimator);
         leftEyeBrowAnimator.SetBool("angryL", true);
         rightEyeBrowAnimator.SetBool("angryR", true);
     }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class BattleSpinnerButton : MonoBehaviour
 {
-    Button button;
+    //Button button;
     bool clickValid = false;
     bool keyValid = false;
     BattleSpinner battleSpiner;
