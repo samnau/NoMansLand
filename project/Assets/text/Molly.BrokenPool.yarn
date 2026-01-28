@@ -37,11 +37,10 @@ You would be correct.
 <<SetSpeakerName Molly>>
 Hmmm...
 ===
-title: Demo
+title: Demo1
 tags: 
 position: 115,-198
 ---
-<<if $demo_played is null>>
 <<SetSpeaker Molly idle smile>>
 Ok, so here's my day so far.
 <<SetExpression idle annoyed>>
@@ -101,7 +100,6 @@ Fine.
 <<SetSpeaker Molly idle smile>>
 Let's look around for these "unfamiliar" things then.
 I hear some strange noises coming from the east...
-<<endif>>
 ===
 title: FrogDemo
 position: -269,202

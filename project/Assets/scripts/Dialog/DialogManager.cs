@@ -5,25 +5,28 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using Yarn.Unity;
+using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField] Text text_dialog, text_speakerName;
+    [SerializeField] TextMeshProUGUI text_dialog, text_speakerName;
     GameObject dialogWrapper;
     GameObject player;
     Animator dialogWrapperAnimator;
     [SerializeField]
-    protected YarnProgram targetDialog;
+    protected YarnProject targetDialog;
     [SerializeField]
     public string targetText;
     protected DialogueRunner dialogueRunner;
-    protected DialogueUI dialogueUI;
+    //protected DialogueUI dialogueUI;
+    public DialogueAdvanceInput advanceInput;
+    protected LineView dialogLineView;
     InputStateTracker inputTracker;
     HeroMotionController motionController;
     bool dialogActive = false;
     AudioSource interactionPlayer;
     public UnityEvent CameraEvent = new UnityEvent();
-    [SerializeField] Text SpeakerText;
+    [SerializeField] TextMeshProUGUI SpeakerText;
     string defaultName = "Molly";
 
     [SerializeField] bool isCutScene = false;
@@ -40,22 +43,23 @@ public class DialogManager : MonoBehaviour
     public void Awake()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
-        dialogueRunner.AddCommandHandler(
+        advanceInput = FindAnyObjectByType<DialogueAdvanceInput>();
+        dialogueRunner.AddCommandHandler<string[]>(
          "PlayInteractionSound",
           PlayInteractionSound
         );
 
-        dialogueRunner.AddCommandHandler(
+        dialogueRunner.AddCommandHandler<string[]>(
          "SetSpeakerName",
           SetSpeakerName
         );
 
-        dialogueRunner.AddCommandHandler(
+        dialogueRunner.AddCommandHandler<string[]>(
          "TriggerEndTutorial",
           TriggerEndTutorial
         );
 
-        dialogueRunner.AddCommandHandler(
+        dialogueRunner.AddCommandHandler<string[]>(
          "TriggerEndScene",
           TriggerEndScene
         );
@@ -64,8 +68,9 @@ public class DialogManager : MonoBehaviour
     void Start()
     {
         //dialogueUI = FindObjectOfType<DialogueUI>();
-        dialogueUI = GetComponent<DialogueUI>();
-        dialogueRunner.Add(targetDialog);
+        //dialogueUI = GetComponent<DialogueUI>();
+        dialogLineView = GetComponent<LineView>();
+        dialogueRunner.SetProject(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -174,7 +179,12 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialogLine()
     {
-        dialogueUI.MarkLineComplete();
+        //dialogueUI.MarkLineComplete();
+        advanceInput.dialogueView.UserRequestedViewAdvancement();
+    }
+    void LineDismiss()
+    {
+        print("line dismissed");
     }
     // REFACTOR: This is progress demo code that could be abstracted into something more useful
     IEnumerator sceneTransition()
@@ -192,7 +202,8 @@ public class DialogManager : MonoBehaviour
     {
         dialogActive = false;
         dialogWrapperAnimator.SetBool("show", dialogActive);
-        dialogueRunner.ResetDialogue();
+        // Look at what the correct replacement is in this context
+        //dialogueRunner.ResetDialogue();
         //demo code only - REMOVE LATER
         if (targetText == "LeftEntranceDoor")
         {
@@ -217,7 +228,7 @@ public class DialogManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
         {
-            NextDialogLine();
+            //NextDialogLine();
         }
     }
 

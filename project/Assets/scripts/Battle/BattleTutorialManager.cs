@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class BattleTutorialManager : MonoBehaviour
 {
     [SerializeField]
     Animator dialogAnimator;
     [SerializeField]
-    Text dialogText;
+    TextMeshProUGUI dialogText;
     Color defaultTextColor;
     Color hiddenColor;
     [SerializeField]

@@ -1,4 +1,4 @@
-title: Wall
+title: Castle.Wall
 position: -323,-56
 ---
 <<SetSpeaker Molly surprise annoyed>>
@@ -8,7 +8,7 @@ And not a door in sight.
 <<SetSpeaker Molly idle smirk>>
 That gem looks pretty cool, though.
 ===
-title: Bike
+title: Castle.Bike
 position: -153,302
 ---
 <<SetSpeaker Molly surprise annoyed>>

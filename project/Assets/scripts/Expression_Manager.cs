@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Yarn.Unity;
+using TMPro;
 
 public class Expression_Manager : MonoBehaviour
 {
     DialogueRunner dialogueRunner;
     public ExpressionAnimationManager expressionAnimationManager;
 
-    public Text SpeakerText;
+    public TextMeshProUGUI SpeakerText;
     string defaultName = "Molly";
     string defaultExpression = "idle";
 
@@ -22,12 +23,12 @@ public class Expression_Manager : MonoBehaviour
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
 
-        dialogueRunner.AddCommandHandler(
+        dialogueRunner.AddCommandHandler<string[]>(
             "SetSpeaker",  
             UpdateSpeaker
         );
 
-        dialogueRunner.AddCommandHandler(
+        dialogueRunner.AddCommandHandler<string[]>(
             "SetExpression",
             SetExpression
         );
