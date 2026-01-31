@@ -13,6 +13,9 @@ public class DialogManager : MonoBehaviour
     GameObject dialogWrapper;
     GameObject player;
     Animator dialogWrapperAnimator;
+    // new animator reference
+    [SerializeField]
+    Animator dialogUiAnimator;
     [SerializeField]
     protected YarnProject targetDialog;
     [SerializeField]
@@ -30,6 +33,7 @@ public class DialogManager : MonoBehaviour
     string defaultName = "Molly";
 
     [SerializeField] bool isCutScene = false;
+    [SerializeField] bool autoStart = false;
     [SerializeField] GameEvent SceneEnd;
     [SerializeField] GameEvent TutorialEnd;
 
@@ -86,6 +90,14 @@ public class DialogManager : MonoBehaviour
         {
             currentSpeaker = dialogSpeakers[0];
         }
+        // THIS IS JUST DEGUGGING CODE BELOW
+        print("I am the start code for Dialog manager");
+        if(autoStart)
+        {
+            BeginDialog();
+        }
+        //BeginDialog();
+        //dialogWrapperAnimator.SetBool("show", true);
     }
 
     public void SetSpeakerName(string[] parameters)
@@ -137,6 +149,18 @@ public class DialogManager : MonoBehaviour
         interactionPlayer = targetSoundPlayer;
     }
 
+    IEnumerator TriggerTogglePlayerMotion()
+    {
+        yield return new WaitForSeconds(0.2f);
+        TogglePlayerMotion();
+    }
+
+    IEnumerator TriggerShowDialogAnimation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        dialogUiAnimator.SetBool("show", true);
+
+    }
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
     {
@@ -156,10 +180,16 @@ public class DialogManager : MonoBehaviour
     public void BeginDialog()
     {
         dialogActive = true;
+        //print($"I am at the begin dialog for Dialog Manager and this is dialogWrapper animator: {dialogWrapperAnimator}");
+        //dialogUiAnimator.SetBool("show", true);
+        StartCoroutine(TriggerShowDialogAnimation());
+
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
-        dialogWrapperAnimator.SetBool("show", dialogActive);
-        TogglePlayerMotion();
+        //dialogWrapperAnimator.SetBool("show", dialogActive);
+        StartCoroutine(TriggerTogglePlayerMotion());
+
+//        TogglePlayerMotion();
     }
 
     public void BeginTargetDialog(string dialogName)
