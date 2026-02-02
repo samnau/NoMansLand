@@ -23,12 +23,12 @@ public class Expression_Manager : MonoBehaviour
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
 
-        dialogueRunner.AddCommandHandler<string[]>(
+        dialogueRunner.AddCommandHandler<string, string, string>(
             "SetSpeaker",  
             UpdateSpeaker
         );
 
-        dialogueRunner.AddCommandHandler<string[]>(
+        dialogueRunner.AddCommandHandler<string, string>(
             "SetExpression",
             SetExpression
         );
@@ -45,25 +45,48 @@ public class Expression_Manager : MonoBehaviour
         SpeakerText.text = name;
     }
 
-    public void SetExpression(string[] parameters)
+    public void SetExpression(string eyeState, string mouthState)
     {
-        var speakerEyesState = parameters.Length > 0 ? parameters[0] : "idle";
-        var speakerMouthState = parameters.Length > 1 ? parameters[1] : "idle"; ;
+        var speakerEyesState = eyeState is null ? "idle" : eyeState;
+        var speakerMouthState = mouthState is null ? "idle" : mouthState;
 
         expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
     }
-    public void UpdateSpeaker(string[] parameters)
+    //public void SetExpression(string[] parameters)
+    //{
+    //    var speakerEyesState = parameters.Length > 0 ? parameters[0] : "idle";
+    //    var speakerMouthState = parameters.Length > 1 ? parameters[1] : "idle"; ;
+
+    //    expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
+    //}
+
+    public void UpdateSpeaker(string speakerName, string eyeState, string mouthState)
     {
-        if(parameters.Length <1)
+        if (speakerName is null )
         {
             SetSpeakerName(null);
             return;
         }
-      var speakerName = parameters[0];
-      var speakerEyesState = parameters.Length > 1 ? parameters[1] : "idle";
-      var speakerMouthState = parameters.Length > 2 ? parameters[2] : "idle"; ;
+        //var speakerName = parameters[0];
+        var speakerEyesState = eyeState is null ? "idle" : eyeState;
+        var speakerMouthState = mouthState is null ? "idle" : mouthState;
 
-      SetSpeakerName(speakerName);
-      expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
+        SetSpeakerName(speakerName);
+        expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
     }
+
+    //public void UpdateSpeaker(string[] parameters)
+    //{
+    //    if(parameters.Length <1)
+    //    {
+    //        SetSpeakerName(null);
+    //        return;
+    //    }
+    //  var speakerName = parameters[0];
+    //  var speakerEyesState = parameters.Length > 1 ? parameters[1] : "idle";
+    //  var speakerMouthState = parameters.Length > 2 ? parameters[2] : "idle"; ;
+
+    //  SetSpeakerName(speakerName);
+    //  expressionAnimationManager.ChangeExpression(speakerEyesState, speakerMouthState);
+    //}
 }

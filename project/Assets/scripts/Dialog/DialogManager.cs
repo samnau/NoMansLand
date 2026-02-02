@@ -48,22 +48,22 @@ public class DialogManager : MonoBehaviour
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
         advanceInput = FindAnyObjectByType<DialogueAdvanceInput>();
-        dialogueRunner.AddCommandHandler<string[]>(
+        dialogueRunner.AddCommandHandler(
          "PlayInteractionSound",
           PlayInteractionSound
         );
 
-        dialogueRunner.AddCommandHandler<string[]>(
+        dialogueRunner.AddCommandHandler<string>(
          "SetSpeakerName",
           SetSpeakerName
         );
 
-        dialogueRunner.AddCommandHandler<string[]>(
+        dialogueRunner.AddCommandHandler(
          "TriggerEndTutorial",
           TriggerEndTutorial
         );
 
-        dialogueRunner.AddCommandHandler<string[]>(
+        dialogueRunner.AddCommandHandler(
          "TriggerEndScene",
           TriggerEndScene
         );
@@ -100,9 +100,9 @@ public class DialogManager : MonoBehaviour
         //dialogWrapperAnimator.SetBool("show", true);
     }
 
-    public void SetSpeakerName(string[] parameters)
+    public void SetSpeakerName(string name)
     {
-        string name = parameters[0];
+        //string name = parameters[0];
         if (name == null)
         {
             SpeakerText.text = defaultName;
@@ -115,6 +115,22 @@ public class DialogManager : MonoBehaviour
         SpeakerText.text = name;
         SwapSpeakerPortraits();
     }
+
+    //public void SetSpeakerName(string[] parameters)
+    //{
+    //    string name = parameters[0];
+    //    if (name == null)
+    //    {
+    //        SpeakerText.text = defaultName;
+    //        return;
+    //    }
+    //    if (name.Contains("-"))
+    //    {
+    //        name = name.Replace("-", " ");
+    //    }
+    //    SpeakerText.text = name;
+    //    SwapSpeakerPortraits();
+    //}
 
     IEnumerator HideSpeaker(GameObject targetSpeaker)
     {
@@ -140,7 +156,7 @@ public class DialogManager : MonoBehaviour
         ShowSpeaker(nextSpeaker);
     }
 
-    public void PlayInteractionSound(string[] parameter)
+    public void PlayInteractionSound()
     {
         interactionPlayer?.Play();
     }
@@ -244,12 +260,12 @@ public class DialogManager : MonoBehaviour
         TogglePlayerMotion();
     }
 
-    void TriggerEndScene(string[] parameters)
+    void TriggerEndScene()
     {
         SceneEnd?.Invoke();
     }
 
-    void TriggerEndTutorial(string[] parameters)
+    void TriggerEndTutorial()
     {
         TutorialEnd?.Invoke();
     }
