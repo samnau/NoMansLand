@@ -4,11 +4,11 @@ colorID: 0
 position: 187,55
 ---
 <<SetSpeaker Molly idle annoyed>>
-I'm supposed to read this note...
+Molly: I'm supposed to read this note...
 <<SetSpeaker Molly surprise smile>>
-"300 followers! Thank you all for your support!"
+Molly: "300 followers! Thank you all for your support!"
 <<SetSpeaker Molly surprise frown>>
-Wait...followers?
+Molly: Wait...followers?
 <<SetSpeaker Molly surprise surprise>>
-Is there something behind me??
+Molly: Is there something behind me??
 ===
