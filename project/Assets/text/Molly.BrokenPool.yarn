@@ -120,5 +120,19 @@ Molly: ...
 <<SetSpeaker Molly idle annoyed>>
 Molly: I may be doomed.
 ===
-
+title: ForestTemple
+---
+<<SetSpeaker Molly idle annoyed>>
+Molly: What is this place anyway?
+<<SetSpeakerName King's-Ghost>>
+King's Ghost: I know it may not look like much, but this is all that remains of the forest temple.
+King's Ghost: People would gather here every year to pay their respects to To'leti.
+King's Ghost: And it would bless them with growth and prosperity.
+<<SetSpeakerName Molly>>
+<<SetSpeaker Molly idle annoyed>>
+Molly: You know all of that, but you can't remember what wrecked the place?
+<<SetSpeakerName King's-Ghost>>
+King's Ghost: Sadly, no...
+King's Ghost: Let's move on, shall we?
+===
 

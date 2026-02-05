@@ -100,19 +100,20 @@ public class DialogManager : MonoBehaviour
         //dialogWrapperAnimator.SetBool("show", true);
     }
 
+    // TODO: refactor this now that the name is part of the text file
     public void SetSpeakerName(string name)
     {
         //string name = parameters[0];
-        if (name == null)
-        {
-            SpeakerText.text = defaultName;
-            return;
-        }
-        if (name.Contains("-"))
-        {
-            name = name.Replace("-", " ");
-        }
-        SpeakerText.text = name;
+        //if (name == null)
+        //{
+        //    SpeakerText.text = defaultName;
+        //    return;
+        //}
+        //if (name.Contains("-"))
+        //{
+        //    name = name.Replace("-", " ");
+        //}
+        //SpeakerText.text = name;
         SwapSpeakerPortraits();
     }
 
