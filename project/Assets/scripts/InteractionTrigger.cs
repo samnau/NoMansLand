@@ -36,9 +36,6 @@ public class InteractionTrigger : MonoBehaviour
             {
                 dialogManager.CameraEvent.Invoke();
             }
-        } else if (Input.GetKeyDown(KeyCode.Space) && triggerActive && dialogActive)
-        {
-            dialogManager.NextDialogLine();
         }
     }
 

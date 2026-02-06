@@ -91,7 +91,6 @@ public class DialogManager : MonoBehaviour
             currentSpeaker = dialogSpeakers[0];
         }
         // THIS IS JUST DEGUGGING CODE BELOW
-        print("I am the start code for Dialog manager");
         if(autoStart)
         {
             BeginDialog();
@@ -228,6 +227,27 @@ public class DialogManager : MonoBehaviour
     {
         //dialogueUI.MarkLineComplete();
         advanceInput.dialogueView.UserRequestedViewAdvancement();
+    }
+
+    public void StartCutScene()
+    {
+        advanceInput.enabled = false;
+    }
+    public void TriggerAdvanceCutSceneDialog ()
+    {
+        StartCoroutine(AdvanceCutSceneDialog());
+    }
+    IEnumerator AdvanceCutSceneDialog()
+    {
+        advanceInput.enabled = true;
+        NextDialogLine();
+        yield return new WaitForSeconds(.1f);
+        advanceInput.enabled = false;
+    }
+
+    public void EndCutScene()
+    {
+        advanceInput.enabled = true;
     }
     void LineDismiss()
     {
