@@ -9,25 +9,25 @@ Molly: Is it dead?
 <<SetExpression surprise frown>>
 Molly: Ummm… I think it just moved.
 <<SetExpression surprise frown>>
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: It is an unfamiliar, to be certain. We must face it head on.
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Do I really have to fight this thing?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: Unfortunately, you must. Be brave, child.
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: And how exactly do I fight it?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: Unfamiliars may only be defeated by the appropriate familiar.
 <<SetExpression surprise frown>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: But all I have is this frog!
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: Then let us hope it is the familiar we need.
 <<SetExpression surprise annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: I don't know about this...
 
 ===
@@ -39,32 +39,32 @@ position: 263,417
 Molly: Wait...what??
 Molly: What just happened?
 <<SetExpression surprise annoyed>>
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: This is the true form of the forest familiar, To'leti.
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Tow-let-ee?
 Molly: But where did the monster go?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: The unfamiliar was To'leti.
 King's Ghost: It had been corrupted...by...
 King's Ghost: ...
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Corrupted?
 Molly: By what?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: ...
 King's Ghost: ...
 King's Ghost: For some reason I cannot remember.
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Hmm.
 Molly: ...
 <<SetExpression surprise annoyed>>
 Molly: So what do I do now?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: Hold your staff aloft and concentrate on your familiars.
 King's Ghost: Both of them.
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Ok.
 ===
 
@@ -75,38 +75,38 @@ position: 19.000000953674316,300
 <<SetExpression surprise smile>>
 Molly: I did it!
 <<SetExpression idle smile>>
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: I don't believe it...
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Well don't act too impressed.
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: Oh, no!
 King's Ghost: No.
 King's Ghost: That's not it.
 <<SetExpression surprise annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: What is it then?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: I suddenly remembered something.
 King's Ghost: Something...very important to me.
 <<SetExpression idle smile>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Well out with it, then.
 Molly: What did you remember?
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: My apologies. Another time, perhaps?
 King's Ghost: Let us return to the castle.
 King's Ghost: It will not be safe to stay out here after dark.
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Ummm..
 Molly: Okayyyy.
 Molly: If you say so.
 Molly: Mr. Mysterious.
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: How could I have forgotten about her?
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: ...
 <<TriggerEndScene>>
 ===

@@ -12,10 +12,10 @@ Molly: How is that possible?
 Molly: And how can I get past these stone things?
 <<SetSpeaker Molly surprise annoyed>>
 Molly: There's a weird keyhole-looking thing in one of them...
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: My apologies. I have misplaced the key somewhere.
 King's Ghost: 100 years ago.
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 <<SetSpeaker Molly idle frown>>
 Molly: You really are the worst, sometimes.
 ===
@@ -60,9 +60,9 @@ Molly: Good job!
 Molly: You beat the first unfamiliar.
 <<SetSpeaker Molly surprise annoyed>>
 Molly: That thing was pretty scary.
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: The hour is late, young lady. You will need rest for tomorrow's search.
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 <<SetSpeaker Molly idle annoyed>>
 Molly: Yeah, yeah, yeah.
 <<SetSpeaker Molly idle smirk>>
@@ -83,8 +83,8 @@ Molly: This door has seen better days....
 Molly: ...aaaaand it's locked.
 Molly: If only someone hadn't lost every single key in this place.
 Molly: Or at least could remember where he left them.
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: You truly are quite a churlish young lady, sometimes.
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 Molly: Sorry. It's just frustrating. You know?
 ===

@@ -24,10 +24,10 @@ position: 0,0
 Molly: Ya' know...
 <<SetExpression surprise frown>>
 Molly: I could just hide in the castle and NOT look for scary monster things.
-<<SetSpeakerName King's-Ghost>>
+<<SwapSpeakers>>
 King's Ghost: Dear child, I know that all of this feels a bit overwhelming.
 King's Ghost: If there were any other way, I would not ask this daunting task of you...
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 <<SetSpeaker Molly idle annoyed>>
 Molly: Sigh.
 Molly: I know, I know.

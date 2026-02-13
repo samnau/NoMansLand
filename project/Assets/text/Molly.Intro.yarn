@@ -7,9 +7,9 @@ Molly: I think...
 <<SetSpeaker Molly surprise annoyed>>
 Molly: I think I lost her...
 <<SetSpeaker Meena surprise frown>>
-<<SetSpeakerName Meena>>
+<<SwapSpeakers>>
 Meena: There you are, you little freak!
-<<SetSpeakerName Molly>>
+<<SwapSpeakers>>
 <<SetExpression surprise surprise>>
 Molly: Guess not!
 <<SetSpeaker Molly surprise frown>>
@@ -17,7 +17,7 @@ Molly: Gotta run!
 Molly: Hide!
 Molly: I need to disappear!
 <<SetSpeaker Meena surprise frown>>
-<<SetSpeakerName Meena>>
+<<SwapSpeakers>>
 Meena: Get back here!
 
 [[Molly.Intro2]]

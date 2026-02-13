@@ -12,7 +12,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI text_dialog, text_speakerName;
     GameObject dialogWrapper;
     GameObject player;
-    Animator dialogWrapperAnimator;
+   // Animator dialogWrapperAnimator;
     // new animator reference
     [SerializeField]
     Animator dialogUiAnimator;
@@ -53,9 +53,14 @@ public class DialogManager : MonoBehaviour
           PlayInteractionSound
         );
 
-        dialogueRunner.AddCommandHandler<string>(
+        dialogueRunner.AddCommandHandler(
          "SetSpeakerName",
           SetSpeakerName
+        );
+
+        dialogueRunner.AddCommandHandler(
+         "SwapSpeakers",
+          TriggerSpeakerSwap
         );
 
         dialogueRunner.AddCommandHandler(
@@ -71,12 +76,10 @@ public class DialogManager : MonoBehaviour
     }
     void Start()
     {
-        //dialogueUI = FindObjectOfType<DialogueUI>();
-        //dialogueUI = GetComponent<DialogueUI>();
         dialogLineView = GetComponent<LineView>();
         dialogueRunner.SetProject(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
-        dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
+       // dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         
         inputTracker = player.GetComponent<InputStateTracker>();
@@ -90,17 +93,20 @@ public class DialogManager : MonoBehaviour
         {
             currentSpeaker = dialogSpeakers[0];
         }
-        // THIS IS JUST DEGUGGING CODE BELOW
+
         if(autoStart)
         {
             BeginDialog();
         }
-        //BeginDialog();
-        //dialogWrapperAnimator.SetBool("show", true);
     }
 
+    public void TriggerSpeakerSwap()
+    {
+        // This method has parameter defaults, but the command handler doesn't allow me to omit them, so I am calling this proxy method wrapper
+        SwapSpeakerPortraits();
+    }
     // TODO: refactor this now that the name is part of the text file
-    public void SetSpeakerName(string name)
+    public void SetSpeakerName()
     {
         //string name = parameters[0];
         //if (name == null)
@@ -115,22 +121,6 @@ public class DialogManager : MonoBehaviour
         //SpeakerText.text = name;
         SwapSpeakerPortraits();
     }
-
-    //public void SetSpeakerName(string[] parameters)
-    //{
-    //    string name = parameters[0];
-    //    if (name == null)
-    //    {
-    //        SpeakerText.text = defaultName;
-    //        return;
-    //    }
-    //    if (name.Contains("-"))
-    //    {
-    //        name = name.Replace("-", " ");
-    //    }
-    //    SpeakerText.text = name;
-    //    SwapSpeakerPortraits();
-    //}
 
     IEnumerator HideSpeaker(GameObject targetSpeaker)
     {
@@ -196,25 +186,19 @@ public class DialogManager : MonoBehaviour
     public void BeginDialog()
     {
         dialogActive = true;
-        //print($"I am at the begin dialog for Dialog Manager and this is dialogWrapper animator: {dialogWrapperAnimator}");
-        //dialogUiAnimator.SetBool("show", true);
         StartCoroutine(TriggerShowDialogAnimation());
 
         dialogueRunner.startNode = targetText;
         dialogueRunner.StartDialogue(targetText);
-        //dialogWrapperAnimator.SetBool("show", dialogActive);
         StartCoroutine(TriggerTogglePlayerMotion());
-
-//        TogglePlayerMotion();
     }
 
     public void BeginTargetDialog(string dialogName)
     {
-        print($"begin target dialog {dialogName}");
         dialogActive = true;
         dialogueRunner.startNode = dialogName;
         dialogueRunner.StartDialogue(dialogName);
-        dialogWrapperAnimator.SetBool("show", dialogActive);
+        dialogUiAnimator.SetBool("show", dialogActive);
         TogglePlayerMotion();
     }
 
@@ -225,7 +209,6 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialogLine()
     {
-        //dialogueUI.MarkLineComplete();
         advanceInput.dialogueView.UserRequestedViewAdvancement();
     }
 
@@ -268,15 +251,17 @@ public class DialogManager : MonoBehaviour
     public void EndDialog()
     {
         dialogActive = false;
-        dialogWrapperAnimator.SetBool("show", dialogActive);
-        // Look at what the correct replacement is in this context
-        //dialogueRunner.ResetDialogue();
+        dialogUiAnimator.SetBool("show", dialogActive);
         //demo code only - REMOVE LATER
         if (targetText == "LeftEntranceDoor")
         {
             GameObject.Find("MusicPlayer").SetActive(false);
             SceneManager.LoadScene("BattleDemoMenu");
             //StartCoroutine("sceneTransition");
+        }
+        if(currentSpeaker == dialogSpeakers[1])
+        {
+            SwapSpeakerPortraits();
         }
         TogglePlayerMotion();
     }
@@ -291,12 +276,12 @@ public class DialogManager : MonoBehaviour
         TutorialEnd?.Invoke();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
-        {
-            //NextDialogLine();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
+    //    {
+    //        //NextDialogLine();
+    //    }
+    //}
 
 }
