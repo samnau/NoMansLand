@@ -1,22 +1,22 @@
-title: Molly.Intro1
+﻿title: Molly.Intro1
 tags: 
 position: 237,133
 ---
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: I think...
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: I think I lost her...
-<<SetSpeaker Meena surprise frown>>
+<<SetExpression surprise frown>>
 <<SwapSpeakers>>
 Meena: There you are, you little freak!
 <<SwapSpeakers>>
 <<SetExpression surprise surprise>>
 Molly: Guess not!
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: Gotta run!
 Molly: Hide!
 Molly: I need to disappear!
-<<SetSpeaker Meena surprise frown>>
+<<SetExpression surprise frown>>
 <<SwapSpeakers>>
 Meena: Get back here!
 
@@ -26,17 +26,17 @@ title: Molly.Intro2
 tags: 
 position: 263,415
 ---
-<<SetSpeaker Molly idle frown>>
+<<SetExpression idle frown>>
 Molly: Owwww....
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: What just happened?
 Molly: Did I trip?
 Molly: No, wait, did I...
 Molly: ...fall?
 Molly: Where am I?
-<<SetSpeaker Molly idle frown>>
+<<SetExpression idle frown>>
 Molly: Is this the park? I've never seen this part.
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: I don't understand.
 ===
 title: Molly.Intro3
@@ -59,24 +59,20 @@ Molly: What just happened?
 Molly: Am I still in the park?
 
 
-<<SetSpeaker Molly surprise smirk>>
+<<SetExpression surprise smirk>>
 Molly: Man, time flies when you're at the library!
-<<SetSpeaker Molly idle smile>>
+<<SetExpression idle smile>>
 Molly: (A frog hops onto the sidewalk)
-<<SetSpeaker Molly surprise smile>>
+<<SetExpression surprise smile>>
 Molly: Oh, hello there, little froggy.
-<<SetSpeaker Molly idle frown>>
+<<SetExpression idle frown>>
 Molly: Are you having a bad day too?
-<<SetSpeaker Molly idle smirk>>
+<<SetExpression idle smirk>>
 Molly: Or are you just looking for a friend?
 Molly: (A voice calls out from behind Molly)
-<<SetSpeaker Meena surprise frown>>
+<<SetExpression surprise frown>>
 Meena: There you are, you little freak!
-<<SetSpeaker Molly surprise surprise>>
+<<SetExpression surprise surprise>>
 Molly: Oh, no, Meena!!
 ===
-title: Fall
-tags: 
----
 
-===

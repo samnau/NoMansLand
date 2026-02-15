@@ -1,17 +1,17 @@
-title: Castle.Wall
+﻿title: Castle.Wall
 position: -323,-56
 ---
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: This wall goes on forever!
-<<SetSpeaker Molly idle frown>>
+<<SetExpression idle frown>>
 Molly: And not a door in sight.
-<<SetSpeaker Molly idle smirk>>
+<<SetExpression idle smirk>>
 Molly: That gem looks pretty cool, though.
 ===
 title: Castle.Bike
 position: -153,302
 ---
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: Um, what?
 Molly: Why is this here?
 Molly: And why is it buried in the grass?
@@ -20,7 +20,7 @@ Molly: I don't understand...
 title: WallDemo
 position: 0,0
 ---
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: Ya' know...
 <<SetExpression surprise frown>>
 Molly: I could just hide in the castle and NOT look for scary monster things.
@@ -28,7 +28,7 @@ Molly: I could just hide in the castle and NOT look for scary monster things.
 King's Ghost: Dear child, I know that all of this feels a bit overwhelming.
 King's Ghost: If there were any other way, I would not ask this daunting task of you...
 <<SwapSpeakers>>
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: Sigh.
 Molly: I know, I know.
 <<SetExpression surprise frown>>
@@ -41,9 +41,9 @@ title: BikeDemo
 tags: 
 position: -47.999996185302734,-253.99998474121094
 ---
-<<SetSpeaker Molly surprise smile>>
+<<SetExpression surprise smile>>
 Molly: Oh! Remember when I used this bike to solve that puzzle?
 Molly: And that's what got me into the castle?
-<<SetSpeaker Molly surprise smirk>>
+<<SetExpression surprise smirk>>
 Molly: That was pretty cool.
 ===

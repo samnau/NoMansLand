@@ -54,11 +54,6 @@ public class DialogManager : MonoBehaviour
         );
 
         dialogueRunner.AddCommandHandler(
-         "SetSpeakerName",
-          SetSpeakerName
-        );
-
-        dialogueRunner.AddCommandHandler(
          "SwapSpeakers",
           TriggerSpeakerSwap
         );
@@ -103,22 +98,6 @@ public class DialogManager : MonoBehaviour
     public void TriggerSpeakerSwap()
     {
         // This method has parameter defaults, but the command handler doesn't allow me to omit them, so I am calling this proxy method wrapper
-        SwapSpeakerPortraits();
-    }
-    // TODO: refactor this now that the name is part of the text file
-    public void SetSpeakerName()
-    {
-        //string name = parameters[0];
-        //if (name == null)
-        //{
-        //    SpeakerText.text = defaultName;
-        //    return;
-        //}
-        //if (name.Contains("-"))
-        //{
-        //    name = name.Replace("-", " ");
-        //}
-        //SpeakerText.text = name;
         SwapSpeakerPortraits();
     }
 
@@ -275,13 +254,5 @@ public class DialogManager : MonoBehaviour
     {
         TutorialEnd?.Invoke();
     }
-
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
-    //    {
-    //        //NextDialogLine();
-    //    }
-    //}
 
 }

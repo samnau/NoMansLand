@@ -1,23 +1,23 @@
-title: Gate
+﻿title: Gate
 tags: 
 position: -209,-186
 ---
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: Wow. That is the biggest tree I've ever seen!
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: Wait...are those steps floating?
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: How is that possible?
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: Well I can't even check them out because these stone things are in the way.
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: There's a weird keyhole-looking thing in one of them...
 ===
 title: DoorLeft
 position: 0,1
 ---
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: Wow. Something was really mad at this door.
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: Do I really want to go inside?
 ===

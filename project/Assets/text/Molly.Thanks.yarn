@@ -1,14 +1,14 @@
-title: Thanks
+﻿title: Thanks
 tags: 
 colorID: 0
 position: 187,55
 ---
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: I'm supposed to read this note...
-<<SetSpeaker Molly surprise smile>>
+<<SetExpression surprise smile>>
 Molly: "300 followers! Thank you all for your support!"
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: Wait...followers?
-<<SetSpeaker Molly surprise surprise>>
+<<SetExpression surprise surprise>>
 Molly: Is there something behind me??
 ===

@@ -1,10 +1,10 @@
-title: CrookedForestStopSign
+﻿title: CrookedForestStopSign
 position: -73,-86
 ---
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: Why is this even here?
-<<SetSpeaker Molly idle frown>>
+<<SetExpression idle frown>>
 Molly: In the middle of nothing?
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: Weeeeeird.
 ===

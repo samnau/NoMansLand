@@ -1,8 +1,8 @@
-title: Mushroom
+﻿title: Mushroom
 ---
-<<SetSpeaker Molly idle smile>>
+<<SetExpression idle smile>>
 Molly: Glad I'm not hungry.
-<<SetSpeaker Molly idle smirk>>
+<<SetExpression idle smirk>>
 Molly: Because this definitely isn't edible.
 Molly: It just screams, "posion".
 ===
@@ -11,28 +11,28 @@ tags:
 position: -314,193
 ---
 Molly: This is where is all started...
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: When I landed here, this rock almost killed me!
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: But I'm on to you now, rock!
-<<SetSpeaker Molly idle smirk>>
+<<SetExpression idle smirk>>
 Molly: You won't get me next time.
 ===
 title: ForestIntro
 tags: 
 position: -311.99998664855957,-44
 ---
-<<SetSpeaker Molly idle frown>>
+<<SetExpression idle frown>>
 Molly: Owwww....
-<<SetSpeaker Molly idle annoyed>>
+<<SetExpression idle annoyed>>
 Molly: What just happened?
 Molly: Did I trip?
 Molly: No, wait, did I...
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: ...fall?
 Molly: Where am I?
-<<SetSpeaker Molly surprise frown>>
+<<SetExpression surprise frown>>
 Molly: Is this the park? I've never seen this part.
-<<SetSpeaker Molly surprise annoyed>>
+<<SetExpression surprise annoyed>>
 Molly: I don't understand.
 ===
