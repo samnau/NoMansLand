@@ -30,7 +30,7 @@ public class DialogManager : MonoBehaviour
     AudioSource interactionPlayer;
     public UnityEvent CameraEvent = new UnityEvent();
 //    [SerializeField] TextMeshProUGUI SpeakerText;
-    string defaultName = "Molly";
+  //  string defaultName = "Molly";
 
     [SerializeField] bool isCutScene = false;
     [SerializeField] bool autoStart = false;
@@ -163,6 +163,13 @@ public class DialogManager : MonoBehaviour
     {
         inputTracker.enabled = false;
         motionController.enabled = false;
+    }
+
+    public void FlipPlayerDirection()
+    {
+        Transform playerTransform = player.transform;
+        Vector3 playerScale = playerTransform.localScale;
+        playerTransform.localScale = new Vector3(playerScale.x * -1, playerScale.y, playerScale.z);
     }
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
