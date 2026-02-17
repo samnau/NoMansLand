@@ -29,7 +29,7 @@ public class DialogManager : MonoBehaviour
     bool dialogActive = false;
     AudioSource interactionPlayer;
     public UnityEvent CameraEvent = new UnityEvent();
-    [SerializeField] TextMeshProUGUI SpeakerText;
+//    [SerializeField] TextMeshProUGUI SpeakerText;
     string defaultName = "Molly";
 
     [SerializeField] bool isCutScene = false;
@@ -93,12 +93,26 @@ public class DialogManager : MonoBehaviour
         {
             BeginDialog();
         }
+        if(isCutScene)
+        {
+            advanceInput.enabled = false;
+        }
     }
 
     public void TriggerSpeakerSwap()
     {
         // This method has parameter defaults, but the command handler doesn't allow me to omit them, so I am calling this proxy method wrapper
         SwapSpeakerPortraits();
+    }
+
+    public void HideDialogUI()
+    {
+        dialogUiAnimator.SetBool("show", false);
+    }
+
+    public void ShowDialogUI()
+    {
+        dialogUiAnimator.SetBool("show", true);
     }
 
     IEnumerator HideSpeaker(GameObject targetSpeaker)
@@ -144,7 +158,11 @@ public class DialogManager : MonoBehaviour
     {
         yield return new WaitForSeconds(0.2f);
         dialogUiAnimator.SetBool("show", true);
-
+    }
+    public void DisablePlayerMotion()
+    {
+        inputTracker.enabled = false;
+        motionController.enabled = false;
     }
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
@@ -211,10 +229,7 @@ public class DialogManager : MonoBehaviour
     {
         advanceInput.enabled = true;
     }
-    void LineDismiss()
-    {
-        print("line dismissed");
-    }
+
     // REFACTOR: This is progress demo code that could be abstracted into something more useful
     IEnumerator sceneTransition()
     {
