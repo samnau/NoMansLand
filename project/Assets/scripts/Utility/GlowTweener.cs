@@ -106,10 +106,21 @@ public class GlowTweener : BaseTweener
 
         StartCoroutine(SetGlow());
     }
+    public void TriggerGlowTweenStatic()
+    {
+        progress = 0;
+
+        StartCoroutine(SetGlow());
+    }
 
     public void TriggerGlowByDuration([Optional] float targetGlow, [Optional] float duration)
     {
         StartCoroutine(SetGlowByDuration(targetGlow, duration));
+    }
+
+    public void TriggerGlowByDurationStatic(float duration)
+    {
+        StartCoroutine(SetGlowByDuration(targetIntensity, duration));
     }
 
     private void OnDestroy()

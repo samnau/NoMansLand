@@ -143,8 +143,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3980
-      y: 3168
+      x: 8132
+      y: 1996
       width: 18
       height: 447
     spriteID: c0d36eed5007e834baaa0f6d8c6b4d02
@@ -157,7 +157,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 3968, y: 2342}
+    uvTransform: {x: 8120, y: 1170}
   - name: throne left arm
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -165,8 +165,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3500
-      y: 3850
+      x: 7837
+      y: 2535
       width: 339
       height: 173
     spriteID: 4d899f97a19199a48bf0a4abf22426ad
@@ -179,18 +179,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 3454, y: 3073}
+    uvTransform: {x: 7791, y: 1758}
   - name: king skeleton head
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.6934989, y: 0.027777499}
+    alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1824
-      y: 2412
+      x: 7837
+      y: 1996
       width: 287
-      height: 760
+      height: 535
     spriteID: 4f012cf4424b60d4998f798de472351e
     internalID: 0
     spriteBone: []
@@ -201,7 +201,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1718, y: 1541}
+    uvTransform: {x: 7731, y: 896}
   - name: king skeleton - hand crack
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -231,7 +231,7 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 3847
+      x: 3500
       y: 3850
       width: 32
       height: 96
@@ -245,7 +245,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 3710, y: 2294}
+    uvTransform: {x: 3363, y: 2294}
   - name: king skeleton - sitting shadow
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -253,8 +253,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 1470
-      y: 3253
+      x: 1824
+      y: 2412
       width: 182
       height: 760
     spriteID: 9ef32562e4c07424da278d6e6a0a5604
@@ -267,7 +267,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1367, y: 2399}
+    uvTransform: {x: 1721, y: 1558}
   - name: throne cushions - back
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -556,14 +556,14 @@ ScriptedImporter:
     parentIndex: 2
     spriteID: c0d36eed5007e834baaa0f6d8c6b4d02
     layerID: 50
-    mosaicPosition: {x: 3980, y: 3168}
+    mosaicPosition: {x: 8132, y: 1996}
   - name: throne left arm
     spriteName: throne left arm
     isGroup: 0
     parentIndex: 2
     spriteID: 4d899f97a19199a48bf0a4abf22426ad
     layerID: 308
-    mosaicPosition: {x: 3500, y: 3850}
+    mosaicPosition: {x: 7837, y: 2535}
   - name: king skeleton
     spriteName: 
     isGroup: 1
@@ -577,7 +577,7 @@ ScriptedImporter:
     parentIndex: 5
     spriteID: 4f012cf4424b60d4998f798de472351e
     layerID: 12
-    mosaicPosition: {x: 1824, y: 2412}
+    mosaicPosition: {x: 7837, y: 1996}
   - name: king skeleton - hand crack
     spriteName: king skeleton - hand crack
     isGroup: 0
@@ -591,14 +591,14 @@ ScriptedImporter:
     parentIndex: 2
     spriteID: d8391908af61d6e4ab1c9fbf6d3649eb
     layerID: 51
-    mosaicPosition: {x: 3847, y: 3850}
+    mosaicPosition: {x: 3500, y: 3850}
   - name: king skeleton - sitting shadow
     spriteName: king skeleton - sitting shadow
     isGroup: 0
     parentIndex: 2
     spriteID: 9ef32562e4c07424da278d6e6a0a5604
     layerID: 48
-    mosaicPosition: {x: 1470, y: 3253}
+    mosaicPosition: {x: 1824, y: 2412}
   - name: throne cushions - back
     spriteName: throne cushions - back
     isGroup: 0
