@@ -11,13 +11,14 @@ Molly: Wait, wha?
 Molly: What just happened??
 <<SwapSpeakers>>
 King's Ghost: I was just about to ask you the very same thing.
-King's Ghost: How in the world did you get your hands on the Gardia, young lady?
+King's Ghost: How in the world did you get your hands on the Æthelgard, young lady?
 <<SwapSpeakers>>
 <<SetExpression surprise surprise>>
 Molly: EEEEK! A ghost!!
 <<SwapSpeakers>>
 King's Ghost: Fear not, my child. I mean you no harm.
 <<SwapSpeakers>>
+<<SetExpression surprise frown>>
 Molly: Aaaaaaagh!
 <<SwapSpeakers>>
 King's Ghost: Sigh...
@@ -49,7 +50,7 @@ King's Ghost: Absolutely not. Why would I want to hurt you?
 Molly: Isn't that what ghosts do? Try to haunt people and scare them to death?
 King's Ghost: I assure you that far from my intentions. Perhaps it would be prudent if we dispensed with introductions first?
 Molly: Sure... I guess.
-King's Ghost: I am the king of Aethelgard, 20th of my line. Protector of all and ruler of the land. You may call me his Royal Majesty King... king... err...
+King's Ghost: I am the king of Æthelgardia, 20th of my line. Protector of all and ruler of the land. You may call me his Royal Majesty King... king... err...
 Molly: King, what?
 King's Ghost: Oh my. I seem to have forgotten my own name. How puzzling!
 Molly: Well what should I call you then? King's Ghost:? 
