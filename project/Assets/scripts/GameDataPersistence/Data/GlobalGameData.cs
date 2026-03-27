@@ -55,6 +55,7 @@ public class GlobalGameData
         public string description;
         public bool active;
         public bool collected;
+        public bool used;
     }
 
     [System.Serializable]
@@ -126,7 +127,8 @@ public class GlobalGameData
                     name = "Castle Stairs Gate Key",
                     description = "A key that unlocks the gate to the floating stairs in the castle.",
                     active = false,
-                    collected = false
+                    collected = false,
+                    used = false
                 },
                 new InventoryItem
                 {
@@ -134,7 +136,8 @@ public class GlobalGameData
                     name = "Mysterious Green Gem",
                     description = "A green gem found in the forest",
                     active = false,
-                    collected = false
+                    collected = false,
+                    used = false
                 },
                 new InventoryItem
                 {
@@ -142,7 +145,8 @@ public class GlobalGameData
                     name = "Mysterious Blue Gem",
                     description = "A blue gem found in the forest",
                     active =  false,
-                    collected = false
+                    collected = false,
+                    used = false
                 },
                 new InventoryItem
                 {
@@ -150,7 +154,17 @@ public class GlobalGameData
                     name = "Bike Reflector",
                     description = "Just a regular red bike reflector",
                     active =  false,
-                    collected = false
+                    collected = true,
+                    used = false
+                },
+                new InventoryItem
+                {
+                    id = "lemon",
+                    name = "Lemon",
+                    description = "A lemon I picked from a tree. That's it.",
+                    active =  false,
+                    collected = false,
+                    used = false
                 },
                 new InventoryItem
                 {
@@ -158,7 +172,8 @@ public class GlobalGameData
                     name = "My key",
                     description = "Just a fancy looking key I've always had. I guess it's a lot more than that?",
                     active =  true,
-                    collected = false
+                    collected = true,
+                    used = false
                 }
            },
             familiars = new List<Familiar>

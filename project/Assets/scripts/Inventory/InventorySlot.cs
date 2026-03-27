@@ -16,7 +16,7 @@ public class InventorySlot : MonoBehaviour
         stackSizeText.enabled = false;
     }
 
-    public void DrawSlot(InventoryItem item)
+    public void DrawSlot(RuntimeInventoryItem item)
     {
         if(item == null)
         {

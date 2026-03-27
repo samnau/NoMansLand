@@ -61,6 +61,7 @@
     <Compile Include="Assets\scripts\GameDataPersistence\GlobalDataPersistenceManager.cs" />
     <Compile Include="Assets\scripts\TextImporter.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationConstraint.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryState.cs" />
     <Compile Include="Assets\scripts\Creatures\CrowFamiliarController.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveableEntity.cs" />
     <Compile Include="Assets\scripts\Battle\ChargeBar\ChargeBarController.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
     <Compile Include="Assets\scripts\Characters\GhostKingBlinker.cs" />
     <Compile Include="Assets\scripts\Inventory\Gem.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalFamiliarEntryView.cs" />
     <Compile Include="Assets\scripts\Objects\SpellRingSoundFX.cs" />
     <Compile Include="Assets\scripts\LegIdleController.cs" />
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\scripts\EyeBlinkController.cs" />
     <Compile Include="Assets\scripts\Dialog\SceneDialogController.cs" />
     <Compile Include="Assets\scripts\ExpressionAnimationManager.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryVisualDatabase.cs" />
     <Compile Include="Assets\scripts\MotionController3.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\TableCodeGen.cs" />
     <Compile Include="Assets\scripts\EyeController.cs" />
@@ -158,6 +161,7 @@
     <Compile Include="Assets\scripts\Utility\EyeBlinker.cs" />
     <Compile Include="Assets\scripts\monster_action_manager.cs" />
     <Compile Include="Assets\scripts\UI\PauseMenuController.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryManager.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFrontNode.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Util\PointGenerator.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2d_AnimatorController.cs" />
@@ -214,6 +218,7 @@
     <Compile Include="Assets\scripts\Battle\BaseFamiliar.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonPoint.cs" />
     <Compile Include="Assets\scripts\Inventory\Collector.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryItemEntryView.cs" />
     <Compile Include="Assets\scripts\Player\SpellManager.cs" />
     <Compile Include="Assets\scripts\PositionMarker.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationContext.cs" />

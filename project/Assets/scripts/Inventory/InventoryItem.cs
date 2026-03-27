@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
-public class InventoryItem
+public class RuntimeInventoryItem
 {
     public ItemData itemData;
     public int stackSize = 0;
 
-    public InventoryItem(ItemData item)
+    public RuntimeInventoryItem(ItemData item)
     {
         itemData = item;
         IncreaseStack();

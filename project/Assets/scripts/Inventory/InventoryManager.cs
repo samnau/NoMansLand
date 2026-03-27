@@ -7,7 +7,7 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventorySlot;
     static int inventoryMax = 21;
     public List<InventorySlot> inventorySlots = new List<InventorySlot>(inventoryMax);
-    public List<InventoryItem> defaultInventory = new List<InventoryItem>(inventoryMax);
+    public List<RuntimeInventoryItem> defaultInventory = new List<RuntimeInventoryItem>(inventoryMax);
 
     private void OnEnable()
     {
@@ -26,7 +26,7 @@ public class InventoryManager : MonoBehaviour
         }
         inventorySlots = new List<InventorySlot>(19);
     }
-    void DrawInventory(List<InventoryItem> inventory)
+    void DrawInventory(List<RuntimeInventoryItem> inventory)
     {
         ResetInventory();
         for(int i = 0; i < inventorySlots.Capacity; i++)
