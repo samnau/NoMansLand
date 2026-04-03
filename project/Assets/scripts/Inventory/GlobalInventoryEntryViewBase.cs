@@ -77,6 +77,17 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
         HideTooltip();
     }
 
+    void SetToolTipPosition()
+    {
+        if (sharedTooltipPanel == null)
+            return;
+
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Camera.main.nearClipPlane; // Use a fixed depth
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        sharedTooltipPanel.transform.position = worldPosition;
+    }
+
     protected virtual void ShowTooltip()
     {
         if (sharedTooltipPanel == null || sharedNameText == null || sharedDescriptionText == null)
@@ -85,12 +96,17 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
         // Set content
         sharedNameText.text = boundName;
         sharedDescriptionText.text = boundDescription;
-        Vector3 mousePosition = Input.mousePosition;
-        mousePosition.z = Camera.main.nearClipPlane; // Use a fixed depth
-        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        sharedTooltipPanel.transform.position = worldPosition;
+        SetToolTipPosition();
 
         sharedTooltipPanel.SetActive(true);
+    }
+
+    protected virtual void Update()
+    {
+        if (sharedTooltipPanel != null && sharedTooltipPanel.activeSelf)
+        {
+            SetToolTipPosition();
+        }
     }
 
     protected virtual void HideTooltip()
