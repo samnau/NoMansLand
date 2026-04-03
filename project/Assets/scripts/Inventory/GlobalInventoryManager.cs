@@ -18,16 +18,11 @@ public class GlobalInventoryManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if (inventoryState == null)
-        {
-            inventoryState = FindFirstObjectByType<GlobalInventoryState>();
-        }
-
         if (inventoryState != null)
         {
             inventoryState.InventoryChanged += RedrawAll;
+            // Don't subscribe to OnActiveChanged to avoid redrawing on toggle changes
         }
-
         RedrawAll();
     }
 
@@ -38,6 +33,7 @@ public class GlobalInventoryManager : MonoBehaviour
             inventoryState.InventoryChanged -= RedrawAll;
         }
 
+        // Save game when inventory UI is closed
         if (GlobalDataPersistenceManager.instance != null)
         {
             GlobalDataPersistenceManager.instance.SaveGame();
@@ -46,12 +42,14 @@ public class GlobalInventoryManager : MonoBehaviour
 
     private void RedrawAll()
     {
+        Debug.Log("RedrawAll called");
         RedrawItems();
         RedrawFamiliars();
     }
 
     private void RedrawItems()
     {
+        Debug.Log($"RedrawItems called, clearing {itemsPanel.childCount} children");
         if (itemsPanel == null)
         {
             return;
@@ -81,6 +79,7 @@ public class GlobalInventoryManager : MonoBehaviour
 
     private void RedrawFamiliars()
     {
+        Debug.Log($"RedrawFamiliars called, clearing {familiarsPanel.childCount} children");
         if (familiarsPanel == null)
         {
             return;

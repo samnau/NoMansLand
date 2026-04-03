@@ -2,27 +2,15 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GlobalFamiliarEntryView : MonoBehaviour
+public class GlobalFamiliarEntryView : GlobalInventoryEntryViewBase
 {
-    [SerializeField] private Image iconImage;
-    [SerializeField] private TextMeshProUGUI nameText;
-    [SerializeField] private TextMeshProUGUI descriptionText;
-    [SerializeField] private TextMeshProUGUI weaknessText;
-    [SerializeField] private Toggle activeToggle;
-
-    private string boundId;
-    private GlobalInventoryState inventoryState;
+    //[SerializeField] private TextMeshProUGUI weaknessText;
 
     public void Bind(GlobalGameData.Familiar familiar, GlobalInventoryState state, InventoryVisualDatabase visualDatabase)
     {
         if (familiar == null)
-        {
             return;
-        }
-
-        boundId = familiar.id;
-        inventoryState = state;
-
+        print("familiar is not null");
         if (iconImage != null)
         {
             Sprite icon = visualDatabase?.GetFamiliarIcon(familiar.id);
@@ -30,44 +18,21 @@ public class GlobalFamiliarEntryView : MonoBehaviour
             iconImage.enabled = icon != null;
         }
 
-        if (nameText != null)
-        {
-            nameText.text = familiar.name;
-        }
+        //if (weaknessText != null)
+        //    weaknessText.text = familiar.weakness;
 
-        if (descriptionText != null)
-        {
-            descriptionText.text = familiar.description;
-        }
-
-        if (weaknessText != null)
-        {
-            weaknessText.text = familiar.weakness;
-        }
-
-        if (activeToggle != null)
-        {
-            activeToggle.onValueChanged.RemoveListener(OnActiveToggleChanged);
-            activeToggle.isOn = familiar.active;
-            activeToggle.onValueChanged.AddListener(OnActiveToggleChanged);
-        }
+        BindBase(familiar.id, familiar.name, familiar.description, familiar.active, state);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
-        if (activeToggle != null)
-        {
-            activeToggle.onValueChanged.RemoveListener(OnActiveToggleChanged);
-        }
+        base.OnDisable();
+        Debug.Log($"Familiar entry disabled: {boundId}");
     }
 
-    private void OnActiveToggleChanged(bool isOn)
+    private void Awake()
     {
-        if (inventoryState == null || string.IsNullOrEmpty(boundId))
-        {
-            return;
-        }
-
-        inventoryState.SetActive(boundId, isOn);
+        Debug.Log($"Familiar entry awake: {boundId}");
+        Debug.Log($"Familiar entry Start: enabled={enabled}");
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
 {
     public event Action InventoryChanged;
+    public static event System.Action<string> OnInventoryIdCollected;
+    public static event System.Action OnActiveChanged;
 
     private List<GlobalGameData.InventoryItem> items = new List<GlobalGameData.InventoryItem>();
     private List<GlobalGameData.Familiar> familiars = new List<GlobalGameData.Familiar>();
@@ -99,10 +101,12 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
                 InventoryChanged?.Invoke();
             }
         }
+        Debug.Log($"SetCollected called with id={id}, collected={collected}");
     }
 
     public void SetActive(string id, bool active)
     {
+        Debug.Log($"SetActive called with id={id}, active={active}");
         if (string.IsNullOrEmpty(id))
         {
             return;
@@ -114,7 +118,7 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
             if (item.active != active)
             {
                 item.active = active;
-                InventoryChanged?.Invoke();
+                OnActiveChanged?.Invoke();
             }
             return;
         }
@@ -125,7 +129,7 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
             if (familiar.active != active)
             {
                 familiar.active = active;
-                InventoryChanged?.Invoke();
+                OnActiveChanged?.Invoke();
             }
         }
     }

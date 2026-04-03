@@ -264,6 +264,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\PointOnEdgeException.cs" />
     <Compile Include="Assets\scripts\UI\BonusButton.cs" />
     <Compile Include="Assets\scripts\GameDataPersistence\IGlobalDataPersistence.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryEntryViewBase.cs" />
     <Compile Include="Assets\scripts\Utility\AnimationTester.cs" />
     <Compile Include="Assets\scripts\Battle\BaseCreature.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFront.cs" />
