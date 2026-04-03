@@ -9,14 +9,37 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
     [SerializeField] protected TextMeshProUGUI nameText;
     [SerializeField] protected TextMeshProUGUI descriptionText;
     [SerializeField] protected Toggle activeToggle;
-    [SerializeField] protected GameObject tooltipPanel;
+
+    protected static GameObject sharedTooltipPanel;
+    protected static TextMeshProUGUI sharedNameText;
+    protected static TextMeshProUGUI sharedDescriptionText;
+    protected static RectTransform canvasRectTransform;
+    protected static RectTransform tooltipRectTransform;
 
     protected string boundId;
+    protected string boundName;
+    protected string boundDescription;
     protected GlobalInventoryState inventoryState;
+
+    public static void InitializeSharedTooltip(GameObject panel, TextMeshProUGUI nameText, TextMeshProUGUI descriptionText)
+    {
+        sharedTooltipPanel = panel;
+        sharedNameText = nameText;
+        sharedDescriptionText = descriptionText;
+        
+        // Cache canvas and tooltip RectTransforms for screen conversion
+        Canvas canvas = panel.GetComponentInParent<Canvas>();
+        if (canvas != null)
+            canvasRectTransform = canvas.GetComponent<RectTransform>();
+        
+        tooltipRectTransform = panel.GetComponent<RectTransform>();
+    }
 
     protected void BindBase(string id, string name, string description, bool active, GlobalInventoryState state)
     {
         boundId = id;
+        boundName = name;
+        boundDescription = description;
         inventoryState = state;
 
         if (nameText != null)
@@ -31,9 +54,6 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
             activeToggle.isOn = active;
             activeToggle.onValueChanged.AddListener(OnActiveToggleChanged);
         }
-
-        if (tooltipPanel != null)
-            tooltipPanel.SetActive(false);
     }
 
     protected virtual void OnDisable()
@@ -59,14 +79,24 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
 
     protected virtual void ShowTooltip()
     {
-        if (tooltipPanel != null)
-            tooltipPanel.SetActive(true);
+        if (sharedTooltipPanel == null || sharedNameText == null || sharedDescriptionText == null)
+            return;
+
+        // Set content
+        sharedNameText.text = boundName;
+        sharedDescriptionText.text = boundDescription;
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition.z = Camera.main.nearClipPlane; // Use a fixed depth
+        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        sharedTooltipPanel.transform.position = worldPosition;
+
+        sharedTooltipPanel.SetActive(true);
     }
 
     protected virtual void HideTooltip()
     {
-        if (tooltipPanel != null)
-            tooltipPanel.SetActive(false);
+        if (sharedTooltipPanel != null)
+            sharedTooltipPanel.SetActive(false);
     }
 
     private void OnActiveToggleChanged(bool isOn)

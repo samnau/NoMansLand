@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class GlobalInventoryManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GlobalInventoryState inventoryState;
     [SerializeField] private InventoryVisualDatabase visualDatabase;
+    [SerializeField] private GameObject sharedTooltipPanel;
+    [SerializeField] private TextMeshProUGUI sharedTooltipNameText;
+    [SerializeField] private TextMeshProUGUI sharedTooltipDescriptionText;
 
     [Header("Items UI")]
     [SerializeField] private Transform itemsPanel;
@@ -15,6 +20,15 @@ public class GlobalInventoryManager : MonoBehaviour
     [Header("Familiars UI")]
     [SerializeField] private Transform familiarsPanel;
     [SerializeField] private GameObject familiarEntryPrefab;
+
+    private void Awake()
+    {
+        // Initialize shared tooltip
+        if (sharedTooltipPanel != null && sharedTooltipNameText != null && sharedTooltipDescriptionText != null)
+        {
+            GlobalInventoryEntryViewBase.InitializeSharedTooltip(sharedTooltipPanel, sharedTooltipNameText, sharedTooltipDescriptionText);
+        }
+    }
 
     private void OnEnable()
     {
