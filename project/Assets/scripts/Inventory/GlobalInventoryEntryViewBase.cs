@@ -8,7 +8,7 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
     [SerializeField] protected Image iconImage;
     [SerializeField] protected TextMeshProUGUI nameText;
     [SerializeField] protected TextMeshProUGUI descriptionText;
-    [SerializeField] protected Toggle activeToggle;
+    public Toggle activeToggle;
 
     protected static GameObject sharedTooltipPanel;
     protected static TextMeshProUGUI sharedNameText;
@@ -68,7 +68,6 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("pointer enter");
         ShowTooltip();
     }
 

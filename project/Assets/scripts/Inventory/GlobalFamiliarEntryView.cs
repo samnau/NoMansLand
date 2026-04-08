@@ -10,7 +10,6 @@ public class GlobalFamiliarEntryView : GlobalInventoryEntryViewBase
     {
         if (familiar == null)
             return;
-        print("familiar is not null");
         if (iconImage != null)
         {
             Sprite icon = visualDatabase?.GetFamiliarIcon(familiar.id);
@@ -18,21 +17,11 @@ public class GlobalFamiliarEntryView : GlobalInventoryEntryViewBase
             iconImage.enabled = icon != null;
         }
 
-        //if (weaknessText != null)
-        //    weaknessText.text = familiar.weakness;
-
         BindBase(familiar.id, familiar.name, familiar.description, familiar.active, state);
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
-        Debug.Log($"Familiar entry disabled: {boundId}");
-    }
-
-    private void Awake()
-    {
-        Debug.Log($"Familiar entry awake: {boundId}");
-        Debug.Log($"Familiar entry Start: enabled={enabled}");
     }
 }

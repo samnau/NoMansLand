@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class GlobalInventoryManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GlobalInventoryManager : MonoBehaviour
     [Header("Familiars UI")]
     [SerializeField] private Transform familiarsPanel;
     [SerializeField] private GameObject familiarEntryPrefab;
+    [SerializeField] private ToggleGroup familiarsToggleGroup;
 
     private void Awake()
     {
@@ -56,14 +58,12 @@ public class GlobalInventoryManager : MonoBehaviour
 
     private void RedrawAll()
     {
-        Debug.Log("RedrawAll called");
         RedrawItems();
         RedrawFamiliars();
     }
 
     private void RedrawItems()
     {
-        Debug.Log($"RedrawItems called, clearing {itemsPanel.childCount} children");
         if (itemsPanel == null)
         {
             return;
@@ -93,7 +93,6 @@ public class GlobalInventoryManager : MonoBehaviour
 
     private void RedrawFamiliars()
     {
-        Debug.Log($"RedrawFamiliars called, clearing {familiarsPanel.childCount} children");
         if (familiarsPanel == null)
         {
             return;
@@ -117,6 +116,12 @@ public class GlobalInventoryManager : MonoBehaviour
             if (view != null)
             {
                 view.Bind(collectedFamiliars[i], inventoryState, visualDatabase);
+                
+                // Assign the ToggleGroup to the familiar's toggle
+                if (view.activeToggle != null && familiarsToggleGroup != null)
+                {
+                    view.activeToggle.group = familiarsToggleGroup;
+                }
             }
         }
     }

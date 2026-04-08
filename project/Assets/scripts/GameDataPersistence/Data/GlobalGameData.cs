@@ -127,7 +127,7 @@ public class GlobalGameData
                     name = "Castle Stairs Gate Key",
                     description = "A key that unlocks the gate to the floating stairs in the castle.",
                     active = false,
-                    collected = false,
+                    collected = true,
                     used = false
                 },
                 new InventoryItem
@@ -136,7 +136,7 @@ public class GlobalGameData
                     name = "Mysterious Green Gem",
                     description = "A green gem found in the forest",
                     active = false,
-                    collected = false,
+                    collected = true,
                     used = false
                 },
                 new InventoryItem
@@ -145,7 +145,7 @@ public class GlobalGameData
                     name = "Mysterious Blue Gem",
                     description = "A blue gem found in the forest",
                     active =  false,
-                    collected = false,
+                    collected = true,
                     used = false
                 },
                 new InventoryItem
@@ -163,7 +163,7 @@ public class GlobalGameData
                     name = "Lemon",
                     description = "A lemon I picked from a tree. That's it.",
                     active =  false,
-                    collected = false,
+                    collected = true,
                     used = false
                 },
                 new InventoryItem

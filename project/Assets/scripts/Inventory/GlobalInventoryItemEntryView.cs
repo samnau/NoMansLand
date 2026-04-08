@@ -22,6 +22,5 @@ public class GlobalInventoryItemEntryView : GlobalInventoryEntryViewBase
     protected override void OnDisable()
     {
         base.OnDisable();
-        Debug.Log($"Item entry disabled: {boundId}");
     }
 }

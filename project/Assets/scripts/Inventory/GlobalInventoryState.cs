@@ -8,6 +8,8 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
     public event Action InventoryChanged;
     public static event System.Action<string> OnInventoryIdCollected;
     public static event System.Action OnActiveChanged;
+    public bool activeItemLimitReached = false;
+    public bool activeFamiliarLimitReached = true;
 
     private List<GlobalGameData.InventoryItem> items = new List<GlobalGameData.InventoryItem>();
     private List<GlobalGameData.Familiar> familiars = new List<GlobalGameData.Familiar>();
@@ -101,16 +103,17 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
                 InventoryChanged?.Invoke();
             }
         }
-        Debug.Log($"SetCollected called with id={id}, collected={collected}");
     }
 
     public void SetActive(string id, bool active)
     {
-        Debug.Log($"SetActive called with id={id}, active={active}");
         if (string.IsNullOrEmpty(id))
         {
             return;
         }
+        List<GlobalGameData.InventoryItem> activeItems = items.FindAll(item => item.active == true);
+        activeItemLimitReached = activeItems.Count >= 2;
+        //print($"inventory state active triggered: {id},{active}");
 
         GlobalGameData.InventoryItem item = items.FirstOrDefault(i => i != null && i.id == id);
         if (item != null)
@@ -118,6 +121,12 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
             if (item.active != active)
             {
                 item.active = active;
+                OnActiveChanged?.Invoke();
+            }
+            print($"active items limit: {activeItemLimitReached}");
+            if(activeItemLimitReached)
+            {
+                activeItems[0].active = false;
                 OnActiveChanged?.Invoke();
             }
             return;

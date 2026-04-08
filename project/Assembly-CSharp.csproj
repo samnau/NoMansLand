@@ -270,6 +270,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFront.cs" />
     <Compile Include="Assets\scripts\FightController.cs" />
     <Compile Include="Assets\scripts\Utility\PositionTweener.cs" />
+    <Compile Include="Assets\scripts\Inventory\PositionTester.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Contour.cs" />
     <Compile Include="Assets\scripts\Utility\BaseTweener.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\DelaunayTriangle.cs" />
@@ -310,7 +311,6 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Inventory\PositionTester.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
