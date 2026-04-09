@@ -134,6 +134,46 @@ public class PositionTweener : BaseTweener
         StartCoroutine(SetLocalPositionByDuration(endPosition, speed));
     }
 
+    public void FullWidthTween(bool forward = true, float duration = 0.5f)
+    {
+
+    }
+
+    public void MoveUIByWidth(float duration)
+    {
+        bool forward = false;
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        if (rectTransform == null)
+        {
+            Debug.LogError("No RectTransform found on this UI object");
+            return;
+        }
+
+        // Get the width from RectTransform rect
+        float objectWidth = rectTransform.rect.width;
+
+        // For UI, we need to consider canvas scale
+        Canvas canvas = GetComponentInParent<Canvas>();
+        float canvasScale = 1f;
+        if (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay)
+        {
+            canvasScale = canvas.scaleFactor;
+        }
+
+        float widthOffset = forward ? objectWidth : -objectWidth;
+
+        // Calculate target position (move right by object width, accounting for canvas scale)
+        Vector3 currentPosition = rectTransform.localPosition;
+        Vector3 targetPosition = new Vector3(
+            currentPosition.x + (widthOffset * canvasScale),
+            currentPosition.y,
+            currentPosition.z
+        );
+
+        // Use local position tweening for UI objects
+        TriggerLocalPositionByDuration(targetPosition, duration);
+    }
+
     public void TriggerLocalPositionByDuration([Optional] Vector3 targetPosition, [Optional] float duration)
     {
         StartCoroutine(SetLocalPositionByDuration(targetPosition, duration));
