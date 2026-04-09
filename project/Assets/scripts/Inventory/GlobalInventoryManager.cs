@@ -23,12 +23,27 @@ public class GlobalInventoryManager : MonoBehaviour
     [SerializeField] private GameObject familiarEntryPrefab;
     [SerializeField] private ToggleGroup familiarsToggleGroup;
 
+    [Header("Inventory Wrapper")]
+    [SerializeField] GameObject inventoryWrapper;
+
+    bool inventoryInMotion = false;
+    bool inventoryVisible = true;
+    PositionTweener positionTweener;
+
     private void Awake()
     {
         // Initialize shared tooltip
         if (sharedTooltipPanel != null && sharedTooltipNameText != null && sharedTooltipDescriptionText != null)
         {
             GlobalInventoryEntryViewBase.InitializeSharedTooltip(sharedTooltipPanel, sharedTooltipNameText, sharedTooltipDescriptionText);
+        }
+    }
+
+    private void Start()
+    {
+        if(inventoryWrapper != null)
+        {
+            positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
         }
     }
 
@@ -91,6 +106,33 @@ public class GlobalInventoryManager : MonoBehaviour
         }
     }
 
+    void ToggleInventoryDisplay()
+    {
+        float duration = 1f;
+        if(inventoryInMotion)
+        {
+            return;
+        }
+        if(positionTweener != null)
+        {
+            if(inventoryVisible)
+            {
+                positionTweener.MoveUIBackward(duration);
+            } else
+            {
+                positionTweener.MoveUIForward(duration);
+            }
+            inventoryVisible = !inventoryVisible;
+            StartCoroutine(InventoryToggleGuard(duration));
+        }
+    }
+
+    IEnumerator InventoryToggleGuard(float duration)
+    {
+        inventoryInMotion = true;
+        yield return new WaitForSeconds(duration);
+        inventoryInMotion = false;
+    }
     private void RedrawFamiliars()
     {
         if (familiarsPanel == null)
@@ -123,6 +165,14 @@ public class GlobalInventoryManager : MonoBehaviour
                     view.activeToggle.group = familiarsToggleGroup;
                 }
             }
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            ToggleInventoryDisplay();
         }
     }
 }

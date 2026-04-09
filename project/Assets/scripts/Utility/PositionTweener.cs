@@ -139,9 +139,18 @@ public class PositionTweener : BaseTweener
 
     }
 
-    public void MoveUIByWidth(float duration)
+    public void MoveUIForward(float duration)
     {
-        bool forward = false;
+        MoveUIByWidth(duration, true);
+    }
+
+    public void MoveUIBackward(float duration)
+    {
+        MoveUIByWidth(duration, false);
+    }
+
+    public void MoveUIByWidth(float duration, bool forward = true)
+    {
         RectTransform rectTransform = GetComponent<RectTransform>();
         if (rectTransform == null)
         {
