@@ -23,12 +23,14 @@ public class GlobalInventoryManager : MonoBehaviour
     [SerializeField] private GameObject familiarEntryPrefab;
     [SerializeField] private ToggleGroup familiarsToggleGroup;
 
-    [Header("Inventory Wrapper")]
+    [Header("Inventory Elements")]
     [SerializeField] GameObject inventoryWrapper;
+    [SerializeField] Button closeButton;
 
     bool inventoryInMotion = false;
     bool inventoryVisible = true;
     PositionTweener positionTweener;
+    float transitionDuration = 0.75f;
 
     private void Awake()
     {
@@ -44,6 +46,20 @@ public class GlobalInventoryManager : MonoBehaviour
         if(inventoryWrapper != null)
         {
             positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
+        }
+
+        if(closeButton != null)
+        {
+            closeButton.onClick.AddListener(CloseClickHandler);
+        }
+    }
+
+    void CloseClickHandler ()
+    {
+        if (inventoryWrapper != null)
+        {
+            positionTweener.MoveUIBackward(transitionDuration);
+            inventoryVisible = false;
         }
     }
 
@@ -108,7 +124,6 @@ public class GlobalInventoryManager : MonoBehaviour
 
     void ToggleInventoryDisplay()
     {
-        float duration = 1f;
         if(inventoryInMotion)
         {
             return;
@@ -117,13 +132,13 @@ public class GlobalInventoryManager : MonoBehaviour
         {
             if(inventoryVisible)
             {
-                positionTweener.MoveUIBackward(duration);
+                positionTweener.MoveUIBackward(transitionDuration);
             } else
             {
-                positionTweener.MoveUIForward(duration);
+                positionTweener.MoveUIForward(transitionDuration);
             }
             inventoryVisible = !inventoryVisible;
-            StartCoroutine(InventoryToggleGuard(duration));
+            StartCoroutine(InventoryToggleGuard(transitionDuration));
         }
     }
 
