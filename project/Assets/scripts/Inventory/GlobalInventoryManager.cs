@@ -17,6 +17,7 @@ public class GlobalInventoryManager : MonoBehaviour
     [Header("Items UI")]
     [SerializeField] private Transform itemsPanel;
     [SerializeField] private GameObject itemEntryPrefab;
+    [SerializeField] private ToggleGroup itemsToggleGroup;
 
     [Header("Familiars UI")]
     [SerializeField] private Transform familiarsPanel;
@@ -118,6 +119,12 @@ public class GlobalInventoryManager : MonoBehaviour
             if (view != null)
             {
                 view.Bind(collectedItems[i], inventoryState, visualDatabase);
+                
+                // Assign the ToggleGroup to the item's toggle
+                if (view.activeToggle != null && itemsToggleGroup != null)
+                {
+                    view.activeToggle.group = itemsToggleGroup;
+                }
             }
         }
     }
