@@ -77,6 +77,7 @@
     <Compile Include="Assets\scripts\EyeBlinkControllerProfile.cs" />
     <Compile Include="Assets\scripts\DialogAnimator.cs" />
     <Compile Include="Assets\scripts\Utility\AlphaTweenSequencer.cs" />
+    <Compile Include="Assets\scripts\TimedScriptTrigger.cs" />
     <Compile Include="Assets\scripts\UI\StartButton.cs" />
     <Compile Include="Assets\scripts\Sound\SoundFXPlayer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Orientation.cs" />
     <Compile Include="Assets\scripts\Key_Validator.cs" />
     <Compile Include="Assets\scripts\Sound\SoundManager.cs" />
+    <Compile Include="Assets\scripts\Inventory\ItemCollector.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
     <Compile Include="Assets\scripts\Battle\PowerCharge\PowerIntroSequencer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonUtil.cs" />
@@ -312,7 +314,6 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\TimedScriptTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

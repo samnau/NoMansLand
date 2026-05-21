@@ -13,6 +13,7 @@ public class GlobalInventoryManager : MonoBehaviour
     [SerializeField] private GameObject sharedTooltipPanel;
     [SerializeField] private TextMeshProUGUI sharedTooltipNameText;
     [SerializeField] private TextMeshProUGUI sharedTooltipDescriptionText;
+    [SerializeField] private Image sharedTooltipImage;
 
     [Header("Items UI")]
     [SerializeField] private Transform itemsPanel;
@@ -38,7 +39,7 @@ public class GlobalInventoryManager : MonoBehaviour
         // Initialize shared tooltip
         if (sharedTooltipPanel != null && sharedTooltipNameText != null && sharedTooltipDescriptionText != null)
         {
-            GlobalInventoryEntryViewBase.InitializeSharedTooltip(sharedTooltipPanel, sharedTooltipNameText, sharedTooltipDescriptionText);
+            GlobalInventoryEntryViewBase.InitializeSharedTooltip(sharedTooltipPanel, sharedTooltipNameText, sharedTooltipDescriptionText, sharedTooltipImage);
         }
     }
 

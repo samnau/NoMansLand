@@ -9,14 +9,15 @@ public class GlobalInventoryItemEntryView : GlobalInventoryEntryViewBase
         if (item == null)
             return;
 
+        Sprite icon = visualDatabase?.GetItemIcon(item.id);
+
         if (iconImage != null)
         {
-            Sprite icon = visualDatabase?.GetItemIcon(item.id);
             iconImage.sprite = icon;
             iconImage.enabled = icon != null;
         }
 
-        BindBase(item.id, item.name, item.description, item.active, state);
+        BindBase(item.id, item.name, item.description, item.active, state, icon);
     }
 
     protected override void OnDisable()

@@ -76,6 +76,26 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
         return familiars.Where(f => f != null && f.collected).ToList();
     }
 
+    public GlobalGameData.InventoryItem GetItemById(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+        {
+            return null;
+        }
+
+        return items.FirstOrDefault(i => i != null && i.id == id);
+    }
+
+    public GlobalGameData.Familiar GetFamiliarById(string id)
+    {
+        if (string.IsNullOrEmpty(id))
+        {
+            return null;
+        }
+
+        return familiars.FirstOrDefault(f => f != null && f.id == id);
+    }
+
     public void SetCollected(string id, bool collected)
     {
         if (string.IsNullOrEmpty(id))

@@ -13,19 +13,22 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
     protected static GameObject sharedTooltipPanel;
     protected static TextMeshProUGUI sharedNameText;
     protected static TextMeshProUGUI sharedDescriptionText;
+    protected static Image sharedTooltipImage;
     protected static RectTransform canvasRectTransform;
     protected static RectTransform tooltipRectTransform;
 
     protected string boundId;
     protected string boundName;
     protected string boundDescription;
+    protected Sprite boundSprite;
     protected GlobalInventoryState inventoryState;
 
-    public static void InitializeSharedTooltip(GameObject panel, TextMeshProUGUI nameText, TextMeshProUGUI descriptionText)
+    public static void InitializeSharedTooltip(GameObject panel, TextMeshProUGUI nameText, TextMeshProUGUI descriptionText, Image image)
     {
         sharedTooltipPanel = panel;
         sharedNameText = nameText;
         sharedDescriptionText = descriptionText;
+        sharedTooltipImage = image;
         
         // Cache canvas and tooltip RectTransforms for screen conversion
         Canvas canvas = panel.GetComponentInParent<Canvas>();
@@ -35,11 +38,12 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
         tooltipRectTransform = panel.GetComponent<RectTransform>();
     }
 
-    protected void BindBase(string id, string name, string description, bool active, GlobalInventoryState state)
+    protected void BindBase(string id, string name, string description, bool active, GlobalInventoryState state, Sprite sprite = null)
     {
         boundId = id;
         boundName = name;
         boundDescription = description;
+        boundSprite = sprite;
         inventoryState = state;
 
         if (nameText != null)
@@ -95,6 +99,13 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
         // Set content
         sharedNameText.text = boundName;
         sharedDescriptionText.text = boundDescription;
+        
+        if (sharedTooltipImage != null)
+        {
+            sharedTooltipImage.sprite = boundSprite;
+            sharedTooltipImage.enabled = boundSprite != null;
+        }
+        
         SetToolTipPosition();
 
         sharedTooltipPanel.SetActive(true);
