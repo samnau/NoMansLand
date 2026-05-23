@@ -12,6 +12,7 @@ public class ItemCollector : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject confirmationView;
     [SerializeField] private TextMeshProUGUI messageText;
+    TextMeshProUGUI confirmationText;
     [SerializeField] private Button yesButton;
     [SerializeField] private Button noButton;
     
@@ -25,6 +26,8 @@ public class ItemCollector : MonoBehaviour
         if (confirmationView != null)
         {
             confirmationView.SetActive(false);
+            confirmationText = confirmationView.GetComponentInChildren<TextMeshProUGUI>();
+            print(confirmationText.name);
         }
 
         if (yesButton != null)
@@ -79,15 +82,15 @@ public class ItemCollector : MonoBehaviour
 
     private void ShowConfirmationView()
     {
-        if (confirmationView == null || messageText == null)
+        if (confirmationView == null || confirmationText == null)
         {
             return;
         }
 
         string itemName = GetItemDisplayName();
-        messageText.text = $"Pick up {itemName}?";
+        confirmationText.text = $"Pick up <b>{itemName}</b>?";
 
-        PositionAbovePlayer();
+        //PositionAbovePlayer();
         confirmationView.SetActive(true);
         isShowingConfirmation = true;
     }
