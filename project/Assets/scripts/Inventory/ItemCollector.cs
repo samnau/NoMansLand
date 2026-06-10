@@ -4,17 +4,21 @@ using UnityEngine.UI;
 
 public class ItemCollector : MonoBehaviour
 {
+    InventoryConfirmationView inventoryConfirmationView;
+
     [Header("Item Configuration")]
     [SerializeField] private string itemId;
     
     [Header("References")]
     [SerializeField] private GlobalInventoryState inventoryState;
+    [SerializeField] private InventoryVisualDatabase visualDatabase;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject confirmationView;
     [SerializeField] private TextMeshProUGUI messageText;
     TextMeshProUGUI confirmationText;
     [SerializeField] private Button yesButton;
     [SerializeField] private Button noButton;
+    [SerializeField] private Image itemImage;
     
     [Header("Positioning")]
     [SerializeField] private float verticalOffset = 2f;
@@ -23,130 +27,144 @@ public class ItemCollector : MonoBehaviour
 
     private void Awake()
     {
-        if (confirmationView != null)
-        {
-            confirmationView.SetActive(false);
-            confirmationText = confirmationView.GetComponentInChildren<TextMeshProUGUI>();
-            print(confirmationText.name);
-        }
+        //if (confirmationView != null)
+        //{
+        //    confirmationView.SetActive(false);
+        //    confirmationText = confirmationView.GetComponentInChildren<TextMeshProUGUI>();
+        //}
 
-        if (yesButton != null)
-        {
-            yesButton.onClick.AddListener(OnYesClicked);
-        }
+        //if (yesButton != null)
+        //{
+        //    yesButton.onClick.AddListener(OnYesClicked);
+        //}
 
-        if (noButton != null)
-        {
-            noButton.onClick.AddListener(OnNoClicked);
-        }
+        //if (noButton != null)
+        //{
+        //    noButton.onClick.AddListener(OnNoClicked);
+        //}
+        inventoryConfirmationView = FindObjectOfType<InventoryConfirmationView>(true);
     }
 
-    private void OnDestroy()
+    private void Start()
     {
-        if (yesButton != null)
-        {
-            yesButton.onClick.RemoveListener(OnYesClicked);
-        }
-
-        if (noButton != null)
-        {
-            noButton.onClick.RemoveListener(OnNoClicked);
-        }
+       // inventoryConfirmationView = FindObjectOfType<InventoryConfirmationView>(true);
+        //inventoryConfirmationView = confirmationView.GetComponent<InventoryConfirmationView>();
     }
 
-    public void TriggerCollection()
-    {
-        if (string.IsNullOrEmpty(itemId) || inventoryState == null)
-        {
-            return;
-        }
+    //private void OnDestroy()
+    //{
+    //    if (yesButton != null)
+    //    {
+    //        yesButton.onClick.RemoveListener(OnYesClicked);
+    //    }
 
-        if (IsItemCollected())
-        {
-            return;
-        }
+    //    if (noButton != null)
+    //    {
+    //        noButton.onClick.RemoveListener(OnNoClicked);
+    //    }
+    //}
 
-        ShowConfirmationView();
-    }
+    //public void TriggerCollection()
+    //{
+    //    if (string.IsNullOrEmpty(itemId) || inventoryState == null)
+    //    {
+    //        return;
+    //    }
 
-    private bool IsItemCollected()
-    {
-        if (inventoryState == null || string.IsNullOrEmpty(itemId))
-        {
-            return false;
-        }
+    //    if (IsItemCollected())
+    //    {
+    //        return;
+    //    }
 
-        var item = inventoryState.GetItemById(itemId);
-        return item != null && item.collected;
-    }
+    //    ShowConfirmationView();
+    //}
 
-    private void ShowConfirmationView()
-    {
-        if (confirmationView == null || confirmationText == null)
-        {
-            return;
-        }
+    //private bool IsItemCollected()
+    //{
+    //    if (inventoryState == null || string.IsNullOrEmpty(itemId))
+    //    {
+    //        return false;
+    //    }
 
-        string itemName = GetItemDisplayName();
-        confirmationText.text = $"Pick up <b>{itemName}</b>?";
+    //    var item = inventoryState.GetItemById(itemId);
+    //    return item != null && item.collected;
+    //}
 
-        //PositionAbovePlayer();
-        confirmationView.SetActive(true);
-        isShowingConfirmation = true;
-    }
+    //private void ShowConfirmationView()
+    //{
+    //    if (confirmationView == null || confirmationText == null)
+    //    {
+    //        return;
+    //    }
 
-    private string GetItemDisplayName()
-    {
-        if (inventoryState == null || string.IsNullOrEmpty(itemId))
-        {
-            return "item";
-        }
+    //    string itemName = GetItemDisplayName();
+    //    confirmationText.text = $"Pick up <b>{itemName}</b>?";
 
-        var item = inventoryState.GetItemById(itemId);
-        return item != null ? item.name : "item";
-    }
+    //    if (itemImage != null && visualDatabase != null)
+    //    {
+    //        Sprite icon = visualDatabase.GetItemIcon(itemId);
+    //        itemImage.sprite = icon;
+    //        itemImage.enabled = icon != null;
+    //    }
 
-    private void PositionAbovePlayer()
-    {
-        if (player == null)
-        {
-            return;
-        }
+    //    //PositionAbovePlayer();
+    //    confirmationView.SetActive(true);
+    //    isShowingConfirmation = true;
+    //}
 
-        Vector3 playerPosition = player.transform.position;
-        confirmationView.transform.position = new Vector3(playerPosition.x, playerPosition.y + verticalOffset, playerPosition.z);
-    }
+    //private string GetItemDisplayName()
+    //{
+    //    if (inventoryState == null || string.IsNullOrEmpty(itemId))
+    //    {
+    //        return "item";
+    //    }
 
-    private void OnYesClicked()
-    {
-        if (!string.IsNullOrEmpty(itemId) && inventoryState != null)
-        {
-            inventoryState.SetCollected(itemId, true);
-            GlobalDataPersistenceManager.instance.SaveGame();
-        }
+    //    var item = inventoryState.GetItemById(itemId);
+    //    return item != null ? item.name : "item";
+    //}
 
-        HideConfirmationView();
-    }
+    //private void PositionAbovePlayer()
+    //{
+    //    if (player == null)
+    //    {
+    //        return;
+    //    }
 
-    private void OnNoClicked()
-    {
-        HideConfirmationView();
-    }
+    //    Vector3 playerPosition = player.transform.position;
+    //    confirmationView.transform.position = new Vector3(playerPosition.x, playerPosition.y + verticalOffset, playerPosition.z);
+    //}
 
-    private void HideConfirmationView()
-    {
-        if (confirmationView != null)
-        {
-            confirmationView.SetActive(false);
-        }
-        isShowingConfirmation = false;
-    }
+    //private void OnYesClicked()
+    //{
+    //    if (!string.IsNullOrEmpty(itemId) && inventoryState != null)
+    //    {
+    //        inventoryState.SetCollected(itemId, true);
+    //        GlobalDataPersistenceManager.instance.SaveGame();
+    //    }
+
+    //    HideConfirmationView();
+    //}
+
+    //private void OnNoClicked()
+    //{
+    //    HideConfirmationView();
+    //}
+
+    //private void HideConfirmationView()
+    //{
+    //    if (confirmationView != null)
+    //    {
+    //        confirmationView.SetActive(false);
+    //    }
+    //    isShowingConfirmation = false;
+    //}
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player" && IsItemCollected() == false)
+        if(collision.tag == "Player")
         {
-            ShowConfirmationView();
+            //ShowConfirmationView();
+            inventoryConfirmationView?.ShowConfirmationView(itemId);
         }
     }
 
@@ -154,7 +172,8 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            HideConfirmationView();
+            //HideConfirmationView();
+            inventoryConfirmationView?.HideConfirmationView();
         }
     }
 }

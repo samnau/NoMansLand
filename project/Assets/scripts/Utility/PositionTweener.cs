@@ -72,9 +72,9 @@ public class PositionTweener : BaseTweener
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
         Vector3 startPostion = transform.localPosition;
-        print($"local pos: {startPostion}");
-        print($"elapsed: {elapsed_time}");
-        print($"duration: {duration}");
+        //print($"local pos: {startPostion}");
+        //print($"elapsed: {elapsed_time}");
+        //print($"duration: {duration}");
         while (elapsed_time < duration)
         {
             transform.localPosition = Vector3.Lerp(startPostion, targetPosition, EaseInOutQuad(elapsed_time / duration));
