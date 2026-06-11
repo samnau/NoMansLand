@@ -68,7 +68,7 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
 
     public IReadOnlyList<GlobalGameData.InventoryItem> GetCollectedItems()
     {
-        return items.Where(i => i != null && i.collected).ToList();
+        return items.Where(i => i != null && i.collected && !i.used).ToList();
     }
 
     public IReadOnlyList<GlobalGameData.Familiar> GetCollectedFamiliars()

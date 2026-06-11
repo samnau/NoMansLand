@@ -57,6 +57,8 @@ public class InventoryConfirmationView : MonoBehaviour
         }
 
         var item = inventoryState.GetItemById(itemId);
+        print($"item is used:{item.used}");
+
         return item != null && item.used;
     }
 
@@ -68,6 +70,7 @@ public class InventoryConfirmationView : MonoBehaviour
         }
 
         var item = inventoryState.GetItemById(itemId);
+        print($"item is active:{item.active}");
         return item != null && item.active;
     }
 
@@ -149,7 +152,7 @@ public class InventoryConfirmationView : MonoBehaviour
         {
             return;
 
-        } else if (IsItemActive() && !IsItemUsed())
+        } else if (!isCollectionConfirmation && !IsItemActive() || IsItemUsed())
         {
             return;
         }
