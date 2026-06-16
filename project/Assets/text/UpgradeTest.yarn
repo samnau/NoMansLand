@@ -5,3 +5,12 @@ Molly: I am the test for this upgrade.
 Molly: Hope that this is working!
 Molly: Line number 3...
 ===
+title: InventoryTest1
+tags: tag1 tag2
+---
+Molly: Maybe I should take this bike reflector?
+===
+title: InventoryTest2
+---
+Molly; Maybe I could use the reflector?
+===

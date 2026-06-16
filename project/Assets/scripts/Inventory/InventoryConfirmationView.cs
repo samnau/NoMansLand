@@ -123,9 +123,10 @@ public class InventoryConfirmationView : MonoBehaviour
     {
         if (inventoryState == null || string.IsNullOrEmpty(itemId))
         {
+            print($"confirmation values: {inventoryState} and {itemId}");
             return "item";
         }
-
+        print($"item id is: {itemId}");
         var item = inventoryState.GetItemById(itemId);
         return item != null ? item.name : "item";
     }
@@ -142,6 +143,7 @@ public class InventoryConfirmationView : MonoBehaviour
     public void ShowConfirmationView(string itemIdString)
     {
         print("new confirmation code: show");
+        print($"item id: {itemIdString}");
         itemId = itemIdString;
         if (confirmationView == null || confirmationText == null)
         {

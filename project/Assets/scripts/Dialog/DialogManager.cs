@@ -43,6 +43,7 @@ public class DialogManager : MonoBehaviour
     GameObject nextSpeaker;
 
     [SerializeField] GameEvent DialogNodeComplete;
+    public InventoryItemTrigger inventoryItemTrigger;
 
     public void Awake()
     {
@@ -77,8 +78,8 @@ public class DialogManager : MonoBehaviour
        // dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         
-        inputTracker = player.GetComponent<InputStateTracker>();
-        motionController = player.GetComponent<HeroMotionController>();
+        inputTracker = player?.GetComponent<InputStateTracker>();
+        motionController = player?.GetComponent<HeroMotionController>();
         if(dialogSpeakers.Count > 1)
         {
             nextSpeaker = dialogSpeakers[1];
@@ -263,6 +264,11 @@ public class DialogManager : MonoBehaviour
         if(currentSpeaker == dialogSpeakers[1])
         {
             SwapSpeakerPortraits();
+        }
+        print("dialog is done");
+        if (inventoryItemTrigger != null)
+        {
+            inventoryItemTrigger.TriggerShowConfirmation();
         }
         TogglePlayerMotion();
     }

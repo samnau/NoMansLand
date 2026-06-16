@@ -23,12 +23,23 @@ public class InventoryItemTrigger : MonoBehaviour
         inventoryConfirmationView.isCollectionConfirmation = isCollectionTrigger;
     }
 
+    public void TriggerShowConfirmation()
+    {
+        SetTriggerType();
+        inventoryConfirmationView?.ShowConfirmationView(itemId);
+    }
+
+    public void TriggerHideConfirmmation()
+    {
+        inventoryConfirmationView?.HideConfirmationView();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
             SetTriggerType();
-            inventoryConfirmationView?.ShowConfirmationView(itemId);
+            //inventoryConfirmationView?.ShowConfirmationView(itemId);
         }
     }
 

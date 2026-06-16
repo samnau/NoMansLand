@@ -48,6 +48,7 @@ public class GlobalInventoryManager : MonoBehaviour
         if(inventoryWrapper != null)
         {
             positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
+            ToggleInventoryDisplay();
         }
 
         if(closeButton != null)
