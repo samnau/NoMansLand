@@ -33,10 +33,11 @@ public class InteractionTrigger : MonoBehaviour
             dialogActive = true;
             dialogManager.BeginDialog();
             // demo code only - REMOVE LATER
-            if (targetText == "Wall")
-            {
-                dialogManager.CameraEvent.Invoke();
-            }
+            // commented out but not tested for issues after removal
+            //if (targetText == "Wall")
+            //{
+            //    dialogManager.CameraEvent.Invoke();
+            //}
         }
     }
 

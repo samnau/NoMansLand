@@ -29,6 +29,10 @@ public class GlobalInventoryManager : MonoBehaviour
     [SerializeField] GameObject inventoryWrapper;
     [SerializeField] Button closeButton;
 
+    [Header("Inventory Events")]
+    [SerializeField] GameEvent freezePlayerEvent;
+    [SerializeField] GameEvent unfreezePlayerEvent;
+
     bool inventoryInMotion = false;
     bool inventoryVisible = true;
     PositionTweener positionTweener;
@@ -49,6 +53,7 @@ public class GlobalInventoryManager : MonoBehaviour
         {
             positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
             ToggleInventoryDisplay();
+            UnfreezePlayer();
         }
 
         if(closeButton != null)
@@ -142,9 +147,11 @@ public class GlobalInventoryManager : MonoBehaviour
             if(inventoryVisible)
             {
                 positionTweener.MoveUIBackward(transitionDuration);
+                UnfreezePlayer();
             } else
             {
                 positionTweener.MoveUIForward(transitionDuration);
+                FreezePlayer();
             }
             inventoryVisible = !inventoryVisible;
             StartCoroutine(InventoryToggleGuard(transitionDuration));
@@ -190,6 +197,16 @@ public class GlobalInventoryManager : MonoBehaviour
                 }
             }
         }
+    }
+
+    void FreezePlayer()
+    {
+        freezePlayerEvent?.Invoke();
+    }
+
+    void UnfreezePlayer()
+    {
+        unfreezePlayerEvent?.Invoke();
     }
 
     private void Update()

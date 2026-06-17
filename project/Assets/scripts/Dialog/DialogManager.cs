@@ -255,20 +255,21 @@ public class DialogManager : MonoBehaviour
         dialogActive = false;
         dialogUiAnimator.SetBool("show", dialogActive);
         //demo code only - REMOVE LATER
-        if (targetText == "LeftEntranceDoor")
-        {
-            GameObject.Find("MusicPlayer").SetActive(false);
-            SceneManager.LoadScene("BattleDemoMenu");
-            //StartCoroutine("sceneTransition");
-        }
-        if(currentSpeaker == dialogSpeakers[1])
+        // commented out but not tested for issues after removal
+        //if (targetText == "LeftEntranceDoor")
+        //{
+        //    GameObject.Find("MusicPlayer").SetActive(false);
+        //    SceneManager.LoadScene("BattleDemoMenu");
+        //    //StartCoroutine("sceneTransition");
+        //}
+        if (currentSpeaker == dialogSpeakers[1])
         {
             SwapSpeakerPortraits();
         }
-        print("dialog is done");
         if (inventoryItemTrigger != null)
         {
             inventoryItemTrigger.TriggerShowConfirmation();
+            inventoryItemTrigger = null;
         }
         TogglePlayerMotion();
     }
