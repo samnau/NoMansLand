@@ -126,6 +126,7 @@
     <Compile Include="Assets\scripts\DataPersistance\FileDataHandler.cs" />
     <Compile Include="Assets\scripts\DiscHover.cs" />
     <Compile Include="Assets\scripts\Battle\PowerCharge\PowerCharger.cs" />
+    <Compile Include="Assets\scripts\CodeTester.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\PointSet.cs" />
     <Compile Include="Assets\scripts\Hero_Stack_Order_Controller.cs" />
     <Compile Include="Assets\scripts\UI\QuitButton.cs" />

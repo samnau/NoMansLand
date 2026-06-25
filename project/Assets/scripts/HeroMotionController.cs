@@ -20,6 +20,8 @@ public class HeroMotionController : MonoBehaviour
     bool isHorizontalOnly = false;
     bool isUiActive = false;
 
+    bool movementDisabled = false;
+
     void Start()
     {
         stateAnimator = GetComponent<Animator>();
@@ -39,6 +41,16 @@ public class HeroMotionController : MonoBehaviour
     private bool isMoving()
     {
         return inputStateTracker.isWalking;
+    }
+
+    public void DisableMovement()
+    {
+        movementDisabled = true;
+    }
+
+    public void EnableMovement()
+    {
+        movementDisabled = false;
     }
 
     SpriteRenderer[] GetSpriteRenderers(string parentName)
@@ -168,7 +180,7 @@ public class HeroMotionController : MonoBehaviour
     void Update()
     {
         isUiActive = inputStateTracker.isUiActive;
-        if(!isUiActive && downAnimator != null && upAnimator != null)
+        if(!movementDisabled || (!isUiActive && downAnimator != null && upAnimator != null))
         {
             setAnimationStates();
             updateMovement();

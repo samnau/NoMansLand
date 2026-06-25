@@ -9,6 +9,7 @@ using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
+    [Header("Configuration")]
     [SerializeField] TextMeshProUGUI text_dialog, text_speakerName;
     GameObject dialogWrapper;
     GameObject player;
@@ -34,15 +35,20 @@ public class DialogManager : MonoBehaviour
 
     [SerializeField] bool isCutScene = false;
     [SerializeField] bool autoStart = false;
+    [Header("Game Events")]
     [SerializeField] GameEvent SceneEnd;
     [SerializeField] GameEvent TutorialEnd;
+    [SerializeField] GameEvent FreezePlayer;
+    [SerializeField] GameEvent UnfreezePlayer;
+    [SerializeField] GameEvent DialogNodeComplete;
 
+    [Header("Speakers")]
     [SerializeField] List<GameObject> dialogSpeakers;
 
     GameObject currentSpeaker;
     GameObject nextSpeaker;
 
-    [SerializeField] GameEvent DialogNodeComplete;
+    [HideInInspector]
     public InventoryItemTrigger inventoryItemTrigger;
 
     public void Awake()
@@ -97,6 +103,11 @@ public class DialogManager : MonoBehaviour
         if(isCutScene)
         {
             advanceInput.enabled = false;
+        }
+
+        if(!FreezePlayer || !UnfreezePlayer )
+        {
+            Debug.LogWarning("Player input events not assigned");
         }
     }
 
@@ -175,17 +186,19 @@ public class DialogManager : MonoBehaviour
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
     {
-        inputTracker.enabled = !dialogActive;
-        motionController.enabled = !dialogActive;
+        //inputTracker.enabled = !dialogActive;
+        //motionController.enabled = !dialogActive;
 
         // adding in code for when the input tracker has disabled itself
         // REFACTOR: needs simplicity and less function overlap
         if(dialogActive)
         {
-            inputTracker.DisableMovement();
+            FreezePlayer?.Invoke();
+            //inputTracker.DisableMovement();
         } else
         {
-            inputTracker.EnableMovement();
+            UnfreezePlayer?.Invoke();
+            //inputTracker.EnableMovement();
         }
     }
     public void BeginDialog()
@@ -270,8 +283,11 @@ public class DialogManager : MonoBehaviour
         {
             inventoryItemTrigger.TriggerShowConfirmation();
             inventoryItemTrigger = null;
+        } else
+        {
+            //TODO: replace this entire method with event based code like in the inventory manager
+            TogglePlayerMotion();
         }
-        TogglePlayerMotion();
     }
 
     void TriggerEndScene()

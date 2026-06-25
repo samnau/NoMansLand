@@ -43,11 +43,11 @@ public class InventoryItemTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            inventoryConfirmationView?.HideConfirmationView();
-        }
-    }
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+    //    if (collision.tag == "Player")
+    //    {
+    //        inventoryConfirmationView?.HideConfirmationView();
+    //    }
+    //}
 }

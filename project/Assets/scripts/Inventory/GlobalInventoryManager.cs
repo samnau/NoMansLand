@@ -52,8 +52,9 @@ public class GlobalInventoryManager : MonoBehaviour
         if(inventoryWrapper != null)
         {
             positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
+            //TODO: this is temp testing solution to hiding the UI on start. A real solution is needed.
             ToggleInventoryDisplay();
-            UnfreezePlayer();
+            //UnfreezePlayer();
         }
 
         if(closeButton != null)
@@ -66,7 +67,10 @@ public class GlobalInventoryManager : MonoBehaviour
     {
         if (inventoryWrapper != null)
         {
-            positionTweener.MoveUIBackward(transitionDuration);
+            print("inventory click close handler");
+            //positionTweener.MoveUIBackward(transitionDuration);
+            ToggleInventoryDisplay();
+            //UnfreezePlayer();
             inventoryVisible = false;
         }
     }
@@ -140,16 +144,19 @@ public class GlobalInventoryManager : MonoBehaviour
     {
         if(inventoryInMotion)
         {
+            print("inventory is in motion");
             return;
         }
         if(positionTweener != null)
         {
             if(inventoryVisible)
             {
+                print("close inventory");
                 positionTweener.MoveUIBackward(transitionDuration);
                 UnfreezePlayer();
             } else
             {
+                print("open inventory");
                 positionTweener.MoveUIForward(transitionDuration);
                 FreezePlayer();
             }

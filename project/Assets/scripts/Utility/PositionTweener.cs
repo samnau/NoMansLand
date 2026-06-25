@@ -158,23 +158,15 @@ public class PositionTweener : BaseTweener
             return;
         }
 
-        // Get the width from RectTransform rect
-        float objectWidth = rectTransform.rect.width;
-
-        // For UI, we need to consider canvas scale
-        Canvas canvas = GetComponentInParent<Canvas>();
-        float canvasScale = 1f;
-        if (canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay)
-        {
-            canvasScale = canvas.scaleFactor;
-        }
+        // Get the width from RectTransform rect, accounting for local scale
+        float objectWidth = rectTransform.rect.width * rectTransform.localScale.x;
 
         float widthOffset = forward ? objectWidth : -objectWidth;
 
-        // Calculate target position (move right by object width, accounting for canvas scale)
+        // Calculate target position (move by object width in local space)
         Vector3 currentPosition = rectTransform.localPosition;
         Vector3 targetPosition = new Vector3(
-            currentPosition.x + (widthOffset * canvasScale),
+            currentPosition.x + widthOffset,
             currentPosition.y,
             currentPosition.z
         );

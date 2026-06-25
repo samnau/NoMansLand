@@ -16,6 +16,10 @@ public class InventoryConfirmationView : MonoBehaviour
     [SerializeField] private Image itemImage;
     [SerializeField] TextMeshProUGUI confirmationText;
 
+    [Header("Pause Events")]
+    [SerializeField] GameEvent freezeEvent;
+    [SerializeField] GameEvent unfreezeEvent;
+
     public bool isCollectionConfirmation = true;
     private bool isShowingConfirmation = false;
 
@@ -123,12 +127,29 @@ public class InventoryConfirmationView : MonoBehaviour
     {
         if (inventoryState == null || string.IsNullOrEmpty(itemId))
         {
-            print($"confirmation values: {inventoryState} and {itemId}");
+            Debug.LogWarning("No inventory item found.");
             return "item";
         }
-        print($"item id is: {itemId}");
         var item = inventoryState.GetItemById(itemId);
         return item != null ? item.name : "item";
+    }
+
+    void FreezePlayer()
+    {
+        if(freezeEvent is null)
+        {
+            Debug.LogWarning("No freeze event assigned");
+        }
+        freezeEvent?.Invoke();
+    }
+
+    void UnfreezePlayer()
+    {
+        if (freezeEvent is null)
+        {
+            Debug.LogWarning("No unfreeze event assigned");
+        }
+        unfreezeEvent?.Invoke();
     }
 
     public void HideConfirmationView()
@@ -138,12 +159,14 @@ public class InventoryConfirmationView : MonoBehaviour
             confirmationView.SetActive(false);
         }
         isShowingConfirmation = false;
+        UnfreezePlayer();
     }
 
     public void ShowConfirmationView(string itemIdString)
     {
         print("new confirmation code: show");
         print($"item id: {itemIdString}");
+        //FreezePlayer();
         itemId = itemIdString;
         if (confirmationView == null || confirmationText == null)
         {
@@ -152,10 +175,12 @@ public class InventoryConfirmationView : MonoBehaviour
 
         if(isCollectionConfirmation && IsItemCollected())
         {
+            UnfreezePlayer();
             return;
 
         } else if (!isCollectionConfirmation && !IsItemActive() || IsItemUsed())
         {
+            UnfreezePlayer();
             return;
         }
 

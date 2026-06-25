@@ -101,6 +101,7 @@ public class InputStateTracker : MonoBehaviour {
 	public void DisableMovement()
     {
 		isUiActive = true;
+		isWalking = false;
     }
 
 	public void EnableMovement()
@@ -118,6 +119,8 @@ public class InputStateTracker : MonoBehaviour {
 		//isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
 		if(isUiActive || isBattleActive)
         {
+			// testing new guard
+			isWalking = false;
 			return;
         }
 		CheckLastKeyReleased();
