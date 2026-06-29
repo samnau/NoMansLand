@@ -175,6 +175,42 @@ public class PositionTweener : BaseTweener
         TriggerLocalPositionByDuration(targetPosition, duration);
     }
 
+    public void MoveUIUpward(float duration)
+    {
+        MoveUIByHeight(duration, true);
+    }
+
+    public void MoveUIDownward(float duration)
+    {
+        MoveUIByHeight(duration, false);
+    }
+
+    public void MoveUIByHeight(float duration, bool forward = true)
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        if (rectTransform == null)
+        {
+            Debug.LogError("No RectTransform found on this UI object");
+            return;
+        }
+
+        // Get the height from RectTransform rect, accounting for local scale
+        float objectHeight = rectTransform.rect.height * rectTransform.localScale.y;
+
+        float heightOffset = forward ? objectHeight : -objectHeight;
+
+        // Calculate target position (move by object height in local space)
+        Vector3 currentPosition = rectTransform.localPosition;
+        Vector3 targetPosition = new Vector3(
+            currentPosition.x,
+            currentPosition.y + heightOffset,
+            currentPosition.z
+        );
+
+        // Use local position tweening for UI objects
+        TriggerLocalPositionByDuration(targetPosition, duration);
+    }
+
     public void TriggerLocalPositionByDuration([Optional] Vector3 targetPosition, [Optional] float duration)
     {
         StartCoroutine(SetLocalPositionByDuration(targetPosition, duration));

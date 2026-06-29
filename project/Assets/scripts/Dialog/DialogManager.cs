@@ -81,7 +81,6 @@ public class DialogManager : MonoBehaviour
         dialogLineView = GetComponent<LineView>();
         dialogueRunner.SetProject(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
-       // dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         
         inputTracker = player?.GetComponent<InputStateTracker>();
@@ -103,6 +102,7 @@ public class DialogManager : MonoBehaviour
         if(isCutScene)
         {
             advanceInput.enabled = false;
+            FreezePlayer.Invoke();
         }
 
         if(!FreezePlayer || !UnfreezePlayer )
@@ -186,9 +186,6 @@ public class DialogManager : MonoBehaviour
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
     {
-        //inputTracker.enabled = !dialogActive;
-        //motionController.enabled = !dialogActive;
-
         // adding in code for when the input tracker has disabled itself
         // REFACTOR: needs simplicity and less function overlap
         if(dialogActive)
@@ -285,7 +282,6 @@ public class DialogManager : MonoBehaviour
             inventoryItemTrigger = null;
         } else
         {
-            //TODO: replace this entire method with event based code like in the inventory manager
             TogglePlayerMotion();
         }
     }

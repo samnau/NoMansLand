@@ -23,11 +23,14 @@ public class InventoryConfirmationView : MonoBehaviour
     public bool isCollectionConfirmation = true;
     private bool isShowingConfirmation = false;
 
+    PositionTweener positionTweener;
+    float transitionDuration = 0.3f;
+
     private void Awake()
     {
         if (confirmationView != null)
         {
-            confirmationView.SetActive(false);
+            //confirmationView.SetActive(false);
             //confirmationText = confirmationView.GetComponentInChildren<TextMeshProUGUI>();
         }
 
@@ -39,6 +42,11 @@ public class InventoryConfirmationView : MonoBehaviour
         if (noButton != null)
         {
             noButton.onClick.AddListener(OnNoClicked);
+        }
+        positionTweener = GetComponent<PositionTweener>();
+        if(positionTweener != null)
+        {
+            positionTweener.MoveUIUpward(0);
         }
     }
 
@@ -156,7 +164,8 @@ public class InventoryConfirmationView : MonoBehaviour
     {
         if (confirmationView != null)
         {
-            confirmationView.SetActive(false);
+            //confirmationView.SetActive(false);
+            positionTweener?.MoveUIUpward(transitionDuration);
         }
         isShowingConfirmation = false;
         UnfreezePlayer();
@@ -164,9 +173,7 @@ public class InventoryConfirmationView : MonoBehaviour
 
     public void ShowConfirmationView(string itemIdString)
     {
-        print("new confirmation code: show");
         print($"item id: {itemIdString}");
-        //FreezePlayer();
         itemId = itemIdString;
         if (confirmationView == null || confirmationText == null)
         {
@@ -194,7 +201,8 @@ public class InventoryConfirmationView : MonoBehaviour
             itemImage.enabled = icon != null;
         }
 
-        confirmationView.SetActive(true);
+        //confirmationView.SetActive(true);
+        positionTweener.MoveUIDownward(transitionDuration);
         isShowingConfirmation = true;
     }
 }

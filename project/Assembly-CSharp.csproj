@@ -318,6 +318,7 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
+    <Compile Include="Assets\scripts\Inventory\HudManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

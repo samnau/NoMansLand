@@ -56,7 +56,7 @@ public class InputStateTracker : MonoBehaviour {
 				if(directionCanChange)
                 {
 					direction = value;
-					heroShadowController.TransformShadow();
+					heroShadowController?.TransformShadow();
 				}
 			}
 		}
@@ -68,7 +68,7 @@ public class InputStateTracker : MonoBehaviour {
 			if(Input.GetKeyDown (value) && directionCanChange){
 				directionCanChange = false;
 				lastKeyPressed = value;
-				heroShadowController.TransformShadow();
+				heroShadowController?.TransformShadow();
 			}
 		}
 	}
@@ -78,7 +78,7 @@ public class InputStateTracker : MonoBehaviour {
 		foreach (string value in directionValues){
 			if(Input.GetKeyUp (value)){
 				lastKeyReleased = value;
-				heroShadowController.TransformShadow();
+				heroShadowController?.TransformShadow();
 				//REFACTOR: into something less rigid 
 				if(!isBattleActive)
                 {
@@ -94,7 +94,7 @@ public class InputStateTracker : MonoBehaviour {
         {
 			lastKeyPressed = lastKeyReleased = null;
 			directionCanChange = true;
-			heroShadowController.TransformShadow();
+			heroShadowController?.TransformShadow();
 		}
 	}
 

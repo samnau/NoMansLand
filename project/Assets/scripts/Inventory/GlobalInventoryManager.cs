@@ -34,7 +34,8 @@ public class GlobalInventoryManager : MonoBehaviour
     [SerializeField] GameEvent unfreezePlayerEvent;
 
     bool inventoryInMotion = false;
-    bool inventoryVisible = true;
+    bool inventoryVisible = false;
+    bool inventoryDisabled = false;
     PositionTweener positionTweener;
     float transitionDuration = 0.75f;
 
@@ -52,9 +53,7 @@ public class GlobalInventoryManager : MonoBehaviour
         if(inventoryWrapper != null)
         {
             positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
-            //TODO: this is temp testing solution to hiding the UI on start. A real solution is needed.
-            ToggleInventoryDisplay();
-            //UnfreezePlayer();
+            positionTweener.MoveUIBackward(0f);
         }
 
         if(closeButton != null)
@@ -63,14 +62,21 @@ public class GlobalInventoryManager : MonoBehaviour
         }
     }
 
+    void DisableInventory()
+    {
+        inventoryDisabled = true;
+    }
+
+    void EnableInventory()
+    {
+        inventoryDisabled = false;
+    }
+
     void CloseClickHandler ()
     {
         if (inventoryWrapper != null)
         {
-            print("inventory click close handler");
-            //positionTweener.MoveUIBackward(transitionDuration);
             ToggleInventoryDisplay();
-            //UnfreezePlayer();
             inventoryVisible = false;
         }
     }
