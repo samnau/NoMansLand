@@ -134,9 +134,74 @@ public class PositionTweener : BaseTweener
         StartCoroutine(SetLocalPositionByDuration(endPosition, speed));
     }
 
-    public void FullWidthTween(bool forward = true, float duration = 0.5f)
+    public bool IsUiVisible(GameObject targetObject)
     {
+        if (targetObject is null)
+        {
+            targetObject = gameObject;
+        }
+        //if (targetObject == null || targetObject.transform.parent == null)
+        //{
+        //    return false;
+        //}
 
+        Camera camera = Camera.main;
+        if (camera == null)
+        {
+            return false;
+        }
+
+        if (targetObject.activeSelf)
+        {
+            RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                Vector3[] corners = new Vector3[4];
+                rectTransform.GetWorldCorners(corners);
+
+                foreach (Vector3 corner in corners)
+                {
+                    Vector3 screenPoint = RectTransformUtility.WorldToScreenPoint(camera, corner);
+                    if (screenPoint.x >= 0 && screenPoint.x <= Screen.width &&
+                        screenPoint.y >= 0 && screenPoint.y <= Screen.height)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public enum ToggleDirection { vertical, horizontal };
+
+    public void ToggleUi(ToggleDirection direction, GameObject targetObject)
+    {
+        bool isVisible = IsUiVisible(targetObject);
+
+        switch (direction)
+        {
+            case ToggleDirection.horizontal:
+                if (isVisible)
+                {
+                    MoveUIBackward(0.5f);
+                }
+                else
+                {
+                    MoveUIForward(0.5f);
+                }
+                break;
+            case ToggleDirection.vertical:
+                if (isVisible)
+                {
+                    MoveUIUpward(0.5f);
+                }
+                else
+                {
+                    MoveUIDownward(0.5f);
+                }
+                break;
+        }
     }
 
     public void MoveUIForward(float duration)

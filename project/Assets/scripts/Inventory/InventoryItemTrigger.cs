@@ -7,7 +7,9 @@ public class InventoryItemTrigger : MonoBehaviour
     InventoryConfirmationView inventoryConfirmationView;
 
     [Header("Item Configuration")]
-    [SerializeField] private string itemId;
+    [SerializeField] 
+    [HideInInspector]
+    private string itemId;
     [SerializeField] bool isCollectionTrigger = true;
     [SerializeField] GameEvent confirmationEvent;
     public string collectedDialog;

@@ -63,6 +63,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Spline.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Selection.cs" />
     <Compile Include="Assets\CSV2Table\Editor\CSVView.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\ItemUseReceiverEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_AutoRig.cs" />
     <Compile Include="Assets\CSV2Table\Editor\CSV2Table.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_CreatePolygonFromSprite.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_SkinCluster.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_BoneCreation.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Editor.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\InventoryItemTriggerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

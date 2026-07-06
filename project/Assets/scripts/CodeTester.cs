@@ -38,17 +38,22 @@ public class CodeTester : MonoBehaviour
         heroMotionController.EnableMovement();
     }
 
+    public void  LogTestMessage()
+    {
+        print("This is a code tester message");
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            FreezePlayer();
-        }
+        //if (Input.GetKeyDown(KeyCode.F))
+        //{
+        //    FreezePlayer();
+        //}
 
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            UnfreezePlayer();
-        }
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    UnfreezePlayer();
+        //}
 
     }
 }

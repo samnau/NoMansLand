@@ -230,6 +230,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationContext.cs" />
     <Compile Include="Assets\scripts\Utility\ColorTweener.cs" />
     <Compile Include="Assets\scripts\Battle\RuneIntroSequencer.cs" />
+    <Compile Include="Assets\scripts\Inventory\ItemUseReceiver.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepBasin.cs" />
     <Compile Include="Assets\scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationDebugContext.cs" />
@@ -264,6 +265,7 @@
     <Compile Include="Assets\scripts\GameDataPersistence\GlobalFileDataHandler.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDStoreData.cs" />
     <Compile Include="Assets\scripts\UI\SettingsButton.cs" />
+    <Compile Include="Assets\scripts\Inventory\HudManager.cs" />
     <Compile Include="Assets\scripts\ScaleTweener.cs" />
     <Compile Include="Assets\scripts\ScriptableObjects\OneTimeEvent.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperController.cs" />
@@ -318,7 +320,6 @@
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Inventory\HudManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

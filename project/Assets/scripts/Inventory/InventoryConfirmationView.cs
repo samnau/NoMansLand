@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class InventoryConfirmationView : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class InventoryConfirmationView : MonoBehaviour
     [SerializeField] GameEvent freezeEvent;
     [SerializeField] GameEvent unfreezeEvent;
 
+    [Header("Item Use Event")]
+    [SerializeField] GameEvent confirmationEvent;
+
+    [HideInInspector]
     public bool isCollectionConfirmation = true;
     private bool isShowingConfirmation = false;
 
@@ -99,6 +104,11 @@ public class InventoryConfirmationView : MonoBehaviour
         }
     }
 
+    public void BroadcastItemUse()
+    {
+        confirmationEvent?.Invoke();
+    }
+
     private void OnYesClicked()
     {
         if (!string.IsNullOrEmpty(itemId) && inventoryState != null)
@@ -112,6 +122,7 @@ public class InventoryConfirmationView : MonoBehaviour
             {
                 inventoryState.SetUsed(itemId, true);
                 inventoryState.SetActive(itemId, false);
+                BroadcastItemUse();
             }
 
             GlobalDataPersistenceManager.instance.SaveGame();
@@ -164,11 +175,11 @@ public class InventoryConfirmationView : MonoBehaviour
     {
         if (confirmationView != null)
         {
-            //confirmationView.SetActive(false);
             positionTweener?.MoveUIUpward(transitionDuration);
         }
         isShowingConfirmation = false;
         UnfreezePlayer();
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void ShowConfirmationView(string itemIdString)

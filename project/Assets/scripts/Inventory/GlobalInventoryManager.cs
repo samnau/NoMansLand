@@ -150,24 +150,21 @@ public class GlobalInventoryManager : MonoBehaviour
     {
         if(inventoryInMotion)
         {
-            print("inventory is in motion");
             return;
         }
         if(positionTweener != null)
         {
             if(inventoryVisible)
             {
-                print("close inventory");
                 positionTweener.MoveUIBackward(transitionDuration);
                 UnfreezePlayer();
             } else
             {
-                print("open inventory");
                 positionTweener.MoveUIForward(transitionDuration);
                 FreezePlayer();
             }
-            inventoryVisible = !inventoryVisible;
             StartCoroutine(InventoryToggleGuard(transitionDuration));
+            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 
@@ -176,6 +173,9 @@ public class GlobalInventoryManager : MonoBehaviour
         inventoryInMotion = true;
         yield return new WaitForSeconds(duration);
         inventoryInMotion = false;
+        //inventoryVisible = IsVisible();
+        inventoryVisible = positionTweener.IsUiVisible(gameObject.transform.parent.GetComponentInChildren<Transform>().gameObject);
+        print($"inventory visible: {IsVisible()}");
     }
     private void RedrawFamiliars()
     {
@@ -220,6 +220,45 @@ public class GlobalInventoryManager : MonoBehaviour
     void UnfreezePlayer()
     {
         unfreezePlayerEvent?.Invoke();
+    }
+
+    bool IsVisible()
+    {
+        if (gameObject == null || gameObject.transform.parent == null)
+        {
+            return false;
+        }
+
+        Camera camera = Camera.main;
+        if (camera == null)
+        {
+            return false;
+        }
+
+        foreach (Transform sibling in gameObject.transform.parent)
+        {
+            if (sibling.gameObject.activeSelf)
+            {
+                RectTransform rectTransform = sibling.GetComponent<RectTransform>();
+                if (rectTransform != null)
+                {
+                    Vector3[] corners = new Vector3[4];
+                    rectTransform.GetWorldCorners(corners);
+
+                    foreach (Vector3 corner in corners)
+                    {
+                        Vector3 screenPoint = RectTransformUtility.WorldToScreenPoint(camera, corner);
+                        if (screenPoint.x >= 0 && screenPoint.x <= Screen.width &&
+                            screenPoint.y >= 0 && screenPoint.y <= Screen.height)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     private void Update()

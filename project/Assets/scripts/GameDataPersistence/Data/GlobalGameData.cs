@@ -145,7 +145,7 @@ public class GlobalGameData
                     name = "Mysterious Blue Gem",
                     description = "A blue gem found in the forest",
                     active =  false,
-                    collected = true,
+                    collected = false,
                     used = false
                 },
                 new InventoryItem
@@ -171,7 +171,7 @@ public class GlobalGameData
                     id = "magicKey",
                     name = "My key",
                     description = "Just a fancy looking key I've always had. I guess it's a lot more than that?",
-                    active =  true,
+                    active =  false,
                     collected = true,
                     used = false
                 }
