@@ -204,8 +204,26 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(TriggerShowDialogAnimation());
 
         dialogueRunner.startNode = targetText;
-        dialogueRunner.StartDialogue(targetText);
+        string dialogToRun = ShouldShowAlternateDialog() ? inventoryItemTrigger.collectedDialog : targetText;
+        dialogueRunner.StartDialogue(dialogToRun);
         StartCoroutine(TriggerTogglePlayerMotion());
+    }
+
+    private bool ShouldShowAlternateDialog()
+    {
+        if (inventoryItemTrigger == null)
+        {
+            return false;
+        }
+
+        if (inventoryItemTrigger.isCollectionTrigger)
+        {
+            return inventoryItemTrigger.IsItemCollected();
+        }
+        else
+        {
+            return inventoryItemTrigger.IsItemActive() && !inventoryItemTrigger.IsItemUsed();
+        }
     }
 
     public void BeginTargetDialog(string dialogName)
@@ -278,7 +296,6 @@ public class DialogManager : MonoBehaviour
         }
         if (inventoryItemTrigger != null)
         {
-            print($"collected dialog: {inventoryItemTrigger.collectedDialog}");
             inventoryItemTrigger.TriggerShowConfirmation();
             inventoryItemTrigger = null;
         } else

@@ -173,9 +173,7 @@ public class GlobalInventoryManager : MonoBehaviour
         inventoryInMotion = true;
         yield return new WaitForSeconds(duration);
         inventoryInMotion = false;
-        //inventoryVisible = IsVisible();
         inventoryVisible = positionTweener.IsUiVisible(gameObject.transform.parent.GetComponentInChildren<Transform>().gameObject);
-        print($"inventory visible: {IsVisible()}");
     }
     private void RedrawFamiliars()
     {

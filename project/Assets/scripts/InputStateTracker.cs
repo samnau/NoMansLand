@@ -110,7 +110,6 @@ public class InputStateTracker : MonoBehaviour {
         {
 			return;
         }
-		print("enable movement");
 		isUiActive = false;
     }
 

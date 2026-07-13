@@ -10,11 +10,13 @@ public class InventoryItemTrigger : MonoBehaviour
     [SerializeField] 
     [HideInInspector]
     private string itemId;
-    [SerializeField] bool isCollectionTrigger = true;
+    public bool isCollectionTrigger = true;
     [HideInInspector] public string collectedDialog;
+    GlobalInventoryState inventoryState;
     void Awake()
     {
         inventoryConfirmationView = FindObjectOfType<InventoryConfirmationView>(true);
+        inventoryState = FindObjectOfType<GlobalInventoryState>();
     }
 
     void SetTriggerType()
@@ -43,6 +45,42 @@ public class InventoryItemTrigger : MonoBehaviour
         {
             SetTriggerType();
         }
+    }
+
+    public bool IsItemCollected()
+    {
+        //GlobalInventoryState inventoryState = FindObjectOfType<GlobalInventoryState>();
+        if (inventoryState == null)
+        {
+            return false;
+        }
+
+        GlobalGameData.InventoryItem item = inventoryState.GetItemById(itemId);
+        return item != null && item.collected;
+    }
+
+    public bool IsItemActive()
+    {
+        //GlobalInventoryState inventoryState = FindObjectOfType<GlobalInventoryState>();
+        if (inventoryState == null)
+        {
+            return false;
+        }
+
+        GlobalGameData.InventoryItem item = inventoryState.GetItemById(itemId);
+        return item != null && item.active;
+    }
+
+    public bool IsItemUsed()
+    {
+        //GlobalInventoryState inventoryState = FindObjectOfType<GlobalInventoryState>();
+        if (inventoryState == null)
+        {
+            return false;
+        }
+
+        GlobalGameData.InventoryItem item = inventoryState.GetItemById(itemId);
+        return item != null && item.used;
     }
 
 }
