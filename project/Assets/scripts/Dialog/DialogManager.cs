@@ -278,6 +278,7 @@ public class DialogManager : MonoBehaviour
         }
         if (inventoryItemTrigger != null)
         {
+            print($"collected dialog: {inventoryItemTrigger.collectedDialog}");
             inventoryItemTrigger.TriggerShowConfirmation();
             inventoryItemTrigger = null;
         } else

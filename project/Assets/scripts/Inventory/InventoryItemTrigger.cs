@@ -11,8 +11,7 @@ public class InventoryItemTrigger : MonoBehaviour
     [HideInInspector]
     private string itemId;
     [SerializeField] bool isCollectionTrigger = true;
-    [SerializeField] GameEvent confirmationEvent;
-    public string collectedDialog;
+    [HideInInspector] public string collectedDialog;
     void Awake()
     {
         inventoryConfirmationView = FindObjectOfType<InventoryConfirmationView>(true);
@@ -36,11 +35,6 @@ public class InventoryItemTrigger : MonoBehaviour
     public void TriggerHideConfirmmation()
     {
         inventoryConfirmationView?.HideConfirmationView();
-    }
-
-    public void TriggerConfirmationEvent()
-    {
-        confirmationEvent?.Invoke();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

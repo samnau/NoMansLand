@@ -22,3 +22,39 @@ title: InventoryTest4
 ---
 Molly: What a cool blue gem!
 ===
+title: CollectBikeReflector
+---
+Molly: This is just like what I have on my bike back home.
+===
+title: CollectGreenGem
+---
+Molly: This green gem is so shiny!
+===
+title: CollectBlueGem
+---
+Molly: What a cool blue gem!
+===
+title: InventoryUse
+---
+Molly: Maybe the blue gem will fit?
+===
+title: InventoryCollect
+---
+Molly: What a cool blue gem!
+===
+title: InventorySpot
+---
+Molly: Theres a hole for something here.
+===
+title: UseBlueGem
+---
+Molly: Maybe the blue gem will fit?
+===
+title: UseGreenGem
+---
+Molly: Maybe the green gem also?
+===
+title: UseBikeReflector
+---
+Molly: Is it time for something red?
+===
