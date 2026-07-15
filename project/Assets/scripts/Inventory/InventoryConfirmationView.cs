@@ -24,6 +24,9 @@ public class InventoryConfirmationView : MonoBehaviour
     [Header("Item Use Event")]
     [SerializeField] GameEvent confirmationEvent;
 
+    [Header("Item Collection Event")]
+    [SerializeField] GameEvent collectionEvent;
+
     [HideInInspector]
     public bool isCollectionConfirmation = true;
     private bool isShowingConfirmation = false;
@@ -109,6 +112,11 @@ public class InventoryConfirmationView : MonoBehaviour
         confirmationEvent?.Invoke();
     }
 
+    public void BroadcastItemCollection()
+    {
+        collectionEvent.Invoke();
+    }
+
     private void OnYesClicked()
     {
         if (!string.IsNullOrEmpty(itemId) && inventoryState != null)
@@ -117,6 +125,7 @@ public class InventoryConfirmationView : MonoBehaviour
             if(isCollectionConfirmation)
             {
                 inventoryState.SetCollected(itemId, true);
+                BroadcastItemCollection();
             }
             else
             {

@@ -8,7 +8,7 @@ using Yarn.Unity;
 public class InventoryItemTriggerEditor : Editor
 {
     private SerializedProperty itemIdProperty;
-    private SerializedProperty collectedDialogProperty;
+    private SerializedProperty completedDialogProperty;
     private string[] itemDisplayNames;
     private string[] itemIds;
     private GlobalGameData.InventoryItem[] inventoryItems;
@@ -17,7 +17,7 @@ public class InventoryItemTriggerEditor : Editor
     private void OnEnable()
     {
         itemIdProperty = serializedObject.FindProperty("itemId");
-        collectedDialogProperty = serializedObject.FindProperty("collectedDialog");
+        completedDialogProperty = serializedObject.FindProperty("completedDialog");
         LoadInventoryItems();
         LoadDialogNodes();
     }
@@ -131,21 +131,21 @@ public class InventoryItemTriggerEditor : Editor
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Dialog Selection", EditorStyles.boldLabel);
 
-        // Show the dropdown for collectedDialog
+        // Show the dropdown for completedDialog
         if (dialogNodeNames != null && dialogNodeNames.Length > 0)
         {
-            string currentDialog = collectedDialogProperty.stringValue;
+            string currentDialog = completedDialogProperty.stringValue;
 
             // Find current index
             int currentDialogIndex = System.Array.IndexOf(dialogNodeNames, currentDialog);
             if (currentDialogIndex < 0) currentDialogIndex = 0;
 
             // Dropdown showing dialog node names
-            int newDialogIndex = EditorGUILayout.Popup("Collected Dialog", currentDialogIndex, dialogNodeNames);
+            int newDialogIndex = EditorGUILayout.Popup("Item Dialog", currentDialogIndex, dialogNodeNames);
 
             if (newDialogIndex != currentDialogIndex)
             {
-                collectedDialogProperty.stringValue = dialogNodeNames[newDialogIndex];
+                completedDialogProperty.stringValue = dialogNodeNames[newDialogIndex];
             }
         }
         else

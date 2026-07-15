@@ -11,12 +11,18 @@ public class InventoryItemTrigger : MonoBehaviour
     [HideInInspector]
     private string itemId;
     public bool isCollectionTrigger = true;
-    [HideInInspector] public string collectedDialog;
+    public bool disableOnComplete = false;
+    [HideInInspector] public string completedDialog;
     GlobalInventoryState inventoryState;
     void Awake()
     {
         inventoryConfirmationView = FindObjectOfType<InventoryConfirmationView>(true);
         inventoryState = FindObjectOfType<GlobalInventoryState>();
+    }
+
+    private void Start()
+    {
+        OnCompleteHandler();
     }
 
     void SetTriggerType()
@@ -81,6 +87,15 @@ public class InventoryItemTrigger : MonoBehaviour
 
         GlobalGameData.InventoryItem item = inventoryState.GetItemById(itemId);
         return item != null && item.used;
+    }
+
+    public void OnCompleteHandler()
+    {
+        print($"I should hide because - collected is:{IsItemCollected()}");
+        if (disableOnComplete && (isCollectionTrigger ? IsItemCollected() : IsItemUsed()))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 }
