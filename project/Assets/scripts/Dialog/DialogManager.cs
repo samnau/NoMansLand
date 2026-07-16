@@ -200,17 +200,11 @@ public class DialogManager : MonoBehaviour
     }
     public void BeginDialog()
     {
-        // Do not show dialog for a trigger that has been disabled because of item use
-        if (inventoryItemTrigger != null && !inventoryItemTrigger.isCollectionTrigger && inventoryItemTrigger.disableOnComplete && inventoryItemTrigger.IsItemUsed())
-        {
-            return;
-        }
         dialogActive = true;
         StartCoroutine(TriggerShowDialogAnimation());
 
         dialogueRunner.startNode = targetText;
         string dialogToRun = ShouldShowAlternateDialog() ? inventoryItemTrigger.completedDialog : targetText;
-        print($"dialog to run: {dialogToRun}");
 
         dialogueRunner.StartDialogue(dialogToRun);
         StartCoroutine(TriggerTogglePlayerMotion());

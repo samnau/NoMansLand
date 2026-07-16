@@ -38,6 +38,16 @@ public class CodeTester : MonoBehaviour
         heroMotionController.EnableMovement();
     }
 
+    public void HideObject()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public void ShowObject()
+    {
+        gameObject.SetActive(true);
+    }
+
     public void  LogTestMessage()
     {
         print("This is a code tester message");

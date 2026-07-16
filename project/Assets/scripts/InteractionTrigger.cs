@@ -55,6 +55,13 @@ public class InteractionTrigger : MonoBehaviour
             dialogManager?.SetInteractionSound(interactionSound);
         }
 
+        bool disableInteraction = inventoryItemTrigger && !inventoryItemTrigger.isCollectionTrigger && inventoryItemTrigger.IsItemUsed() && inventoryItemTrigger.disableOnComplete;
+
+        if(disableInteraction)
+        {
+            return;
+        }
+
         interactionIndicator?.SetActive(true);
         if(dialogManager)
         {
@@ -64,12 +71,12 @@ public class InteractionTrigger : MonoBehaviour
             {
                 dialogManager.inventoryItemTrigger = inventoryItemTrigger;
             }
-        } else
-        {
-
         }
+
         triggerActive = true;
     }
+
+    //TODO: analyze what heppens when triggers are in close proximity
     
     private void OnTriggerExit2D(Collider2D collision)
     {

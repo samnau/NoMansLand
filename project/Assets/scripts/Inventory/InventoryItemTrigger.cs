@@ -55,7 +55,6 @@ public class InventoryItemTrigger : MonoBehaviour
 
     public bool IsItemCollected()
     {
-        //GlobalInventoryState inventoryState = FindObjectOfType<GlobalInventoryState>();
         if (inventoryState == null)
         {
             return false;
@@ -67,7 +66,6 @@ public class InventoryItemTrigger : MonoBehaviour
 
     public bool IsItemActive()
     {
-        //GlobalInventoryState inventoryState = FindObjectOfType<GlobalInventoryState>();
         if (inventoryState == null)
         {
             return false;
@@ -79,7 +77,6 @@ public class InventoryItemTrigger : MonoBehaviour
 
     public bool IsItemUsed()
     {
-        //GlobalInventoryState inventoryState = FindObjectOfType<GlobalInventoryState>();
         if (inventoryState == null)
         {
             return false;
@@ -91,8 +88,7 @@ public class InventoryItemTrigger : MonoBehaviour
 
     public void OnCompleteHandler()
     {
-        print($"I should hide because - collected is:{IsItemCollected()}");
-        if (disableOnComplete && (isCollectionTrigger ? IsItemCollected() : IsItemUsed()))
+        if (disableOnComplete && isCollectionTrigger && IsItemCollected())
         {
             gameObject.SetActive(false);
         }
