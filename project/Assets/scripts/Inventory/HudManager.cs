@@ -9,6 +9,8 @@ public class HudManager : MonoBehaviour
 {
     [SerializeField] Image itemImage;
     [SerializeField] TextMeshProUGUI itemText;
+    [SerializeField] Image familiarImage;
+    [SerializeField] TextMeshProUGUI familiarText;
     [SerializeField] GlobalInventoryState globalInventoryState;
     [SerializeField] InventoryVisualDatabase inventoryVisualDatabase;
     
@@ -17,6 +19,7 @@ public class HudManager : MonoBehaviour
         if (globalInventoryState != null)
         {
             GlobalInventoryState.OnActiveChanged += UpdateActiveItemDisplay;
+            GlobalInventoryState.OnActiveChanged += UpdateActiveFamiliarDisplay;
         }
     }
 
@@ -25,12 +28,14 @@ public class HudManager : MonoBehaviour
         if (globalInventoryState != null)
         {
             GlobalInventoryState.OnActiveChanged -= UpdateActiveItemDisplay;
+            GlobalInventoryState.OnActiveChanged -= UpdateActiveFamiliarDisplay;
         }
     }
 
     private void Start()
     {
         UpdateActiveItemDisplay();
+        UpdateActiveFamiliarDisplay();
     }
 
     private void UpdateActiveItemDisplay()
@@ -68,6 +73,45 @@ public class HudManager : MonoBehaviour
             {
                 itemText.text = activeItem.name;
                 itemText.enabled = true;
+            }
+        }
+    }
+
+    private void UpdateActiveFamiliarDisplay()
+    {
+        if (familiarImage == null || globalInventoryState == null || inventoryVisualDatabase == null)
+        {
+            return;
+        }
+
+        var collectedFamiliars = globalInventoryState.GetCollectedFamiliars();
+        var activeFamiliar = collectedFamiliars.FirstOrDefault(f => f.active);
+
+        if (activeFamiliar == null || activeFamiliar.used)
+        {
+            familiarImage.enabled = false;
+            if (familiarText != null)
+            {
+                familiarText.enabled = false;
+            }
+        }
+        else
+        {
+            Sprite familiarIcon = inventoryVisualDatabase.GetFamiliarIcon(activeFamiliar.id);
+            if (familiarIcon != null)
+            {
+                familiarImage.sprite = familiarIcon;
+                familiarImage.enabled = true;
+            }
+            else
+            {
+                familiarImage.enabled = false;
+            }
+
+            if (familiarText != null)
+            {
+                familiarText.text = activeFamiliar.name;
+                familiarText.enabled = true;
             }
         }
     }

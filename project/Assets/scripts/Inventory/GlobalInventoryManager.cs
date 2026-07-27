@@ -28,6 +28,7 @@ public class GlobalInventoryManager : MonoBehaviour
     [Header("Inventory Elements")]
     [SerializeField] GameObject inventoryWrapper;
     [SerializeField] Button closeButton;
+    [SerializeField] GameObject keyChain;
 
     [Header("Inventory Events")]
     [SerializeField] GameEvent freezePlayerEvent;
