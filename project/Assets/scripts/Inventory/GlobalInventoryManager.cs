@@ -78,7 +78,6 @@ public class GlobalInventoryManager : MonoBehaviour
         if (inventoryWrapper != null)
         {
             ToggleInventoryDisplay();
-            inventoryVisible = false;
         }
     }
 
@@ -155,12 +154,15 @@ public class GlobalInventoryManager : MonoBehaviour
         }
         if(positionTweener != null)
         {
-            if(inventoryVisible)
+            print(positionTweener.IsUiVisible(gameObject.transform.parent.GetComponentInChildren<Transform>().gameObject));
+            if (inventoryVisible)
             {
+                print("move ui backward");
                 positionTweener.MoveUIBackward(transitionDuration);
                 UnfreezePlayer();
             } else
             {
+                print("move UI forward");
                 positionTweener.MoveUIForward(transitionDuration);
                 FreezePlayer();
             }
@@ -174,7 +176,7 @@ public class GlobalInventoryManager : MonoBehaviour
         inventoryInMotion = true;
         yield return new WaitForSeconds(duration);
         inventoryInMotion = false;
-        inventoryVisible = positionTweener.IsUiVisible(gameObject.transform.parent.GetComponentInChildren<Transform>().gameObject);
+        inventoryVisible = positionTweener.IsUiRectVisible(closeButton.GetComponent<RectTransform>());
     }
     private void RedrawFamiliars()
     {

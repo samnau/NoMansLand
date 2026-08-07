@@ -140,10 +140,6 @@ public class PositionTweener : BaseTweener
         {
             targetObject = gameObject;
         }
-        //if (targetObject == null || targetObject.transform.parent == null)
-        //{
-        //    return false;
-        //}
 
         Camera camera = Camera.main;
         if (camera == null)
@@ -154,6 +150,41 @@ public class PositionTweener : BaseTweener
         if (targetObject.activeSelf)
         {
             RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                Vector3[] corners = new Vector3[4];
+                rectTransform.GetWorldCorners(corners);
+
+                foreach (Vector3 corner in corners)
+                {
+                    Vector3 screenPoint = RectTransformUtility.WorldToScreenPoint(camera, corner);
+                    if (screenPoint.x >= 0 && screenPoint.x <= Screen.width &&
+                        screenPoint.y >= 0 && screenPoint.y <= Screen.height)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public bool IsUiRectVisible(RectTransform rectTransform)
+    {
+        if (rectTransform is null)
+        {
+            return false;
+        }
+        GameObject targetObject = rectTransform.gameObject;
+
+        Camera camera = Camera.main;
+        if (camera == null)
+        {
+            return false;
+        }
+        
+        if (targetObject.activeSelf)
+        {
             if (rectTransform != null)
             {
                 Vector3[] corners = new Vector3[4];
@@ -216,6 +247,7 @@ public class PositionTweener : BaseTweener
 
     public void MoveUIByWidth(float duration, bool forward = true)
     {
+        print($"UI object moved: {gameObject.name}");
         RectTransform rectTransform = GetComponent<RectTransform>();
         if (rectTransform == null)
         {

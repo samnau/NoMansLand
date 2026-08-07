@@ -119,6 +119,11 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
         }
     }
 
+    private void Awake()
+    {
+        HideTooltip();
+    }
+
     protected virtual void HideTooltip()
     {
         if (sharedTooltipPanel != null)
