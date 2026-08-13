@@ -149,7 +149,7 @@ public class GlobalInventoryManager : MonoBehaviour
 
     void ToggleInventoryShade(bool show = true)
     {
-        float targetAlpha = show ? 0.4f : 0f;
+        float targetAlpha = show ? 0.5f : 0f;
         backgroundShadeTweener.TriggerImageAlphaByDuration(targetAlpha, 0.5f);
     }
 

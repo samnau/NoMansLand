@@ -10,14 +10,16 @@ public class GlobalFamiliarEntryView : GlobalInventoryEntryViewBase
     {
         if (familiar == null)
             return;
+
+        Sprite icon = visualDatabase?.GetFamiliarIcon(familiar.id);
+
         if (iconImage != null)
         {
-            Sprite icon = visualDatabase?.GetFamiliarIcon(familiar.id);
             iconImage.sprite = icon;
             iconImage.enabled = icon != null;
         }
 
-        BindBase(familiar.id, familiar.name, familiar.description, familiar.active, state);
+        BindBase(familiar.id, familiar.name, familiar.description, familiar.active, state, icon);
     }
 
     protected override void OnDisable()
