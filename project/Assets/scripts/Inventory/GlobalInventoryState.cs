@@ -143,7 +143,6 @@ public class GlobalInventoryState : MonoBehaviour, IGlobalDataPersistence
                 item.active = active;
                 OnActiveChanged?.Invoke();
             }
-            print($"active items limit: {activeItemLimitReached}");
             if(activeItemLimitReached)
             {
                 activeItems[0].active = false;

@@ -247,7 +247,6 @@ public class PositionTweener : BaseTweener
 
     public void MoveUIByWidth(float duration, bool forward = true)
     {
-        print($"UI object moved: {gameObject.name}");
         RectTransform rectTransform = GetComponent<RectTransform>();
         if (rectTransform == null)
         {

@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class GlobalInventoryManager : MonoBehaviour
 {
+    InventorySoundFX inventorySoundFX;
+
     [Header("References")]
     [SerializeField] private GlobalInventoryState inventoryState;
     [SerializeField] private InventoryVisualDatabase visualDatabase;
@@ -61,6 +63,7 @@ public class GlobalInventoryManager : MonoBehaviour
         {
             closeButton.onClick.AddListener(CloseClickHandler);
         }
+        inventorySoundFX = GetComponent<InventorySoundFX>();
     }
 
     void DisableInventory()
@@ -165,10 +168,12 @@ public class GlobalInventoryManager : MonoBehaviour
             {
                 positionTweener.MoveUIBackward(transitionDuration);
                 ToggleInventoryShade(false);
+                inventorySoundFX?.PlayHide();
                 UnfreezePlayer();
             } else
             {
                 ToggleInventoryShade(true);
+                inventorySoundFX?.PlayShow();
                 positionTweener.MoveUIForward(transitionDuration);
                 FreezePlayer();
             }

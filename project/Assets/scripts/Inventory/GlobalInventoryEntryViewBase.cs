@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    InventorySoundFX inventorySoundFX;
+
     [SerializeField] protected Image iconImage;
     [SerializeField] protected TextMeshProUGUI nameText;
     [SerializeField] protected TextMeshProUGUI descriptionText;
@@ -96,6 +98,8 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
         if (sharedTooltipPanel == null || sharedNameText == null || sharedDescriptionText == null)
             return;
 
+        inventorySoundFX?.PlayHover();
+
         // Set content
         sharedNameText.text = boundName;
         sharedDescriptionText.text = boundDescription;
@@ -122,6 +126,7 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
     private void Awake()
     {
         HideTooltip();
+        inventorySoundFX = FindAnyObjectByType<InventorySoundFX>();
     }
 
     protected virtual void HideTooltip()
@@ -134,7 +139,7 @@ public abstract class GlobalInventoryEntryViewBase : MonoBehaviour, IPointerEnte
     {
         if (inventoryState == null || string.IsNullOrEmpty(boundId))
             return;
-
+        inventorySoundFX?.PlaySelect();
         inventoryState.SetActive(boundId, isOn);
     }
 }
