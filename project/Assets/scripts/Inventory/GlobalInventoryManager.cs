@@ -31,6 +31,7 @@ public class GlobalInventoryManager : MonoBehaviour
     [SerializeField] ColorTweener backgroundShadeTweener;
     [SerializeField] GameObject inventoryWrapper;
     [SerializeField] Button closeButton;
+    [SerializeField] Animator keyChainAnimator;
 
     [Header("Inventory Events")]
     [SerializeField] GameEvent freezePlayerEvent;
@@ -177,9 +178,25 @@ public class GlobalInventoryManager : MonoBehaviour
                 positionTweener.MoveUIForward(transitionDuration);
                 FreezePlayer();
             }
+            StartCoroutine(ToggleKeyChain());
             StartCoroutine(InventoryToggleGuard(transitionDuration));
             EventSystem.current.SetSelectedGameObject(null);
         }
+    }
+    IEnumerator ToggleKeyChain()
+    {
+        if(inventoryVisible)
+        {
+            keyChainAnimator?.SetBool("MOVE_OUT", true);
+        }
+        yield return new WaitForSeconds(.5f);
+        if (!inventoryVisible)
+        {
+            keyChainAnimator?.SetBool("MOVE_IN", true);
+        }
+        yield return new WaitForSeconds(1.5f);
+        keyChainAnimator?.SetBool("MOVE_IN", false);
+        keyChainAnimator?.SetBool("MOVE_OUT", false);
     }
 
     IEnumerator InventoryToggleGuard(float duration)
