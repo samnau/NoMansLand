@@ -74,18 +74,32 @@ public class ScaleTweener : BaseTweener
         }
     }
 
+    IEnumerator SetScaleByDurationNonUniform(float targetXScale, float targetYScale, float duration)
+    {
+        float elapsed_time = Mathf.Clamp(0, 0, duration);
+        Vector3 targetLcoalScale = new Vector3(targetXScale, targetYScale, transform.localScale.z);
+        Vector3 initalScale = transform.localScale;
+        while (elapsed_time < duration)
+        {
+            transform.localScale = Vector3.Lerp(initalScale, targetLcoalScale, EaseInOutQuad(elapsed_time / duration));
+            yield return null;
+            elapsed_time += Time.deltaTime;
+        }
+    }
+
     public void SetUniformScale(float targetScaleFloat)
     {
         transform.localScale = new Vector3(targetScaleFloat, targetScaleFloat, targetScaleFloat);
+    }
+
+    public void TriggerNonuniformScaleTween(float targetXScale, float targetYScale, float duration)
+    {
+        StartCoroutine(SetScaleByDurationNonUniform(targetXScale, targetYScale, duration));
     }
 
     public void TriggerUniformScaleTween(float targetScale, float duration)
     {
         StartCoroutine(SetScaleByDuration(targetScale, duration));
     }
-    //NOTE: look at removing this update, this original code may not have ever been put into use
-    void Update () {
-        //ScaleUp();
 
-    }
 }

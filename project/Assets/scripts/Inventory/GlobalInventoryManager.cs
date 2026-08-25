@@ -41,6 +41,7 @@ public class GlobalInventoryManager : MonoBehaviour
     bool inventoryVisible = false;
     bool inventoryDisabled = false;
     PositionTweener positionTweener;
+    ScaleTweener scaleTweener;
     float transitionDuration = 0.75f;
 
     private void Awake()
@@ -58,6 +59,7 @@ public class GlobalInventoryManager : MonoBehaviour
         {
             positionTweener = inventoryWrapper.GetComponent<PositionTweener>();
             positionTweener.MoveUIBackward(0f);
+            scaleTweener = inventoryWrapper.GetComponent<ScaleTweener>();
         }
 
         if(closeButton != null)
@@ -179,9 +181,17 @@ public class GlobalInventoryManager : MonoBehaviour
                 FreezePlayer();
             }
             StartCoroutine(ToggleKeyChain());
+            StartCoroutine(InventoryTransition());
             StartCoroutine(InventoryToggleGuard(transitionDuration));
             EventSystem.current.SetSelectedGameObject(null);
         }
+    }
+
+    IEnumerator InventoryTransition()
+    {
+        scaleTweener.TriggerNonuniformScaleTween(1.05f, .95f, transitionDuration/2);
+        yield return new WaitForSeconds(transitionDuration / 2);
+        scaleTweener.TriggerUniformScaleTween(1f, transitionDuration / 2);
     }
     IEnumerator ToggleKeyChain()
     {
