@@ -34,28 +34,53 @@ public class InventoryConfirmationView : MonoBehaviour
     PositionTweener positionTweener;
     float transitionDuration = 0.3f;
 
+    ConfirmationSoundFX confirmationSoundFX;
+
     private void Awake()
     {
-        if (confirmationView != null)
-        {
-            //confirmationView.SetActive(false);
-            //confirmationText = confirmationView.GetComponentInChildren<TextMeshProUGUI>();
-        }
+        //if (confirmationView != null)
+        //{
+        //    //confirmationView.SetActive(false);
+        //    //confirmationText = confirmationView.GetComponentInChildren<TextMeshProUGUI>();
+        //}
 
         if (yesButton != null)
         {
             yesButton.onClick.AddListener(OnYesClicked);
+            AddHoverEvent(yesButton);
         }
 
         if (noButton != null)
         {
             noButton.onClick.AddListener(OnNoClicked);
+            AddHoverEvent(noButton);
         }
         positionTweener = GetComponent<PositionTweener>();
         if(positionTweener != null)
         {
             positionTweener.MoveUIUpward(0);
         }
+
+        confirmationSoundFX = GetComponent<ConfirmationSoundFX>();
+    }
+
+    private void AddHoverEvent(Button button)
+    {
+        EventTrigger trigger = button.gameObject.GetComponent<EventTrigger>();
+        if (trigger == null)
+        {
+            trigger = button.gameObject.AddComponent<EventTrigger>();
+        }
+
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerEnter;
+        entry.callback.AddListener((data) => { HoverHandler(); });
+        trigger.triggers.Add(entry);
+    }
+
+    void HoverHandler()
+    {
+        confirmationSoundFX.PlayHover();
     }
 
     private bool IsItemCollected()
@@ -138,11 +163,13 @@ public class InventoryConfirmationView : MonoBehaviour
         }
 
         HideConfirmationView();
+        confirmationSoundFX.PlaySelect();
     }
 
     private void OnNoClicked()
     {
         HideConfirmationView();
+        confirmationSoundFX.PlaySelect();
     }
 
     string GetConfirmationText(string itemName)

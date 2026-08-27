@@ -34,6 +34,15 @@ title: CollectBlueGem
 ---
 Molly: What a cool blue gem!
 ===
+title: FindBlueGem
+---
+<<SetExpression surprise surprise>>
+Molly: Oh, there's something inside this hole!
+<<SetExpression surprise annoyed>>
+Molly: I wonder what this is for?
+<<SetExpression surprise smirk>>
+Molly: Very shiny!
+===
 title: InventoryUse
 ---
 Molly: Maybe the blue gem will fit?
