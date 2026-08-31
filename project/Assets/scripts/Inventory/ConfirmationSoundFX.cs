@@ -14,7 +14,7 @@ public class ConfirmationSoundFX : SoundFXPlayer
             print("No sound assigned");
             return;
         }
-        PlayOneShot(hoverSound);
+        PlayOneShot(hoverSound,.3f);
     }
 
     public void PlaySelect()
@@ -24,6 +24,6 @@ public class ConfirmationSoundFX : SoundFXPlayer
             print("No sound assigned");
             return;
         }
-        PlayOneShot(selectSound);
+        PlayOneShot(selectSound,.3f);
     }
 }

@@ -17,6 +17,7 @@ public class InteractionTrigger : MonoBehaviour
     GameObject interactionIndicator;
     AudioSource interactionSound;
     InventoryItemTrigger inventoryItemTrigger;
+    FamiliarItemTrigger familiarItemTrigger;
     void Start()
     {
         dialogManager = FindObjectOfType<DialogManager>();
@@ -49,6 +50,7 @@ public class InteractionTrigger : MonoBehaviour
         }
 
         inventoryItemTrigger = gameObject.GetComponent<InventoryItemTrigger>();
+        familiarItemTrigger = gameObject.GetComponent<FamiliarItemTrigger>();
 
         if (interactionSound != null)
         {
@@ -70,6 +72,10 @@ public class InteractionTrigger : MonoBehaviour
             if(inventoryItemTrigger)
             {
                 dialogManager.inventoryItemTrigger = inventoryItemTrigger;
+            }
+            if(familiarItemTrigger)
+            {
+                dialogManager.familiarItemTrigger = familiarItemTrigger;
             }
         }
 

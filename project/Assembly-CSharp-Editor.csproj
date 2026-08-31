@@ -77,6 +77,8 @@
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_BoneCreation.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Editor.cs" />
     <Compile Include="Assets\scripts\Inventory\Editor\InventoryItemTriggerEditor.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarUseReceiverEditor.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarItemTriggerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

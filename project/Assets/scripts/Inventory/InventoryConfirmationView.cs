@@ -8,6 +8,9 @@ public class InventoryConfirmationView : MonoBehaviour
     [HideInInspector]
     public string itemId;
 
+    [HideInInspector]
+    public bool isFamiliar = false;
+
     [Header("References")]
     [SerializeField] private GlobalInventoryState inventoryState;
     [SerializeField] private InventoryVisualDatabase visualDatabase;
@@ -94,6 +97,17 @@ public class InventoryConfirmationView : MonoBehaviour
         return item != null && item.collected;
     }
 
+    private bool IsFamiliarCollected()
+    {
+        if (inventoryState == null || string.IsNullOrEmpty(itemId))
+        {
+            return false;
+        }
+
+        var familiar = inventoryState.GetFamiliarById(itemId);
+        return familiar != null && familiar.collected;
+    }
+
     private bool IsItemUsed()
     {
         if (inventoryState == null || string.IsNullOrEmpty(itemId))
@@ -105,6 +119,17 @@ public class InventoryConfirmationView : MonoBehaviour
         print($"item is used:{item.used}");
 
         return item != null && item.used;
+    }
+
+    private bool IsFamiliarActive()
+    {
+        if (inventoryState == null || string.IsNullOrEmpty(itemId))
+        {
+            return false;
+        }
+
+        var familiar = inventoryState.GetFamiliarById(itemId);
+        return familiar != null && familiar.active;
     }
 
     private bool IsItemActive()
@@ -154,8 +179,16 @@ public class InventoryConfirmationView : MonoBehaviour
             }
             else
             {
-                inventoryState.SetUsed(itemId, true);
-                inventoryState.SetActive(itemId, false);
+                if (isFamiliar)
+                {
+                    // Familiars don't have a used state, just toggle active
+                    inventoryState.SetActive(itemId, !IsFamiliarActive());
+                }
+                else
+                {
+                    inventoryState.SetUsed(itemId, true);
+                    inventoryState.SetActive(itemId, false);
+                }
                 BroadcastItemUse();
             }
 
@@ -185,6 +218,13 @@ public class InventoryConfirmationView : MonoBehaviour
             Debug.LogWarning("No inventory item found.");
             return "item";
         }
+        
+        if (isFamiliar)
+        {
+            var familiar = inventoryState.GetFamiliarById(itemId);
+            return familiar != null ? familiar.name : "familiar";
+        }
+        
         var item = inventoryState.GetItemById(itemId);
         return item != null ? item.name : "item";
     }
@@ -220,22 +260,52 @@ public class InventoryConfirmationView : MonoBehaviour
 
     public void ShowConfirmationView(string itemIdString)
     {
-        print($"item id: {itemIdString}");
+        print($"confirmation item id: {itemIdString}");
         itemId = itemIdString;
+        
+        // Determine if this is a familiar or item
+        var familiar = inventoryState?.GetFamiliarById(itemIdString);
+        isFamiliar = familiar != null;
+        
         if (confirmationView == null || confirmationText == null)
         {
             return;
         }
 
-        if(isCollectionConfirmation && IsItemCollected())
+        if(isCollectionConfirmation)
         {
-            UnfreezePlayer();
-            return;
-
-        } else if (!isCollectionConfirmation && !IsItemActive() || IsItemUsed())
+            if (isFamiliar && IsFamiliarCollected())
+            {
+                UnfreezePlayer();
+                return;
+            }
+            else if (!isFamiliar && IsItemCollected())
+            {
+                UnfreezePlayer();
+                return;
+            }
+        }
+        else
         {
-            UnfreezePlayer();
-            return;
+            if (isFamiliar)
+            {
+                // For familiars, non-collection confirmation is about activation
+                // Allow showing if familiar is collected
+                if (!IsFamiliarCollected())
+                {
+                    UnfreezePlayer();
+                    return;
+                }
+            }
+            else
+            {
+                // For items, check if active and not used
+                if (!IsItemActive() || IsItemUsed())
+                {
+                    UnfreezePlayer();
+                    return;
+                }
+            }
         }
 
         string itemName = GetItemDisplayName();
@@ -243,7 +313,7 @@ public class InventoryConfirmationView : MonoBehaviour
 
         if (itemImage != null && visualDatabase != null)
         {
-            Sprite icon = visualDatabase.GetItemIcon(itemId);
+            Sprite icon = isFamiliar ? visualDatabase.GetFamiliarIcon(itemId) : visualDatabase.GetItemIcon(itemId);
             itemImage.sprite = icon;
             itemImage.enabled = icon != null;
         }

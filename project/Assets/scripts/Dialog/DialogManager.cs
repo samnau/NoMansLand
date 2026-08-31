@@ -51,6 +51,9 @@ public class DialogManager : MonoBehaviour
     [HideInInspector]
     public InventoryItemTrigger inventoryItemTrigger;
 
+    [HideInInspector]
+    public FamiliarItemTrigger familiarItemTrigger;
+
     public void Awake()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
@@ -204,27 +207,51 @@ public class DialogManager : MonoBehaviour
         StartCoroutine(TriggerShowDialogAnimation());
 
         dialogueRunner.startNode = targetText;
-        string dialogToRun = ShouldShowAlternateDialog() ? inventoryItemTrigger.completedDialog : targetText;
+        string dialogToRun = ShouldShowAlternateDialog() ? GetAlternateDialog() : targetText;
 
         dialogueRunner.StartDialogue(dialogToRun);
         StartCoroutine(TriggerTogglePlayerMotion());
     }
 
+    private string GetAlternateDialog()
+    {
+        if (inventoryItemTrigger != null)
+        {
+            return inventoryItemTrigger.completedDialog;
+        }
+        else if (familiarItemTrigger != null)
+        {
+            return familiarItemTrigger.completedDialog;
+        }
+        return targetText;
+    }
+
     private bool ShouldShowAlternateDialog()
     {
-        if (inventoryItemTrigger == null)
+        if (inventoryItemTrigger != null)
         {
-            return false;
+            if (inventoryItemTrigger.isCollectionTrigger)
+            {
+                return !inventoryItemTrigger.IsItemCollected();
+            }
+            else
+            {
+                return inventoryItemTrigger.IsItemActive() && !inventoryItemTrigger.IsItemUsed();
+            }
+        }
+        else if (familiarItemTrigger != null)
+        {
+            if (familiarItemTrigger.isCollectionTrigger)
+            {
+                return !familiarItemTrigger.IsFamiliarCollected();
+            }
+            else
+            {
+                return familiarItemTrigger.IsFamiliarActive();
+            }
         }
 
-        if (inventoryItemTrigger.isCollectionTrigger)
-        {
-            return !inventoryItemTrigger.IsItemCollected();
-        }
-        else
-        {
-            return inventoryItemTrigger.IsItemActive() && !inventoryItemTrigger.IsItemUsed();
-        }
+        return false;
     }
 
     public void BeginTargetDialog(string dialogName)
@@ -299,7 +326,13 @@ public class DialogManager : MonoBehaviour
         {
             inventoryItemTrigger.TriggerShowConfirmation();
             inventoryItemTrigger = null;
-        } else
+        }
+        else if (familiarItemTrigger != null)
+        {
+            familiarItemTrigger.TriggerShowConfirmation();
+            familiarItemTrigger = null;
+        }
+        else
         {
             TogglePlayerMotion();
         }

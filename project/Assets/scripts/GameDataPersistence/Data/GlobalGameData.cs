@@ -183,8 +183,8 @@ public class GlobalGameData
                     id = "defaultFamiliar",
                     name = "Froggy",
                     description = "A small frog you found by a pool in the forest. Magical apparently. Not sure how.",
-                    active =  true,
-                    collected = true,
+                    active =  false,
+                    collected = false,
                     weakness = "none"
                 },
                 new Familiar
@@ -193,7 +193,7 @@ public class GlobalGameData
                     name = "To'leti",
                     description = "A crow. Or is it a raven? I can never tell the difference. Maybe it has wind powers?",
                     active =  false,
-                    collected = true,
+                    collected = false,
                     weakness = "defaultFamiliar",
                 },
                 new Familiar

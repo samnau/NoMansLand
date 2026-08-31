@@ -320,9 +320,11 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
+    <Compile Include="Assets\scripts\Inventory\ConfirmationSoundFX.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
-    <Compile Include="Assets\scripts\Inventory\ConfirmationSoundFX.cs" />
+    <Compile Include="Assets\scripts\Inventory\FamiliarUseReceiver.cs" />
+    <Compile Include="Assets\scripts\Inventory\FamiliarItemTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
