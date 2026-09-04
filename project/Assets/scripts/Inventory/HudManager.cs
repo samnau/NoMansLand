@@ -13,7 +13,9 @@ public class HudManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI familiarText;
     [SerializeField] GlobalInventoryState globalInventoryState;
     [SerializeField] InventoryVisualDatabase inventoryVisualDatabase;
-    
+
+    DialogManager dialogManager;
+
     private void OnEnable()
     {
         if (globalInventoryState != null)
@@ -36,6 +38,11 @@ public class HudManager : MonoBehaviour
     {
         UpdateActiveItemDisplay();
         UpdateActiveFamiliarDisplay();
+        dialogManager = FindAnyObjectByType<DialogManager>();
+        if (dialogManager != null && dialogManager.isCutScene)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void UpdateActiveItemDisplay()

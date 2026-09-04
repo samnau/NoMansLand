@@ -27,13 +27,13 @@ public class DialogManager : MonoBehaviour
     protected LineView dialogLineView;
     InputStateTracker inputTracker;
     HeroMotionController motionController;
-    bool dialogActive = false;
+    [HideInInspector] public bool dialogActive = false;
     AudioSource interactionPlayer;
     public UnityEvent CameraEvent = new UnityEvent();
 //    [SerializeField] TextMeshProUGUI SpeakerText;
   //  string defaultName = "Molly";
 
-    [SerializeField] bool isCutScene = false;
+    public bool isCutScene = false;
     [SerializeField] bool autoStart = false;
     [Header("Game Events")]
     [SerializeField] GameEvent SceneEnd;

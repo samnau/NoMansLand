@@ -57,6 +57,7 @@
     <Analyzer Include="C:\Users\Owner\GameDevelopment\NoMansLand\project\Library\PackageCache\dev.yarnspinner.unity@2.4.0\SourceGenerator\YarnSpinner.Unity.SourceCodeGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarItemTriggerEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_EditSkinWeightsEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_FFD.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_IKHandleEditor.cs" />
@@ -72,13 +73,12 @@
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_FFDLineDisplayEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_CreateControls.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Skinning.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarUseReceiverEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_GlobalControlEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_SkinCluster.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_BoneCreation.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Editor.cs" />
     <Compile Include="Assets\scripts\Inventory\Editor\InventoryItemTriggerEditor.cs" />
-    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarUseReceiverEditor.cs" />
-    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarItemTriggerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

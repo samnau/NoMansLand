@@ -9,6 +9,17 @@ Molly: You're pretty cute.
 <<SetExpression idle smile>>
 Molly: Should I take you with me?
 ===
+title: BrokenSpireSolo
+tags: 
+position: -276,-171
+---
+<<SetExpression idle smile>>
+Molly: This pool is pretty, but...
+<<SetExpression idle annoyed>>
+Molly: ...everything is so worn down.
+<<SetExpression surprise annoyed>>
+Molly: I wish somone would tell me where I am.
+===
 title: BrokenSpire
 tags: 
 position: -276,-171

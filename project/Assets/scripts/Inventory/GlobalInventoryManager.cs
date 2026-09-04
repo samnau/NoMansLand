@@ -40,6 +40,7 @@ public class GlobalInventoryManager : MonoBehaviour
     bool inventoryInMotion = false;
     bool inventoryVisible = false;
     bool inventoryDisabled = false;
+    DialogManager dialogManager;
     PositionTweener positionTweener;
     ScaleTweener scaleTweener;
     float transitionDuration = 0.75f;
@@ -67,6 +68,11 @@ public class GlobalInventoryManager : MonoBehaviour
             closeButton.onClick.AddListener(CloseClickHandler);
         }
         inventorySoundFX = GetComponent<InventorySoundFX>();
+        dialogManager = FindAnyObjectByType<DialogManager>();
+        if(dialogManager != null &&  dialogManager.isCutScene)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     void DisableInventory()
@@ -264,7 +270,7 @@ public class GlobalInventoryManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.I))
+        if(Input.GetKeyDown(KeyCode.I) && dialogManager?.dialogActive == false)
         {
             ToggleInventoryDisplay();
         }
