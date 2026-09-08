@@ -260,7 +260,7 @@ public class InventoryConfirmationView : MonoBehaviour
 
     public void ShowConfirmationView(string itemIdString)
     {
-        print($"confirmation item id: {itemIdString}");
+        //print($"confirmation item id: {itemIdString}");
         itemId = itemIdString;
         
         // Determine if this is a familiar or item

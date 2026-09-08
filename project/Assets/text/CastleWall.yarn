@@ -17,6 +17,16 @@ Molly: Why is this here?
 Molly: And why is it buried in the grass?
 Molly: I don't understand...
 ===
+title: Castle.Reflector
+position: -153,304
+---
+<<SetExpression surprise annoyed>>
+Molly: Um, what?
+Molly: Why is this here?
+Molly: And why is it buried in the grass?
+<<SetExpression idle smirk>>
+Molly: Huh, this is just like the one I have at home.
+===
 title: WallDemo
 position: 0,0
 ---
