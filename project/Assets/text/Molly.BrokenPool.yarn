@@ -146,4 +146,13 @@ Molly: You know all of that, but you can't remember what wrecked the place?
 King's Ghost: Sadly, no...
 King's Ghost: Let's move on, shall we?
 ===
-
+title: GetGreenGem
+tags: 
+position: -276,-171
+---
+<<SetExpression surprise surprise>>
+Molly: There's something inside of this tree!
+<<SetExpression idle smirk>>
+Molly: I wonder if this is worth anything?
+Molly: It looks expensive.
+===

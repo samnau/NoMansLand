@@ -7,6 +7,8 @@ Molly: This wall goes on forever!
 Molly: And not a door in sight.
 <<SetExpression idle smirk>>
 Molly: That gem looks pretty cool, though.
+<<SetExpression surprise annoyed>>
+Molly: I wonder what these three holes are for?
 ===
 title: Castle.Bike
 position: -153,302
