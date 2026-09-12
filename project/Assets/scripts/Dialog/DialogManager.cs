@@ -5,49 +5,67 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using Yarn.Unity;
+using TMPro;
 
 public class DialogManager : MonoBehaviour
 {
-    [SerializeField] Text text_dialog, text_speakerName;
+    [Header("Configuration")]
+    [SerializeField] TextMeshProUGUI text_dialog, text_speakerName;
     GameObject dialogWrapper;
     GameObject player;
-    Animator dialogWrapperAnimator;
+   // Animator dialogWrapperAnimator;
+    // new animator reference
     [SerializeField]
-    protected YarnProgram targetDialog;
+    Animator dialogUiAnimator;
+    [SerializeField]
+    protected YarnProject targetDialog;
     [SerializeField]
     public string targetText;
     protected DialogueRunner dialogueRunner;
-    protected DialogueUI dialogueUI;
+    //protected DialogueUI dialogueUI;
+    public DialogueAdvanceInput advanceInput;
+    protected LineView dialogLineView;
     InputStateTracker inputTracker;
     HeroMotionController motionController;
-    bool dialogActive = false;
+    [HideInInspector] public bool dialogActive = false;
     AudioSource interactionPlayer;
     public UnityEvent CameraEvent = new UnityEvent();
-    [SerializeField] Text SpeakerText;
-    string defaultName = "Molly";
+//    [SerializeField] TextMeshProUGUI SpeakerText;
+  //  string defaultName = "Molly";
 
-    [SerializeField] bool isCutScene = false;
+    public bool isCutScene = false;
+    [SerializeField] bool autoStart = false;
+    [Header("Game Events")]
     [SerializeField] GameEvent SceneEnd;
     [SerializeField] GameEvent TutorialEnd;
+    [SerializeField] GameEvent FreezePlayer;
+    [SerializeField] GameEvent UnfreezePlayer;
+    [SerializeField] GameEvent DialogNodeComplete;
 
+    [Header("Speakers")]
     [SerializeField] List<GameObject> dialogSpeakers;
 
     GameObject currentSpeaker;
     GameObject nextSpeaker;
 
-    [SerializeField] GameEvent DialogNodeComplete;
+    [HideInInspector]
+    public InventoryItemTrigger inventoryItemTrigger;
+
+    [HideInInspector]
+    public FamiliarItemTrigger familiarItemTrigger;
 
     public void Awake()
     {
         dialogueRunner = FindObjectOfType<DialogueRunner>();
+        advanceInput = FindAnyObjectByType<DialogueAdvanceInput>();
         dialogueRunner.AddCommandHandler(
          "PlayInteractionSound",
           PlayInteractionSound
         );
 
         dialogueRunner.AddCommandHandler(
-         "SetSpeakerName",
-          SetSpeakerName
+         "SwapSpeakers",
+          TriggerSpeakerSwap
         );
 
         dialogueRunner.AddCommandHandler(
@@ -63,15 +81,13 @@ public class DialogManager : MonoBehaviour
     }
     void Start()
     {
-        //dialogueUI = FindObjectOfType<DialogueUI>();
-        dialogueUI = GetComponent<DialogueUI>();
-        dialogueRunner.Add(targetDialog);
+        dialogLineView = GetComponent<LineView>();
+        dialogueRunner.SetProject(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
-        dialogWrapperAnimator = dialogWrapper.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
         
-        inputTracker = player.GetComponent<InputStateTracker>();
-        motionController = player.GetComponent<HeroMotionController>();
+        inputTracker = player?.GetComponent<InputStateTracker>();
+        motionController = player?.GetComponent<HeroMotionController>();
         if(dialogSpeakers.Count > 1)
         {
             nextSpeaker = dialogSpeakers[1];
@@ -81,22 +97,37 @@ public class DialogManager : MonoBehaviour
         {
             currentSpeaker = dialogSpeakers[0];
         }
+
+        if(autoStart)
+        {
+            BeginDialog();
+        }
+        if(isCutScene)
+        {
+            advanceInput.enabled = false;
+            FreezePlayer.Invoke();
+        }
+
+        if(!FreezePlayer || !UnfreezePlayer )
+        {
+            Debug.LogWarning("Player input events not assigned");
+        }
     }
 
-    public void SetSpeakerName(string[] parameters)
+    public void TriggerSpeakerSwap()
     {
-        string name = parameters[0];
-        if (name == null)
-        {
-            SpeakerText.text = defaultName;
-            return;
-        }
-        if (name.Contains("-"))
-        {
-            name = name.Replace("-", " ");
-        }
-        SpeakerText.text = name;
+        // This method has parameter defaults, but the command handler doesn't allow me to omit them, so I am calling this proxy method wrapper
         SwapSpeakerPortraits();
+    }
+
+    public void HideDialogUI()
+    {
+        dialogUiAnimator.SetBool("show", false);
+    }
+
+    public void ShowDialogUI()
+    {
+        dialogUiAnimator.SetBool("show", true);
     }
 
     IEnumerator HideSpeaker(GameObject targetSpeaker)
@@ -123,7 +154,7 @@ public class DialogManager : MonoBehaviour
         ShowSpeaker(nextSpeaker);
     }
 
-    public void PlayInteractionSound(string[] parameter)
+    public void PlayInteractionSound()
     {
         interactionPlayer?.Play();
     }
@@ -132,38 +163,103 @@ public class DialogManager : MonoBehaviour
         interactionPlayer = targetSoundPlayer;
     }
 
+    IEnumerator TriggerTogglePlayerMotion()
+    {
+        yield return new WaitForSeconds(0.2f);
+        TogglePlayerMotion();
+    }
+
+    IEnumerator TriggerShowDialogAnimation()
+    {
+        yield return new WaitForSeconds(0.2f);
+        dialogUiAnimator.SetBool("show", true);
+    }
+    public void DisablePlayerMotion()
+    {
+        inputTracker.enabled = false;
+        motionController.enabled = false;
+    }
+
+    public void FlipPlayerDirection()
+    {
+        Transform playerTransform = player.transform;
+        Vector3 playerScale = playerTransform.localScale;
+        playerTransform.localScale = new Vector3(playerScale.x * -1, playerScale.y, playerScale.z);
+    }
     // NOTE: convert this to an event broadcast that the player can consume and disable input
     void TogglePlayerMotion()
     {
-        inputTracker.enabled = !dialogActive;
-        motionController.enabled = !dialogActive;
-
         // adding in code for when the input tracker has disabled itself
         // REFACTOR: needs simplicity and less function overlap
         if(dialogActive)
         {
-            inputTracker.DisableMovement();
+            FreezePlayer?.Invoke();
+            //inputTracker.DisableMovement();
         } else
         {
-            inputTracker.EnableMovement();
+            UnfreezePlayer?.Invoke();
+            //inputTracker.EnableMovement();
         }
     }
     public void BeginDialog()
     {
         dialogActive = true;
+        StartCoroutine(TriggerShowDialogAnimation());
+
         dialogueRunner.startNode = targetText;
-        dialogueRunner.StartDialogue(targetText);
-        dialogWrapperAnimator.SetBool("show", dialogActive);
-        TogglePlayerMotion();
+        string dialogToRun = ShouldShowAlternateDialog() ? GetAlternateDialog() : targetText;
+
+        dialogueRunner.StartDialogue(dialogToRun);
+        StartCoroutine(TriggerTogglePlayerMotion());
+    }
+
+    private string GetAlternateDialog()
+    {
+        if (inventoryItemTrigger != null)
+        {
+            return inventoryItemTrigger.completedDialog;
+        }
+        else if (familiarItemTrigger != null)
+        {
+            return familiarItemTrigger.completedDialog;
+        }
+        return targetText;
+    }
+
+    private bool ShouldShowAlternateDialog()
+    {
+        if (inventoryItemTrigger != null)
+        {
+            if (inventoryItemTrigger.isCollectionTrigger)
+            {
+                return !inventoryItemTrigger.IsItemCollected();
+            }
+            else
+            {
+                return inventoryItemTrigger.IsItemActive() && !inventoryItemTrigger.IsItemUsed();
+            }
+        }
+        else if (familiarItemTrigger != null)
+        {
+            if (familiarItemTrigger.isCollectionTrigger)
+            {
+                return !familiarItemTrigger.IsFamiliarCollected();
+            }
+            else
+            {
+                return familiarItemTrigger.IsFamiliarActive();
+            }
+        }
+
+        return false;
     }
 
     public void BeginTargetDialog(string dialogName)
     {
-        print($"begin target dialog {dialogName}");
         dialogActive = true;
         dialogueRunner.startNode = dialogName;
         dialogueRunner.StartDialogue(dialogName);
-        dialogWrapperAnimator.SetBool("show", dialogActive);
+        dialogUiAnimator.SetBool("show", dialogActive);
         TogglePlayerMotion();
     }
 
@@ -174,8 +270,30 @@ public class DialogManager : MonoBehaviour
 
     public void NextDialogLine()
     {
-        dialogueUI.MarkLineComplete();
+        advanceInput.dialogueView.UserRequestedViewAdvancement();
     }
+
+    public void StartCutScene()
+    {
+        advanceInput.enabled = false;
+    }
+    public void TriggerAdvanceCutSceneDialog ()
+    {
+        StartCoroutine(AdvanceCutSceneDialog());
+    }
+    IEnumerator AdvanceCutSceneDialog()
+    {
+        advanceInput.enabled = true;
+        NextDialogLine();
+        yield return new WaitForSeconds(.1f);
+        advanceInput.enabled = false;
+    }
+
+    public void EndCutScene()
+    {
+        advanceInput.enabled = true;
+    }
+
     // REFACTOR: This is progress demo code that could be abstracted into something more useful
     IEnumerator sceneTransition()
     {
@@ -191,34 +309,43 @@ public class DialogManager : MonoBehaviour
     public void EndDialog()
     {
         dialogActive = false;
-        dialogWrapperAnimator.SetBool("show", dialogActive);
-        dialogueRunner.ResetDialogue();
+        dialogUiAnimator.SetBool("show", dialogActive);
         //demo code only - REMOVE LATER
-        if (targetText == "LeftEntranceDoor")
+        // commented out but not tested for issues after removal
+        //if (targetText == "LeftEntranceDoor")
+        //{
+        //    GameObject.Find("MusicPlayer").SetActive(false);
+        //    SceneManager.LoadScene("BattleDemoMenu");
+        //    //StartCoroutine("sceneTransition");
+        //}
+        if (currentSpeaker == dialogSpeakers[1])
         {
-            GameObject.Find("MusicPlayer").SetActive(false);
-            SceneManager.LoadScene("BattleDemoMenu");
-            //StartCoroutine("sceneTransition");
+            SwapSpeakerPortraits();
         }
-        TogglePlayerMotion();
+        if (inventoryItemTrigger != null)
+        {
+            inventoryItemTrigger.TriggerShowConfirmation();
+            inventoryItemTrigger = null;
+        }
+        else if (familiarItemTrigger != null)
+        {
+            familiarItemTrigger.TriggerShowConfirmation();
+            familiarItemTrigger = null;
+        }
+        else
+        {
+            TogglePlayerMotion();
+        }
     }
 
-    void TriggerEndScene(string[] parameters)
+    void TriggerEndScene()
     {
         SceneEnd?.Invoke();
     }
 
-    void TriggerEndTutorial(string[] parameters)
+    void TriggerEndTutorial()
     {
         TutorialEnd?.Invoke();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space) && dialogActive && !isCutScene)
-        {
-            NextDialogLine();
-        }
     }
 
 }

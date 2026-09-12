@@ -36,7 +36,8 @@ public class HeroPositionManager : MonoBehaviour
         }
 
         string previousDirection = fadeController.lastDirection;
-        string currentDirection = startDirectionDictionary[previousDirection];
+        //string currentDirection = startDirectionDictionary[previousDirection];
+        string currentDirection = startDirectionDictionary.TryGetValue(previousDirection, out var tmp) ? tmp : "right";
         string inputDirection = currentDirection == "up" || currentDirection == "down" ? previousDirection : currentDirection;
         InputStateTracker inputStateTracker = gameObject.GetComponent<InputStateTracker>();
         positionMarkers = GameObject.FindObjectsOfType<PositionMarker>();

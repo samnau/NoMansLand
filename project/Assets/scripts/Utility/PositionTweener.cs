@@ -72,6 +72,9 @@ public class PositionTweener : BaseTweener
     {
         float elapsed_time = Mathf.Clamp(0, 0, duration); //Elapsed time
         Vector3 startPostion = transform.localPosition;
+        //print($"local pos: {startPostion}");
+        //print($"elapsed: {elapsed_time}");
+        //print($"duration: {duration}");
         while (elapsed_time < duration)
         {
             transform.localPosition = Vector3.Lerp(startPostion, targetPosition, EaseInOutQuad(elapsed_time / duration));
@@ -122,6 +125,186 @@ public class PositionTweener : BaseTweener
         endPosition = targetPosition;
         progress = 0;
         StartCoroutine(SetPosition());
+    }
+
+    public void TriggerEndPositionSimple()
+    {
+        print("simple position tween trigger");
+        progress = 0;
+        StartCoroutine(SetLocalPositionByDuration(endPosition, speed));
+    }
+
+    public bool IsUiVisible(GameObject targetObject)
+    {
+        if (targetObject is null)
+        {
+            targetObject = gameObject;
+        }
+
+        Camera camera = Camera.main;
+        if (camera == null)
+        {
+            return false;
+        }
+
+        if (targetObject.activeSelf)
+        {
+            RectTransform rectTransform = targetObject.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                Vector3[] corners = new Vector3[4];
+                rectTransform.GetWorldCorners(corners);
+
+                foreach (Vector3 corner in corners)
+                {
+                    Vector3 screenPoint = RectTransformUtility.WorldToScreenPoint(camera, corner);
+                    if (screenPoint.x >= 0 && screenPoint.x <= Screen.width &&
+                        screenPoint.y >= 0 && screenPoint.y <= Screen.height)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public bool IsUiRectVisible(RectTransform rectTransform)
+    {
+        if (rectTransform is null)
+        {
+            return false;
+        }
+        GameObject targetObject = rectTransform.gameObject;
+
+        Camera camera = Camera.main;
+        if (camera == null)
+        {
+            return false;
+        }
+        
+        if (targetObject.activeSelf)
+        {
+            if (rectTransform != null)
+            {
+                Vector3[] corners = new Vector3[4];
+                rectTransform.GetWorldCorners(corners);
+
+                foreach (Vector3 corner in corners)
+                {
+                    Vector3 screenPoint = RectTransformUtility.WorldToScreenPoint(camera, corner);
+                    if (screenPoint.x >= 0 && screenPoint.x <= Screen.width &&
+                        screenPoint.y >= 0 && screenPoint.y <= Screen.height)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public enum ToggleDirection { vertical, horizontal };
+
+    public void ToggleUi(ToggleDirection direction, GameObject targetObject)
+    {
+        bool isVisible = IsUiVisible(targetObject);
+
+        switch (direction)
+        {
+            case ToggleDirection.horizontal:
+                if (isVisible)
+                {
+                    MoveUIBackward(0.5f);
+                }
+                else
+                {
+                    MoveUIForward(0.5f);
+                }
+                break;
+            case ToggleDirection.vertical:
+                if (isVisible)
+                {
+                    MoveUIUpward(0.5f);
+                }
+                else
+                {
+                    MoveUIDownward(0.5f);
+                }
+                break;
+        }
+    }
+
+    public void MoveUIForward(float duration)
+    {
+        MoveUIByWidth(duration, true);
+    }
+
+    public void MoveUIBackward(float duration)
+    {
+        MoveUIByWidth(duration, false);
+    }
+
+    public void MoveUIByWidth(float duration, bool forward = true)
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        if (rectTransform == null)
+        {
+            Debug.LogError("No RectTransform found on this UI object");
+            return;
+        }
+
+        // Get the width from RectTransform rect, accounting for local scale
+        float objectWidth = rectTransform.rect.width * rectTransform.localScale.x;
+
+        float widthOffset = forward ? objectWidth : -objectWidth;
+
+        // Calculate target position (move by object width in local space)
+        Vector3 currentPosition = rectTransform.localPosition;
+        Vector3 targetPosition = new Vector3(
+            currentPosition.x + widthOffset,
+            currentPosition.y,
+            currentPosition.z
+        );
+
+        // Use local position tweening for UI objects
+        TriggerLocalPositionByDuration(targetPosition, duration);
+    }
+
+    public void MoveUIUpward(float duration)
+    {
+        MoveUIByHeight(duration, true);
+    }
+
+    public void MoveUIDownward(float duration)
+    {
+        MoveUIByHeight(duration, false);
+    }
+
+    public void MoveUIByHeight(float duration, bool forward = true)
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        if (rectTransform == null)
+        {
+            Debug.LogError("No RectTransform found on this UI object");
+            return;
+        }
+
+        // Get the height from RectTransform rect, accounting for local scale
+        float objectHeight = rectTransform.rect.height * rectTransform.localScale.y;
+
+        float heightOffset = forward ? objectHeight : -objectHeight;
+
+        // Calculate target position (move by object height in local space)
+        Vector3 currentPosition = rectTransform.localPosition;
+        Vector3 targetPosition = new Vector3(
+            currentPosition.x,
+            currentPosition.y + heightOffset,
+            currentPosition.z
+        );
+
+        // Use local position tweening for UI objects
+        TriggerLocalPositionByDuration(targetPosition, duration);
     }
 
     public void TriggerLocalPositionByDuration([Optional] Vector3 targetPosition, [Optional] float duration)

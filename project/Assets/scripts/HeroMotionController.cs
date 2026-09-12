@@ -20,6 +20,8 @@ public class HeroMotionController : MonoBehaviour
     bool isHorizontalOnly = false;
     bool isUiActive = false;
 
+    bool movementDisabled = false;
+
     void Start()
     {
         stateAnimator = GetComponent<Animator>();
@@ -39,6 +41,16 @@ public class HeroMotionController : MonoBehaviour
     private bool isMoving()
     {
         return inputStateTracker.isWalking;
+    }
+
+    public void DisableMovement()
+    {
+        movementDisabled = true;
+    }
+
+    public void EnableMovement()
+    {
+        movementDisabled = false;
     }
 
     SpriteRenderer[] GetSpriteRenderers(string parentName)
@@ -85,7 +97,7 @@ public class HeroMotionController : MonoBehaviour
         var isDown = currentDirection == "down";
         var isUp = currentDirection == "up";
 
-        isHorizontalOnly = isHorizontal && !isDown && !isUp;
+        isHorizontalOnly = (isHorizontal && !isDown && !isUp) || inputStateTracker.horizontalOnly;
         if(isHorizontalOnly)
         {
             ShowHorizontalSprites();
@@ -133,6 +145,12 @@ public class HeroMotionController : MonoBehaviour
         float motionSpeed = motionDistance + targetRunModifier;
         var horizontalValue = Input.GetAxis("Horizontal") * motionSpeed;
         var verticalValue = Input.GetAxis("Vertical") * motionSpeed;
+
+        if(inputStateTracker.horizontalOnly)
+        {
+            verticalValue = 0f;
+        }
+
         // TODO: revisit this calculation later
         //var walkingVelocityReached = Mathf.Abs(horizontalValue) > 0.5 || Mathf.Abs(verticalValue) > 0.5;
         var walkingVelocityReached = true;
@@ -168,7 +186,7 @@ public class HeroMotionController : MonoBehaviour
     void Update()
     {
         isUiActive = inputStateTracker.isUiActive;
-        if(!isUiActive && downAnimator != null && upAnimator != null)
+        if(!movementDisabled || (!isUiActive && downAnimator != null && upAnimator != null))
         {
             setAnimationStates();
             updateMovement();

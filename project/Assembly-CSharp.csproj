@@ -54,12 +54,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Owner\GameDevelopment\NoMansLand\project\Library\PackageCache\dev.yarnspinner.unity@2.4.0\SourceGenerator\YarnSpinner.Unity.SourceCodeGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\Camera\CameraTweenTrigger.cs" />
     <Compile Include="Assets\scripts\GameDataPersistence\GlobalDataPersistenceManager.cs" />
     <Compile Include="Assets\scripts\TextImporter.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationConstraint.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryState.cs" />
     <Compile Include="Assets\scripts\Creatures\CrowFamiliarController.cs" />
     <Compile Include="Assets\scripts\SaveSystem\SaveableEntity.cs" />
     <Compile Include="Assets\scripts\Battle\ChargeBar\ChargeBarController.cs" />
@@ -75,14 +77,17 @@
     <Compile Include="Assets\scripts\EyeBlinkControllerProfile.cs" />
     <Compile Include="Assets\scripts\DialogAnimator.cs" />
     <Compile Include="Assets\scripts\Utility\AlphaTweenSequencer.cs" />
+    <Compile Include="Assets\scripts\TimedScriptTrigger.cs" />
     <Compile Include="Assets\scripts\UI\StartButton.cs" />
     <Compile Include="Assets\scripts\Sound\SoundFXPlayer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
     <Compile Include="Assets\scripts\ScriptableObjects\GameState.cs" />
+    <Compile Include="Assets\scripts\Inventory\ItemUseTrigger.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
     <Compile Include="Assets\scripts\Characters\GhostKingBlinker.cs" />
     <Compile Include="Assets\scripts\Inventory\Gem.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalFamiliarEntryView.cs" />
     <Compile Include="Assets\scripts\Objects\SpellRingSoundFX.cs" />
     <Compile Include="Assets\scripts\LegIdleController.cs" />
     <Compile Include="Assets\scripts\Perspective_Scale_Controller.cs" />
@@ -92,8 +97,11 @@
     <Compile Include="Assets\scripts\CounterAttackController.cs" />
     <Compile Include="Assets\scripts\PerspectiveScaleController.cs" />
     <Compile Include="Assets\scripts\EyeBlinkController.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryConfirmationView.cs" />
     <Compile Include="Assets\scripts\Dialog\SceneDialogController.cs" />
     <Compile Include="Assets\scripts\ExpressionAnimationManager.cs" />
+    <Compile Include="Assets\scripts\SceneFadeTriggerEditor.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryVisualDatabase.cs" />
     <Compile Include="Assets\scripts\MotionController3.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\TableCodeGen.cs" />
     <Compile Include="Assets\scripts\EyeController.cs" />
@@ -111,13 +119,16 @@
     <Compile Include="Assets\scripts\BattleSpinnerButton.cs" />
     <Compile Include="Assets\scripts\WallManager.cs" />
     <Compile Include="Assets\scripts\InteractionTrigger.cs" />
+    <Compile Include="Assets\scripts\Inventory\FamiliarUseReceiver.cs" />
     <Compile Include="Assets\CollisionTest.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventoryItemTrigger.cs" />
     <Compile Include="Assets\scripts\RavenAnimationController.cs" />
     <Compile Include="Assets\scripts\SaveSystem\PlayerPrefManager.cs" />
     <Compile Include="Assets\2D_Magic_Attack\Scripts\MagicDemoButton.cs" />
     <Compile Include="Assets\scripts\DataPersistance\FileDataHandler.cs" />
     <Compile Include="Assets\scripts\DiscHover.cs" />
     <Compile Include="Assets\scripts\Battle\PowerCharge\PowerCharger.cs" />
+    <Compile Include="Assets\scripts\CodeTester.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\PointSet.cs" />
     <Compile Include="Assets\scripts\Hero_Stack_Order_Controller.cs" />
     <Compile Include="Assets\scripts\UI\QuitButton.cs" />
@@ -126,8 +137,8 @@
     <Compile Include="Assets\CSV2Table\Demo\SampleTable.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
     <Compile Include="Assets\scripts\Characters\HeroProfileSoundFX.cs" />
-    <Compile Include="Assets\scripts\Battle\BattleIntroSequencer.cs" />
     <Compile Include="Assets\scripts\Characters\GhostKingController.cs" />
+    <Compile Include="Assets\scripts\Battle\BattleIntroSequencer.cs" />
     <Compile Include="Assets\scripts\Battle\AnimationFlowController.cs" />
     <Compile Include="Assets\scripts\Battle\Ring\SpinnerIntroSequencer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweep.cs" />
@@ -157,6 +168,7 @@
     <Compile Include="Assets\scripts\Utility\EyeBlinker.cs" />
     <Compile Include="Assets\scripts\monster_action_manager.cs" />
     <Compile Include="Assets\scripts\UI\PauseMenuController.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryManager.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFrontNode.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Util\PointGenerator.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2d_AnimatorController.cs" />
@@ -170,6 +182,7 @@
     <Compile Include="Assets\scripts\FireShieldSoundFXController.cs" />
     <Compile Include="Assets\scripts\Player\HeroShadowController.cs" />
     <Compile Include="Assets\scripts\Player\ProfileAnimationStateManager.cs" />
+    <Compile Include="Assets\scripts\DramaticDisplayController.cs" />
     <Compile Include="Assets\scripts\GameDataPersistence\WorldState\DayTracker.cs" />
     <Compile Include="Assets\scripts\Monster.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
@@ -187,6 +200,7 @@
     <Compile Include="Assets\scripts\Battle\BattleComboAnnouncer.cs" />
     <Compile Include="Assets\scripts\Battle\Ring\BattleRingTrigger.cs" />
     <Compile Include="Assets\scripts\Expression_Manager.cs" />
+    <Compile Include="Assets\scripts\Inventory\FamiliarItemTrigger.cs" />
     <Compile Include="Assets\ScenePositionManager.cs" />
     <Compile Include="Assets\scripts\Utility\AnimationFrameSequencer.cs" />
     <Compile Include="Assets\scripts\SaveDataManager.cs" />
@@ -194,9 +208,11 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
     <Compile Include="Assets\scripts\SaveSystem\ISaveable.cs" />
     <Compile Include="Assets\scripts\Battle\BattleChallengeManager.cs" />
+    <Compile Include="Assets\scripts\Inventory\InventorySoundFX.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDLineDisplay.cs" />
     <Compile Include="Assets\scripts\Utility\UtilityScaleTweener.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepEdgeEvent.cs" />
+    <Compile Include="Assets\scripts\Utility\LineTweener.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SortingLayer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\P2T.cs" />
     <Compile Include="Assets\scripts\RavenAttackController.cs" />
@@ -207,16 +223,19 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepContext.cs" />
     <Compile Include="Assets\scripts\MusicController.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_GlobalControl.cs" />
+    <Compile Include="Assets\scripts\InteractionTriggerEditor.cs" />
     <Compile Include="Assets\scripts\Battle\Ring\BattleTargetController.cs" />
     <Compile Include="Assets\scripts\BlockedAttackController.cs" />
     <Compile Include="Assets\scripts\Battle\BaseFamiliar.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonPoint.cs" />
     <Compile Include="Assets\scripts\Inventory\Collector.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryItemEntryView.cs" />
     <Compile Include="Assets\scripts\Player\SpellManager.cs" />
     <Compile Include="Assets\scripts\PositionMarker.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationContext.cs" />
     <Compile Include="Assets\scripts\Utility\ColorTweener.cs" />
     <Compile Include="Assets\scripts\Battle\RuneIntroSequencer.cs" />
+    <Compile Include="Assets\scripts\Inventory\ItemUseReceiver.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepBasin.cs" />
     <Compile Include="Assets\scripts\Inventory\InventorySlot.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationDebugContext.cs" />
@@ -238,19 +257,20 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationAlgorithm.cs" />
     <Compile Include="Assets\scripts\gradient_maker.cs" />
     <Compile Include="Assets\scripts\Projectile.cs" />
-    <Compile Include="Assets\scripts\PlayerDialog.cs" />
     <Compile Include="Assets\scripts\Utility\GameEventTrigger.cs" />
     <Compile Include="Assets\scripts\PlayerMotionController.cs" />
     <Compile Include="Assets\scripts\Utility\PositionMatcher.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Orientation.cs" />
     <Compile Include="Assets\scripts\Key_Validator.cs" />
     <Compile Include="Assets\scripts\Sound\SoundManager.cs" />
+    <Compile Include="Assets\scripts\Inventory\ItemCollector.cs" />
     <Compile Include="Assets\CSV2Table\Scripts\CsvParser.cs" />
     <Compile Include="Assets\scripts\Battle\PowerCharge\PowerIntroSequencer.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonUtil.cs" />
     <Compile Include="Assets\scripts\GameDataPersistence\GlobalFileDataHandler.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDStoreData.cs" />
     <Compile Include="Assets\scripts\UI\SettingsButton.cs" />
+    <Compile Include="Assets\scripts\Inventory\HudManager.cs" />
     <Compile Include="Assets\scripts\ScaleTweener.cs" />
     <Compile Include="Assets\scripts\ScriptableObjects\OneTimeEvent.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperController.cs" />
@@ -258,11 +278,13 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\PointOnEdgeException.cs" />
     <Compile Include="Assets\scripts\UI\BonusButton.cs" />
     <Compile Include="Assets\scripts\GameDataPersistence\IGlobalDataPersistence.cs" />
+    <Compile Include="Assets\scripts\Inventory\GlobalInventoryEntryViewBase.cs" />
     <Compile Include="Assets\scripts\Utility\AnimationTester.cs" />
     <Compile Include="Assets\scripts\Battle\BaseCreature.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFront.cs" />
     <Compile Include="Assets\scripts\FightController.cs" />
     <Compile Include="Assets\scripts\Utility\PositionTweener.cs" />
+    <Compile Include="Assets\scripts\Inventory\PositionTester.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Contour.cs" />
     <Compile Include="Assets\scripts\Utility\BaseTweener.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\DelaunayTriangle.cs" />
@@ -301,6 +323,7 @@
     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
     <Compile Include="Assets\scripts\MouthController.cs" />
     <Compile Include="Assets\scripts\Utility\WhiteSpriteSetter.cs" />
+    <Compile Include="Assets\scripts\Inventory\ConfirmationSoundFX.cs" />
     <Compile Include="Assets\scripts\Battle\RadarSweeper\RadarSweeperTargetController.cs" />
     <Compile Include="Assets\scripts\StoryTextManager.cs" />
   </ItemGroup>
@@ -562,46 +585,49 @@
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.49f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\YarnSpinner.dll</HintPath>
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\YarnSpinner.dll</HintPath>
     </Reference>
-    <Reference Include="System.Buffers">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Buffers.dll</HintPath>
+    <Reference Include="Yarn.Microsoft.Extensions.FileSystemGlobbing">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
     </Reference>
-    <Reference Include="System.Numerics.Vectors">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="Yarn.System.IO.Packaging">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Threading.Tasks.Extensions">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Antlr4.Runtime.Standard">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\Antlr4.Runtime.Standard.dll</HintPath>
+    <Reference Include="Yarn.System.CommandLine">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>Library\PackageCache\com.unity.analytics@3.6.12\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="Yarn.Microsoft.Win32.SystemEvents">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
     <Reference Include="YarnSpinner.Compiler">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>Library\PackageCache\com.unity.analytics@3.6.12\Unity.Analytics.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="Yarn.System.Drawing.Common">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Drawing.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\Google.Protobuf.dll</HintPath>
-    </Reference>
-    <Reference Include="CsvHelper">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\CsvHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reflection.TypeExtensions">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Reflection.TypeExtensions.dll</HintPath>
+    <Reference Include="Yarn.System.Text.Encodings.Web">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Text.Encodings.Web.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>Library\PackageCache\com.unity.analytics@3.6.12\Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
-    <Reference Include="System.Memory">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Memory.dll</HintPath>
+    <Reference Include="Yarn.System.Text.Json">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.49f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
@@ -1091,6 +1117,9 @@
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinnerTests.CommandsInAnAssemblyDefinition">
+      <HintPath>Library\ScriptAssemblies\YarnSpinnerTests.CommandsInAnAssemblyDefinition.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Environments">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>

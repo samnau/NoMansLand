@@ -13,6 +13,7 @@ public class InputStateTracker : MonoBehaviour {
 	public bool isRunning = false;
 	public bool isUiActive = false;
 	public bool isBattleActive = false;
+	public bool horizontalOnly = false;
 	[HideInInspector]
 	public string[] directionValues = {"left", "right", "up", "down" };
 	HeroShadowController heroShadowController;
@@ -43,20 +44,20 @@ public class InputStateTracker : MonoBehaviour {
 	}
 	bool directionKeyPressed()
     {
-		return directionValues.Any(direction => Input.GetKey(direction));
+		return getActiveDirections().Any(direction => Input.GetKey(direction));
 	}
 	bool directionKeyReleased()
 	{
-		return directionValues.Any(direction => Input.GetKeyUp(direction));
+		return getActiveDirections().Any(direction => Input.GetKeyUp(direction));
 	}
 	private void setCurrentKeyPressed(){
-		foreach(string value in directionValues){
+		foreach(string value in getActiveDirections()){
 			if(Input.GetKey (value)){
 				currentKeyPressed = value;
 				if(directionCanChange)
                 {
 					direction = value;
-					heroShadowController.TransformShadow();
+					heroShadowController?.TransformShadow();
 				}
 			}
 		}
@@ -64,21 +65,21 @@ public class InputStateTracker : MonoBehaviour {
 
 	private void setCurrentKeyDown(){
 
-		foreach(string value in directionValues){
+		foreach(string value in getActiveDirections()){
 			if(Input.GetKeyDown (value) && directionCanChange){
 				directionCanChange = false;
 				lastKeyPressed = value;
-				heroShadowController.TransformShadow();
+				heroShadowController?.TransformShadow();
 			}
 		}
 	}
 
 	void setCurrentReleased(){
 
-		foreach (string value in directionValues){
+		foreach (string value in getActiveDirections()){
 			if(Input.GetKeyUp (value)){
 				lastKeyReleased = value;
-				heroShadowController.TransformShadow();
+				heroShadowController?.TransformShadow();
 				//REFACTOR: into something less rigid 
 				if(!isBattleActive)
                 {
@@ -94,13 +95,14 @@ public class InputStateTracker : MonoBehaviour {
         {
 			lastKeyPressed = lastKeyReleased = null;
 			directionCanChange = true;
-			heroShadowController.TransformShadow();
+			heroShadowController?.TransformShadow();
 		}
 	}
 
 	public void DisableMovement()
     {
 		isUiActive = true;
+		isWalking = false;
     }
 
 	public void EnableMovement()
@@ -109,7 +111,6 @@ public class InputStateTracker : MonoBehaviour {
         {
 			return;
         }
-		print("enable movement");
 		isUiActive = false;
     }
 
@@ -118,6 +119,8 @@ public class InputStateTracker : MonoBehaviour {
 		//isRunning = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && isWalking;
 		if(isUiActive || isBattleActive)
         {
+			// testing new guard
+			isWalking = false;
 			return;
         }
 		CheckLastKeyReleased();
@@ -130,6 +133,15 @@ public class InputStateTracker : MonoBehaviour {
 			setCurrentKeyDown();
 		}
 		setCurrentReleased();
+	}
+
+	string[] getActiveDirections()
+	{
+		if(horizontalOnly)
+		{
+			return new string[] {"left", "right"};
+		}
+		return directionValues;
 	}
 	// Update is called once per frame
 	void Update () {

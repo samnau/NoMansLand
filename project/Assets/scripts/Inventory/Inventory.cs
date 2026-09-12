@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public static event Action<List<InventoryItem>> OnInventoryChange;
+    public static event Action<List<RuntimeInventoryItem>> OnInventoryChange;
 
-    public List<InventoryItem> inventory = new List<InventoryItem>();
-    Dictionary<ItemData, InventoryItem> itemDictionary = new Dictionary<ItemData, InventoryItem>();
+    public List<RuntimeInventoryItem> inventory = new List<RuntimeInventoryItem>();
+    Dictionary<ItemData, RuntimeInventoryItem> itemDictionary = new Dictionary<ItemData, RuntimeInventoryItem>();
     private void OnEnable()
     {
         Gem.OnGemCollected += Add;
@@ -19,13 +19,13 @@ public class Inventory : MonoBehaviour
     }
     public void Add(ItemData itemData)
     {
-        if(itemDictionary.TryGetValue(itemData, out InventoryItem item)){
+        if(itemDictionary.TryGetValue(itemData, out RuntimeInventoryItem item)){
             item.IncreaseStack();
             print($"there are {item.stackSize} {itemData.displayName}");
             OnInventoryChange?.Invoke(inventory);
         } else
         {
-            InventoryItem newItem = new InventoryItem(itemData);
+            RuntimeInventoryItem newItem = new RuntimeInventoryItem(itemData);
             inventory.Add(newItem);
             itemDictionary.Add(itemData, newItem);
             print($"adding {itemData.displayName} for the first time");
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 
     public void Remove(ItemData itemData)
     {
-        if (itemDictionary.TryGetValue(itemData, out InventoryItem item))
+        if (itemDictionary.TryGetValue(itemData, out RuntimeInventoryItem item))
         {
             item.DecreaseStack();
             if(item.stackSize == 0)

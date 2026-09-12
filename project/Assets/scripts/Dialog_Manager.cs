@@ -15,11 +15,12 @@ public class Dialog_Manager : MonoBehaviour
     GameObject player;
     Animator dialogWrapperAnimator;
     [SerializeField]
-    protected YarnProgram targetDialog;
+    protected YarnProject targetDialog;
     [SerializeField]
     public string targetText;
     protected DialogueRunner dialogueRunner;
-    protected DialogueUI dialogueUI;
+//    protected DialogueUI dialogueUI;
+    protected DialogueAdvanceInput advanceInput;
     InputStateTracker inputTracker;
     HeroMotionController motionController;
     bool dialogActive = false;
@@ -39,8 +40,9 @@ public class Dialog_Manager : MonoBehaviour
     }
     void Start()
     {
-        dialogueUI = FindObjectOfType<DialogueUI>();
-        dialogueRunner.Add(targetDialog);
+//        dialogueUI = FindObjectOfType<DialogueUI>();
+        advanceInput = FindObjectOfType<DialogueAdvanceInput>();
+        dialogueRunner.SetProject(targetDialog);
         dialogWrapper = GameObject.Find("DialogElements");
         dialogWrapperAnimator = dialogWrapper?.GetComponent<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
@@ -91,7 +93,8 @@ public class Dialog_Manager : MonoBehaviour
     // NOTE: currently unused
     void AdvanceDialog()
     {
-        dialogueUI.MarkLineComplete();
+//        dialogueUI.MarkLineComplete();
+        advanceInput.dialogueView.UserRequestedViewAdvancement();
     }
 
     // NOTE: convert this to an event broadcast that the player can consume and disable input
@@ -112,7 +115,8 @@ public class Dialog_Manager : MonoBehaviour
 
     public void NextDialogLine()
     {
-        dialogueUI.MarkLineComplete();
+//        dialogueUI.MarkLineComplete();
+        advanceInput.dialogueView.UserRequestedViewAdvancement();
     }
     IEnumerator sceneTransition()
     {

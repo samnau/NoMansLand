@@ -1,34 +1,34 @@
-title: Intro
+title: BattleCrowIntro
 tags: 
 colorID: 0
 position: 237,135
 ---
 <<SetExpression surprise surprise>>
-What the heck is that thing??
-Is it dead?
+Molly: What the heck is that thing??
+Molly: Is it dead?
 <<SetExpression surprise frown>>
-Ummm… I think it just moved.
+Molly: Ummm… I think it just moved.
 <<SetExpression surprise frown>>
-<<SetSpeakerName King's-Ghost>>
-It is an unfamiliar, to be certain. We must face it head on.
+<<SwapSpeakers>>
+King's Ghost: It is an unfamiliar, to be certain. We must face it head on.
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
-Do I really have to fight this thing?
-<<SetSpeakerName King's-Ghost>>
-Unfortunately, you must. Be brave, child.
+<<SwapSpeakers>>
+Molly: Do I really have to fight this thing?
+<<SwapSpeakers>>
+King's Ghost: Unfortunately, you must. Be brave, child.
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
-And how exactly do I fight it?
-<<SetSpeakerName King's-Ghost>>
-Unfamiliars may only be defeated by the appropriate familiar.
+<<SwapSpeakers>>
+Molly: And how exactly do I fight it?
+<<SwapSpeakers>>
+King's Ghost: Unfamiliars may only be defeated by the appropriate familiar.
 <<SetExpression surprise frown>>
-<<SetSpeakerName Molly>>
-But all I have is this frog!
-<<SetSpeakerName King's-Ghost>>
-Then let us hope it is the familiar we need.
+<<SwapSpeakers>>
+Molly: But all I have is this frog!
+<<SwapSpeakers>>
+King's Ghost: Then let us hope it is the familiar we need.
 <<SetExpression surprise annoyed>>
-<<SetSpeakerName Molly>>
-I don't know about this...
+<<SwapSpeakers>>
+Molly: I don't know about this...
 
 ===
 title: Win
@@ -36,36 +36,36 @@ tags:
 position: 263,417
 ---
 <<SetExpression surprise surprise>>
-Wait...what??
-What just happened?
+Molly: Wait...what??
+Molly: What just happened?
 <<SetExpression surprise annoyed>>
-<<SetSpeakerName King's-Ghost>>
-This is the true form of the forest familiar, To'leti.
-<<SetSpeakerName Molly>>
-Tow-let-ee?
-But where did the monster go?
-<<SetSpeakerName King's-Ghost>>
-The unfamiliar was To'leti.
-It had been corrupted...by...
-...
+<<SwapSpeakers>>
+King's Ghost: This is the true form of the forest familiar, To'leti.
+<<SwapSpeakers>>
+Molly: Tow-let-ee?
+Molly: But where did the monster go?
+<<SwapSpeakers>>
+King's Ghost: The unfamiliar was To'leti.
+King's Ghost: It had been corrupted...by...
+King's Ghost: ...
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
-Corrupted?
-By what?
-<<SetSpeakerName King's-Ghost>>
-...
-...
-For some reason I cannot remember.
-<<SetSpeakerName Molly>>
-Hmm.
-...
+<<SwapSpeakers>>
+Molly: Corrupted?
+Molly: By what?
+<<SwapSpeakers>>
+King's Ghost: ...
+King's Ghost: ...
+King's Ghost: For some reason I cannot remember.
+<<SwapSpeakers>>
+Molly: Hmm.
+Molly: ...
 <<SetExpression surprise annoyed>>
-So what do I do now?
-<<SetSpeakerName King's-Ghost>>
-Hold your staff aloft and concentrate on your familiars.
-Both of them.
-<<SetSpeakerName Molly>>
-Ok.
+Molly: So what do I do now?
+<<SwapSpeakers>>
+King's Ghost: Hold your staff aloft and concentrate on your familiars.
+King's Ghost: Both of them.
+<<SwapSpeakers>>
+Molly: Ok.
 ===
 
 title: Celebrate
@@ -73,41 +73,41 @@ tags:
 position: 19.000000953674316,300
 ---
 <<SetExpression surprise smile>>
-I did it!
+Molly: I did it!
 <<SetExpression idle smile>>
-<<SetSpeakerName King's-Ghost>>
-I don't believe it...
+<<SwapSpeakers>>
+King's Ghost: I don't believe it...
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
-Well don't act too impressed.
-<<SetSpeakerName King's-Ghost>>
-Oh, no!
-No.
-That's not it.
+<<SwapSpeakers>>
+Molly: Well don't act too impressed.
+<<SwapSpeakers>>
+King's Ghost: Oh, no!
+King's Ghost: No.
+King's Ghost: That's not it.
 <<SetExpression surprise annoyed>>
-<<SetSpeakerName Molly>>
-What is it then?
-<<SetSpeakerName King's-Ghost>>
-I suddenly remembered something.
-Something...very important to me.
+<<SwapSpeakers>>
+Molly: What is it then?
+<<SwapSpeakers>>
+King's Ghost: I suddenly remembered something.
+King's Ghost: Something...very important to me.
 <<SetExpression idle smile>>
-<<SetSpeakerName Molly>>
-Well out with it, then.
-What did you remember?
-<<SetSpeakerName King's-Ghost>>
-My apologies. Another time, perhaps?
-Let us return to the castle.
-It will not be safe to stay out here after dark.
+<<SwapSpeakers>>
+Molly: Well out with it, then.
+Molly: What did you remember?
+<<SwapSpeakers>>
+King's Ghost: My apologies. Another time, perhaps?
+King's Ghost: Let us return to the castle.
+King's Ghost: It will not be safe to stay out here after dark.
 <<SetExpression idle annoyed>>
-<<SetSpeakerName Molly>>
-Ummm..
-Okayyyy.
-If you say so.
-Mr. Mysterious.
-<<SetSpeakerName King's-Ghost>>
-How could I have forgotten about her?
-<<SetSpeakerName Molly>>
-...
+<<SwapSpeakers>>
+Molly: Ummm..
+Molly: Okayyyy.
+Molly: If you say so.
+Molly: Mr. Mysterious.
+<<SwapSpeakers>>
+King's Ghost: How could I have forgotten about her?
+<<SwapSpeakers>>
+Molly: ...
 <<TriggerEndScene>>
 ===
 title: Tutorial

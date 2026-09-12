@@ -1,0 +1,69 @@
+﻿title: UpgradeTest
+tags:
+---
+Molly: I am the test for this upgrade.
+Molly: Hope that this is working!
+Molly: Line number 3...
+===
+title: InventoryTest1
+tags: tag1 tag2
+---
+Molly: Maybe I should take this green gem?
+===
+title: InventoryTest2
+---
+Molly: Theres a hole for something here.
+===
+title: InventoryTest3
+---
+Molly: Maybe the blue gem?
+===
+title: InventoryTest4
+---
+Molly: What a cool blue gem!
+===
+title: CollectBikeReflector
+---
+Molly: This is just like what I have on my bike back home.
+===
+title: CollectGreenGem
+---
+Molly: This green gem is so shiny!
+===
+title: CollectBlueGem
+---
+Molly: What a cool blue gem!
+===
+title: FindBlueGem
+---
+<<SetExpression surprise surprise>>
+Molly: Oh, there's something inside this hole!
+<<SetExpression surprise annoyed>>
+Molly: I wonder what this is for?
+<<SetExpression surprise smirk>>
+Molly: Very shiny!
+===
+title: InventoryUse
+---
+Molly: Maybe the blue gem will fit?
+===
+title: InventoryCollect
+---
+Molly: What a cool blue gem!
+===
+title: InventorySpot
+---
+Molly: Theres a hole for something here.
+===
+title: UseBlueGem
+---
+Molly: Maybe the blue gem will fit?
+===
+title: UseGreenGem
+---
+Molly: Maybe the green gem also?
+===
+title: UseBikeReflector
+---
+Molly: Is it time for something red?
+===

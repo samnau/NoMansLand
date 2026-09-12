@@ -1,24 +1,24 @@
-title: Molly.Intro1
+﻿title: Molly.Intro1
 tags: 
 position: 237,133
 ---
-<<SetSpeaker Molly surprise frown>>
-I think...
-<<SetSpeaker Molly surprise annoyed>>
-I think I lost her...
-<<SetSpeaker Meena surprise frown>>
-<<SetSpeakerName Meena>>
-There you are, you little freak!
-<<SetSpeakerName Molly>>
+<<SetExpression surprise frown>>
+Molly: I think...
+<<SetExpression surprise annoyed>>
+Molly: I think I lost her...
+<<SetExpression surprise frown>>
+<<SwapSpeakers>>
+Meena: There you are, you little freak!
+<<SwapSpeakers>>
 <<SetExpression surprise surprise>>
-Guess not!
-<<SetSpeaker Molly surprise frown>>
-Gotta run!
-Hide!
-I need to disappear!
-<<SetSpeaker Meena surprise frown>>
-<<SetSpeakerName Meena>>
-Get back here!
+Molly: Guess not!
+<<SetExpression surprise frown>>
+Molly: Gotta run!
+Molly: Hide!
+Molly: I need to disappear!
+<<SetExpression surprise frown>>
+<<SwapSpeakers>>
+Meena: Get back here!
 
 [[Molly.Intro2]]
 ===
@@ -26,57 +26,53 @@ title: Molly.Intro2
 tags: 
 position: 263,415
 ---
-<<SetSpeaker Molly idle frown>>
-Owwww....
-<<SetSpeaker Molly idle annoyed>>
-What just happened?
-Did I trip?
-No, wait, did I...
-...fall?
-Where am I?
-<<SetSpeaker Molly idle frown>>
-Is this the park? I've never seen this part.
-<<SetSpeaker Molly surprise frown>>
-I don't understand.
+<<SetExpression idle frown>>
+Molly: Owwww....
+<<SetExpression idle annoyed>>
+Molly: What just happened?
+Molly: Did I trip?
+Molly: No, wait, did I...
+Molly: ...fall?
+Molly: Where am I?
+<<SetExpression idle frown>>
+Molly: Is this the park? I've never seen this part.
+<<SetExpression surprise frown>>
+Molly: I don't understand.
 ===
 title: Molly.Intro3
 tags: 
 colorID: 0
 position: 580,465
 ---
-You can't run forever, loser!
-Why won't she just leave me alone??
-What to do? What to do?
-If only I could just disappear!
+Molly: You can't run forever, loser!
+Molly: Why won't she just leave me alone??
+Molly: What to do? What to do?
+Molly: If only I could just disappear!
 [[Molly.Intro4]]
 ===
 title: Molly.Intro4
 tags: 
 position: 700,245
 ---
-Unnnngh.
-What just happened?
-Am I still in the park?
+Molly: Unnnngh.
+Molly: What just happened?
+Molly: Am I still in the park?
 
 
-<<SetSpeaker Molly surprise smirk>>
-Man, time flies when you're at the library!
-<<SetSpeaker Molly idle smile>>
-(A frog hops onto the sidewalk)
-<<SetSpeaker Molly surprise smile>>
-Oh, hello there, little froggy.
-<<SetSpeaker Molly idle frown>>
-Are you having a bad day too?
-<<SetSpeaker Molly idle smirk>>
-Or are you just looking for a friend?
-(A voice calls out from behind Molly)
-<<SetSpeaker Meena surprise frown>>
-There you are, you little freak!
-<<SetSpeaker Molly surprise surprise>>
-Oh, no, Meena!!
+<<SetExpression surprise smirk>>
+Molly: Man, time flies when you're at the library!
+<<SetExpression idle smile>>
+Molly: (A frog hops onto the sidewalk)
+<<SetExpression surprise smile>>
+Molly: Oh, hello there, little froggy.
+<<SetExpression idle frown>>
+Molly: Are you having a bad day too?
+<<SetExpression idle smirk>>
+Molly: Or are you just looking for a friend?
+Molly: (A voice calls out from behind Molly)
+<<SetExpression surprise frown>>
+Meena: There you are, you little freak!
+<<SetExpression surprise surprise>>
+Molly: Oh, no, Meena!!
 ===
-title: Fall
-tags: 
----
 
-===

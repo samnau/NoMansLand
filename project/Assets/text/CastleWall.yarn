@@ -1,49 +1,61 @@
-title: Wall
+﻿title: Castle.Wall
 position: -323,-56
 ---
-<<SetSpeaker Molly surprise annoyed>>
-This wall goes on forever!
-<<SetSpeaker Molly idle frown>>
-And not a door in sight.
-<<SetSpeaker Molly idle smirk>>
-That gem looks pretty cool, though.
+<<SetExpression surprise annoyed>>
+Molly: This wall goes on forever!
+<<SetExpression idle frown>>
+Molly: And not a door in sight.
+<<SetExpression idle smirk>>
+Molly: That gem looks pretty cool, though.
+<<SetExpression surprise annoyed>>
+Molly: I wonder what these three holes are for?
 ===
-title: Bike
+title: Castle.Bike
 position: -153,302
 ---
-<<SetSpeaker Molly surprise annoyed>>
-Um, what?
-Why is this here?
-And why is it buried in the grass?
-I don't understand...
+<<SetExpression surprise annoyed>>
+Molly: Um, what?
+Molly: Why is this here?
+Molly: And why is it buried in the grass?
+Molly: I don't understand...
+===
+title: Castle.Reflector
+position: -153,304
+---
+<<SetExpression surprise annoyed>>
+Molly: Um, what?
+Molly: Why is this here?
+Molly: And why is it buried in the grass?
+<<SetExpression idle smirk>>
+Molly: Huh, this is just like the one I have at home.
 ===
 title: WallDemo
 position: 0,0
 ---
-<<SetSpeaker Molly surprise annoyed>>
-Ya' know...
+<<SetExpression surprise annoyed>>
+Molly: Ya' know...
 <<SetExpression surprise frown>>
-I could just hide in the castle and NOT look for scary monster things.
-<<SetSpeakerName King's-Ghost>>
-Dear child, I know that all of this feels a bit overwhelming.
-If there were any other way, I would not ask this daunting task of you...
-<<SetSpeakerName Molly>>
-<<SetSpeaker Molly idle annoyed>>
-Sigh.
-I know, I know.
-<<SetExpression surprise frown>>
-Get it together, Molly!
+Molly: I could just hide in the castle and NOT look for scary monster things.
+<<SwapSpeakers>>
+King's Ghost: Dear child, I know that all of this feels a bit overwhelming.
+King's Ghost: If there were any other way, I would not ask this daunting task of you...
+<<SwapSpeakers>>
 <<SetExpression idle annoyed>>
-You can do this.
-Can't be much harder than Mrs. Johnson's math class, right?
+Molly: Sigh.
+Molly: I know, I know.
+<<SetExpression surprise frown>>
+Molly: Get it together, Molly!
+<<SetExpression idle annoyed>>
+Molly: You can do this.
+Molly: Can't be much harder than Mrs. Johnson's math class, right?
 ===
 title: BikeDemo
 tags: 
 position: -47.999996185302734,-253.99998474121094
 ---
-<<SetSpeaker Molly surprise smile>>
-Oh! Remember when I used this bike to solve that puzzle?
-And that's what got me into the castle?
-<<SetSpeaker Molly surprise smirk>>
-That was pretty cool.
+<<SetExpression surprise smile>>
+Molly: Oh! Remember when I used this bike to solve that puzzle?
+Molly: And that's what got me into the castle?
+<<SetExpression surprise smirk>>
+Molly: That was pretty cool.
 ===

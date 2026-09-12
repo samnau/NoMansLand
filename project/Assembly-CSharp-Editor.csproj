@@ -54,14 +54,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\Owner\GameDevelopment\NoMansLand\project\Library\PackageCache\dev.yarnspinner.unity@2.4.0\SourceGenerator\YarnSpinner.Unity.SourceCodeGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarItemTriggerEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_EditSkinWeightsEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_FFD.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_IKHandleEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Spline.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Selection.cs" />
     <Compile Include="Assets\CSV2Table\Editor\CSVView.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\ItemUseReceiverEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_AutoRig.cs" />
     <Compile Include="Assets\CSV2Table\Editor\CSV2Table.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_CreatePolygonFromSprite.cs" />
@@ -70,10 +73,12 @@
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_FFDLineDisplayEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_CreateControls.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Skinning.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\FamiliarUseReceiverEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_GlobalControlEditor.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_SkinCluster.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_BoneCreation.cs" />
     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Editor.cs" />
+    <Compile Include="Assets\scripts\Inventory\Editor\InventoryItemTriggerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -310,53 +315,74 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="YarnSpinner">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\YarnSpinner.dll</HintPath>
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\YarnSpinner.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.Microsoft.Extensions.FileSystemGlobbing">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.IO.Packaging">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.Threading.Tasks.Extensions">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
-    <Reference Include="System.Buffers">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics.Vectors">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.0.2\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Antlr4.Runtime.Standard">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\Antlr4.Runtime.Standard.dll</HintPath>
+    <Reference Include="System.Reflection.Metadata">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\System.Reflection.Metadata.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.System.CommandLine">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
       <HintPath>Library\PackageCache\com.unity.analytics@3.6.12\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Plastic.Newtonsoft.Json">
-      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    <Reference Include="System.Buffers">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.Microsoft.Win32.SystemEvents">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.Microsoft.Win32.SystemEvents.dll</HintPath>
     </Reference>
     <Reference Include="YarnSpinner.Compiler">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\YarnSpinner.Compiler.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
       <HintPath>Library\PackageCache\com.unity.analytics@3.6.12\Unity.Analytics.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="Yarn.System.Drawing.Common">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Drawing.Common.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Google.Protobuf">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\Google.Protobuf.dll</HintPath>
+    <Reference Include="Unity.Plastic.Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
     </Reference>
-    <Reference Include="CsvHelper">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\CsvHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Reflection.TypeExtensions">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Reflection.TypeExtensions.dll</HintPath>
+    <Reference Include="Yarn.System.Text.Encodings.Web">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Text.Encodings.Web.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>Library\PackageCache\com.unity.analytics@3.6.12\Unity.Analytics.Tracker.dll</HintPath>
@@ -364,8 +390,14 @@
     <Reference Include="ICSharpCode.NRefactory">
       <HintPath>Library\PackageCache\com.unity.render-pipelines.core@10.10.1\Editor\ShaderGenerator\ICSharpCode.NRefactory.dll</HintPath>
     </Reference>
-    <Reference Include="System.Memory">
-      <HintPath>Library\PackageCache\dev.yarnspinner.unity@e050b45804\Runtime\DLLs\System.Memory.dll</HintPath>
+    <Reference Include="Yarn.System.Text.Json">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Yarn.Microsoft.Bcl.AsyncInterfaces">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Runtime\DLLs\Yarn.Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>Library\PackageCache\dev.yarnspinner.unity@2.4.0\Editor\Analysis\DLLs\Microsoft.CodeAnalysis.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -867,6 +899,9 @@
     </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="YarnSpinnerTests.CommandsInAnAssemblyDefinition">
+      <HintPath>Library\ScriptAssemblies\YarnSpinnerTests.CommandsInAnAssemblyDefinition.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Services.Core.Environments">
       <HintPath>Library\ScriptAssemblies\Unity.Services.Core.Environments.dll</HintPath>

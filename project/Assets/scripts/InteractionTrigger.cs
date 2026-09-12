@@ -16,6 +16,8 @@ public class InteractionTrigger : MonoBehaviour
     GameObject player;
     GameObject interactionIndicator;
     AudioSource interactionSound;
+    InventoryItemTrigger inventoryItemTrigger;
+    FamiliarItemTrigger familiarItemTrigger;
     void Start()
     {
         dialogManager = FindObjectOfType<DialogManager>();
@@ -32,13 +34,11 @@ public class InteractionTrigger : MonoBehaviour
             dialogActive = true;
             dialogManager.BeginDialog();
             // demo code only - REMOVE LATER
-            if (targetText == "Wall")
-            {
-                dialogManager.CameraEvent.Invoke();
-            }
-        } else if (Input.GetKeyDown(KeyCode.Space) && triggerActive && dialogActive)
-        {
-            dialogManager.NextDialogLine();
+            // commented out but not tested for issues after removal
+            //if (targetText == "Wall")
+            //{
+            //    dialogManager.CameraEvent.Invoke();
+            //}
         }
     }
 
@@ -49,21 +49,40 @@ public class InteractionTrigger : MonoBehaviour
             return;
         }
 
+        inventoryItemTrigger = gameObject.GetComponent<InventoryItemTrigger>();
+        familiarItemTrigger = gameObject.GetComponent<FamiliarItemTrigger>();
+
         if (interactionSound != null)
         {
             dialogManager?.SetInteractionSound(interactionSound);
+        }
+
+        bool disableInteraction = inventoryItemTrigger && !inventoryItemTrigger.isCollectionTrigger && inventoryItemTrigger.IsItemUsed() && inventoryItemTrigger.disableOnComplete;
+
+        if(disableInteraction)
+        {
+            return;
         }
 
         interactionIndicator?.SetActive(true);
         if(dialogManager)
         {
             dialogManager.targetText = targetText;
-        } else
-        {
 
+            if(inventoryItemTrigger)
+            {
+                dialogManager.inventoryItemTrigger = inventoryItemTrigger;
+            }
+            if(familiarItemTrigger)
+            {
+                dialogManager.familiarItemTrigger = familiarItemTrigger;
+            }
         }
+
         triggerActive = true;
     }
+
+    //TODO: analyze what heppens when triggers are in close proximity
     
     private void OnTriggerExit2D(Collider2D collision)
     {
