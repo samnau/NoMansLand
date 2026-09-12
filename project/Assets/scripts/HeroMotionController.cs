@@ -97,7 +97,7 @@ public class HeroMotionController : MonoBehaviour
         var isDown = currentDirection == "down";
         var isUp = currentDirection == "up";
 
-        isHorizontalOnly = isHorizontal && !isDown && !isUp;
+        isHorizontalOnly = (isHorizontal && !isDown && !isUp) || inputStateTracker.horizontalOnly;
         if(isHorizontalOnly)
         {
             ShowHorizontalSprites();
@@ -145,6 +145,12 @@ public class HeroMotionController : MonoBehaviour
         float motionSpeed = motionDistance + targetRunModifier;
         var horizontalValue = Input.GetAxis("Horizontal") * motionSpeed;
         var verticalValue = Input.GetAxis("Vertical") * motionSpeed;
+
+        if(inputStateTracker.horizontalOnly)
+        {
+            verticalValue = 0f;
+        }
+
         // TODO: revisit this calculation later
         //var walkingVelocityReached = Mathf.Abs(horizontalValue) > 0.5 || Mathf.Abs(verticalValue) > 0.5;
         var walkingVelocityReached = true;

@@ -30,6 +30,7 @@ public class SceneFadeTriggerEditor : Editor
             }
         }
 
+        scenes.Sort();
         sceneNames = scenes.ToArray();
     }
 
@@ -46,6 +47,13 @@ public class SceneFadeTriggerEditor : Editor
         if (sceneNames != null && sceneNames.Length > 0)
         {
             string currentScene = targetSceneNameProperty.stringValue;
+
+            // If empty, auto-assign the first scene
+            if (string.IsNullOrEmpty(currentScene))
+            {
+                currentScene = sceneNames[0];
+                targetSceneNameProperty.stringValue = currentScene;
+            }
 
             // Find current index
             int currentSceneIndex = System.Array.IndexOf(sceneNames, currentScene);
