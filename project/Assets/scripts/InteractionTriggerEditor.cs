@@ -35,7 +35,7 @@ public class InteractionTriggerEditor : Editor
             }
         }
 
-        dialogNodeNames = sourceScripts.Distinct().ToArray();
+        dialogNodeNames = sourceScripts.Distinct().OrderBy(x => x).ToArray();
     }
 
     private List<string> ExtractNodeNamesFromYarnScript(string yarnText)
@@ -74,6 +74,13 @@ public class InteractionTriggerEditor : Editor
         if (dialogNodeNames != null && dialogNodeNames.Length > 0)
         {
             string currentDialog = targetTextProperty.stringValue;
+
+            // If empty, auto-assign the first dialog node
+            if (string.IsNullOrEmpty(currentDialog))
+            {
+                currentDialog = dialogNodeNames[0];
+                targetTextProperty.stringValue = currentDialog;
+            }
 
             // Find current index
             int currentDialogIndex = System.Array.IndexOf(dialogNodeNames, currentDialog);

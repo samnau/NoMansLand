@@ -8,6 +8,15 @@ Molly: Gross.
 Molly: Well, let's get this over with.
 Molly: And hope I don't die in the process!
 ===
+title: Cave.Fear
+---
+<<SetExpression idle smile>>
+Molly: Caves are pretty cool to explore...
+<<SetExpression surprise surprise>>
+Molly: ...when there isn't a giant eyeball monster guarding them.
+<<SetExpression surprise annoyed>>
+Molly: So I think I'll just keep moving along.
+===
 title: Cave.Start
 ---
 Molly: Oooh, this places is actually kinda cool!

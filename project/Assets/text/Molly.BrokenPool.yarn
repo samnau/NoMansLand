@@ -6,7 +6,14 @@ Molly: Well hello little froggy.
 Molly: Are you having a bad day too?
 <<SetExpression idle smile>>
 Molly: You're pretty cute.
+<<SetExpression idle smirk>>
+Molly: If I kiss you, will you turn into a prince?
+<<SetExpression idle annoyed>>
+Molly: I mean I'm not kissing you because one, gross...
+<<SetExpression idle smirk>>
+Molly: ...and, two, why would I need a prince or anything?
 <<SetExpression idle smile>>
+Molly: Anyway...
 Molly: Should I take you with me?
 ===
 title: BrokenSpireSolo
