@@ -10,7 +10,7 @@ public class MouthController : MonoBehaviour
        // mouthAnimator = GetComponent<Animator>();
     }
     // Possible values for expressions are:
-    // smile, frown, smirk, surprise, annoyed, idle
+    // smile, frown, smirk, surprise, annoyed, skeptic, idle
     public void SwitchExpression(string expressionValue)
     {
         foreach (AnimatorControllerParameter parameter in mouthAnimator.parameters)

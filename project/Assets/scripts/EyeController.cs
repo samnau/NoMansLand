@@ -11,22 +11,8 @@ public class EyeController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        //Debug.Log("eye start?");
         leftEyeBrowAnimator = leftEyeBrow.GetComponent<Animator>();
         rightEyeBrowAnimator = rightEyeBrow.GetComponent<Animator>();
-    //    StartCoroutine("SurpriseDemo");
-    }
-
-    IEnumerator SurpriseDemo()
-    {
-        yield return new WaitForSeconds(6.0f);
-        TriggerSurprise();
-    }
-
-    IEnumerator SurpriseDemo2()
-    {
-        yield return new WaitForSeconds(6.0f);
-        TriggerIdle();
     }
 
     public void SwitchExpression(string expressionValue)
@@ -43,6 +29,9 @@ public class EyeController : MonoBehaviour
         {
             case "surprise":
                 TriggerSurprise();
+                break;
+            case "skeptic":
+                TriggerSkeptic();
                 break;
             case "angry":
                 TriggerAnger();
@@ -74,6 +63,12 @@ public class EyeController : MonoBehaviour
     {
         leftEyeBrowAnimator.SetBool("idle", true);
         rightEyeBrowAnimator.SetBool("idle", true);
+    }
+
+    void TriggerSkeptic()
+    {
+        leftEyeBrowAnimator.SetBool("skepticL", true);
+        rightEyeBrowAnimator.SetBool("skepticR", true);
     }
 
 }
