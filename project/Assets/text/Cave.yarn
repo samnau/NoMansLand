@@ -10,11 +10,11 @@ Molly: And hope I don't die in the process!
 ===
 title: Cave.Fear
 ---
-<<SetExpression idle smile>>
+<<SetExpression surprise annoyed>>
 Molly: Caves are pretty cool to explore...
-<<SetExpression skeptic skeptic>>
+<<SetExpression crying frown>>
 Molly: ...when there isn't a giant eyeball monster guarding them.
-<<SetExpression angry annoyed>>
+<<SetExpression skeptic skeptic>>
 Molly: So I think I'll just keep moving along.
 ===
 title: Cave.Start

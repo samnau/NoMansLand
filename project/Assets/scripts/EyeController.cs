@@ -36,6 +36,9 @@ public class EyeController : MonoBehaviour
             case "angry":
                 TriggerAnger();
                 break;
+            case "crying":
+                TriggerCrying();
+                break;
             default:
                 TriggerIdle();
                 break;
@@ -71,4 +74,9 @@ public class EyeController : MonoBehaviour
         rightEyeBrowAnimator.SetBool("skepticR", true);
     }
 
+    void TriggerCrying()
+    {
+        leftEyeBrowAnimator.SetBool("cryingL", true);
+        rightEyeBrowAnimator.SetBool("cryingR", true);
+    }
 }

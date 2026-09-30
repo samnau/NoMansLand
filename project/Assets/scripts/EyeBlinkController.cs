@@ -18,6 +18,11 @@ public class EyeBlinkController : MonoBehaviour
         StartCoroutine("triggerBlink");
     }
 
+    public void pauseBlink()
+    {
+        blinkActive = false;
+    }
+
     public void startBlinkCycle()
     {
         if(blinkActive)
